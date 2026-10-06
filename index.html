@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CraftVeda | Handmade Textured, Abstract, Vastu, Nature & Religious Wall Art</title>
+<meta name="description" content="Original handmade textured art, abstract art, Vastu art, nature art and religious art. Custom art made to your size. Delivery across India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2740;--navy2:#1B3A5C;--iv:#FAF8F5;--sand:#F0ECE6;--cu:#B5654A;--cu2:#C97A5E;--gr:#5E6672;--ln:#E4DFD7}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--iv);color:var(--navy);line-height:1.65;overflow-x:hidden}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.15}
+a{color:inherit}
+.wrap{max-width:1260px;margin:0 auto;padding:0 26px}
+section{padding:76px 0}
+h2{font-size:clamp(28px,3.6vw,42px)}
+.sub{color:var(--gr);margin-top:8px;max-width:58ch}
+.dk{background:var(--navy);color:#EEF2F6}.dk .sub{color:#A9B7C6}
+.alt{background:var(--sand)}
+.bar{height:3px;width:54px;background:var(--cu);margin-top:14px}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.va{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--cu);padding-bottom:3px;cursor:pointer;text-decoration:none}
+/* header */
+.top{background:var(--navy);color:#DCE4EC;font-size:12px;letter-spacing:.06em;text-align:center;padding:8px 12px}
+header{position:sticky;top:0;z-index:40;background:rgba(250,248,245,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px}
+.logo{font-family:'Playfair Display',serif;font-weight:700;font-size:30px;letter-spacing:.14em;text-decoration:none}
+.logo i{font-style:normal;color:var(--cu)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;font-size:13px;letter-spacing:.11em;text-transform:uppercase;position:relative;padding:4px 0}
+nav a:after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--cu);transition:width .3s}
+nav a:hover:after{width:100%}
+.btn{display:inline-block;background:var(--cu);color:#fff;padding:14px 30px;text-decoration:none;font-size:13px;letter-spacing:.1em;text-transform:uppercase;border:0;cursor:pointer;font-family:inherit;font-weight:600;transition:.3s}
+.btn:hover{background:var(--navy)}
+.btn.n{background:var(--navy)}.btn.n:hover{background:var(--cu)}
+.btn.o{background:none;border:1px solid #fff}.btn.o:hover{background:#fff;color:var(--navy)}
+.btn.sm{padding:11px 22px;font-size:12px}
+nav .btn:after{display:none}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:32px 24px}
+.pc{cursor:pointer;flex:0 0 min(300px,78vw);scroll-snap-align:start}
+.grid .pc{flex:none}
+.pc .im{aspect-ratio:4/5;background:linear-gradient(135deg,#dcd7cf,#bdb7ac);overflow:hidden;position:relative}
+.pc img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
+.pc:hover img{transform:scale(1.06)}
+.pc .tag{position:absolute;left:0;bottom:0;background:var(--navy);color:#fff;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;transform:translateY(100%);transition:.35s}
+.pc:hover .tag{transform:none}
+.pc h3{font-size:21px;margin-top:12px}.pc .m{font-size:13px;color:var(--gr)}.pc .pr{font-weight:600;margin-top:2px}.pc .pr s{color:var(--gr);font-weight:400;margin-right:6px}
+.dk .pc .m{color:#9FB0C2}
+.track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}
+.track::-webkit-scrollbar{display:none}
+.arr button{width:44px;height:44px;border:1px solid var(--ln);background:#fff;font-size:18px;cursor:pointer;margin-left:6px;transition:.25s;color:var(--navy)}
+.arr button:hover{background:var(--cu);color:#fff;border-color:var(--cu)}
+.empty{grid-column:1/-1;color:var(--gr)}
+/* banner */
+.ban .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.ban h2{font-size:clamp(32px,4.4vw,54px);margin:10px 0 18px}
+.ban p{color:#B4C2D0;margin-bottom:22px;max-width:50ch}
+.ban .ph{aspect-ratio:4/3;background:var(--navy2);overflow:hidden}
+.ban .ph img{width:100%;height:100%;object-fit:cover}
+.bl{display:flex;gap:12px;flex-wrap:wrap}
+.lbl{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cu2)}
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;margin-bottom:40px}
+.tl{aspect-ratio:1/1;background:var(--navy2);color:#fff;border:0;position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;padding:16px;font:inherit;text-align:left}
+.tl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.tl:hover img{transform:scale(1.08)}
+.tl:before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,25,42,.85),transparent 65%);z-index:1}
+.tl:after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--cu2);z-index:3;transition:width .4s}
+.tl:hover:after{width:100%}
+.tl span{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:19px}
+/* custom */
+.cust{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.chips span{border:1px solid #3a5878;padding:8px 16px;font-size:13px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.how div{border-top:2px solid var(--cu2);padding-top:12px;font-size:14px;color:#B4C2D0}
+.how b{display:block;color:#fff;font-size:15px}
+form{background:#fff;color:var(--navy);padding:30px;display:grid;gap:14px}
+label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:15px;padding:12px;border:1px solid var(--ln);background:var(--iv);width:100%;text-transform:none;letter-spacing:0;color:var(--navy)}
+/* guides */
+.gd{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.gc{background:#fff;border:1px solid var(--ln);padding:40px 34px;cursor:pointer;text-align:left;font:inherit;color:var(--navy);transition:.3s;border-left:4px solid var(--cu)}
+.gc:hover{background:var(--navy);color:#fff}
+.gc h3{font-size:26px;margin-bottom:8px}.gc p{font-size:14px;color:var(--gr)}.gc:hover p{color:#C4D0DC}
+/* trust */
+.tr{background:var(--navy2);color:#fff;padding:38px 0}
+.tr .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.tr b{display:block;font-size:14px;letter-spacing:.08em;text-transform:uppercase}.tr span{font-size:13px;color:#B4C2D0}
+/* faq */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.help{margin-top:26px;border:1px solid var(--ln);padding:24px;background:#fff}
+.help h3{font-size:22px;margin-bottom:6px}.help p{font-size:14px;color:var(--gr);margin-bottom:14px}
+details{border-bottom:1px solid var(--ln)}details:first-child{border-top:1px solid var(--ln)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-family:'Playfair Display',serif;font-size:20px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--cu);font-family:Inter;font-size:24px;transition:transform .3s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{padding:0 40px 22px 0;color:var(--gr);max-width:62ch}
+/* footer */
+footer{background:var(--navy);color:#A9B7C6;padding:64px 0 24px;font-size:14px}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px}
+footer h4{color:#fff;margin-bottom:12px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+footer a{display:block;text-decoration:none;margin-bottom:8px;cursor:pointer}footer a:hover{color:var(--cu2)}
+footer .lg{font-family:'Playfair Display',serif;font-size:28px;letter-spacing:.14em;color:#fff;margin-bottom:10px}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(8,18,30,.82);display:none;align-items:center;justify-content:center;z-index:60;padding:14px}
+.modal.open{display:flex}
+.box{background:#fff;max-width:980px;width:100%;max-height:92vh;overflow:auto;position:relative;animation:pop .35s}
+@keyframes pop{from{opacity:0;transform:translateY(18px)}}
+.x{position:absolute;right:14px;top:6px;font-size:32px;background:none;border:0;cursor:pointer;z-index:3;color:var(--navy)}
+.pd{display:grid;grid-template-columns:1.1fr .9fr}
+.pd .g img{width:100%;display:block}
+.th{display:flex;gap:6px;padding:8px}.th img{width:62px;height:62px;object-fit:cover;cursor:pointer;border:2px solid transparent}.th img.on{border-color:var(--cu)}
+.pd .t{padding:38px 30px}.pd h3{font-size:34px}.pd .pr{font-size:22px;font-weight:600;margin:10px 0}
+.pd ul{list-style:none;margin:16px 0 22px;font-size:14px}.pd li{padding:9px 0;border-bottom:1px solid var(--ln)}
+.pol{padding:44px 34px}.pol h3{font-size:34px;margin-bottom:14px}.pol p{margin-bottom:12px;color:var(--gr)}
+.lst{padding:44px 30px 30px}.lst h3{font-size:32px;margin-bottom:22px}
+.wa{position:fixed;right:18px;bottom:18px;background:#1fa855;color:#fff;padding:13px 20px;border-radius:40px;text-decoration:none;font-weight:600;font-size:14px;z-index:35;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s}.rv.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--cu);outline-offset:3px}
+
+.pc .sz{font-size:12px;color:var(--gr);margin-top:2px}
+.badge{display:inline-block;background:var(--sand);color:var(--navy);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;margin:8px 0}
+.szs{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.szs button{border:1px solid var(--ln);background:#fff;padding:9px 14px;font:inherit;font-size:13px;cursor:pointer;color:var(--navy)}
+.szs button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.acts{display:grid;gap:10px;margin:14px 0}
+.acts .btn{text-align:center;width:100%}
+.acts .btn.o2{background:none;border:1px solid var(--navy);color:var(--navy)}.acts .btn.o2:hover{background:var(--navy);color:#fff}
+.q{display:block;text-align:center;font-size:14px;color:var(--navy);margin-bottom:6px}
+.q b{color:#128C4A}
+.acc details{border-bottom:1px solid var(--ln)}.acc details:first-child{border-top:1px solid var(--ln)}
+.acc summary{font-family:Inter;font-size:14px;font-weight:600;padding:15px 0;letter-spacing:.02em}
+.acc summary:after{font-size:20px}
+.acc details p,.acc details div{font-size:14px;color:var(--gr);padding:0 0 16px}
+.acc table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px}
+.acc td,.acc th{border:1px solid var(--ln);padding:6px 8px;text-align:left}
+.acc th{background:var(--sand);color:var(--navy)}
+#cart,#dr{position:fixed;top:0;right:0;height:100%;width:min(400px,100%);background:#fff;z-index:70;transform:translateX(100%);transition:transform .4s;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.2)}
+#cart.open,#dr.open{transform:none}
+#cart header,#dr header{position:static;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff}
+#cart h3,#dr h3{font-size:22px}
+#ci2{flex:1;overflow:auto;padding:14px 22px}
+.ci{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--ln);font-size:14px}
+.ci img{width:56px;height:70px;object-fit:cover}
+.ci div{flex:1}.ci small{color:var(--gr);display:block}.ci button{border:0;background:none;color:var(--cu);cursor:pointer;font-size:12px}
+#cf2{padding:18px 22px;border-top:1px solid var(--ln)}
+#cf2 p{display:flex;justify-content:space-between;font-weight:600;margin-bottom:12px}
+
+.ib{background:none;border:0;cursor:pointer;position:relative;padding:6px;color:var(--navy);display:grid;place-items:center}
+.ib svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ib em{position:absolute;top:-3px;right:-5px;background:var(--cu);color:#fff;font-style:normal;font-size:10px;min-width:16px;height:16px;border-radius:8px;display:none;place-items:center;padding:0 3px}
+.mob{display:none}
+nav{gap:22px}
+.dd{position:relative}
+.dm{position:absolute;top:100%;left:-14px;min-width:210px;background:#fff;border:1px solid var(--ln);box-shadow:0 18px 40px rgba(15,39,64,.14);padding:8px 0;opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s}
+.dd:hover .dm,.dd:focus-within .dm{opacity:1;visibility:visible;transform:none}
+.dm a{display:block;padding:10px 18px;text-transform:none;letter-spacing:.02em;font-size:14px;cursor:pointer}
+.dm a:hover{background:var(--sand)}.dm a:after{display:none}
+.hb{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.93);font-size:18px;cursor:pointer;color:#9a9a9a;z-index:2;transition:.25s}
+.hb.on{color:var(--cu)}.hb:hover{transform:scale(1.12)}
+#up{position:fixed;right:18px;bottom:78px;width:52px;height:52px;background:#fff;border:0;cursor:pointer;z-index:34;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .3s,transform .3s;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+#up.show{opacity:1;pointer-events:auto;transform:none}
+#up svg{position:absolute;inset:0;width:100%;height:100%}
+#up span{position:absolute;inset:0;display:grid;place-items:center;font-size:18px}
+#upr{stroke-dasharray:100;stroke-dashoffset:100}
+.pol h4{font-family:Inter;font-size:15px;margin:22px 0 6px}
+.pol small{color:var(--gr)}
+.mnl a{display:block;padding:14px 0;border-bottom:1px solid var(--ln);font-size:16px;text-decoration:none}
+
+html{scroll-padding-top:150px}
+.hrow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:80px;gap:20px}
+.srch{display:flex;align-items:center;background:#F1EFEB;max-width:290px;height:42px;padding:0 4px 0 14px}
+.srch input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:14px;padding:0;outline:0;color:var(--navy)}
+.srch button{background:none;border:0;cursor:pointer;padding:10px;color:var(--navy);display:grid}
+.srch svg,.sbt svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round}
+.hrow .logo{text-align:center;font-size:32px}
+.icons{display:flex;justify-content:flex-end;gap:16px;align-items:center}
+.mrow{border-top:1px solid var(--ln)}
+.mn{justify-content:center;gap:46px;height:54px}
+.mn a{text-transform:none;letter-spacing:0;font-size:17px;cursor:pointer;display:inline-flex;align-items:center}
+.mn .dd{height:54px;display:flex;align-items:center}
+.gd6{width:12px;height:14px;margin-right:9px;fill:currentColor}
+.cv{width:9px;height:6px;margin-left:7px;stroke:currentColor;fill:none;stroke-width:1.4}
+.sbt{display:none}
+
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:112px;gap:14px}
+.bt{position:relative;overflow:hidden;border-radius:6px;border:1px solid rgba(15,39,64,.12);background:var(--navy2);cursor:pointer;padding:0;color:#fff;font:inherit}
+.bt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.bt:hover img{transform:scale(1.07)}
+.bt:before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,38,.72),rgba(10,22,38,0) 48%);z-index:1;transition:opacity .4s}
+.bt span{position:absolute;left:0;right:0;bottom:16px;z-index:2;text-align:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:600;transition:transform .4s}
+.bt span:after{content:"Explore";display:block;font-family:Inter;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:.4s;color:#F1D3C6;margin-top:2px}
+.bt:hover span{transform:translateY(-6px)}
+.bt:hover span:after{opacity:1;transform:none}
+.s1{grid-column:1;grid-row:1/5}.s2{grid-column:1;grid-row:5/7}
+.s3{grid-column:2;grid-row:1/4}.s4{grid-column:2;grid-row:4/7}
+.s5{grid-column:3;grid-row:1/3}.s6{grid-column:3;grid-row:3/7}
+.s7{grid-column:4;grid-row:1/5}.s8{grid-column:4;grid-row:5/7}
+@media(max-width:900px){
+ section{padding:54px 0}
+ nav a:not(.btn){display:none}.logo{font-size:24px}
+ .ban .wrap,.cust,.gd,.pd,.faq .wrap{grid-template-columns:1fr;gap:30px}
+ .tr .wrap{grid-template-columns:1fr 1fr}.how{grid-template-columns:1fr}
+ footer .cols{grid-template-columns:1fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media(max-width:900px){.dd{display:none}.mob{display:grid}nav{gap:10px}}
+@media(max-width:900px){html{scroll-padding-top:90px}.srch,.mrow{display:none}.sbt{display:grid}.hrow{grid-template-columns:auto 1fr;height:70px}.hrow .logo{text-align:left;font-size:24px}.icons{gap:8px}}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr;grid-auto-rows:170px;gap:10px}.bt{grid-column:auto!important;grid-row:auto!important}.s1,.s7{grid-row:span 2!important}.bt span{font-size:18px}}
+
+[hidden]{display:none!important}
+.wa{left:18px;right:auto;border-radius:6px;display:flex;gap:10px;align-items:center;padding:12px 16px}
+#up{bottom:18px}
+.pc{text-align:center}
+.pc h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;margin-top:14px}
+.pc .pr{color:var(--gr);font-size:14px;font-weight:500}
+.act{position:absolute;left:50%;bottom:16px;transform:translate(-50%,14px);display:flex;gap:6px;opacity:0;transition:.35s;z-index:3}
+.pc:hover .act,.pc:focus-within .act{opacity:1;transform:translate(-50%,0)}
+.act button{width:46px;height:46px;border:0;background:#fff;cursor:pointer;color:var(--navy);display:grid;place-items:center;position:relative;transition:.2s}
+.act button:hover{background:var(--navy);color:#fff}
+.act svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.act button.on{color:var(--cu)}.act button.on svg{fill:var(--cu)}.act button.on:hover{color:#fff}
+[data-tip]:hover:before{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;font-size:12px;padding:6px 10px;white-space:nowrap}
+@media(hover:none){.act{opacity:1;transform:translate(-50%,0)}}
+.pg{padding-top:30px;padding-bottom:80px}
+.crumb{font-size:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:26px}
+.crumb a{text-decoration:none}.crumb em{font-style:normal;color:var(--gr)}.crumb span{color:var(--gr)}
+.pt{font-size:clamp(30px,4vw,44px);text-align:center;margin:6px 0 34px}
+.tbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;margin-bottom:30px}
+.flt{display:inline-flex;gap:8px;align-items:center;background:none;border:0;font:inherit;font-size:14px;color:var(--gr);cursor:pointer;justify-self:start}
+.flt svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round}
+.gcols{display:flex;gap:10px}.gcols button{display:flex;gap:2px;padding:6px;border:1px solid var(--ln);background:#fff;cursor:pointer}
+.gcols i{display:block;width:6px;height:18px;background:#a3a3a9}.gcols .on i{background:var(--navy)}.gcols .on{border-color:var(--navy)}
+#srt{justify-self:end;min-width:200px;padding:12px 14px;border:1px solid var(--ln);background:#fff;font:inherit;font-size:14px;color:var(--gr)}
+.fpn{display:flex;gap:20px;flex-wrap:wrap;background:#fff;border:1px solid var(--ln);padding:18px;margin-bottom:26px}
+.cgrid{display:grid;gap:36px 26px}.c2{grid-template-columns:repeat(2,1fr)}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+.pp{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+.pgal{display:grid;grid-template-columns:80px 1fr;gap:14px;position:sticky;top:150px}
+.thv{display:grid;gap:10px;align-content:start}
+.thv img{width:80px;height:100px;object-fit:cover;cursor:pointer;border:2px solid transparent;background:#eee}.thv img.on{border-color:var(--navy)}
+.mimg{background:#fff;border:1px solid var(--ln)}.mimg img{width:100%;display:block}
+.pinfo h1{font-size:30px;text-transform:uppercase;letter-spacing:.02em}
+.prow{display:flex;justify-content:space-between;align-items:center;margin:14px 0}
+.pprice{font-size:20px;color:var(--gr)}
+.shr{display:flex;gap:26px}.shr a{color:var(--gr)}.shr a:hover{color:var(--cu)}.shr svg{width:20px;height:20px}
+.pinfo hr{border:0;border-top:1px solid var(--ln);margin:12px 0 22px}
+.slab{font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+.pinfo .szs{margin:14px 0 24px}.pinfo .szs button{padding:14px 20px;font-size:16px}
+.big{display:block;width:100%;text-align:center;padding:17px;font-size:14px;margin-bottom:12px}
+.btn.o2{background:#fff;color:var(--navy);border:1px solid var(--navy)}.btn.o2:hover{background:var(--navy);color:#fff}
+.qbox{display:flex;align-items:center;justify-content:center;gap:10px;border:1.5px solid var(--cu);padding:15px;font-weight:600;text-decoration:none;color:var(--navy)}
+.qbox svg{width:20px;height:20px;color:#128C4A}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center;margin:30px 0;font-size:13px;color:var(--gr)}
+.tri svg{width:42px;height:42px;stroke:var(--navy);fill:none;stroke-width:1.4;display:block;margin:0 auto 8px;stroke-linecap:round;stroke-linejoin:round}
+.pdesc{color:var(--gr);margin-bottom:20px}
+.rh{font-size:32px;text-align:center;margin:80px 0 32px}
+footer .soc{display:flex;gap:12px;margin-top:6px}
+footer .soc a.sc{width:42px;height:42px;border:1px solid #3a5878;border-radius:50%;display:grid;place-items:center;color:#cfd8e3;margin:0;transition:.3s}
+.sc svg{width:20px;height:20px}
+.sc.ig:hover{background:linear-gradient(45deg,#F9A03F,#E4405F,#833AB4);color:#fff!important;border-color:transparent!important}
+.sc.fb:hover{background:#1877F2;color:#fff!important;border-color:transparent!important}
+.sc.in:hover{background:#0A66C2;color:#fff!important;border-color:transparent!important}
+footer .cp{text-align:center;border-top:1px solid #213b57;padding-top:22px}
+.ban .ph{background:var(--navy);border:0}
+.ban .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.tb2{position:relative;height:480px;overflow:hidden;padding:0;color:#fff;background:#0F2740}
+#tbimg{position:absolute;inset:0}#tbimg img{width:100%;height:100%;object-fit:cover;display:block}
+.tb2:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,18,30,.1),rgba(8,18,30,.78))}
+.tbo{position:relative;z-index:2;height:100%;max-width:1260px;margin:0 auto;padding:0 26px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;text-align:right}
+.tbo h2{font-size:clamp(32px,5vw,58px);font-weight:400;max-width:14ch}
+.tbo p{max-width:44ch;margin:14px 0 22px;color:#D7E0EA}
+@media(max-width:900px){.pp{grid-template-columns:1fr;gap:30px}.pgal{position:static;grid-template-columns:1fr}.thv{grid-auto-flow:column;grid-auto-columns:70px;order:2}.thv img{width:70px;height:88px}.cgrid{grid-template-columns:repeat(2,1fr)!important}.tbar{grid-template-columns:1fr 1fr}.gcols{display:none}.tb2{height:400px}}
+
+header .wrap{max-width:none;padding:0 20px}
+.hrow{height:96px;grid-template-columns:1fr auto 1fr}
+.hrow .srch{justify-self:start;width:100%;max-width:300px}
+.hrow .logo{justify-self:center}
+.hrow .icons{justify-self:end;gap:18px}
+.ib svg{width:26px;height:26px}
+.mrow{margin:0 20px;border-top:1px solid var(--ln)}
+.mrow .wrap{padding:0}
+body>header{transition:transform .35s ease}
+body>header.hide{transform:translateY(-100%)}
+html{scroll-padding-top:90px}
+@media(max-width:900px){.hrow{height:70px;grid-template-columns:auto 1fr}.hrow .icons{gap:8px}.ib svg{width:24px;height:24px}.mrow{margin:0}}
+@media(max-width:900px){.hrow{gap:8px}.hrow .logo{font-size:22px;letter-spacing:.08em}.ib{padding:4px}.ib svg{width:22px;height:22px}.hrow .icons{gap:4px}}
+@media(max-width:400px){.hrow .logo{font-size:20px}header .wrap{padding:0 12px}}
+@media(max-width:400px){.hrow .logo{font-size:18px;letter-spacing:.04em}.hrow .icons{gap:0}.ib{padding:3px}.ib svg{width:20px;height:20px}.ib em{right:-3px}}
+footer a,footer p{overflow-wrap:anywhere}
+@media(max-width:560px){footer .cols{grid-template-columns:1fr!important}}
+#cart:not(.open),#dr:not(.open){box-shadow:none;visibility:hidden;transition:transform .4s,visibility 0s .4s}
+#cart.open,#dr.open{visibility:visible;transition:transform .4s}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hrow">
+ <form class="srch" id="sf" role="search"><input id="sq" placeholder="Type to discover your style" aria-label="Search artworks"><button type="submit" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button></form>
+ <a class="logo" href="#top">CRAFT<i>VEDA</i></a>
+ <div class="icons">
+  <button class="ib sbt" id="sbtn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+  <button class="ib" id="ubtn" aria-label="Profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4-6.5 8-6.5s7 2 8 6.5"/></svg></button>
+  <button class="ib" id="wbtn" aria-label="Saved artworks"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg><em id="wc">0</em></button>
+  <button class="ib" id="cbtn" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8a3 3 0 0 1 6 0"/></svg><em id="cc">0</em></button>
+  <button class="ib mob" id="mnu" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+ </div></div>
+ <div class="mrow"><div class="wrap"><nav class="mn">
+  <a data-feat tabindex="0">Favorites</a><a data-new tabindex="0">New</a>
+  <div class="dd"><a tabindex="0" href="#textured"><svg class="gd6" viewBox="0 0 12 14" aria-hidden="true"><circle cx="3" cy="2" r="1.5"/><circle cx="9" cy="2" r="1.5"/><circle cx="3" cy="7" r="1.5"/><circle cx="9" cy="7" r="1.5"/><circle cx="3" cy="12" r="1.5"/><circle cx="9" cy="12" r="1.5"/></svg>Category<svg class="cv" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></a><div class="dm" id="ddk"></div></div>
+  <div class="dd"><a tabindex="0" href="#religious"><svg class="gd6" viewBox="0 0 12 14" aria-hidden="true"><circle cx="3" cy="2" r="1.5"/><circle cx="9" cy="2" r="1.5"/><circle cx="3" cy="7" r="1.5"/><circle cx="9" cy="7" r="1.5"/><circle cx="3" cy="12" r="1.5"/><circle cx="9" cy="12" r="1.5"/></svg>Religious<svg class="cv" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></a><div class="dm" id="ddr"></div></div>
+  <div class="dd"><a tabindex="0" href="#customart">Custom Art<svg class="cv" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></a><div class="dm" id="ddc"></div></div>
+  
+ </nav></div></div>
+</header>
+
+<main id="top">
+<section id="collections" style="padding:44px 0 72px"><div class="wrap">
+ <div class="sh" style="justify-content:center;text-align:center"><div><h2>Explore our collections</h2><p class="sub" style="margin:8px auto 0">Every piece is handmade. Choose a collection to begin.</p></div></div>
+ <div class="bento" id="bento"></div>
+</div></section>
+
+<section class="dk" id="textured"><div class="wrap">
+ <div class="sh"><div><h2>Textured Art</h2><p class="sub">Layered, tactile artworks that add depth to a wall.</p></div><a class="va" data-cat="Textured Art" style="border-color:var(--cu2)">View all</a></div>
+ <div class="grid" id="gtx"></div>
+</div></section>
+
+<section id="abstract"><div class="wrap">
+ <div class="sh"><div><h2>Abstract Art</h2><p class="sub">Colour, form and movement, painted by hand.</p></div><a class="va" data-cat="Abstract Art">View all</a></div>
+ <div class="grid" id="gab"></div>
+</div></section>
+
+<section class="alt ban" id="studio" style="background:var(--navy2);color:#fff"><div class="wrap">
+ <div>
+  <p class="lbl">An engineer and designer led studio</p>
+  <h2>Driven by design.<br>Built with precision.</h2>
+  <p>CraftVeda is a small studio led by an engineer and designer. Every piece begins as a plan and ends as a handmade original for your wall.</p>
+  <div class="bl"><a class="btn" href="#custom">Start custom art</a><a class="btn o" href="#faq">How it works</a></div>
+ </div>
+ <div class="ph" id="sph"></div>
+</div></section>
+
+<section id="vastu"><div class="wrap">
+ <div class="sh"><div><h2>Vastu Art</h2><p class="sub">Art made to bring positivity to your home.</p></div><a class="va" data-cat="Vastu">View all</a></div>
+ <div class="grid" id="gvs"></div>
+</div></section>
+
+<section class="alt" id="nature"><div class="wrap">
+ <div class="sh"><div><h2>Nature Art</h2><p class="sub">Landscapes, flowers and wildlife for calm, fresh interiors.</p></div><a class="va" data-cat="Nature">View all</a></div>
+ <div class="grid" id="gnt"></div>
+</div></section>
+
+<section id="religious"><div class="wrap">
+ <div class="sh"><div><h2>Religious art</h2><p class="sub">Faith meets fine art. Choose a deity or tradition.</p></div><a class="va" data-cat="Religious">View all</a></div>
+ <div class="tiles" id="t2"></div>
+ <div class="grid" id="gr"></div>
+</div></section>
+
+<section class="alt" id="customart"><div class="wrap">
+ <div class="sh"><div><h2>Custom Art</h2><p class="sub">Pencil and charcoal sketches, charcoal and abstract paintings, made in your size.</p></div><a class="va" data-cat="Custom Art">View all</a></div>
+ <div class="tiles" id="t3"></div>
+ <div class="grid" id="gc"></div>
+</div></section>
+
+<section class="dk" id="custom"><div class="wrap">
+ <div class="sh" style="margin-bottom:8px"><div><h2>Request a custom piece</h2><p class="sub">A custom piece is made only for you, in your size, colours and theme. Choose a style and tell us your idea.</p></div></div>
+ <div class="cust">
+  <div>
+   <p class="lbl" style="margin-top:22px">Art types</p><div class="chips" id="chips"></div>
+   <p class="lbl">Shapes</p><div class="chips" id="shapes"></div>
+   <div class="how"><div><b>1. Tell us</b>Share size, colours and your room.</div><div><b>2. Preview</b>We send a design idea and price.</div><div><b>3. Creation</b>Work starts after you approve.</div></div>
+  </div>
+  <form id="cf">
+   <label>Full name<input id="cn" required></label>
+   <label>Art type<select id="ct"></select></label>
+   <label>Shape<select id="cp"></select></label>
+   <label>Wall size<input id="cs" placeholder="e.g. 48 x 24 inch"></label>
+   <label>Your idea<textarea id="ci" rows="3" placeholder="Colours, mood, room, references"></textarea></label>
+   <button class="btn" type="submit">Send request on WhatsApp</button>
+  </form>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <div class="sh"><div><h2>Tips and guides</h2><div class="bar"></div></div></div>
+ <div class="gd">
+  <button class="gc" data-g="hang"><h3>How to hang your art</h3><p>Height, spacing and fixing, explained simply.</p></button>
+  <button class="gc" data-g="style"><h3>Interior styling</h3><p>Match artwork size and colour to your room.</p></button>
+ </div>
+</div></section>
+
+<div class="tr"><div class="wrap">
+ <div><b>Original art</b><span>Handmade, never printed</span></div>
+ <div><b>Delivery in India</b><span>Safe, protective packing</span></div>
+ <div><b>WhatsApp support</b><span>Quick replies on chat</span></div>
+ <div><b>Damage cover</b><span>Report within 24 hours</span></div>
+</div></div>
+
+<section class="faq" id="faq"><div class="wrap">
+ <div><h2>Frequently asked questions</h2><p class="sub">Everything worth knowing before you order.</p>
+  <div class="help"><h3>Need more help?</h3><p>Message us directly. We usually reply the same day.</p><a class="btn sm n" id="fwa" target="_blank" rel="noopener" href="#">Message on WhatsApp</a></div></div>
+ <div>
+  <details open><summary>Are the artworks original?</summary><p>Yes. Every artwork is handmade in our studio. We do not sell prints or reproductions.</p></details>
+  <details><summary>How long does delivery take?</summary><p>Once dispatched, delivery takes 8 to 10 days depending on your destination. The dispatch time is confirmed when you order, because every artwork is handmade.</p></details>
+  <details><summary>Can I preview a piece in my room?</summary><p>Yes. Send a photo of your wall on WhatsApp and we will share a mockup showing the artwork in your space.</p></details>
+  <details><summary>How does custom art work?</summary><p>Share your size, colours and idea. You receive a design idea and price, and work begins after you approve and pay an advance.</p></details>
+  <details><summary>How do I pay?</summary><p>Payment is arranged through UPI or a secure payment link, shared on WhatsApp once your order is confirmed.</p></details>
+  <details><summary>What if my artwork arrives damaged?</summary><p>Send photos and an unboxing video within 24 hours of delivery, and we will repair it and send it again.</p></details>
+ </div>
+</div></section>
+<section class="tb2"><div id="tbimg"></div><div class="tbo"><p class="lbl">Our promise</p><h2>Made by hand. Delivered with care.</h2><p>Every artwork is handmade, and we share photos and a video of your finished piece before it ships.</p><a class="btn" id="tbw" target="_blank" rel="noopener" href="#">Discuss artwork</a></div></section>
+</main>
+<main id="view" hidden></main>
+
+<footer id="contact"><div class="wrap">
+ <div class="cols">
+  <div><div class="lg">CRAFTVEDA</div><p>Handmade textured, abstract, Vastu, nature and religious wall art.</p></div>
+  <div><h4>Collections</h4><div id="fcats"></div></div>
+  <div><h4>Contact</h4><a id="fph"></a><a id="fem"></a><div class="soc" id="soc"></div></div>
+  <div><h4>Policies</h4><a data-pol="shipping">Shipping</a><a data-pol="returns">Returns</a><a data-pol="privacy">Privacy</a><a data-pol="terms">Terms</a></div>
+ </div>
+ <p class="cp">&copy; <span id="yr"></span> CraftVeda. All artworks are original and protected by copyright.</p>
+</div></footer>
+
+<aside id="dr" aria-label="Panel"><header><h3 id="drt"></h3><button class="x" style="position:static;color:#fff" id="drx" aria-label="Close">&times;</button></header><div id="drb" style="flex:1;overflow:auto;padding:18px 22px"></div></aside>
+<button id="up" aria-label="Back to top"><svg viewBox="0 0 52 52"><rect id="upr" x="1.5" y="1.5" width="49" height="49" rx="3" fill="none" stroke="#B5654A" stroke-width="3" pathLength="100"/></svg><span>&#8963;</span></button>
+<aside id="cart" aria-label="Cart"><header><h3>Your cart</h3><button class="x" style="position:static;color:#fff" id="cx" aria-label="Close cart">&times;</button></header><div id="ci2"></div><div id="cf2"></div></aside>
+<a class="wa" id="wa" target="_blank" rel="noopener" href="#"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-3.6-.9-3-1.3-4.9-4.4-5.1-4.6-.1-.2-1.200-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.2c.1.2.1.4 0 .5l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.6z"/></svg>Discuss Artwork</a>
+<div class="modal" id="modal"><div class="box"><button class="x" id="cl" aria-label="Close">&times;</button><div id="mb"></div></div></div>
+
+<script>
+/* ========= EDIT ONLY THIS PART ========= */
+const WHATSAPP="918005962873";
+const SHEET_URL="";   /* paste your Google Sheet CSV link here ONE time. Leave "" to use the built-in CATALOG below. */
+const PHONE="+91 80059 62873",EMAIL="ashishmitawa123@gmail.com";   /* change to your business email */
+/* Collage tiles: [label, "cat" (main category) or "th" (custom art type), image in images/] */
+const BENTO=[["Textured Art","cat","tile-textured.jpg"],["Charcoal Sketch","th","tile-charcoal.jpg"],["Abstract Art","cat","tile-abstract.jpg"],["Nature","cat","tile-nature.jpg"],["Pencil Sketch","th","tile-pencil.jpg"],["Custom Art","cat","tile-custom.jpg"],["Religious","cat","tile-religious.jpg"],["Vastu","cat","tile-vastu.jpg"]];
+const SOCIAL={Instagram:"https://www.instagram.com/",LinkedIn:"https://www.linkedin.com/",Facebook:"https://www.facebook.com/"};   /* paste your page links */
+const SOLD_OUT=[];   /* names of sold out artworks, e.g. ["Nature 01"] */
+const JURIS="Jaipur, Rajasthan",UPDATED="30 September 2026";      /* courts city and policy date */
+const CUSTOM_TYPES=[["Pencil Sketch","cover-pencil.jpg"],["Charcoal Sketch","cover-charcoal.jpg"],["Charcoal Painting","cover-charcoalp.jpg"],["Abstract Painting","cover-abstract.jpg"],["Portrait Sketch","cover-portrait.jpg"]];
+
+/* Launch collections. Add new names here later, e.g. "Vastu", "Abstract". */
+const CATEGORIES=["Textured Art","Abstract Art","Vastu","Nature","Religious","Custom Art"];
+const MENU_CATS=["Textured Art","Abstract Art","Vastu","Nature"];   /* shown in the Category menu */
+const ART_OPTS=["Textured Art","Abstract Art","Vastu","Nature","Religious",...CUSTOM_TYPES.map(x=>x[0])];
+const FAITH=[["Ganesha","cover-ganesha.jpg"],["Shiva","cover-shiva.jpg"],["Radha Krishna","cover-krishna.jpg"],["Hanuman","cover-hanuman.jpg"],["Buddha","cover-buddha.jpg"]];
+const SHAPES=["Square","Vertical","Landscape","Round","Multi Panel"];
+
+/* category must match CATEGORIES. For Religious pieces, set theme to a FAITH name. featured:true shows in top strip. mrp = old price (optional). */
+/* Har category me 10 products. Sirf name, sizes aur images badlo.
+   sizes = [["24x36",price],["30x45",price]]  (inches, width x height)
+   Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg = artwork on white background, images/tx-01-side.jpg = side view. 01 se 10 tak. Prefix: tx (Textured), ab (Abstract), vs (Vastu), nt (Nature), rl (Religious), ca (Custom) */
+const CATALOG={
+ "Textured Art":{prefix:"tx",shape:"Landscape",sizes:[["24x36",15000],["30x45",19000],["36x54",25000]],
+  features:"Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours.",
+  items:[]},
+ "Abstract Art":{prefix:"ab",shape:"Square",sizes:[["24x24",9000],["30x30",12000],["36x36",16000]],
+  features:"Hand painted abstract artwork on stretched canvas, finished in acrylic colours.",
+  items:[]},
+ "Vastu":{prefix:"vs",shape:"Landscape",sizes:[["20x40",10000],["24x48",14000],["30x60",20000]],
+  features:"Hand painted Vastu artwork on stretched canvas, made with colours and symbols traditionally considered auspicious.",
+  items:[]},
+ "Nature":{prefix:"nt",shape:"Landscape",sizes:[["20x30",7000],["24x36",9500],["30x45",13500]],
+  features:"Hand painted nature artwork on stretched canvas, finished in acrylic colours.",
+  items:[]},
+ "Religious":{prefix:"rl",shape:"Vertical",sizes:[["20x30",8000],["24x36",10500],["30x45",14500]],
+  features:"Hand painted devotional artwork on stretched canvas, finished in acrylic colours.",
+  items:[],
+  themes:["Ganesha","Shiva","Radha Krishna","Hanuman","Buddha","Ganesha","Shiva","Radha Krishna","Hanuman","Buddha"]},
+ "Custom Art":{prefix:"ca",shape:"Vertical",sizes:[["12x16",4500],["18x24",7000],["24x36",11000]],
+  features:"Made to order from your idea or photo, by hand, in the medium you choose.",
+  items:[],
+  themes:["Pencil Sketch","Charcoal Sketch","Charcoal Painting","Abstract Painting","Portrait Sketch","Pencil Sketch","Charcoal Sketch","Charcoal Painting","Abstract Painting","Portrait Sketch"]}
+};
+const PRODUCTS=[];
+if(SHEET_URL){try{const c=localStorage.getItem("cvsheet");if(c)PRODUCTS.push(...fromSheet(c))}catch(e){}}else Object.entries(CATALOG).forEach(([cat,c])=>c.items.forEach((name,k)=>{const n=String(k+1).padStart(2,"0");
+ PRODUCTS.push({name,category:cat,theme:c.themes?c.themes[k]:"",shape:c.shape,sizes:c.sizes,features:c.features,images:[`images/${c.prefix}-${n}.jpg`,`images/${c.prefix}-${n}-white.jpg`,`images/${c.prefix}-${n}-side.jpg`],featured:k<1,isNew:k<2})}));
+
+const RETURN_TEXT=["Every artwork is handmade. Once an artwork is made, it cannot be returned.","If you cancel before work starts, you get a full refund. If work has already started, a 25% charge applies on the artwork price and 75% is refunded.","Want a change or correction? Tell us before dispatch and we will do it for you.","If your artwork is damaged or broken in transit, contact us within 24 hours of delivery with an unboxing video and photos. We will repair it and send it again."];
+const PREVIEW_TEXT="Before dispatch we share photos and a video of your finished artwork. Your order ships only after you confirm you are happy with it.";
+const DELIVERY_TEXT="Your artwork is dispatched once it is ready and you have approved the final photos. After dispatch, delivery takes 8 to 10 days depending on your destination. You receive tracking details when the order ships. Extra charges for large artworks needing special transport are confirmed before you pay.";
+const POLICIES={
+ shipping:{t:"Shipping policy",s:[
+  ["Where we ship",[`We currently ship within India through reputed courier partners.`]],
+  ["Dispatch",[`Every artwork is handmade or hand finished to order. The expected dispatch time is confirmed with you on WhatsApp when you place the order, and it depends on the size and complexity of the artwork.`,`Before dispatch, we share photos and a video of the finished artwork. It ships after you confirm.`]],
+  ["Delivery time",[`After dispatch, delivery usually takes 8 to 10 days, depending on your destination and the courier.`,`You receive tracking details on WhatsApp or email once the order ships.`]],
+  ["Shipping charges",[`Shipping charges, if any, are confirmed before you pay. Large artworks that need special transport or installation may cost extra, and we tell you before you confirm the order.`]],
+  ["Please note",[`Delays can happen because of festivals, weather, strikes, natural events or other causes beyond our control. We are not liable for such delays, but we will keep you informed.`,`Please give a complete and correct address and a working phone number. If a parcel is returned because of a wrong address, re-shipping charges are paid by the customer.`,`Risk in the artwork passes to you when it is delivered to your address. Please record an unboxing video as described in our Returns and refunds policy.`]]]},
+ returns:{t:"Returns, cancellation and refund policy",s:[
+  ["Handmade artworks",[`Every CraftVeda artwork is handmade. Once an artwork is made, it cannot be returned or exchanged, and no refund is given for a change of mind.`,`Small variations in colour, texture, brush strokes and size are natural in handmade work and are not defects. Colours may also look slightly different on different screens.`]],
+  ["Cancellation",[`If you cancel before we start work on your artwork, we refund the full amount.`,`If you cancel after work has started, we charge 25% of the artwork price and refund the remaining 75%.`,`Once an order is dispatched, it cannot be cancelled.`,`We will tell you on WhatsApp when work on your artwork begins.`]],
+  ["Changes and corrections",[`If you want a change or correction, tell us before dispatch. We will make reasonable changes for you. If a change means a major redesign, we will confirm any extra time or cost with you before we begin.`]],
+  ["Damage in transport",[`If your artwork arrives damaged or broken, contact us within 24 hours of delivery on WhatsApp or email. Please record a continuous unboxing video while opening the sealed parcel and send it with clear photos.`,`After we review your claim, we will repair the artwork and send it to you again. If repair is not possible, we will make a replacement.`,`Please keep the original packaging until the claim is closed. Claims made after 24 hours, or without the unboxing video, may not be accepted.`]],
+  ["Refunds",[`Approved refunds are paid to the original payment method within 7 to 10 business days.`,`Damage caused after delivery, such as impact, water, mishandling or wrong installation, is not covered.`]],
+  ["Contact",[`For any cancellation or damage claim, write to ${EMAIL} or WhatsApp ${PHONE}. We aim to reply within 1 to 2 business days.`]]]},
+ privacy:{t:"Privacy policy",s:[
+  ["Introduction",[`This Privacy Policy explains how CraftVeda (we, us) collects, uses and protects your personal information when you use this website or contact us. It is written in line with the Information Technology Act, 2000, the rules made under it, and the Digital Personal Data Protection Act, 2023, as applicable.`,`By using this website or placing an order, you agree to this policy. If you do not agree, please do not use the website.`]],
+  ["Information we collect",[`Details you give us: name, phone number, email address and delivery address.`,`Order details: artworks, sizes, prices and delivery information.`,`Messages you send us on WhatsApp, by email or through forms on this website.`,`Payment details: we do not store your card, UPI or bank details. Payments are handled by your bank, payment app or payment provider.`,`Device and usage data such as browser type and pages viewed, and data your browser keeps on your own device, such as your cart, saved artworks and profile.`]],
+  ["How we use your information",[`To confirm and deliver your orders, share progress photos, and give support.`,`To reply to your questions and requests.`,`To prevent fraud and protect our rights.`,`To send updates about your order. We send promotional messages only if you agree, and you can stop them at any time.`]],
+  ["Sharing your information",[`We do not sell your personal information.`,`We share it only with courier and logistics partners to deliver your order, with payment providers to process payments, and with authorities when the law, a court order or a government request requires it.`,`If our business is sold or merged, your information may move to the new owner under the same protections.`]],
+  ["Your choices",[`You can ask us to show, correct or delete your personal information, or withdraw your consent, by contacting us. We may keep data that the law requires us to keep, for example order and tax records.`]],
+  ["Security and retention",[`We take reasonable steps to protect your information. No method of storage or transmission is completely secure, so we cannot guarantee absolute security.`,`We keep your information only as long as needed for the purposes above or as the law requires.`]],
+  ["Children",[`This website is not meant for people under 18. If you are under 18, please use it only with a parent or guardian. If you think a child has given us personal information, contact us and we will delete it.`]],
+  ["Links to other websites",[`Our website may link to other websites, such as Instagram or WhatsApp. We are not responsible for their privacy practices.`]],
+  ["Changes to this policy",[`We may update this policy from time to time. The latest version is always on this website with its date.`]],
+  ["Grievances and contact",[`For privacy questions or complaints, contact CraftVeda Support at ${EMAIL} or ${PHONE}. We acknowledge complaints within 48 hours and aim to resolve them within 30 days.`,`This policy is governed by the laws of India. Courts at ${JURIS} have jurisdiction over any dispute.`]]]},
+ terms:{t:"Terms of use",s:[
+  ["Using this website",[`By using this website or placing an order with CraftVeda, you accept these terms. You must be at least 18 years old, or use the website with a parent or guardian.`]],
+  ["Products and prices",[`All artworks are handmade to order and can differ slightly from photos. Prices are in Indian rupees.`,`We may correct pricing or technical errors, and we may refuse, cancel or hold any order, for example when we suspect fraud, cannot verify details, or cannot deliver to your area. If we cancel an order, we refund any amount paid in full.`]],
+  ["Orders and payment",[`An order is confirmed when we confirm it on WhatsApp or email and receive payment or the agreed advance. Custom artworks start only after you approve the design and pay the advance.`]],
+  ["Cancellation, returns and shipping",[`These are covered in our Returns and refunds policy and Shipping policy, which form part of these terms.`]],
+  ["Intellectual property",[`All artworks, designs, photographs, text and logos on this website belong to CraftVeda and are protected by copyright. You may not copy, reproduce, sell or use them without our written permission. Buying an artwork does not give you the right to reproduce it.`]],
+  ["Limitation of liability",[`To the fullest extent the law allows, CraftVeda is not liable for indirect or consequential loss. Our total liability for any claim is limited to the amount you paid for the artwork concerned.`,`We are not liable for delays or failures caused by events beyond our control, including natural events, strikes, courier delays, government action or internet failures.`]],
+  ["Governing law and disputes",[`These terms are governed by the laws of India. We will first try to settle any dispute in good faith through discussion. If that fails, the courts at ${JURIS} have exclusive jurisdiction.`]],
+  ["Changes and contact",[`We may update these terms at any time. Questions can be sent to ${EMAIL} or ${PHONE}.`]]]}
+};
+const GUIDES={
+ hang:{t:"How to hang your art",b:["Hang the centre of the artwork at about 57 inches (145 cm) from the floor, roughly eye level.","Leave 6 to 8 inches between the artwork and the sofa or table below it.","Use a wall plug and screw suited to your wall type. Heavy textured pieces should be fixed to at least two points."]},
+ style:{t:"Interior styling",b:["Choose an artwork about two thirds the width of the furniture beneath it.","Pick one or two colours from the room, such as cushions or curtains, and match the artwork to them.","Neutral rooms suit bold colour or strong texture. Busy rooms suit calm, minimal pieces."]}
+};
+/* ========= END OF EDIT PART ========= */
+
+const $=s=>document.querySelector(s);
+const money=n=>"Rs. "+n.toLocaleString("en-IN")+"/-";
+const wa=t=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
+const op=()=>$("#modal").classList.add("open"),shut=()=>$("#modal").classList.remove("open");
+$("#yr").textContent=new Date().getFullYear();
+const hi=wa("Hi, I saw your CraftVeda website.");
+["#wa","#fwa"].forEach(s=>$(s).href=hi);
+
+const ph=(n,k=0)=>{let h=0;for(const c of n)h=(h*31+c.charCodeAt(0))%360;const g=`<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='hsl(${h},35%,26%)'/><stop offset='1' stop-color='hsl(${(h+45)%360},45%,64%)'/></linearGradient></defs>`;
+ const b=k===1?`<rect width='400' height='500' fill='#fff'/><rect x='104' y='116' width='210' height='290' fill='rgba(0,0,0,.12)'/><rect x='95' y='105' width='210' height='290' fill='url(#g)'/><path d='M95 330 L160 265 L215 315 L260 255 L305 300 V395 H95Z' fill='hsla(${h},40%,14%,.4)'/>`:k===2?`<rect width='400' height='500' fill='#fff'/><rect x='178' y='100' width='64' height='310' fill='rgba(0,0,0,.1)'/><rect x='170' y='92' width='64' height='310' fill='url(#g)'/><rect x='234' y='100' width='12' height='294' fill='hsl(${h},25%,20%)'/>`:`<rect width='400' height='500' fill='url(#g)'/><circle cx='285' cy='165' r='88' fill='hsla(${h},30%,92%,.28)'/><path d='M0 410 L120 285 L210 365 L300 255 L400 385 V500 H0Z' fill='hsla(${h},40%,14%,.45)'/>`;
+ return "data:image/svg+xml,"+encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'>${g}${b}</svg>`)};
+const fb=i=>{i.onerror=null;i.src=ph(i.alt.split(" | ")[0],+i.dataset.k||0)};
+const from=p=>Math.min(...p.sizes.map(x=>x[1]));
+let wl=[];try{wl=JSON.parse(localStorage.getItem("cvw")||"[]")}catch(e){}
+const IC={eye:`<svg viewBox="0 0 24 24"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>`,cart:`<svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8a3 3 0 0 1 6 0"/></svg>`,heart:`<svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>`};
+const card=(p,i)=>`<div class="pc" data-i="${i}" tabindex="0"><div class="im"><img loading="lazy" src="${p.images[0]}" alt="${p.name}" data-k="0" onerror="fb(this)"><div class="act"><button data-pv="${i}" data-tip="View" aria-label="View artwork">${IC.eye}</button><button data-q="${i}" data-tip="Quick Shop" aria-label="Quick shop">${IC.cart}</button><button data-w="${i}" class="${wl.includes(p.name)?"on":""}" data-tip="Save" aria-label="Save artwork">${IC.heart}</button></div></div><h3>${p.name}</h3><div class="pr">From ${money(from(p))}</div></div>`;
+const list=(f,max)=>{const l=PRODUCTS.map((p,i)=>[p,i]).filter(([p])=>f(p)).slice(0,max||99);return l.length?l.map(([p,i])=>card(p,i)).join(""):`<p class="empty">New works are coming soon. Message us to ask what is ready.</p>`};
+
+$("#t2").innerHTML=FAITH.map(([n,c])=>`<button class="tl rv" data-th="${n}"><img src="images/${c}" alt="" onerror="this.remove()"><span>${n}</span></button>`).join("");
+$("#fcats").innerHTML=CATEGORIES.map(n=>`<a data-cat="${n}">${n}</a>`).join("")+"<a href='#custom'>Request custom art</a>";
+
+function showList(title,f){$("#mb").innerHTML=`<div class="lst"><h3>${title}</h3><div class="grid" id="lg">${list(f)}</div></div>`;op();drawW();$("#lg").onclick=e=>{if(e.target.closest("[data-w]"))return;const c=e.target.closest(".pc");if(c)openP(+c.dataset.i)}}
+const txt=o=>o.s?`<div class="pol"><h3>${o.t}</h3><small>Last updated: ${UPDATED}</small>${o.s.map(([h,ps])=>`<h4>${h}</h4>${ps.map(x=>`<p>${x}</p>`).join("")}`).join("")}</div>`:`<div class="pol"><h3>${o.t}</h3>${o.b.map(x=>`<p>${x}</p>`).join("")}</div>`;
+document.addEventListener("click",e=>{
+ if(e.target.closest("[data-close]"))closeDr();
+ if(e.target.closest("[data-feat]")){location.hash="#/fav";return}
+ if(e.target.closest("[data-new]")){location.hash="#/new";return}
+ const w=e.target.closest("[data-w]");if(w){toggleW(+w.dataset.w);if($("#dr").classList.contains("open")&&$("#drt").textContent==="Saved artworks")$("#wbtn").click();return}
+ const v=e.target.closest("[data-v]");if(v){closeDr();goP(+v.dataset.v);return}
+ const pv=e.target.closest("[data-pv]");if(pv){goP(+pv.dataset.pv);return}
+ const qk=e.target.closest("[data-q]");if(qk){openP(+qk.dataset.q);return}
+ const c=e.target.closest("[data-cat]"),t=e.target.closest("[data-th]"),g=e.target.closest("[data-g]"),p=e.target.closest("[data-pol]");
+ if(c){shut();closeDr();location.hash="#/cat/"+enc(c.dataset.cat)}
+ else if(t){shut();closeDr();location.hash="#/th/"+enc(t.dataset.th)}
+ else if(g){$("#mb").innerHTML=txt(GUIDES[g.dataset.g]);op()}
+ else if(p){$("#mb").innerHTML=txt(POLICIES[p.dataset.pol]);op()}
+ else{const k=e.target.closest(".pc");if(k)goP(+k.dataset.i)}
+});
+document.onkeydown=e=>{if(e.key==="Escape")shut();if(e.key==="Enter"){const k=e.target.closest&&e.target.closest(".pc");if(k)goP(+k.dataset.i)}};
+$("#cl").onclick=shut;$("#modal").onclick=e=>{if(e.target.id==="modal")shut()};
+
+const SZL=["24x24","30x30","36x36","42x42","48x48","20x30","24x36","28x42","32x48","36x54","18x36","24x48","30x60","36x72"];
+const dims=()=>`<table><tr><th>Inches (w x h)</th><th>CM (w x h)</th></tr>${SZL.map(z=>{const[w,h]=z.split("x");return `<tr><td>${w} x ${h}</td><td>${(w*2.54).toFixed(1)} x ${(h*2.54).toFixed(1)}</td></tr>`}).join("")}</table>`;
+let sel=0;
+function openP(i){const p=PRODUCTS[i];sel=0;
+ $("#mb").innerHTML=`<div class="pd"><div><div class="g"><img id="big" src="${p.images[0]}" alt="${p.name}" data-k="0" onerror="fb(this)"></div><div class="th">${p.images.map((s,k)=>`<img src="${s}" class="${k?"":"on"}" alt="${p.name}" data-k="${k}" onerror="fb(this)">`).join("")}</div></div>
+ <div class="t"><h3>${p.name}</h3><span class="badge">100% Handmade</span>
+ <div style="font-size:13px;color:var(--gr)">Size in inches (width x height)</div><div class="szs" id="szs">${p.sizes.map((x,k)=>`<button class="${k?"":"on"}" data-k="${k}">${x[0]}</button>`).join("")}</div>
+ <div class="pr" id="prc">${money(p.sizes[0][1])}</div>
+ <div class="acts"><button class="btn n" id="atc">Add to cart</button><a class="btn" id="bn" target="_blank" rel="noopener" href="#">Buy it now</a></div>
+ <a class="q" id="qw" target="_blank" rel="noopener" href="#">Any question? <b>WhatsApp us!</b></a>
+ <div class="acc" style="margin-top:14px">
+  <details><summary>Dimension chart</summary><div>${dims()}</div></details>
+  <details><summary>Feature and details</summary><div><p>All sizes are in inches (width x height). Price is for the full artwork.</p><p>${p.features}</p></div></details>
+  <details><summary>Customer preview</summary><p>${PREVIEW_TEXT}</p></details>
+  <details><summary>Return and cancellation</summary><div>${RETURN_TEXT.map(x=>`<p>${x}</p>`).join("")}</div></details>
+  <details><summary>Delivery and shipping</summary><p>${DELIVERY_TEXT}</p></details>
+ </div></div></div>`;
+ const upd=()=>{const z=p.sizes[sel];$("#prc").textContent=money(z[1]);
+  $("#bn").href=wa(`Hi, I want to buy "${p.name}", size ${z[0]} inches, ${money(z[1])} (CraftVeda).${who()}`);
+  $("#qw").href=wa(`Hi, I have a question about "${p.name}".`)};upd();
+ $("#szs").onclick=e=>{const b=e.target.closest("button");if(b){sel=+b.dataset.k;[...$("#szs").children].forEach(x=>x.classList.toggle("on",x===b));upd()}};
+ $("#atc").onclick=()=>{addCart(p,p.sizes[sel]);shut();$("#cart").classList.add("open")};
+ $(".th").onclick=e=>{if(e.target.tagName==="IMG"){$("#big").src=e.target.src;[...e.currentTarget.children].forEach(x=>x.classList.toggle("on",x===e.target))}};
+ op()}
+
+$("#chips").innerHTML=ART_OPTS.map(n=>`<span>${n}</span>`).join("");
+$("#shapes").innerHTML=SHAPES.map(n=>`<span>${n}</span>`).join("");
+$("#ct").innerHTML=ART_OPTS.map(n=>`<option>${n}</option>`).join("");
+$("#cp").innerHTML=SHAPES.map(n=>`<option>${n}</option>`).join("");
+$("#cf").onsubmit=e=>{e.preventDefault();
+ open(wa(`Hi, I would like custom art.\nName: ${$("#cn").value}\nType: ${$("#ct").value}\nShape: ${$("#cp").value}\nWall size: ${$("#cs").value||"-"}\nIdea: ${$("#ci").value||"-"}${who()}`),"_blank")};
+
+const esc=t=>String(t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const who=()=>{try{const p=JSON.parse(localStorage.getItem("cvp")||"null");return p&&p.n?`\nName: ${p.n}\nPhone: ${p.p||"-"}\nAddress: ${p.a||"-"}`:""}catch(e){return""}};
+const openDr=(t,h)=>{$("#drt").textContent=t;$("#drb").innerHTML=h;$("#dr").classList.add("open")};
+const closeDr=()=>$("#dr").classList.remove("open");
+$("#drx").onclick=closeDr;
+function toggleW(i){const n=PRODUCTS[i].name;wl=wl.includes(n)?wl.filter(x=>x!==n):[...wl,n];try{localStorage.setItem("cvw",JSON.stringify(wl))}catch(e){}drawW()}
+function drawW(){$("#wc").textContent=wl.length;$("#wc").style.display=wl.length?"grid":"none";document.querySelectorAll("[data-w]").forEach(b=>b.classList.toggle("on",wl.includes(PRODUCTS[+b.dataset.w].name)))}
+$("#wbtn").onclick=()=>{const l=PRODUCTS.map((p,i)=>[p,i]).filter(([p])=>wl.includes(p.name));
+ openDr("Saved artworks",l.length?l.map(([p,i])=>`<div class="ci"><img src="${p.images[0]}" alt="${p.name}" onerror="fb(this)"><div>${p.name}<small>From ${money(from(p))}</small><button data-v="${i}">View</button> <button data-w="${i}">Remove</button></div></div>`).join(""):"<p style='color:var(--gr)'>Tap the heart on any artwork to save it here.</p>")};
+$("#ubtn").onclick=()=>{let p={};try{p=JSON.parse(localStorage.getItem("cvp")||"{}")}catch(e){}
+ openDr("Your profile",`<p style="font-size:14px;color:var(--gr);margin-bottom:14px">Save your details once and they are added to your WhatsApp orders. They stay on this device only.</p><form id="pf" style="padding:0"><label>Name<input id="pn" value="${esc(p.n)}"></label><label>Phone<input id="pp" value="${esc(p.p)}"></label><label>Email<input id="pe" value="${esc(p.e)}"></label><label>Delivery address<textarea id="pa" rows="3">${esc(p.a)}</textarea></label><button class="btn" type="submit">Save profile</button><p id="pm" style="font-size:13px;color:#128C4A"></p></form>`);
+ $("#pf").onsubmit=e=>{e.preventDefault();try{localStorage.setItem("cvp",JSON.stringify({n:$("#pn").value,p:$("#pp").value,e:$("#pe").value,a:$("#pa").value}))}catch(x){}$("#pm").textContent="Saved on this device."}};
+$("#mnu").onclick=()=>openDr("Menu",`<div class="mnl">${[["Collections","#collections"],["Textured Art","#textured"],["Abstract Art","#abstract"],["Vastu","#vastu"],["Nature","#nature"],["Religious","#religious"],["Custom Art","#customart"],["Request a custom piece","#custom"]].map(([n,h])=>`<a href="${h}" data-close>${n}</a>`).join("")}</div>`);
+$("#fph").href="tel:"+PHONE.replace(/\s/g,"");$("#fph").textContent=PHONE;$("#fem").href="mailto:"+EMAIL;$("#fem").textContent=EMAIL;
+$("#ddr").innerHTML=FAITH.map(([n])=>`<a data-th="${n}">${n}</a>`).join("");
+$("#ddc").innerHTML=CUSTOM_TYPES.map(([n])=>`<a data-th="${n}">${n}</a>`).join("");
+$("#t3").innerHTML=CUSTOM_TYPES.map(([n,c])=>`<button class="tl rv" data-th="${n}"><img src="images/${c}" alt="" onerror="this.remove()"><span>${n}</span></button>`).join("");
+const up=$("#up"),ur=$("#upr");
+addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-innerHeight,p=h>0?scrollY/h:0;ur.style.strokeDashoffset=100-p*100;up.classList.toggle("show",scrollY>300)},{passive:true});
+up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+drawW();
+$("#ddk").innerHTML=MENU_CATS.map(n=>`<a data-cat="${n}">${n}</a>`).join("");
+const doSearch=q=>{q=q.trim();if(q)location.hash="#/search/"+encodeURIComponent(q)};
+$("#sf").onsubmit=e=>{e.preventDefault();doSearch($("#sq").value)};
+$("#sbtn").onclick=()=>{openDr("Search",`<form id="sf2" style="padding:0"><label>Search artworks<input id="sq2" placeholder="Type to discover your style"></label><button class="btn" type="submit">Search</button></form>`);$("#sf2").onsubmit=e=>{e.preventDefault();const q=$("#sq2").value;closeDr();doSearch(q)}};
+$("#bento").innerHTML=BENTO.map(([n,k,c],i)=>`<button class="bt s${i+1} rv" data-${k}="${n}"><img loading="lazy" src="images/${c}" alt="${n}" onerror="fb(this)"><span>${n}</span></button>`).join("");
+let cart=[];try{cart=JSON.parse(localStorage.getItem("cv")||"[]")}catch(e){}
+const saveC=()=>{try{localStorage.setItem("cv",JSON.stringify(cart))}catch(e){}};
+function addCart(p,z){cart.push({n:p.name,z:z[0],pr:z[1],im:p.images[0]});saveC();drawC()}
+function drawC(){$("#cc").textContent=cart.length;$("#cc").style.display=cart.length?"grid":"none";
+ const tot=cart.reduce((a,x)=>a+x.pr,0);
+ $("#ci2").innerHTML=cart.length?cart.map((x,k)=>`<div class="ci"><img src="${x.im}" alt="${x.n}" onerror="fb(this)"><div>${x.n}<small>${x.z} inches</small>${money(x.pr)}</div><button data-r="${k}">Remove</button></div>`).join(""):"<p style='color:var(--gr);padding:20px 0'>Your cart is empty.</p>";
+ $("#cf2").innerHTML=cart.length?`<p><span>Total</span><span>${money(tot)}</span></p><a class="btn" style="display:block;text-align:center" target="_blank" rel="noopener" href="${wa("Hi, I want to order from CraftVeda:\n"+cart.map(x=>`- ${x.n}, ${x.z} inches, ${money(x.pr)}`).join("\n")+"\nTotal: "+money(tot)+who())}">Order on WhatsApp</a>`:""}
+$("#cbtn").onclick=()=>$("#cart").classList.add("open");
+$("#cx").onclick=()=>$("#cart").classList.remove("open");
+$("#ci2").onclick=e=>{const r=e.target.dataset.r;if(r!==undefined){cart.splice(+r,1);saveC();drawC()}};
+drawC();
+function parseCSV(t){const r=[];let row=[],c="",q=false;for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=ch}else if(ch=='"')q=true;else if(ch==","){row.push(c);c=""}else if(ch=="\n"){row.push(c);r.push(row);row=[];c=""}else if(ch!="\r")c+=ch}if(c||row.length){row.push(c);r.push(row)}return r}
+function imgPath(v){return !v?"":/^https?:/i.test(v)?v:"images/"+v}
+function fromSheet(csv){const [h,...rows]=parseCSV(csv);const H=h.map(x=>x.trim().toLowerCase());
+ return rows.filter(r=>(r[H.indexOf("name")]||"").trim()&&((r[H.indexOf("show")]||"yes").trim().toLowerCase()!=="no")).map(r=>{
+  const g=n=>(r[H.indexOf(n)]||"").trim(),cat=g("category"),base=CATALOG[cat]||{};
+  const sz=g("sizes").split("|").map(x=>x.split(":")).filter(x=>x[1]).map(x=>[x[0].trim().replace(/[*X]/g,"x"),+x[1].replace(/[^\d]/g,"")]);
+  return{name:g("name"),category:cat,theme:g("theme"),shape:g("shape")||base.shape||"",sizes:sz.length?sz:(base.sizes||[["24x36",0]]),features:g("details")||base.features||"",desc:g("description"),images:[g("image1"),g("image2"),g("image3")].filter(Boolean).map(imgPath),featured:/^y/i.test(g("featured")),isNew:/^y/i.test(g("new"))}})}
+function drawHome(){
+ [["gtx","Textured Art","textured"],["gab","Abstract Art","abstract"],["gvs","Vastu","vastu"],["gnt","Nature","nature"],["gr","Religious"],["gc","Custom Art"]].forEach(([g,c,sec])=>{
+  const has=PRODUCTS.some(p=>p.category===c);$("#"+g).innerHTML=list(p=>p.category===c,4);
+  if(sec)$("#"+sec).hidden=!has;else $("#"+g).hidden=!has})}
+let sheetReady=!SHEET_URL;
+async function loadSheet(){if(!SHEET_URL)return;
+ try{const r=await fetch(SHEET_URL+(SHEET_URL.includes("?")?"&":"?")+"t="+Date.now());const t=await r.text();const l=fromSheet(t);
+  if(l.length){PRODUCTS.length=0;PRODUCTS.push(...l);try{localStorage.setItem("cvsheet",t)}catch(e){}}}catch(e){}
+ sheetReady=true;drawHome();drawW();route()}
+drawHome();
+const enc=encodeURIComponent,dec=decodeURIComponent;
+const goP=i=>{location.hash="#/p/"+enc(PRODUCTS[i].name)};
+const ICONS={
+ ig:`<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>`,
+ fb:`<svg viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8h2.7l.5-3.2h-3.2V8.8c0-.9.4-1.7 1.8-1.7h1.5V4.3S15.1 4 13.9 4C11.4 4 9.8 5.5 9.8 8.3v2.5H7v3.2h2.8v8z"/></svg>`,
+ in:`<svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 9h3.7v11.5H4.5zM6.3 3.5a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2zM10.5 9h3.5v1.6c.5-.9 1.7-1.9 3.6-1.9 3.8 0 4.500 2.5 4.500 5.700v6.100h-3.700v-5.400c0-1.300 0-3-1.800-3s-2.100 1.400-2.100 2.900v5.500h-3.700z"/></svg>`,
+ wa:`<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-3.6-.9-3-1.3-4.9-4.4-5.1-4.6-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.2c.1.2.1.4 0 .5l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.6z"/></svg>`,
+ mail:`<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>`};
+$("#soc").innerHTML=[["Instagram","ig"],["LinkedIn","in"],["Facebook","fb"]].map(([n,k])=>`<a class="sc ${k}" href="${SOCIAL[n]}" target="_blank" rel="noopener" aria-label="${n}" title="${n}">${ICONS[k]}</a>`).join("");
+
+/* art visuals (shown until you add real photos) */
+const easel=(x,w,h,c1,c2)=>`<path d='M${x+w*.2} 520 L${x+w*.38} ${480-h} M${x+w*.8} 520 L${x+w*.62} ${480-h} M${x+w/2} ${480-h} V540' stroke='#8a6a4a' stroke-width='9' stroke-linecap='round'/><rect x='${x}' y='${480-h}' width='${w}' height='${h}' fill='${c1}'/><path d='M${x} ${480-h*.45} Q${x+w*.3} ${480-h*.8} ${x+w*.55} ${480-h*.45} T${x+w} ${480-h*.5} V480 H${x}Z' fill='${c2}'/>`;
+const ART1="data:image/svg+xml,"+encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 480'><defs><linearGradient id='b' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#1B3A5C'/><stop offset='1' stop-color='#0F2740'/></linearGradient><linearGradient id='c' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#F6F1EA'/><stop offset='1' stop-color='#DCD3C6'/></linearGradient></defs><rect width='640' height='480' fill='url(#b)'/><circle cx='500' cy='110' r='170' fill='#B5654A' opacity='.14'/><path d='M250 440 L300 130 M440 440 L390 130 M345 130 V450' stroke='#C9B79C' stroke-width='9' stroke-linecap='round'/><rect x='212' y='122' width='290' height='220' fill='#000' opacity='.28'/><rect x='200' y='110' width='290' height='220' fill='url(#c)'/><path d='M200 250 Q270 170 345 235 T490 200 V330 H200Z' fill='#CBBFAE'/><path d='M200 280 Q280 215 350 270 T490 245 V330 H200Z' fill='#B5654A' opacity='.9'/><path d='M200 305 Q290 255 360 300 T490 285 V330 H200Z' fill='#0F2740' opacity='.85'/><circle cx='400' cy='170' r='34' fill='#fff' opacity='.75'/><rect x='200' y='330' width='290' height='12' fill='#C9B79C'/></svg>`);
+const ART2="data:image/svg+xml,"+encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 560' preserveAspectRatio='xMidYMid slice'><defs><radialGradient id='l' cx='.5' cy='.1' r='.9'><stop offset='0' stop-color='#3D6A8F'/><stop offset='.55' stop-color='#14304D'/><stop offset='1' stop-color='#08121E'/></radialGradient></defs><rect width='1600' height='560' fill='url(#l)'/><rect y='520' width='1600' height='40' fill='#0a1624'/>${easel(180,300,250,'#E9E1D3','#B5654A')}${easel(650,300,310,'#D8C7AE','#0F2740')}${easel(1120,300,250,'#EFE8DC','#6E7F91')}</svg>`);
+$("#sph").innerHTML=`<img src="images/studio.jpg" alt="CraftVeda studio and artwork in progress" onerror="this.onerror=null;this.src=ART1">`;
+$("#tbimg").innerHTML=`<img src="images/trust-banner.jpg" alt="CraftVeda studio" onerror="this.onerror=null;this.src=ART2">`;
+$("#tbw").href=wa("Hi, I would like to discuss an artwork.");
+
+/* pages */
+const viewEl=$("#view"),homeEl=$("#top");
+const crumb=(...a)=>`<div class="crumb"><a href="#top">Home</a>${a.map(([t,h])=>`<span>&rsaquo;</span>${h?`<a href="${h}">${t}</a>`:`<em>${t}</em>`}`).join("")}</div>`;
+function catPage(title,f,cr){
+ const st={cols:4,sort:"f",price:"all",shape:"all"};
+ const shapes=[...new Set(PRODUCTS.map(p=>p.shape))];
+ viewEl.innerHTML=`<div class="wrap pg">${cr}<h1 class="pt">${title}</h1>
+ <div class="tbar"><button class="flt" id="ft"><svg viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>Filter</button>
+ <div class="gcols" id="gcs">${[2,3,4].map(n=>`<button data-c="${n}" class="${n==4?"on":""}" aria-label="${n} columns">${"<i></i>".repeat(n)}</button>`).join("")}</div>
+ <select id="srt" aria-label="Sort"><option value="f">Featured</option><option value="l">Price: low to high</option><option value="h">Price: high to low</option></select></div>
+ <div class="fpn" id="fp" hidden><label>Price<select id="fpr"><option value="all">All prices</option><option value="a">Under Rs. 10,000</option><option value="b">Rs. 10,000 to 20,000</option><option value="c">Above Rs. 20,000</option></select></label><label>Shape<select id="fsh"><option value="all">All shapes</option>${shapes.map(x=>`<option>${x}</option>`).join("")}</select></label></div>
+ <div class="cgrid c4" id="cg"></div></div>`;
+ const draw=()=>{let l=PRODUCTS.map((p,i)=>[p,i]).filter(([p])=>f(p));const pr=([p])=>from(p);
+  if(st.shape!=="all")l=l.filter(([p])=>p.shape===st.shape);
+  if(st.price==="a")l=l.filter(x=>pr(x)<10000);if(st.price==="b")l=l.filter(x=>pr(x)>=10000&&pr(x)<=20000);if(st.price==="c")l=l.filter(x=>pr(x)>20000);
+  if(st.sort==="l")l.sort((a,b)=>pr(a)-pr(b));if(st.sort==="h")l.sort((a,b)=>pr(b)-pr(a));
+  $("#cg").className="cgrid c"+st.cols;
+  $("#cg").innerHTML=l.length?l.map(([p,i])=>card(p,i)).join(""):`<p class="empty">No artworks here yet. Message us on WhatsApp to ask what is ready.</p>`;drawW()};
+ $("#ft").onclick=()=>{$("#fp").hidden=!$("#fp").hidden};
+ $("#gcs").onclick=e=>{const b=e.target.closest("button");if(b){st.cols=+b.dataset.c;[...$("#gcs").children].forEach(x=>x.classList.toggle("on",x===b));draw()}};
+ $("#srt").onchange=e=>{st.sort=e.target.value;draw()};
+ $("#fpr").onchange=e=>{st.price=e.target.value;draw()};$("#fsh").onchange=e=>{st.shape=e.target.value;draw()};
+ draw()}
+const SZL2=["24x24","30x30","36x36","42x42","48x48","20x30","24x36","28x42","32x48","36x54","18x36","24x48","30x60","36x72"];
+const accHTML=p=>`<div class="acc"><details><summary>Dimension chart</summary><div><table><tr><th>Inches (w x h)</th><th>CM (w x h)</th></tr>${SZL2.map(z=>{const[w,h]=z.split("x");return `<tr><td>${w} x ${h}</td><td>${(w*2.54).toFixed(1)} x ${(h*2.54).toFixed(1)}</td></tr>`}).join("")}</table></div></details>
+ <details open><summary>Feature and details</summary><div><p>All sizes are in inches (width x height). Price is for the full artwork.</p><p>${p.features}</p><p>Category: ${p.category}. Shape: ${p.shape}. 100% handmade.</p></div></details>
+ <details><summary>Customer preview</summary><p>${PREVIEW_TEXT}</p></details>
+ <details><summary>Return and cancellation</summary><div>${RETURN_TEXT.map(x=>`<p>${x}</p>`).join("")}</div></details>
+ <details><summary>Delivery and shipping</summary><p>${DELIVERY_TEXT}</p></details></div>`;
+function productPage(i){const p=PRODUCTS[i];let sel=0;
+ const rel=PRODUCTS.map((x,k)=>[x,k]).filter(([x])=>x.category===p.category&&x!==p).slice(0,4);
+ const u=enc(location.href),lab=["Room view","Artwork on white","Side view"];
+ viewEl.innerHTML=`<div class="wrap pg">${crumb([p.category,"#/cat/"+enc(p.category)],[p.name])}
+ <div class="pp"><div class="pgal"><div class="thv" id="thv">${p.images.map((s,k)=>`<img src="${s}" data-k="${k}" class="${k?"":"on"}" alt="${p.name} | ${lab[k]}" onerror="fb(this)">`).join("")}</div><div class="mimg"><img id="pbig" src="${p.images[0]}" data-k="0" alt="${p.name}" onerror="fb(this)"></div></div>
+ <div class="pinfo"><h1>${p.name}</h1>
+ <div class="prow"><span class="pprice" id="pp2"></span><span class="shr"><a target="_blank" rel="noopener" aria-label="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=${u}">${ICONS.fb}</a><a aria-label="Share by email" href="mailto:?subject=${enc(p.name)}&body=${u}">${ICONS.mail}</a><a target="_blank" rel="noopener" aria-label="Share on WhatsApp" href="https://wa.me/?text=${enc(p.name+" "+location.href)}">${ICONS.wa}</a></span></div><hr>
+ <div class="slab">Size ( in inches ): <b id="szl"></b></div>
+ <div class="szs" id="pszs">${p.sizes.map((x,k)=>`<button class="${k?"":"on"}" data-k="${k}">${x[0].replace("x","*")}</button>`).join("")}</div>
+ <button class="btn o2 big" id="patc">Add to cart</button><a class="btn n big" id="pbn" target="_blank" rel="noopener" href="#">Buy it now</a>
+ <a class="qbox" id="pqw" target="_blank" rel="noopener" href="#">${ICONS.wa}Any Questions? WhatsApp Us!</a>
+ <div class="tri"><div><svg viewBox="0 0 48 48"><path d="M14 40V18l-4-6 6-2 4 8h6l4-8 6 2-4 6v22z"/></svg>100% handmade</div><div><svg viewBox="0 0 48 48"><circle cx="24" cy="20" r="12"/><path d="M18 20l5 5 8-9M17 31l-3 12 10-5 10 5-3-12"/></svg>Original artwork</div><div><svg viewBox="0 0 48 48"><path d="M6 14l18-8 18 8v22l-18 8-18-8zM6 14l18 8 18-8M24 22v22"/></svg>Safe packaging</div></div>
+ <p class="pdesc">${p.desc}</p>${accHTML(p)}</div></div>
+ ${rel.length?`<h2 class="rh">You may also like</h2><div class="cgrid c4">${rel.map(([x,k])=>card(x,k)).join("")}</div>`:""}</div>`;
+ const upd=()=>{const z=p.sizes[sel];$("#pp2").textContent=money(z[1]);$("#szl").textContent=z[0].replace("x","*");
+  $("#pbn").href=wa(`Hi, I want to buy "${p.name}", size ${z[0]} inches, ${money(z[1])} (CraftVeda).${who()}`);
+  $("#pqw").href=wa(`Hi, I have a question about "${p.name}".`)};upd();
+ $("#pszs").onclick=e=>{const b=e.target.closest("button");if(b){sel=+b.dataset.k;[...$("#pszs").children].forEach(x=>x.classList.toggle("on",x===b));upd()}};
+ $("#patc").onclick=()=>{addCart(p,p.sizes[sel]);$("#cart").classList.add("open")};
+ $("#thv").onclick=e=>{if(e.target.tagName==="IMG"){$("#pbig").src=e.target.src;[...$("#thv").children].forEach(x=>x.classList.toggle("on",x===e.target))}};
+ drawW()}
+function route(){
+ const h=location.hash;
+ if(h.slice(0,2)!=="#/"){viewEl.hidden=true;homeEl.hidden=false;const el=h.length>1&&document.getElementById(h.slice(1));el?el.scrollIntoView():scrollTo(0,0);return}
+ const [,k,...r]=h.split("/"),a=dec(r.join("/"));
+ homeEl.hidden=true;viewEl.hidden=false;scrollTo(0,0);
+ if(k==="p"){const i=PRODUCTS.findIndex(p=>p.name===a);if(i<0){if(!sheetReady)return;location.hash="#top";return}productPage(i)}
+ else if(k==="cat")catPage(esc(a),p=>p.category===a,crumb([esc(a)]));
+ else if(k==="th")catPage(esc(a),p=>p.theme===a,crumb([esc(a)]));
+ else if(k==="new")catPage("New arrivals",p=>p.isNew,crumb(["New arrivals"]));
+ else if(k==="fav")catPage("Favourite artworks",p=>p.featured,crumb(["Favourite artworks"]));
+ else if(k==="search"){const q=a.toLowerCase();catPage("Results for "+esc(a),p=>[p.name,p.category,p.theme,p.shape].join(" ").toLowerCase().includes(q),crumb(["Search"]))}
+ else location.hash="#top"}
+addEventListener("hashchange",route);route();loadSheet();
+(()=>{const h=document.querySelector("body>header");let ly=scrollY;
+ addEventListener("scroll",()=>{const y=scrollY;if(y<120||y<ly-4)h.classList.remove("hide");else if(y>ly+4)h.classList.add("hide");ly=y},{passive:true})})();
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

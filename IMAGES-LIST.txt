@@ -1,0 +1,67 @@
+CRAFTVEDA - IMAGE LIST
+Put all photos in this images folder. Small letters and .jpg exactly as written. Names are case sensitive.
+Keep each photo around 300 to 500 KB.
+
+1) ARTWORK PHOTOS (3 per artwork)
+
+Textured Art:
+  tx-01.jpg = room mockup (image1)
+  tx-01-white.jpg = artwork on white background (image2)
+  tx-01-side.jpg = side view (image3)
+  next artwork: tx-02 ... any number you like. Write the same names in the Google Sheet.
+
+Abstract Art:
+  ab-01.jpg = room mockup (image1)
+  ab-01-white.jpg = artwork on white background (image2)
+  ab-01-side.jpg = side view (image3)
+  next artwork: ab-02 ... any number you like. Write the same names in the Google Sheet.
+
+Vastu:
+  vs-01.jpg = room mockup (image1)
+  vs-01-white.jpg = artwork on white background (image2)
+  vs-01-side.jpg = side view (image3)
+  next artwork: vs-02 ... any number you like. Write the same names in the Google Sheet.
+
+Nature:
+  nt-01.jpg = room mockup (image1)
+  nt-01-white.jpg = artwork on white background (image2)
+  nt-01-side.jpg = side view (image3)
+  next artwork: nt-02 ... any number you like. Write the same names in the Google Sheet.
+
+Religious:
+  rl-01.jpg = room mockup (image1)
+  rl-01-white.jpg = artwork on white background (image2)
+  rl-01-side.jpg = side view (image3)
+  next artwork: rl-02 ... any number you like. Write the same names in the Google Sheet.
+
+Custom Art:
+  ca-01.jpg = room mockup (image1)
+  ca-01-white.jpg = artwork on white background (image2)
+  ca-01-side.jpg = side view (image3)
+  next artwork: ca-02 ... any number you like. Write the same names in the Google Sheet.
+
+2) HOME COLLAGE TILES (about 800 x 1000)
+  tile-textured.jpg
+  tile-charcoal.jpg
+  tile-abstract.jpg
+  tile-nature.jpg
+  tile-pencil.jpg
+  tile-custom.jpg
+  tile-religious.jpg
+  tile-vastu.jpg
+
+3) RELIGIOUS AND CUSTOM ART TILES (square)
+  cover-ganesha.jpg
+  cover-shiva.jpg
+  cover-krishna.jpg
+  cover-hanuman.jpg
+  cover-buddha.jpg
+  cover-pencil.jpg
+  cover-charcoal.jpg
+  cover-charcoalp.jpg
+  cover-abstract.jpg
+  cover-portrait.jpg
+
+4) STUDIO
+  studio.jpg (workspace or work in progress, no face needed)
+  trust-banner.jpg (wide, about 1600 x 560)

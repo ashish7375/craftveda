@@ -1,0 +1,38 @@
+CRAFTVEDA ADMIN - SIMPLE GUIDE
+
+WHAT YOU GET
+  yoursite/admin/   = admin panel (Dashboard, Add artwork, Edit, Publish/Unpublish, Delete, Search, Filter)
+  products.json     = your artwork "database" (stored in your GitHub repository)
+  images/           = photos uploaded by the admin panel (auto resized to 1080 x 1350)
+
+ONE-TIME SETUP (10 minutes)
+  1. Upload everything in this folder to your GitHub repository (index.html, products.json, admin folder, images folder).
+  2. Your website host (Cloudflare Pages connected to this repository) redeploys automatically after every change.
+  3. Make an access token:
+     GitHub > profile picture > Settings > Developer settings > Personal access tokens > Fine-grained tokens > Generate new token
+     - Repository access: Only select repositories > your craftveda repository
+     - Repository permissions > Contents: Read and write
+     - Generate token and copy it (you only see it once, keep it safe)
+  4. Open  https://YOUR-SITE/admin/   and sign in with:
+     Repository = your-username/your-repository   Branch = main   Token = the token you copied
+
+DAILY USE
+  Add artwork: + Add artwork > fill details > add 3 photos > Publish > Save
+  Edit / change price / replace a photo: Artworks > Edit
+  Hide an artwork: Unpublish (it becomes Draft)     Remove: Delete
+  After saving, the website updates in about 1 to 2 minutes.
+
+PHOTOS
+  1) room / mockup image  -> cropped to fill the card (1080 x 1350)
+  2) main artwork image   -> fitted on a white background
+  3) side view image      -> fitted on a white background
+
+SAFETY
+  - Admin page is public but does nothing without your token.
+  - The token is saved only in the browser you signed in with. Do not sign in on shared computers. Use Log out.
+  - Use a token limited to this one repository. If it leaks, delete it in GitHub and make a new one.
+  - Every save is a GitHub commit, so you can always see history and undo from GitHub.
+
+LIMITS TO KNOW
+  - This is not PostgreSQL. Data is a JSON file in GitHub (free, simple, with history).
+  - One person editing at a time is best.

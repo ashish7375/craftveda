@@ -1,0 +1,48 @@
+CRAFTVEDA - FILES, ADMIN AND LOGIN GUIDE
+
+0) FOLDER STRUCTURE IN YOUR GITHUB REPOSITORY (very important)
+   index.html          <- the PUBLIC WEBSITE (visitors see this at https://craftveda.pages.dev/)
+   products.json
+   images/             (photos)
+   admin/index.html    <- the ADMIN PANEL (only you open https://craftveda.pages.dev/admin/)
+   functions/api/gh/[[path]].js   <- only needed for email OTP login (see section 2)
+   If the home link shows the admin login, the admin file was uploaded as the main index.html.
+   Fix: upload the website index.html to the repository root, and the admin file into the admin folder.
+
+1) LOGIN OPTION A - GITHUB TOKEN (works immediately, nothing else needed)
+   Repository field must be  username/repository  (example: ashish7375/craftveda), NOT just your name.
+   Token: GitHub > Settings > Developer settings > Personal access tokens > Fine-grained tokens > Generate new token
+     Repository access: Only select repositories > craftveda
+     Repository permissions > Contents: Read and write
+
+2) LOGIN OPTION B - EMAIL + OTP (Cloudflare Access, free for up to 50 users)
+   You sign in with your email, Cloudflare mails you a one-time code, then admin opens. No token to type.
+   Step 1  Make a GitHub token as in option A (it will be stored as a secret on Cloudflare, not in the browser).
+   Step 2  Cloudflare dashboard > Zero Trust > choose a team name (example: craftveda). Free plan.
+           Settings > Authentication > Login methods > make sure "One-time PIN" is on.
+   Step 3  Zero Trust > Access > Applications > Add an application > Self-hosted.
+           Domain: craftveda.pages.dev   Path: admin     (add a second destination: path  api/gh )
+           Policy: Allow > Emails > your email (craftvedaa@gmail.com). Save.
+           Open the application and copy the "Application Audience (AUD) Tag".
+   Step 4  Workers & Pages > your craftveda project > Settings > Variables and secrets (Production). Add:
+             GH_TOKEN        = your GitHub token   (Secret)
+             GH_REPO         = username/repository  (example: ashish7375/craftveda)
+             GH_BRANCH       = main
+             ADMIN_EMAILS    = craftvedaa@gmail.com
+             CF_ACCESS_TEAM  = your team name (the part before .cloudflareaccess.com)
+             CF_ACCESS_AUD   = the AUD tag from Step 3
+   Step 5  Redeploy the project (push any change or press Retry deployment).
+   Step 6  Open https://craftveda.pages.dev/admin/  > enter email > enter the code from your inbox (check Spam)
+           > the admin opens directly. Log out uses Cloudflare logout.
+   Cloudflare menu names change sometimes. If a name differs, send me a screenshot.
+   If the proxy is not set up, the admin automatically shows the token login (option A).
+
+3) DAILY USE
+   + Add artwork > details > 3 photos > Publish > Save. Website updates in 1 to 2 minutes.
+   Edit / change price / replace photo: Artworks > Edit.   Hide: Unpublish.   Remove: Delete.
+   Photos are resized to 1080 x 1350 automatically.
+
+4) SAFETY
+   - Keep the GitHub token secret. If it leaks: delete it in GitHub and create a new one.
+   - Option B keeps the token on Cloudflare, so it never sits in your browser.
+   - Every save is a GitHub commit, so you can see history and undo from GitHub.

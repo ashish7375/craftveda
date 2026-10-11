@@ -63,18 +63,10 @@ h2{margin-bottom:16px}h3{margin:26px 0 12px;font-size:16px}
 
 <div id="login" class="login">
  <h1>CraftVeda Admin</h1>
- <p>Sign in with your GitHub repository and access token. They stay only in this browser.</p>
- <form id="lf">
-  <label>Repository (username/repository)<input id="lr" placeholder="example: ashish7375/craftveda" required></label>
-  <label>Branch<input id="lb" value="main"></label>
-  <label>Access token<input id="lt" type="password" required autocomplete="off"></label>
-  <details><summary>How to get the token (2 minutes)</summary><ol>
-   <li>GitHub > your profile picture > Settings > Developer settings > Personal access tokens > Fine-grained tokens > Generate new token.</li>
-   <li>Repository access: Only select repositories > choose your craftveda repository.</li>
-   <li>Permissions > Repository permissions > Contents: Read and write.</li>
-   <li>Generate and copy the token. Paste it here.</li></ol></details>
-  <button class="btn" type="submit">Sign in</button>
- </form>
+ <p>Sign in securely using your authorized email address and a one-time code.</p>
+ <p id="login-status" role="status">Checking secure email sign-in…</p>
+ <button class="btn" id="retry-login" type="button">Try again</button>
+ <p class="note" style="margin-top:14px">Only the authorized admin email can access this dashboard. If you are not redirected to email verification, the Cloudflare Access setup needs to be completed.</p>
 </div>
 
 <div id="app" hidden>
@@ -93,14 +85,13 @@ const $=s=>document.querySelector(s);
 const money=n=>"Rs. "+Number(n).toLocaleString("en-IN");
 const esc=t=>String(t==null?"":t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const slug=t=>t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40)||"art";
-let cfg=null,data={items:[]},sha=null,view="dash",Q="",FC="",FS="",tt;
-try{cfg=JSON.parse(localStorage.getItem("cvadmin")||"null")}catch(e){}
+let cfg={proxy:true,branch:"main"},data={items:[]},sha=null,view="dash",Q="",FC="",FS="",tt;
 
 function toast(m,err){const t=$("#toast");t.textContent=m;t.className=err?"err":"";t.hidden=false;clearTimeout(tt);if(m)tt=setTimeout(()=>t.hidden=true,err?6000:3500)}
 const busy=m=>{const t=$("#toast");t.textContent=m;t.className="";t.hidden=false;clearTimeout(tt)};
 
 /* ---------- GitHub API ---------- */
-const gh=(path,o={})=>fetch((cfg.proxy?"/api/gh/":`https://api.github.com/repos/${cfg.repo}/contents/`)+path+(o.q||""),{method:o.method||"GET",headers:cfg.proxy?{"Content-Type":"application/json"}:{Authorization:"Bearer "+cfg.token,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"},body:o.body?JSON.stringify(o.body):undefined});
+const gh=(path,o={})=>fetch("/api/gh/"+path+(o.q||""),{method:o.method||"GET",headers:{"Content-Type":"application/json"},body:o.body?JSON.stringify(o.body):undefined});
 const enc64=s=>{let r="";new TextEncoder().encode(s).forEach(c=>r+=String.fromCharCode(c));return btoa(r)};
 const dec64=b=>new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g,"")),c=>c.charCodeAt(0)));
 async function load(){
@@ -121,20 +112,39 @@ async function delImage(p){try{const g=await gh(p,{q:"?ref="+cfg.branch});if(!g.
 function toJpeg(file,fit){return new Promise((ok,no)=>{const im=new Image();im.onload=()=>{const W=1080,H=1350,c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,W,H);
  const k=fit==="cover"?Math.max(W/im.width,H/im.height):Math.min(W/im.width,H/im.height),w=im.width*k,h=im.height*k;x.drawImage(im,(W-w)/2,(H-h)/2,w,h);ok(c.toDataURL("image/jpeg",.85).split(",")[1])};im.onerror=()=>no(new Error("That file is not an image"));im.src=URL.createObjectURL(file)})}
 
-/* ---------- login ---------- */
-const errMsg=x=>x instanceof TypeError?"Could not reach GitHub. Check your internet, turn off VPN or ad blocker for this site, then try again.":x.message;
-$("#lf").onsubmit=async e=>{e.preventDefault();
- const repo=$("#lr").value.trim().replace(/^https?:\/\/github\.com\//i,"").replace(/\.git$/,"").replace(/\/+$/,"");
- if(!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repo))return toast("Repository must look like username/repository, for example ashish7375/craftveda",1);
- cfg={repo,branch:$("#lb").value.trim()||"main",token:$("#lt").value.replace(/\s/g,"")};
- try{busy("Signing in...");await load();localStorage.setItem("cvadmin",JSON.stringify(cfg));toast("");start()}catch(x){toast(errMsg(x),1)}};
-$("#out").onclick=()=>{if(cfg&&cfg.proxy){location.href="/cdn-cgi/access/logout";return}localStorage.removeItem("cvadmin");location.reload()};
-function start(){$("#login").hidden=true;$("#app").hidden=false;view="dash";render()}
-(async()=>{let r=null;try{r=await fetch("/api/gh/products.json?t="+Date.now())}catch(e){}
- if(r&&r.headers.get("x-cv-proxy")){
-  if(r.status===401||r.status===403){$("#login").innerHTML="<h1>Access denied</h1><p>This email is not allowed to use the admin panel.</p>";return}
-  cfg={proxy:true,branch:"main"};try{await load();start()}catch(x){toast(errMsg(x),1)}return}
- if(cfg&&cfg.token){$("#lr").value=cfg.repo;try{await load();start()}catch(x){toast(errMsg(x),1)}}})();
+/* ---------- email OTP / Cloudflare Access ---------- */
+const errMsg=x=>x instanceof TypeError?"Could not reach CraftVeda. Check your internet connection and try again.":x.message;
+async function checkEmailAccess(){
+ const status=$("#login-status");
+ status.textContent="Checking secure email sign-in…";
+ try {
+  const r=await fetch("/api/gh/products.json?t="+Date.now(),{cache:"no-store"});
+  if(!r.headers.get("x-cv-proxy")){
+   status.textContent="Email OTP sign-in is not connected yet. Configure Cloudflare Access for this admin page and the /api/gh/* endpoint, then reload.";
+   return;
+  }
+  if(r.status===401){
+   status.textContent="Please sign in through Cloudflare Access using the authorized email address. If no email OTP screen appears, protect /admin-index.html with Cloudflare Access.";
+   return;
+  }
+  if(r.status===403){
+   status.textContent="This email is not authorized. Use craftvedaa@gmail.com for admin access.";
+   return;
+  }
+  if(!r.ok){
+   let detail="";
+   try{const j=await r.json();detail=j.message||""}catch(e){}
+   status.textContent=detail||("Admin service error ("+r.status+"). Check the Cloudflare Pages environment variables.");
+   return;
+  }
+  await load();
+  status.textContent="";
+  start();
+ } catch(x){status.textContent=errMsg(x)}
+}
+$("#retry-login").onclick=checkEmailAccess;
+$("#out").onclick=()=>{location.href="/cdn-cgi/access/logout"};
+checkEmailAccess();
 
 /* ---------- views ---------- */
 document.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>{view=b.dataset.v;render()});

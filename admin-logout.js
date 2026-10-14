@@ -1,0 +1,2 @@
+export async function onRequestPost(){return new Response(JSON.stringify({ok:true}),{status:200,headers:{"content-type":"application/json","cache-control":"no-store","Set-Cookie":"cv_admin_session=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0"}})}
+export async function onRequest(){return new Response(JSON.stringify({message:"Method not allowed."}),{status:405,headers:{"content-type":"application/json","cache-control":"no-store"}})}

@@ -63,10 +63,13 @@ h2{margin-bottom:16px}h3{margin:26px 0 12px;font-size:16px}
 
 <div id="login" class="login">
  <h1>CraftVeda Admin</h1>
- <p>Sign in securely using your authorized email address and a one-time code.</p>
- <p id="login-status" role="status">Checking secure email sign-in…</p>
- <button class="btn" id="retry-login" type="button">Try again</button>
- <p class="note" style="margin-top:14px">Only the authorized admin email can access this dashboard. If you are not redirected to email verification, the Cloudflare Access setup needs to be completed.</p>
+ <p>Enter your admin password to continue.</p>
+ <form id="login-form">
+  <label for="admin-password">Admin password</label>
+  <input id="admin-password" type="password" autocomplete="current-password" required style="width:100%;margin:8px 0 12px;padding:12px;border:1px solid var(--ln);border-radius:4px">
+  <button class="btn" id="login-submit" type="submit">Log in</button>
+ </form>
+ <p id="login-status" role="status" aria-live="polite"></p>
 </div>
 
 <div id="app" hidden>
@@ -112,39 +115,28 @@ async function delImage(p){try{const g=await gh(p,{q:"?ref="+cfg.branch});if(!g.
 function toJpeg(file,fit){return new Promise((ok,no)=>{const im=new Image();im.onload=()=>{const W=1080,H=1350,c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,W,H);
  const k=fit==="cover"?Math.max(W/im.width,H/im.height):Math.min(W/im.width,H/im.height),w=im.width*k,h=im.height*k;x.drawImage(im,(W-w)/2,(H-h)/2,w,h);ok(c.toDataURL("image/jpeg",.85).split(",")[1])};im.onerror=()=>no(new Error("That file is not an image"));im.src=URL.createObjectURL(file)})}
 
-/* ---------- email OTP / Cloudflare Access ---------- */
+/* ---------- Password login ---------- */
 const errMsg=x=>x instanceof TypeError?"Could not reach CraftVeda. Check your internet connection and try again.":x.message;
-async function checkEmailAccess(){
+async function checkSession(){
  const status=$("#login-status");
- status.textContent="Checking secure email sign-in…";
  try {
   const r=await fetch("/api/gh/products.json?t="+Date.now(),{cache:"no-store"});
-  if(!r.headers.get("x-cv-proxy")){
-   status.textContent="Email OTP sign-in is not connected yet. Configure Cloudflare Access for this admin page and the /api/gh/* endpoint, then reload.";
-   return;
-  }
-  if(r.status===401){
-   status.textContent="Please sign in through Cloudflare Access using the authorized email address. If no email OTP screen appears, protect /admin-index.html with Cloudflare Access.";
-   return;
-  }
-  if(r.status===403){
-   status.textContent="This email is not authorized. Use craftvedaa@gmail.com for admin access.";
-   return;
-  }
-  if(!r.ok){
-   let detail="";
-   try{const j=await r.json();detail=j.message||""}catch(e){}
-   status.textContent=detail||("Admin service error ("+r.status+"). Check the Cloudflare Pages environment variables.");
-   return;
-  }
-  await load();
-  status.textContent="";
-  start();
- } catch(x){status.textContent=errMsg(x)}
+  if(r.status===401){$("#login").hidden=false;$("#app").hidden=true;return}
+  if(!r.ok){let j={};try{j=await r.json()}catch(e){};status.textContent=j.message||("Admin service error ("+r.status+"). Check Cloudflare environment variables.");return}
+  await load();$("#login").hidden=true;$("#app").hidden=false;start();
+ }catch(x){status.textContent=errMsg(x)}
 }
-$("#retry-login").onclick=checkEmailAccess;
-$("#out").onclick=()=>{location.href="/cdn-cgi/access/logout"};
-checkEmailAccess();
+$("#login-form").addEventListener("submit",async e=>{
+ e.preventDefault();const status=$("#login-status"),btn=$("#login-submit");btn.disabled=true;status.textContent="Checking password…";
+ try{
+  const r=await fetch("/api/admin-login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({password:$("#admin-password").value})});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok){status.textContent=j.message||"Login failed. Check your password.";return}
+  $("#admin-password").value="";status.textContent="Login successful.";await checkSession();
+ }catch(x){status.textContent=errMsg(x)}finally{btn.disabled=false}
+});
+$("#out").onclick=async()=>{try{await fetch("/api/admin-logout",{method:"POST"})}finally{location.reload()}};
+checkSession();
 
 /* ---------- views ---------- */
 document.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>{view=b.dataset.v;render()});

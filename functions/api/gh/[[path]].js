@@ -10,7 +10,7 @@ async function session(request, env){
   const k=await key(env.SESSION_SECRET); if(!await crypto.subtle.verify("HMAC",k,dec(sig),new TextEncoder().encode(payload)))return false;
   const p=JSON.parse(new TextDecoder().decode(dec(payload))); return p.exp>Date.now() && p.v===1;
  } catch { return false; }
- 
+  
 }
 export async function onRequest({request,env,params}){
  if(!env.GH_TOKEN||!env.GH_REPO||!env.ADMIN_PASSWORD||!env.SESSION_SECRET||env.SESSION_SECRET.length<32) return out(500,{message:"Admin is not configured yet. Check GH_TOKEN, GH_REPO, ADMIN_PASSWORD and SESSION_SECRET."});

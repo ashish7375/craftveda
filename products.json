@@ -171,6 +171,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-17T20:58:39.623Z"
+  },
+  {
+   "id": "mvcw3xbf",
+   "name": "Desert Horizon Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24x16 inch",
+     12500
+    ],
+    [
+     "36x24 inch",
+     13250
+    ],
+    [
+     "48x32 inch",
+     14000
+    ]
+   ],
+   "desc": "An earthy abstract landscape\nInspired by open desert horizons, this artwork combines sandy neutrals, terracotta shades, and muted charcoal mountain forms. Its layered, expressive surface creates a warm and grounded atmosphere that complements natural materials and understated interiors.",
+   "images": [
+    "images/desert-horizon-textured-art-1-mvcw3qlc.jpg",
+    "images/desert-horizon-textured-art-2-mvcw3t6q.jpg",
+    "images/desert-horizon-textured-art-3-mvcw3vk9.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-17T21:09:47.499Z"
   }
  ]
 }

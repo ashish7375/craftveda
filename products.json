@@ -21,6 +21,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-15T18:53:39.563Z"
+  },
+  {
+   "id": "mvcum9bb",
+   "name": "Himalayan Sunset Textured Art",
+   "category": "Religious",
+   "theme": "Shiva",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24x16 inch",
+     12750
+    ],
+    [
+     "36x24 inch",
+     13500
+    ],
+    [
+     "48x32 inch",
+     14250
+    ]
+   ],
+   "desc": "A peaceful mountain landscape\nCapture the beauty of a Himalayan sunset with dramatic mountain peaks, glowing orange skies, and shimmering lake reflections. Rich, expressive brushwork adds depth and warmth, creating a serene focal point for your living room or meditation space.",
+   "images": [
+    "images/himalayan-sunset-textured-art-1-mvcum37v.jpg",
+    "images/himalayan-sunset-textured-art-2-mvcum5f0.jpg",
+    "images/himalayan-sunset-textured-art-3-mvcum7hx.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-17T20:28:03.624Z"
   }
  ]
 }

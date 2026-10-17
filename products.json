@@ -117,18 +117,18 @@
    "name": "Coastal Flow Textured Art",
    "category": "Textured Art",
    "theme": "",
-   "shape": "Horizontal",
+   "shape": "Vertical",
    "sizes": [
     [
-     "24x16 inch",
+     "16x24 inch",
      12250
     ],
     [
-     "36x24 inch",
+     "24x36 inch",
      13000
     ],
     [
-     "48x32 inch",
+     "32x48 inch",
      13750
     ]
    ],

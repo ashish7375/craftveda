@@ -51,6 +51,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-17T20:28:03.624Z"
+  },
+  {
+   "id": "mvcvds81",
+   "name": "Ram Sita Watercolor Art",
+   "category": "Religious",
+   "theme": "Radha Krishna",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24x16 inch",
+     9750
+    ],
+    [
+     "36x24 inch",
+     10500
+    ],
+    [
+     "48x32 inch",
+     11250
+    ]
+   ],
+   "desc": "A devotional watercolor illustration\nCelebrate the timeless bond of Lord Ram and Goddess Sita through delicate watercolor washes, vibrant accents, and graceful details. The airy white background gives this devotional artwork a light, elegant presence suited to a prayer room or peaceful corner.",
+   "images": [
+    "images/ram-sita-watercolor-art-1-mvcvdlzc.jpg",
+    "images/ram-sita-watercolor-art-2-mvcvdo8o.jpg",
+    "images/ram-sita-watercolor-art-3-mvcvdqbj.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-17T20:49:27.841Z"
   }
  ]
 }

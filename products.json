@@ -8,16 +8,8 @@
    "shape": "Horizontal",
    "sizes": [
     [
-     "24x16",
-     9250
-    ],
-    [
-     "36x24",
-     10000
-    ],
-    [
-     "48x32",
-     11500
+     "36x24 incha",
+     12800
     ]
    ],
    "desc": "",
@@ -38,15 +30,15 @@
    "shape": "Horizontal",
    "sizes": [
     [
-     "24x16",
+     "24x16 inch",
      12750
     ],
     [
-     "36x24",
+     "36x24 inch",
      13500
     ],
     [
-     "48x32",
+     "48x32 inch",
      14250
     ]
    ],
@@ -68,15 +60,15 @@
    "shape": "Horizontal",
    "sizes": [
     [
-     "24x16",
+     "24x16 inch",
      9750
     ],
     [
-     "36x24",
+     "36x24 inch",
      10500
     ],
     [
-     "48x32",
+     "48x32 inch",
      11250
     ]
    ],
@@ -98,15 +90,15 @@
    "shape": "Horizontal",
    "sizes": [
     [
-     "24x16",
+     "24x16 inch",
      13000
     ],
     [
-     "36x24",
+     "36x24 inch",
      13750
     ],
     [
-     "48x32",
+     "48x32 inch",
      14500
     ]
    ],
@@ -128,15 +120,15 @@
    "shape": "Vertical",
    "sizes": [
     [
-     "16x24",
+     "16x24 inch",
      12250
     ],
     [
-     "24x36",
+     "24x36 inch",
      13000
     ],
     [
-     "32x48",
+     "32x48 inch",
      13750
     ]
    ],
@@ -158,15 +150,15 @@
    "shape": "Horizontal",
    "sizes": [
     [
-     "24x16",
+     "24x16 inch",
      11175
     ],
     [
-     "36x24",
+     "36x24 inch",
      12500
     ],
     [
-     "48x32",
+     "48x32  inch",
      13250
     ]
    ],
@@ -188,15 +180,15 @@
    "shape": "Horizontal",
    "sizes": [
     [
-     "24x16",
+     "24x16 inch",
      12500
     ],
     [
-     "36x24",
+     "36x24 inch",
      13250
     ],
     [
-     "48x32",
+     "48x32 inch",
      14000
     ]
    ],
@@ -218,15 +210,15 @@
    "shape": "Horizontal",
    "sizes": [
     [
-     "24x16",
+     "24x16 inch",
      13250
     ],
     [
-     "36x24",
+     "36x24 inch",
      14000
     ],
     [
-     "48x32",
+     "48x32 inch",
      14750
     ]
    ],
@@ -248,15 +240,15 @@
    "shape": "Horizontal",
    "sizes": [
     [
-     "24x16",
+     "24x16 inch",
      12000
     ],
     [
-     "36x24",
+     "36x24 inch",
      12750
     ],
     [
-     "48x32",
+     "48x32 inch",
      13499
     ]
    ],
@@ -278,15 +270,15 @@
    "shape": "Horizontal",
    "sizes": [
     [
-     "24x16",
+     "24x16 inch",
      12750
     ],
     [
-     "36x24",
+     "36x24 inch",
      13500
     ],
     [
-     "48x32",
+     "48x32 inch",
      14250
     ]
    ],
@@ -299,36 +291,6 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-17T21:18:30.867Z"
-  },
-  {
-   "id": "mvcx6h9h",
-   "name": "Ganesha Lotus Art",
-   "category": "Religious",
-   "theme": "Ganesha",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16",
-     9250
-    ],
-    [
-     "36x24",
-     9500
-    ],
-    [
-     "48x32",
-     11250
-    ]
-   ],
-   "desc": "A graceful devotional artwork\nLord Ganesha sits serenely upon a lotus, surrounded by warm terracotta, ochre, and cream tones. Clean shapes and gentle decorative details create a welcoming composition for a home temple, entrance, or meditation area.",
-   "images": [
-    "images/ganesha-lotus-art-1-mvcx69f8.jpg",
-    "images/ganesha-lotus-art-2-mvcx6c6o.jpg",
-    "images/ganesha-lotus-art-3-mvcx6epz.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T21:39:46.278Z"
   }
  ]
 }

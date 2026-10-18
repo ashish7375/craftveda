@@ -1,0 +1,80 @@
+[
+  {
+    "id": "tpl-textured",
+    "name": "Textured Art",
+    "category": "Textured Art",
+    "theme": "",
+    "shape": "Horizontal",
+    "sizes": [
+      ["24*16 inch", 15000],
+      ["36*24 inch", 19000],
+      ["48*32 inch", 25000]
+    ],
+    "desc": "Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours."
+  },
+  {
+    "id": "tpl-abstract",
+    "name": "Abstract Art",
+    "category": "Abstract Art",
+    "theme": "",
+    "shape": "Square",
+    "sizes": [
+      ["24*24 inch", 9000],
+      ["36*36 inch", 12000],
+      ["48*48 inch", 16000]
+    ],
+    "desc": "Hand painted abstract artwork on stretched canvas, finished in acrylic colours."
+  },
+  {
+    "id": "tpl-vastu",
+    "name": "Vastu",
+    "category": "Vastu",
+    "theme": "",
+    "shape": "Horizontal",
+    "sizes": [
+      ["24*16 inch", 10000],
+      ["36*24 inch", 14000],
+      ["48*32 inch", 20000]
+    ],
+    "desc": "Hand painted Vastu artwork on stretched canvas, made with colours and symbols traditionally considered auspicious."
+  },
+  {
+    "id": "tpl-nature",
+    "name": "Nature",
+    "category": "Nature",
+    "theme": "",
+    "shape": "Horizontal",
+    "sizes": [
+      ["24*16 inch", 7000],
+      ["36*24 inch", 9500],
+      ["48*32 inch", 13500]
+    ],
+    "desc": "Hand painted nature artwork on stretched canvas, finished in acrylic colours."
+  },
+  {
+    "id": "tpl-religious",
+    "name": "Religious",
+    "category": "Religious",
+    "theme": "Ganesha",
+    "shape": "Vertical",
+    "sizes": [
+      ["16*24 inch", 8000],
+      ["24*36 inch", 10500],
+      ["32*48 inch", 14500]
+    ],
+    "desc": "Hand painted devotional artwork on stretched canvas, finished in acrylic colours."
+  },
+  {
+    "id": "tpl-custom",
+    "name": "Custom Art",
+    "category": "Custom Art",
+    "theme": "Pencil Sketch",
+    "shape": "Vertical",
+    "sizes": [
+      ["16*24 inch", 4500],
+      ["24*36 inch", 7000],
+      ["32*48 inch", 11000]
+    ],
+    "desc": "Made to order from your idea or photo, by hand, in the medium you choose."
+  }
+]

@@ -1,0 +1,21 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# UX Audit files (internal documentation)
+craftveda-admin-ux-audit-combined.md
+ux audit.md
+UX_AUDIT.md
+change_log.md
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE files
+.vscode/
+.idea/
+draft/
+*.swp

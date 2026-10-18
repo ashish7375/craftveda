@@ -11,7 +11,7 @@
 body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--navy);line-height:1.5}
 [hidden]{display:none!important}
 button,input,select,textarea{font:inherit;color:inherit}
-input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);background:#fff;border-radius:4px}
+input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);background:#fff;border-radius:4px;transition:border-color .2s,background .2s}
 label{display:grid;gap:5px;font-size:13px;font-weight:600;margin-bottom:12px}
 .btn{background:var(--cu);color:#fff;border:0;padding:12px 22px;border-radius:4px;cursor:pointer;font-weight:600}
 .btn:hover{background:var(--navy)}
@@ -46,16 +46,29 @@ h2{margin-bottom:16px}h3{margin:26px 0 12px;font-size:16px}
 #modal{position:fixed;inset:0;background:rgba(10,20,32,.7);z-index:20;display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:20px}
 .box{background:#fff;max-width:720px;width:100%;border-radius:8px;padding:26px;position:relative}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.sr{display:grid;grid-template-columns:1fr 1fr 40px;gap:8px;margin-bottom:8px}
+.sr-wrap{margin-bottom:8px}
+.sr{display:grid;grid-template-columns:1fr 1fr 40px;gap:8px}
 .sr button{border:1px solid var(--ln);background:#fff;border-radius:4px;cursor:pointer}
 .imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 4px}
-.im{font-size:12px}.pv{aspect-ratio:4/5;background:#eee;border-radius:4px;overflow:hidden;display:grid;place-items:center;color:#888;font-weight:400}
+.im{font-size:12px}.pv{aspect-ratio:4/5;background:#eee;border-radius:4px;overflow:hidden;display:grid;place-items:center;color:#888;font-weight:400;transition:border-color .2s,background .2s}
 .pv img{width:100%;height:100%;object-fit:cover}
 .im input{font-size:12px;padding:6px}
 .chk{display:flex;gap:10px;align-items:center;font-weight:500}.chk input{width:auto}
 .fa{display:flex;gap:10px;margin-top:14px}
 #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 20px;border-radius:6px;z-index:30;max-width:92vw}
 #toast.err{background:var(--bad)}
+
+/* Dropdown Menu & Validation styles */
+.dd-btn{position:relative;display:inline-block}
+.dd-menu{position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid var(--ln);border-radius:6px;box-shadow:0 8px 24px rgba(15,39,64,.15);min-width:160px;z-index:20;display:none;flex-direction:column;overflow:hidden}
+.dd-menu.open{display:flex}
+.dd-menu button{background:none;border:0;color:var(--navy)!important;padding:10px 16px!important;text-align:left;font-size:13px;font-weight:600;cursor:pointer;width:100%;border-radius:0!important}
+.dd-menu button:hover{background:var(--bg)!important;color:var(--cu)!important}
+
+.f-err{display:block;font-size:12px;color:var(--bad);margin-top:3px;font-weight:500}
+.is-err{border-color:var(--bad)!important;background:#FFF7F6!important}
+.pv.is-err{border:2px dashed var(--bad)!important;background:#FFF0EF!important}
+
 @media(max-width:640px){.flt,.two,.imgs{grid-template-columns:1fr}.sr{grid-template-columns:1fr 1fr 40px}}
 </style>
 </head>
@@ -74,7 +87,15 @@ h2{margin-bottom:16px}h3{margin:26px 0 12px;font-size:16px}
 
 <div id="app" hidden>
  <div class="bar"><b>CraftVeda Admin</b>
-  <button data-v="dash">Dashboard</button><button data-v="list">Artworks</button><button id="add">+ Add artwork</button><button id="out">Log out</button></div>
+  <button data-v="dash">Dashboard</button><button data-v="list">Artworks</button>
+  <div class="dd-btn" id="add-dd">
+   <button id="add" style="background:var(--cu);color:#fff">+ Add artwork &#9662;</button>
+   <div class="dd-menu" id="add-menu">
+    <button id="add-manual" type="button">Manually</button>
+    <button id="add-csv" type="button">From CSV</button>
+   </div>
+  </div>
+  <button id="out">Log out</button></div>
  <main id="main"></main>
 </div>
 <div id="modal" hidden><div class="box" id="mb"></div></div>
@@ -84,6 +105,25 @@ h2{margin-bottom:16px}h3{margin:26px 0 12px;font-size:16px}
 const CATS=["Textured Art","Abstract Art","Vastu","Nature","Religious","Custom Art"];
 const THEMES={"Religious":["Ganesha","Shiva","Radha Krishna","Hanuman","Buddha"],"Custom Art":["Pencil Sketch","Charcoal Sketch","Charcoal Painting","Abstract Painting","Portrait Sketch"]};
 const SHAPES=["Horizontal","Square","Vertical"];
+
+/* Standard Shape-based Sizes */
+const SHAPE_SIZES={
+ "Horizontal":["24*16 inch","36*24 inch","48*32 inch"],
+ "Vertical":["16*24 inch","24*36 inch","32*48 inch"],
+ "Square":["24*24 inch","36*36 inch","48*48 inch"]
+};
+
+/* Fallback templates derived from CATALOG and Shape Sizing */
+const DEFAULT_TEMPLATES=[
+ {id:"tpl-textured",category:"Textured Art",shape:"Horizontal",sizes:[["24*16 inch",15000],["36*24 inch",19000],["48*32 inch",25000]],desc:"Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours."},
+ {id:"tpl-abstract",category:"Abstract Art",shape:"Square",sizes:[["24*24 inch",9000],["36*36 inch",12000],["48*48 inch",16000]],desc:"Hand painted abstract artwork on stretched canvas, finished in acrylic colours."},
+ {id:"tpl-vastu",category:"Vastu",shape:"Horizontal",sizes:[["24*16 inch",10000],["36*24 inch",14000],["48*32 inch",20000]],desc:"Hand painted Vastu artwork on stretched canvas, made with colours and symbols traditionally considered auspicious."},
+ {id:"tpl-nature",category:"Nature",shape:"Horizontal",sizes:[["24*16 inch",7000],["36*24 inch",9500],["48*32 inch",13500]],desc:"Hand painted nature artwork on stretched canvas, finished in acrylic colours."},
+ {id:"tpl-religious",category:"Religious",shape:"Vertical",sizes:[["16*24 inch",8000],["24*36 inch",10500],["32*48 inch",14500]],desc:"Hand painted devotional artwork on stretched canvas, finished in acrylic colours."},
+ {id:"tpl-custom",category:"Custom Art",shape:"Vertical",sizes:[["16*24 inch",4500],["24*36 inch",7000],["32*48 inch",11000]],desc:"Made to order from your idea or photo, by hand, in the medium you choose."}
+];
+let templates=[...DEFAULT_TEMPLATES];
+
 const $=s=>document.querySelector(s);
 const money=n=>"Rs. "+Number(n).toLocaleString("en-IN");
 const esc=t=>String(t==null?"":t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -102,7 +142,18 @@ async function load(){
  if(r.status===404){data={items:[]};sha=null;return}
  if(r.status===401||r.status===403)throw new Error("Token not accepted. Check the token and its Contents permission.");
  if(!r.ok)throw new Error("GitHub error "+r.status+". Check the repository name and branch.");
- const j=await r.json();sha=j.sha;data=JSON.parse(dec64(j.content));if(!Array.isArray(data.items))data.items=[]}
+ const j=await r.json();sha=j.sha;data=JSON.parse(dec64(j.content));if(!Array.isArray(data.items))data.items=[];
+
+ /* Load templates.json if available via GitHub API or fallback */
+ try{
+  const tr=await gh("templates.json",{q:`?ref=${cfg.branch}&t=${Date.now()}`});
+  if(tr.ok){
+   const tj=await tr.json();
+   const tdata=JSON.parse(dec64(tj.content));
+   if(Array.isArray(tdata)&&tdata.length)templates=tdata;
+  }
+ }catch(e){}
+}
 async function save(msg){
  for(let i=0;i<3;i++){
   const r=await gh("products.json",{method:"PUT",body:{message:msg,content:enc64(JSON.stringify(data,null,1)),branch:cfg.branch,...(sha?{sha}:{})}});
@@ -132,7 +183,7 @@ async function checkSession(){
   const r=await fetch("/api/gh/products.json?t="+Date.now(),{cache:"no-store"});
   if(r.status===401){$("#login").hidden=false;$("#app").hidden=true;return}
   if(!r.ok){let j={};try{j=await r.json()}catch(e){};status.textContent=j.message||("Admin service error ("+r.status+"). Check Cloudflare environment variables.");return}
-  await load();$("#login").hidden=true;$("#app").hidden=false;start();
+  await load();$("#login").hidden=true;$("#app").hidden=false;render();
  }catch(x){status.textContent=errMsg(x)}
 }
 $("#login-form").addEventListener("submit",async e=>{
@@ -149,7 +200,24 @@ checkSession();
 
 /* ---------- views ---------- */
 document.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>{view=b.dataset.v;render()});
-$("#add").onclick=()=>form();
+
+/* Dropdown "+ Add artwork" behavior */
+$("#add").onclick=e=>{
+ e.stopPropagation();
+ $("#add-menu").classList.toggle("open");
+};
+document.addEventListener("click",e=>{
+ if(!e.target.closest("#add-dd"))$("#add-menu").classList.remove("open");
+});
+$("#add-manual").onclick=()=>{
+ $("#add-menu").classList.remove("open");
+ form();
+};
+$("#add-csv").onclick=()=>{
+ $("#add-menu").classList.remove("open");
+ csvModal();
+};
+
 function render(){document.querySelectorAll("[data-v]").forEach(b=>b.classList.toggle("on",b.dataset.v===view));
  if(view==="dash")$("#main").innerHTML=dash();else{$("#main").innerHTML=`<h2>Artworks</h2><div class="flt"><input id="qs" placeholder="Search by name" value="${esc(Q)}"><select id="qc"><option value="">All categories</option>${CATS.map(c=>`<option ${c===FC?"selected":""}>${c}</option>`).join("")}</select><select id="qt"><option value="">All status</option><option value="p" ${FS==="p"?"selected":""}>Published</option><option value="d" ${FS==="d"?"selected":""}>Draft</option></select></div><div id="rows"></div>`;
   $("#qs").oninput=e=>{Q=e.target.value;rows()};$("#qc").onchange=e=>{FC=e.target.value;rows()};$("#qt").onchange=e=>{FS=e.target.value;rows()};rows()}}
@@ -158,50 +226,452 @@ function dash(){const it=data.items,pub=it.filter(i=>i.published!==false).length
  <h3>Artworks by category</h3><div class="cats">${CATS.map(c=>{const a=it.filter(i=>i.category===c),p=a.filter(i=>i.published!==false).length;return `<div class="cc"><span>${c}</span><b>${a.length}</b><small>${p} published, ${a.length-p} draft</small></div>`}).join("")}</div>
  <p class="note" style="margin-top:22px">After you save, the website updates in about 1 to 2 minutes.</p>`}
 function rows(){const l=data.items.filter(i=>(!Q||i.name.toLowerCase().includes(Q.toLowerCase()))&&(!FC||i.category===FC)&&(!FS||(FS==="p")===(i.published!==false)));
- $("#rows").innerHTML=l.length?l.slice().reverse().map(i=>`<div class="rw"><img src="${esc(i.images[0]||"")}" alt="" onerror="this.style.visibility='hidden'"><div class="mi"><b>${esc(i.name)}</b><small>${esc(i.category)}${i.theme?" · "+esc(i.theme):""} · ${esc(i.shape)} · from ${money(Math.min(...i.sizes.map(s=>s[1])))}</small></div><span class="bd ${i.published!==false?"ok":"dr"}">${i.published!==false?"Published":"Draft"}</span>${i.featured?'<span class="bd ft">Featured</span>':""}<div class="ac"><button data-e="${i.id}">Edit</button><button data-t="${i.id}">${i.published!==false?"Unpublish":"Publish"}</button><button data-d="${i.id}" class="dng">Delete</button></div></div>`).join(""):`<div class="empty">${data.items.length?"No artworks match your search.":"No artworks yet. Click + Add artwork."}</div>`;
- $("#rows").onclick=async e=>{const b=e.target.closest("button");if(!b)return;const id=b.dataset.e||b.dataset.t||b.dataset.d,it=data.items.find(x=>x.id===id);if(!it)return;
+ $("#rows").innerHTML=l.length?l.slice().reverse().map(i=>`<div class="rw"><img src="${esc(i.images[0]||"")}" alt="" onerror="this.style.visibility='hidden'"><div class="mi"><b>${esc(i.name)}</b><small>${esc(i.category)}${i.theme?" · "+esc(i.theme):""} · ${esc(i.shape)} · from ${money(Math.min(...i.sizes.map(s=>s[1])))}</small></div><span class="bd ${i.published!==false?"ok":"dr"}">${i.published!==false?"Published":"Draft"}</span>${i.featured?'<span class="bd ft">Featured</span>':""}<div class="ac"><button data-e="${i.id}">Edit</button><button data-dup="${i.id}">Duplicate</button><button data-t="${i.id}">${i.published!==false?"Unpublish":"Publish"}</button><button data-d="${i.id}" class="dng">Delete</button></div></div>`).join(""):`<div class="empty">${data.items.length?"No artworks match your search.":"No artworks yet. Click + Add artwork."}</div>`;
+ $("#rows").onclick=async e=>{const b=e.target.closest("button");if(!b)return;const id=b.dataset.e||b.dataset.dup||b.dataset.t||b.dataset.d,it=data.items.find(x=>x.id===id);if(!it)return;
   if(b.dataset.e)form(it);
-  else if(b.dataset.t){try{busy("Saving...");it.published=!(it.published!==false);await save((it.published?"Publish ":"Unpublish ")+it.name);toast(it.published?"Published":"Moved to draft");render()}catch(x){it.published=!it.published;toast(x.message,1)}}
+  else if(b.dataset.dup){
+   const clone={...JSON.parse(JSON.stringify(it)),id:"",name:it.name+" (Copy)",published:false,featured:false,createdAt:new Date().toISOString()};
+   form(clone,true);
+  }
+  else if(b.dataset.t){try{busy("Saving...");it.published=!(it.published!==false);it.updatedAt=new Date().toISOString();await save((it.published?"Publish ":"Unpublish ")+it.name);toast(it.published?"Published":"Moved to draft");render()}catch(x){it.published=!it.published;toast(x.message,1)}}
   else if(b.dataset.d&&confirm(`Delete "${it.name}" permanently?`)){try{busy("Deleting...");const keep=data.items;data.items=keep.filter(x=>x.id!==id);try{await save("Delete "+it.name)}catch(x){data.items=keep;throw x}it.images.forEach(p=>p&&delImage(p));toast("Deleted");render()}catch(x){toast(x.message,1)}}}}
 
+/* ---------- CSV Parser and Import Modal ---------- */
+function parseCSV(t){
+ const r=[];let row=[],c="",q=false;
+ for(let i=0;i<t.length;i++){
+  const ch=t[i];
+  if(q){
+   if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}
+   else c+=ch;
+  }else if(ch==='"')q=true;
+  else if(ch===','){row.push(c);c=""}
+  else if(ch==='\n'){row.push(c);r.push(row);row=[];c=""}
+  else if(ch!=='\r')c+=ch;
+ }
+ if(c||row.length){row.push(c);r.push(row)}
+ return r;
+}
+
+function csvModal(){
+ $("#mb").innerHTML=`<h2>Import Artworks from CSV</h2>
+ <p class="note" style="margin-bottom:14px">Upload a CSV file to generate draft artworks. Each imported piece will be saved as a <b>Draft</b> without images. You can then edit each artwork, upload images, and publish.</p>
+ <div style="background:var(--bg);border:1px solid var(--ln);border-radius:6px;padding:14px;margin-bottom:16px;font-size:13px">
+  <b>Expected CSV Columns:</b>
+  <div style="color:var(--navy);font-family:monospace;font-size:12px;margin:6px 0">Name, Category, Theme, Shape, Sizes, Description</div>
+  <div style="color:var(--gr);font-size:12px">Sizes format: <code>24*16 inch:15000|36*24 inch:19000|48*32 inch:25000</code> (leave empty to use default shape sizes).</div>
+  <div style="margin-top:10px"><button type="button" class="ghost" id="dl-sample-csv" style="padding:6px 14px;font-size:12px">&#8595; Download Sample CSV Template</button></div>
+ </div>
+ <div id="csv-dropzone" style="border:2px dashed var(--ln);border-radius:6px;padding:34px 20px;text-align:center;background:#fff;cursor:pointer;transition:.2s">
+  <input type="file" accept=".csv,text/csv" id="csv-file-input" style="display:none">
+  <div style="font-size:15px;font-weight:600;color:var(--navy);margin-bottom:4px">Click or drag & drop a .csv file here</div>
+  <div style="font-size:12px;color:var(--gr)" id="csv-file-name">No file selected</div>
+ </div>
+ <div id="csv-preview" style="margin-top:14px;max-height:160px;overflow:auto;display:none;border:1px solid var(--ln);border-radius:6px;font-size:12px"></div>
+ <span id="csv-err" class="f-err" style="margin-top:8px"></span>
+ <div class="fa" style="margin-top:18px">
+  <button class="btn" id="csv-submit-btn" disabled>Import as Drafts</button>
+  <button type="button" class="ghost" id="csv-cancel-btn">Cancel</button>
+ </div>`;
+ $("#modal").hidden=false;
+
+ let parsedItems=[];
+
+ $("#dl-sample-csv").onclick=()=>{
+  const sample="Name,Category,Theme,Shape,Sizes,Description\n"
+   +'"Golden Horizon Textured Art","Textured Art","","Horizontal","24*16 inch:15000|36*24 inch:19000|48*32 inch:25000","Handcrafted layered relief acrylic art on stretched canvas."\n'
+   +'"Divine Lotus Ganesha","Religious","Ganesha","Vertical","16*24 inch:8000|24*36 inch:10500|32*48 inch:14500","Hand painted spiritual artwork for living rooms and mandirs."\n'
+   +'"Geometric Harmony","Abstract Art","","Square","24*24 inch:9000|36*36 inch:12000|48*48 inch:16000","Contemporary minimalist abstract painting."\n';
+  const blob=new Blob([sample],{type:"text/csv;charset=utf-8;"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;a.download="craftveda_artworks_sample.csv";a.click();
+  URL.revokeObjectURL(url);
+ };
+
+ const fileInput=$("#csv-file-input");
+ const dropzone=$("#csv-dropzone");
+
+ dropzone.onclick=()=>fileInput.click();
+ dropzone.ondragover=e=>{e.preventDefault();dropzone.style.borderColor="var(--cu)";dropzone.style.background="#FDFBF7"};
+ dropzone.ondragleave=()=>{dropzone.style.borderColor="var(--ln)";dropzone.style.background="#fff"};
+ dropzone.ondrop=e=>{
+  e.preventDefault();
+  dropzone.style.borderColor="var(--ln)";dropzone.style.background="#fff";
+  if(e.dataTransfer.files&&e.dataTransfer.files[0])processCSV(e.dataTransfer.files[0]);
+ };
+ fileInput.onchange=e=>{
+  if(e.target.files&&e.target.files[0])processCSV(e.target.files[0]);
+ };
+
+ function processCSV(file){
+  $("#csv-file-name").textContent=`${file.name} (${(file.size/1024).toFixed(1)} KB)`;
+  $("#csv-err").textContent="";
+  const reader=new FileReader();
+  reader.onload=e=>{
+   try{
+    const rows=parseCSV(e.target.result);
+    if(!rows.length||rows.length<2){
+     $("#csv-err").textContent="CSV file is empty or missing headers.";
+     $("#csv-submit-btn").disabled=true;
+     return;
+    }
+    const headers=rows[0].map(h=>h.trim().toLowerCase());
+    const nameIdx=headers.indexOf("name");
+    if(nameIdx<0){
+     $("#csv-err").textContent="CSV must have a 'Name' header column.";
+     $("#csv-submit-btn").disabled=true;
+     return;
+    }
+    const catIdx=headers.indexOf("category");
+    const themeIdx=headers.indexOf("theme");
+    const shapeIdx=headers.indexOf("shape");
+    const sizesIdx=headers.indexOf("sizes");
+    const descIdx=headers.indexOf("description")>=0?headers.indexOf("description"):headers.indexOf("desc");
+
+    parsedItems=[];
+    for(let i=1;i<rows.length;i++){
+     const r=rows[i];
+     const name=(r[nameIdx]||"").trim();
+     if(!name)continue;
+
+     let category=catIdx>=0?(r[catIdx]||"").trim():"";
+     if(!CATS.includes(category))category=CATS[0];
+
+     const theme=themeIdx>=0?(r[themeIdx]||"").trim():"";
+     let shape=shapeIdx>=0?(r[shapeIdx]||"").trim():"";
+     if(!SHAPES.includes(shape)){
+      const tpl=templates.find(t=>t.category===category)||DEFAULT_TEMPLATES.find(t=>t.category===category);
+      shape=tpl?tpl.shape:"Horizontal";
+     }
+
+     let sizes=[];
+     if(sizesIdx>=0&&(r[sizesIdx]||"").trim()){
+      sizes=(r[sizesIdx]||"").split("|").map(s=>s.split(":")).filter(s=>s[0]&&s[1]).map(s=>[s[0].trim(),+s[1].replace(/[^\d]/g,"")]).filter(s=>s[0]&&s[1]>0);
+     }
+     if(!sizes.length){
+      const std=SHAPE_SIZES[shape]||SHAPE_SIZES["Horizontal"];
+      const tpl=templates.find(t=>t.category===category)||DEFAULT_TEMPLATES.find(t=>t.category===category);
+      const prices=tpl&&tpl.sizes?tpl.sizes.map(s=>s[1]):[15000,19000,25000];
+      sizes=std.map((sz,idx)=>[sz,prices[idx]||15000]);
+     }
+
+     let desc=descIdx>=0?(r[descIdx]||"").trim():"";
+     if(!desc){
+      const tpl=templates.find(t=>t.category===category)||DEFAULT_TEMPLATES.find(t=>t.category===category);
+      desc=tpl?tpl.desc:"";
+     }
+
+     parsedItems.push({name,category,theme,shape,sizes,desc});
+    }
+
+    if(!parsedItems.length){
+     $("#csv-err").textContent="No valid artwork rows found in CSV.";
+     $("#csv-submit-btn").disabled=true;
+     return;
+    }
+
+    const previewEl=$("#csv-preview");
+    previewEl.style.display="block";
+    previewEl.innerHTML=`<div style="padding:8px 12px;background:var(--bg);border-bottom:1px solid var(--ln);font-weight:600">Found ${parsedItems.length} artwork(s) ready to import as Drafts:</div>`+
+     parsedItems.map(p=>`<div style="padding:8px 12px;border-bottom:1px solid var(--ln);display:flex;justify-content:space-between;align-items:center">
+      <div><b>${esc(p.name)}</b> <span style="color:var(--gr)">(${esc(p.category)}${p.theme?" · "+esc(p.theme):""} · ${esc(p.shape)})</span></div>
+      <span class="bd dr" style="font-size:11px">Draft (no images)</span>
+     </div>`).join("");
+
+    $("#csv-submit-btn").disabled=false;
+    $("#csv-submit-btn").textContent=`Import ${parsedItems.length} Artworks as Drafts`;
+   }catch(err){
+    $("#csv-err").textContent="Error parsing CSV: "+err.message;
+    $("#csv-submit-btn").disabled=true;
+   }
+  };
+  reader.readAsText(file);
+ }
+
+ $("#csv-submit-btn").onclick=async()=>{
+  if(!parsedItems.length)return;
+  const btn=$("#csv-submit-btn");
+  btn.disabled=true;
+  busy("Importing draft artworks...");
+  try{
+   const now=new Date().toISOString();
+   const newItems=parsedItems.map((p,k)=>({
+    id:Date.now().toString(36)+k.toString(36),
+    name:p.name,
+    category:p.category,
+    theme:p.theme,
+    shape:p.shape,
+    sizes:p.sizes,
+    desc:p.desc,
+    images:[],
+    published:false,
+    featured:false,
+    createdAt:now,
+    updatedAt:now
+   }));
+   data.items.push(...newItems);
+   await save(`Imported ${newItems.length} draft artworks from CSV`);
+   $("#modal").hidden=true;
+   toast(`Successfully imported ${newItems.length} draft artworks!`);
+   view="list";
+   render();
+  }catch(err){
+   toast(err.message,1);
+  }finally{
+   btn.disabled=false;
+  }
+ };
+
+ $("#csv-cancel-btn").onclick=()=>{$("#modal").hidden=true};
+}
+
 /* ---------- add / edit form ---------- */
-const sizeRow=(s="",p="")=>`<div class="sr"><input class="sz" placeholder="Size, e.g. 24x36" value="${esc(s)}"><input class="pr" type="number" min="1" placeholder="Price (Rs.)" value="${esc(p)}"><button type="button" class="x" aria-label="Remove size">&times;</button></div>`;
-function form(it){const isNew=!it;it=it||{name:"",category:CATS[0],theme:"",shape:"Horizontal",sizes:[["",""]],desc:"",images:[],published:true,featured:false};
+const sizeRow=(s="",p="")=>`<div class="sr-wrap"><div class="sr"><input class="sz" placeholder="Size, e.g. 24*16 inch" value="${esc(s)}"><input class="pr" type="number" min="1" placeholder="Price (Rs.)" value="${esc(p)}"><button type="button" class="x" aria-label="Remove size">&times;</button></div><span class="f-err"></span></div>`;
+function form(it,isDuplicate=false){
+ const isNew=!it||isDuplicate;
+ const currentCategory=it?it.category:CATS[0];
+ const tpl=templates.find(t=>t.category===currentCategory)||DEFAULT_TEMPLATES.find(t=>t.category===currentCategory);
+
+ const initialShape=it?it.shape:(tpl?tpl.shape:"Horizontal");
+ const defaultShapeSizes=SHAPE_SIZES[initialShape]||SHAPE_SIZES["Horizontal"];
+ const defaultSizes=tpl&&tpl.sizes?tpl.sizes:defaultShapeSizes.map(s=>[s,"15000"]);
+
+ it=it||{name:"",category:currentCategory,theme:"",shape:initialShape,sizes:defaultSizes,desc:tpl?tpl.desc:"",images:[],published:true,featured:false};
  const imgs=[...(it.images||[]),"","",""].slice(0,3);
- $("#mb").innerHTML=`<h2>${isNew?"Add artwork":"Edit artwork"}</h2><form id="af">
- <label>Artwork name<input id="fn" required value="${esc(it.name)}"></label>
- <div class="two"><label>Category<select id="fc">${CATS.map(c=>`<option ${c===it.category?"selected":""}>${c}</option>`).join("")}</select></label><label id="fthw">Type<select id="fth"></select></label></div>
+
+ const modalTitle=isDuplicate?"Duplicate artwork":(isNew?"Add artwork":"Edit artwork");
+
+ $("#mb").innerHTML=`<h2>${modalTitle}</h2><form id="af" novalidate>
+ <label>Artwork name
+  <input id="fn" required value="${esc(it.name)}" placeholder="e.g. Radha Krishna Textured Art">
+  <span id="fn-err" class="f-err"></span>
+ </label>
+
+ <div class="two">
+  <label>Category<select id="fc">${CATS.map(c=>`<option ${c===it.category?"selected":""}>${c}</option>`).join("")}</select></label>
+  <label id="fthw">Type<select id="fth"></select></label>
+ </div>
+
  <label>Shape<select id="fsh">${SHAPES.map(c=>`<option ${c===it.shape?"selected":""}>${c}</option>`).join("")}</select></label>
- <div style="font-size:13px;font-weight:600;margin-bottom:6px">Sizes (inches) and prices</div><div id="szr">${it.sizes.map(s=>sizeRow(s[0],s[1])).join("")}</div>
- <button type="button" class="ghost" id="addsz" style="margin-bottom:14px">+ Add another size</button>
+
+ <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">
+  <div style="font-size:13px;font-weight:600">Sizes (inches) and prices</div>
+  <small style="color:var(--gr);font-size:12px">Auto-filled by shape; edit prices below</small>
+ </div>
+ <div id="szr">${it.sizes.map(s=>sizeRow(s[0],s[1])).join("")}</div>
+ <span id="sz-err" class="f-err" style="margin-bottom:8px"></span>
+ <button type="button" class="ghost" id="addsz" style="margin-bottom:14px">+ Add custom size</button>
+
  <label>Description<textarea id="fd" rows="3">${esc(it.desc)}</textarea></label>
- <div class="imgs">${["Room / mockup image","Main artwork image (white background)","Side view image"].map((t,k)=>`<label class="im">${t}<div class="pv" id="pv${k}">${imgs[k]?`<img src="../${esc(imgs[k])}" alt="">`:"No image"}</div><input type="file" accept="image/*" id="fi${k}"></label>`).join("")}</div>
- <p class="note">${isNew?"The room / mockup image is required. ":"Choose a file only if you want to replace that image. "}Photos are resized to 1080 x 1350 automatically.</p>
+
+ <div class="imgs">${["Room / mockup image","Main artwork image (white background)","Side view image"].map((t,k)=>`<label class="im">${t}<div class="pv" id="pv${k}">${imgs[k]?`<img src="../${esc(imgs[k])}" alt="">`:"No image"}</div><input type="file" accept="image/*" id="fi${k}"><span id="img${k}-err" class="f-err"></span></label>`).join("")}</div>
+ <p class="note">${isNew&&!isDuplicate?"The room / mockup image is required. ":"Choose a file only if you want to replace that image. "}Photos are resized to 1080 x 1350 automatically.</p>
+
  <label class="chk"><input type="checkbox" id="fp" ${it.published!==false?"checked":""}> Publish (show on website)</label>
  <label class="chk"><input type="checkbox" id="ff" ${it.featured?"checked":""}> Featured (show in Favorites)</label>
  <div class="fa"><button class="btn" type="submit">Save</button><button type="button" class="ghost" id="cn">Cancel</button></div></form>`;
+
  $("#modal").hidden=false;
- const th=()=>{const l=THEMES[$("#fc").value];$("#fthw").hidden=!l;$("#fth").innerHTML=l?l.map(x=>`<option ${x===it.theme?"selected":""}>${x}</option>`).join(""):""};th();$("#fc").onchange=th;
- $("#addsz").onclick=()=>$("#szr").insertAdjacentHTML("beforeend",sizeRow());
- $("#szr").onclick=e=>{if(e.target.classList.contains("x")&&document.querySelectorAll(".sr").length>1)e.target.parentElement.remove()};
- [0,1,2].forEach(k=>$("#fi"+k).onchange=e=>{const f=e.target.files[0];if(f)$("#pv"+k).innerHTML=`<img src="${URL.createObjectURL(f)}" alt="">`});
- $("#cn").onclick=()=>$("#modal").hidden=true;
- $("#af").onsubmit=async e=>{e.preventDefault();
+
+ /* Auto-fill 3 standard sizes for selected Shape, preserving any entered prices */
+ const applyShapeSizes=(preservePrices=true)=>{
+  const sh=$("#fsh").value;
+  const stdSizes=SHAPE_SIZES[sh]||SHAPE_SIZES["Horizontal"];
+  const cat=$("#fc").value;
+  const curTpl=templates.find(t=>t.category===cat)||DEFAULT_TEMPLATES.find(t=>t.category===cat);
+  const tplPrices=curTpl&&curTpl.sizes?curTpl.sizes.map(s=>s[1]):["","",""];
+
+  const currentRows=[...document.querySelectorAll(".sr")];
+  const currentPrices=currentRows.map(r=>r.querySelector(".pr").value.trim());
+
+  const newRows=stdSizes.map((sz,idx)=>{
+   let pr="";
+   if(preservePrices&&currentPrices[idx]&&+currentPrices[idx]>0){
+    pr=currentPrices[idx];
+   }else if(tplPrices[idx]){
+    pr=tplPrices[idx];
+   }
+   return sizeRow(sz,pr);
+  });
+
+  $("#szr").innerHTML=newRows.join("");
+  $("#sz-err").textContent="";
+ };
+
+ const th=()=>{
+  const l=THEMES[$("#fc").value];
+  $("#fthw").hidden=!l;
+  $("#fth").innerHTML=l?l.map(x=>`<option ${x===it.theme?"selected":""}>${x}</option>`).join(""):""
+ };
+
+ th();
+
+ /* On Shape change: immediately auto-fill standard sizes for that shape */
+ $("#fsh").onchange=()=>{
+  applyShapeSizes(true);
+ };
+
+ /* Auto-fill on Category change when adding new artwork */
+ $("#fc").onchange=()=>{
+  th();
+  if(isNew&&!isDuplicate){
+   const newTpl=templates.find(t=>t.category===$("#fc").value)||DEFAULT_TEMPLATES.find(t=>t.category===$("#fc").value);
+   if(newTpl){
+    if(newTpl.shape)$("#fsh").value=newTpl.shape;
+    if(newTpl.desc)$("#fd").value=newTpl.desc;
+   }
+   applyShapeSizes(false);
+  }
+ };
+
+ $("#addsz").onclick=()=>{$("#szr").insertAdjacentHTML("beforeend",sizeRow());$("#sz-err").textContent=""};
+ $("#szr").onclick=e=>{
+  if(e.target.classList.contains("x")&&document.querySelectorAll(".sr").length>1){
+   e.target.closest(".sr-wrap").remove();
+  }
+ };
+
+ [0,1,2].forEach(k=>$("#fi"+k).onchange=e=>{
+  const f=e.target.files[0];
+  if(f){
+   $("#pv"+k).innerHTML=`<img src="${URL.createObjectURL(f)}" alt="">`;
+   $("#pv"+k).classList.remove("is-err");
+   const errEl=$("#img"+k+"-err");if(errEl)errEl.textContent="";
+  }
+ });
+
+ /* Real-time error clearing */
+ $("#fn").oninput=()=>{
+  if($("#fn").value.trim()){$("#fn").classList.remove("is-err");$("#fn-err").textContent=""}
+ };
+ $("#szr").oninput=e=>{
+  if(e.target.classList.contains("sz")||e.target.classList.contains("pr")){
+   e.target.classList.remove("is-err");
+   const wrap=e.target.closest(".sr-wrap");
+   if(wrap){const err=wrap.querySelector(".f-err");if(err)err.textContent=""}
+   $("#sz-err").textContent="";
+  }
+ };
+
+ /* Snapshot for dirty form checking */
+ const getSnapshot=()=>JSON.stringify({
+  n:$("#fn").value.trim(),
+  c:$("#fc").value,
+  th:$("#fthw").hidden?"":$("#fth").value,
+  sh:$("#fsh").value,
+  sz:[...document.querySelectorAll(".sr")].map(r=>[r.querySelector(".sz").value.trim(),r.querySelector(".pr").value.trim()]),
+  d:$("#fd").value.trim(),
+  p:$("#fp").checked,
+  f:$("#ff").checked,
+  fl:[0,1,2].map(k=>$("#fi"+k).files[0]?.name||"")
+ });
+ const initialSnapshot=getSnapshot();
+ const discardIfDirty=()=>{
+  if(getSnapshot()!==initialSnapshot){
+   return confirm("Discard unsaved changes?");
+  }
+  return true;
+ };
+
+ $("#cn").onclick=()=>{if(discardIfDirty())$("#modal").hidden=true};
+ $("#modal").onclick=e=>{if(e.target.id==="modal"&&discardIfDirty())$("#modal").hidden=true};
+
+ $("#af").onsubmit=async e=>{
+  e.preventDefault();
+
+  /* Inline field validation */
+  let isValid=true;
+  document.querySelectorAll(".is-err").forEach(el=>el.classList.remove("is-err"));
+  document.querySelectorAll(".f-err").forEach(el=>el.textContent="");
+
   const name=$("#fn").value.trim();
-  if(data.items.some(x=>x.name.toLowerCase()===name.toLowerCase()&&x.id!==it.id))return toast("Another artwork already has this name",1);
-  const sizes=[...document.querySelectorAll(".sr")].map(r=>[r.querySelector(".sz").value.trim().replace(/[*X\u00d7]/g,"x"),+r.querySelector(".pr").value]).filter(s=>s[0]&&s[1]>0);
-  if(!sizes.length)return toast("Add at least one size with a price",1);
+  if(!name){
+   $("#fn").classList.add("is-err");
+   $("#fn-err").textContent="Artwork name is required.";
+   isValid=false;
+  }else if(data.items.some(x=>x.name.toLowerCase()===name.toLowerCase()&&x.id!==it.id)){
+   $("#fn").classList.add("is-err");
+   $("#fn-err").textContent="Another artwork already has this name.";
+   isValid=false;
+  }
+
+  const srWraps=[...document.querySelectorAll(".sr-wrap")];
+  const validSizes=[];
+  srWraps.forEach(wrap=>{
+   const szIn=wrap.querySelector(".sz");
+   const prIn=wrap.querySelector(".pr");
+   const errEl=wrap.querySelector(".f-err");
+   const sVal=szIn.value.trim();
+   const pVal=+prIn.value;
+
+   let rowErr="";
+   if(!sVal&&pVal>0){
+    szIn.classList.add("is-err");
+    rowErr="Size cannot be empty.";
+   }else if(sVal&&(!pVal||pVal<=0)){
+    prIn.classList.add("is-err");
+    rowErr="Price must be greater than 0.";
+   }else if(sVal&&pVal>0){
+    validSizes.push([sVal,pVal]);
+   }
+   if(rowErr){errEl.textContent=rowErr;isValid=false}
+  });
+
+  if(!validSizes.length){
+   $("#sz-err").textContent="Add at least one size with a valid price.";
+   isValid=false;
+  }
+
   const files=[0,1,2].map(k=>$("#fi"+k).files[0]);
-  if(isNew&&!files[0])return toast("Please add the room / mockup image",1);
+  if(isNew&&!isDuplicate&&!files[0]&&!imgs[0]){
+   $("#pv0").classList.add("is-err");
+   $("#img0-err").textContent="The room / mockup image is required for new artworks.";
+   isValid=false;
+  }
+
+  if(!isValid){
+   const firstErr=document.querySelector(".is-err");
+   if(firstErr)firstErr.focus();
+   return toast("Please fix the errors marked in red",1);
+  }
+
   const btn=e.submitter;btn.disabled=true;
-  try{const out=[...imgs];
-   for(let k=0;k<3;k++)if(files[k]){busy(`Uploading image ${k+1}...`);const b=await toJpeg(files[k],k?"contain":"cover");const old=out[k];out[k]=await putImage(`${slug(name)}-${k+1}-${Date.now().toString(36)}.jpg`,b);if(old)delImage(old)}
-   const rec={id:it.id||Date.now().toString(36),name,category:$("#fc").value,theme:THEMES[$("#fc").value]?$("#fth").value:"",shape:$("#fsh").value,sizes,desc:$("#fd").value.trim(),images:out,published:$("#fp").checked,featured:$("#ff").checked,createdAt:it.createdAt||new Date().toISOString()};
-   busy("Saving...");const before=JSON.stringify(data.items);
-   const ix=data.items.findIndex(x=>x.id===rec.id);if(ix>=0)data.items[ix]=rec;else data.items.push(rec);
+  try{
+   const out=[...imgs];
+   for(let k=0;k<3;k++)if(files[k]){
+    busy(`Uploading image ${k+1}...`);
+    const b=await toJpeg(files[k],k?"contain":"cover");
+    const old=out[k];
+    out[k]=await putImage(`${slug(name)}-${k+1}-${Date.now().toString(36)}.jpg`,b);
+    if(old)delImage(old);
+   }
+   const now=new Date().toISOString();
+   const rec={
+    id:it.id||Date.now().toString(36),
+    name,
+    category:$("#fc").value,
+    theme:THEMES[$("#fc").value]?$("#fth").value:"",
+    shape:$("#fsh").value,
+    sizes:validSizes,
+    desc:$("#fd").value.trim(),
+    images:out,
+    published:$("#fp").checked,
+    featured:$("#ff").checked,
+    createdAt:it.createdAt||now,
+    updatedAt:now
+   };
+   busy("Saving...");
+   const before=JSON.stringify(data.items);
+   const ix=data.items.findIndex(x=>x.id===rec.id);
+   if(ix>=0)data.items[ix]=rec;else data.items.push(rec);
    try{await save((isNew?"Add ":"Update ")+name)}catch(x){data.items=JSON.parse(before);throw x}
-   $("#modal").hidden=true;toast("Saved. It will be live on the website in 1 to 2 minutes.");render()
-  }catch(x){toast(x.message,1)}finally{btn.disabled=false}}}
+   $("#modal").hidden=true;
+   toast("Saved. It will be live on the website in 1 to 2 minutes.");
+   render();
+  }catch(x){toast(x.message,1)}finally{btn.disabled=false}
+ };
+}
 </script>
 </body>
 </html>

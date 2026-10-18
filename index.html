@@ -375,7 +375,7 @@ h2{font-size:clamp(24px,3.2vw,36px)}
 .bt:hover span{transform:none}
 
 /* ===== homepage: all collections visible in one screen (craftico style) ===== */
-#collections{padding:26px 0 44px!important}
+#collections{padding:36px 0 72px!important}
 #collections .sh{margin-bottom:20px}
 #collections .sub{margin-top:4px}
 .bento,.bcol{gap:12px}
@@ -383,6 +383,13 @@ h2{font-size:clamp(24px,3.2vw,36px)}
 .bt span{text-align:left;left:14px;right:14px;bottom:12px;font-family:Inter,sans-serif;font-size:15px;font-weight:600}
 .bt span:after{display:none}
 @media(max-width:900px){.bt span{font-size:14px}}
+
+/* ===== homepage product rows: 4 per row ===== */
+@media(min-width:1024px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:700px) and (max-width:1023px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:699px){.grid{grid-template-columns:repeat(2,1fr);gap:26px 14px}}
+@media(max-width:340px){.grid{grid-template-columns:1fr}}
+.bento{margin-bottom:8px}
 </style>
 </head>
 <body>

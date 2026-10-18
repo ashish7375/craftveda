@@ -321,6 +321,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T07:51:03.276Z"
+  },
+  {
+   "id": "mvdj6a75",
+   "name": "Krishna Radiance Textured Art",
+   "category": "Religious",
+   "theme": "Radha Krishna",
+   "shape": "Square",
+   "sizes": [
+    [
+     "24x24",
+     9000
+    ],
+    [
+     "36x36",
+     9750
+    ],
+    [
+     "48x48",
+     11250
+    ]
+   ],
+   "desc": "A striking portrait of Krishna\nDeep blue tones and luminous saffron accents define this powerful depiction of Lord Shiva. Bold painterly marks and contrasting colors create an energetic visual impact, making this artwork a meaningful focal point for devotional and contemporary spaces.",
+   "images": [
+    "images/krishna-radiance-textured-art-1-mvdj5xma.jpg",
+    "images/krishna-radiance-textured-art-2-mvdj65hn.jpg",
+    "images/krishna-radiance-textured-art-3-mvdj67xt.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-18T07:55:28.674Z"
   }
  ]
 }

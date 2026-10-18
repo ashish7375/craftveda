@@ -323,16 +323,6 @@ header .wrap{padding:0 20px}
 .tbo{width:min(100% - 2*var(--gut),1300px);max-width:none;padding:0}
 @media(max-width:400px){header .wrap{padding:0 12px}}
 
-/* ===== size preview ===== */
-.szp{margin:0 0 22px}
-.szp-w{position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--ln);background:linear-gradient(#ebe5db,#ddd5c8)}
-.szp-w:after{content:"";position:absolute;left:0;right:0;bottom:0;height:6%;background:#b9ad9b}
-.szp-sofa{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);width:58.33%;height:31%;background:#d6cdbf;border-radius:8px 8px 4px 4px;z-index:1}
-.szp-sofa:before{content:"";position:absolute;left:4%;right:4%;top:-34%;height:60%;background:#c8beae;border-radius:10px 10px 0 0}
-.szp-art{position:absolute;left:50%;transform:translateX(-50%);overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.28);transition:width .45s,bottom .45s;background:#fff;z-index:2}
-.szp-art img{width:100%;height:100%;object-fit:cover;display:block}
-.szp small{display:block;margin-top:8px;font-size:12.5px;color:var(--gr);line-height:1.5}
-
 /* ===== always-responsive rules ===== */
 img,svg,video{max-width:100%}
 .pp>*,.pd>*,.cgrid>*,.grid>*,.bcol,.tbar>*{min-width:0}
@@ -348,6 +338,12 @@ section{padding:clamp(44px,7vw,76px) 0}
 @media(max-width:560px){.tr .wrap{grid-template-columns:1fr}.tbar{grid-template-columns:1fr auto}.tb2{height:auto;min-height:360px}.tbo{align-items:center;text-align:center;padding:48px 0}.big{padding:15px}.qbox{font-size:14px}.crumb{font-size:13px}.fpn{flex-direction:column;gap:12px}}
 @media(max-width:340px){.cgrid{grid-template-columns:1fr!important}.pinfo .szs button{flex:1 1 40%}}
 @media(min-width:1700px){html{font-size:106%}}
+
+/* ===== craftico-style gallery: full image, scrolls with details ===== */
+.pgal{position:static!important}
+.mimg{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;max-height:calc(100vh - 130px);min-height:280px;background:#f3efe9;overflow:hidden}
+.mimg img{width:100%;height:100%;max-height:none;object-fit:contain;aspect-ratio:auto;margin:0}
+@media(max-width:900px){.mimg{max-height:75vh}}
 </style>
 </head>
 <body>
@@ -770,7 +766,6 @@ function productPage(i){const p=PRODUCTS[i];let sel=0;
  <div class="prow"><span class="pprice" id="pp2"></span><span class="shr"><a target="_blank" rel="noopener" aria-label="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=${u}">${ICONS.fb}</a><a aria-label="Share by email" href="mailto:?subject=${enc(p.name)}&body=${u}">${ICONS.mail}</a><a target="_blank" rel="noopener" aria-label="Share on WhatsApp" href="https://wa.me/?text=${enc(p.name+" "+location.href)}">${ICONS.wa}</a></span></div><hr>
  <div class="slab">Size ( in inches ): <b id="szl"></b></div>
  <div class="szs" id="pszs">${p.sizes.map((x,k)=>`<button class="${k?"":"on"}" data-k="${k}">${x[0].replace("x","*")}</button>`).join("")}</div>
- <div class="szp"><div class="szp-w"><div class="szp-art" id="szpa"><img src="${p.images[1]||p.images[0]}" alt="${p.name} | Preview" data-k="1" onerror="fb(this)"></div><div class="szp-sofa"></div></div><small id="szpc"></small></div>
  <button class="btn o2 big" id="patc">Add to cart</button><a class="btn n big" id="pbn" target="_blank" rel="noopener" href="#">Buy it now</a>
  <a class="qbox" id="pqw" target="_blank" rel="noopener" href="#">${ICONS.wa}Any Questions? WhatsApp Us!</a>
  <div class="tri"><div><svg viewBox="0 0 48 48"><path d="M14 40V18l-4-6 6-2 4 8h6l4-8 6 2-4 6v22z"/></svg>100% handmade</div><div><svg viewBox="0 0 48 48"><circle cx="24" cy="20" r="12"/><path d="M18 20l5 5 8-9M17 31l-3 12 10-5 10 5-3-12"/></svg>Original artwork</div><div><svg viewBox="0 0 48 48"><path d="M6 14l18-8 18 8v22l-18 8-18-8zM6 14l18 8 18-8M24 22v22"/></svg>Safe packaging</div></div>
@@ -778,9 +773,7 @@ function productPage(i){const p=PRODUCTS[i];let sel=0;
  ${rel.length?`<h2 class="rh">You may also like</h2><div class="cgrid c4">${rel.map(([x,k])=>card(x,k)).join("")}</div>`:""}</div>`;
  const upd=()=>{const z=p.sizes[sel];$("#pp2").textContent=money(z[1]);$("#szl").textContent=z[0].replace("x","*");
   $("#pbn").href=wa(`Hi, I want to buy "${p.name}", size ${z[0]} inches, ${money(z[1])} (CraftVeda).${who()}`);
-  $("#pqw").href=wa(`Hi, I have a question about "${p.name}".`);
-  const m=/(\d+)\s*[x*]\s*(\d+)/i.exec(z[0]);if(m){const w=+m[1],h=+m[2],a=$("#szpa");a.style.width=Math.min(w/144*100,92)+"%";a.style.aspectRatio=w+" / "+h;a.style.bottom=Math.max(Math.min(43,96-h/108*100),6)+"%";
-   $("#szpc").textContent=`Size preview: ${w} x ${h} in (${(w*2.54).toFixed(0)} x ${(h*2.54).toFixed(0)} cm). Sofa shown is 84 in (7 ft) wide, for scale.`}};upd();
+  $("#pqw").href=wa(`Hi, I have a question about "${p.name}".`)};upd();
  $("#pszs").onclick=e=>{const b=e.target.closest("button");if(b){sel=+b.dataset.k;[...$("#pszs").children].forEach(x=>x.classList.toggle("on",x===b));upd()}};
  $("#patc").onclick=()=>{addCart(p,p.sizes[sel]);$("#cart").classList.add("open")};
  let gi=0;const gs=k=>{const n=p.images.length;gi=(k+n)%n;const b=$("#pbig");b.dataset.k=gi;b.onerror=()=>fb(b);b.src=p.images[gi];[...$("#thv").children].forEach((x,j)=>x.classList.toggle("on",j===gi))};

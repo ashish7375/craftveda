@@ -539,6 +539,357 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T09:32:36.164Z"
+  },
+  {
+   "id": "mve2zhqu0",
+   "name": "Moonlit Ocean Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8000
+    ],
+    [
+     "36*24 inch",
+     9500
+    ],
+    [
+     "48*32 inch",
+     11000
+    ]
+   ],
+   "desc": "A dramatic moonlit seascape with deep charcoal-blue clouds, warm golden highlights, and shimmering reflections across the water. The contrast creates a calm yet striking focal point.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqu1",
+   "name": "Golden Moon River Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     9000
+    ],
+    [
+     "24*36 inch",
+     10250
+    ],
+    [
+     "32*48 inch",
+     11500
+    ]
+   ],
+   "desc": "A winding ivory river flows through deep forest-green hills beneath a luminous golden moon. Raised-looking textures and fine gold accents give this composition an elegant, contemplative feel.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqu2",
+   "name": "Golden Mountain Dawn Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     10000
+    ],
+    [
+     "48*32 inch",
+     11500
+    ]
+   ],
+   "desc": "Layered mountain peaks in warm beige and earthy brown tones rise beneath a golden sun. Textural ridges and subtle metallic-looking accents create depth and a serene natural atmosphere.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqu3",
+   "name": "Golden Tree of Life Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     9000
+    ],
+    [
+     "36*24 inch",
+     10500
+    ],
+    [
+     "48*32 inch",
+     11500
+    ]
+   ],
+   "desc": "A branching tree with golden leaves spreads across a warm neutral background. Sculptural-looking branches, delicate leaf details, and a circular golden motif create a luxurious nature-inspired statement.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqu4",
+   "name": "Ocean Wave Layers Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     10000
+    ],
+    [
+     "48*32 inch",
+     11500
+    ]
+   ],
+   "desc": "Flowing layers of deep navy, teal, and ivory evoke powerful ocean waves. The contrast between dark water and pale foam gives the abstract composition movement and a refreshing coastal character.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqu5",
+   "name": "Golden Blossom Sunset Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     9000
+    ],
+    [
+     "36*24 inch",
+     10500
+    ],
+    [
+     "48*32 inch",
+     11500
+    ]
+   ],
+   "desc": "A delicate flowering tree frames a glowing golden sunset above reflective water. Soft cream textures and metallic-looking golden details create a peaceful, refined landscape.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqu6",
+   "name": "Ivory Flow Abstract Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     8000
+    ],
+    [
+     "24*36 inch",
+     9250
+    ],
+    [
+     "32*48 inch",
+     10500
+    ]
+   ],
+   "desc": "Organic flowing forms in ivory, cream, and sand create a minimalist abstract composition. Subtle tonal variation and layered surface details bring understated elegance to contemporary interiors.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqu7",
+   "name": "Golden Moon Phases Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8000
+    ],
+    [
+     "36*24 inch",
+     9000
+    ],
+    [
+     "48*32 inch",
+     10500
+    ]
+   ],
+   "desc": "A sequence of moon phases combines charcoal, ivory, and gold tones in a balanced celestial design. The circular forms and textured surfaces make this piece a distinctive accent for modern spaces.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqu8",
+   "name": "Earth Tones Cracked Texture Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8000
+    ],
+    [
+     "36*24 inch",
+     9250
+    ],
+    [
+     "48*32 inch",
+     10500
+    ]
+   ],
+   "desc": "Warm terracotta, rust, taupe, and cream shapes meet in a cracked-earth-inspired abstract. Golden-looking seams emphasize the organic pattern and create a rich, earthy visual effect.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqu9",
+   "name": "Serene Buddha Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     9000
+    ],
+    [
+     "24*36 inch",
+     10500
+    ],
+    [
+     "32*48 inch",
+     11500
+    ]
+   ],
+   "desc": "A peaceful Buddha portrait in muted beige and taupe is framed by a golden halo. Fine facial details, patterned hair, and layered textures give the devotional artwork a calm, meditative presence.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqua",
+   "name": "Golden Horizon Sunset Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     10000
+    ],
+    [
+     "48*32 inch",
+     11500
+    ]
+   ],
+   "desc": "A glowing sun rests on the horizon above a softly rippled sea and layered neutral-toned shore. Golden highlights and textured strokes evoke the quiet beauty of sunset.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhqub",
+   "name": "Golden Lotus Path Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     9000
+    ],
+    [
+     "36*24 inch",
+     10500
+    ],
+    [
+     "48*32 inch",
+     11500
+    ]
+   ],
+   "desc": "A large ivory lotus with golden detailing emerges from flowing, layered forms. Small golden footprints lead toward the flower, creating a symbolic composition associated with peace, purity, and spiritual growth.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
+  },
+  {
+   "id": "mve2zhquc",
+   "name": "Golden Moon Owls Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     8500
+    ],
+    [
+     "24*36 inch",
+     10000
+    ],
+    [
+     "32*48 inch",
+     11250
+    ]
+   ],
+   "desc": "Two owls sit close together on a fine branch before a large golden moon and deep forest-green background. Warm neutral feathers and delicate gold accents create a serene, intimate composition.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-18T17:10:04.182Z",
+   "updatedAt": "2026-10-18T17:10:04.182Z"
   }
  ]
 }

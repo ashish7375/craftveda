@@ -865,11 +865,15 @@
     ]
    ],
    "desc": "A glowing sun rests on the horizon above a softly rippled sea and layered neutral-toned shore. Golden highlights and textured strokes evoke the quiet beauty of sunset.",
-   "images": [],
+   "images": [
+    "images/golden-horizon-sunset-textured-art-1-mve5rwrq.jpg",
+    "images/golden-horizon-sunset-textured-art-2-mve5rytw.jpg",
+    "images/golden-horizon-sunset-textured-art-3-mve5s0xt.jpg"
+   ],
    "published": false,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T17:10:04.182Z"
+   "updatedAt": "2026-10-18T18:28:17.374Z"
   },
   {
    "id": "mve2zhquc",

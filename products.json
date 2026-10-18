@@ -712,11 +712,15 @@
     ]
    ],
    "desc": "A delicate flowering tree frames a glowing golden sunset above reflective water. Soft cream textures and metallic-looking golden details create a peaceful, refined landscape.",
-   "images": [],
+   "images": [
+    "images/golden-blossom-sunset-textured-art-1-mve3amv6.jpg",
+    "images/golden-blossom-sunset-textured-art-2-mve3aoue.jpg",
+    "images/golden-blossom-sunset-textured-art-3-mve3aqm7.jpg"
+   ],
    "published": false,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T17:10:04.182Z"
+   "updatedAt": "2026-10-18T17:18:51.358Z"
   },
   {
    "id": "mve2zhqu6",

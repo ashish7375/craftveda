@@ -509,6 +509,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T08:13:12.715Z"
+  },
+  {
+   "id": "mvdmn6pv",
+   "name": "Golden Lotus Path Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24x16",
+     9000
+    ],
+    [
+     "36x24",
+     10500
+    ],
+    [
+     "48x32",
+     11500
+    ]
+   ],
+   "desc": "A large ivory lotus with golden detailing emerges from flowing, layered forms. Small golden footprints lead toward the flower, creating a symbolic composition associated with peace, purity, and spiritual growth.",
+   "images": [
+    "images/golden-lotus-path-textured-art-1-mvdmn0d0.jpg",
+    "images/golden-lotus-path-textured-art-2-mvdmn2n0.jpg",
+    "images/golden-lotus-path-textured-art-3-mvdmn4l4.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-18T09:32:36.164Z"
   }
  ]
 }

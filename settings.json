@@ -1,0 +1,26 @@
+{
+  "categories": [
+    "Textured Art",
+    "Abstract Art",
+    "Vastu",
+    "Nature",
+    "Religious",
+    "Custom Art"
+  ],
+  "themes": {
+    "Religious": [
+      "Ganesha",
+      "Shiva",
+      "Radha Krishna",
+      "Hanuman",
+      "Buddha"
+    ],
+    "Custom Art": [
+      "Pencil Sketch",
+      "Charcoal Sketch",
+      "Charcoal Painting",
+      "Abstract Painting",
+      "Portrait Sketch"
+    ]
+  }
+}

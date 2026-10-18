@@ -1,260 +1,2427 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>CraftVeda Admin</title>
-<style>
-:root{--navy:#0F2740;--cu:#B5654A;--bg:#F4F2EE;--ln:#E1DDD6;--gr:#5E6672;--ok:#1B7F4B;--bad:#B3261E}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--navy);line-height:1.5}
-[hidden]{display:none!important}
-button,input,select,textarea{font:inherit;color:inherit}
-input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);background:#fff;border-radius:4px;transition:border-color .2s,background .2s}
-label{display:grid;gap:5px;font-size:13px;font-weight:600;margin-bottom:12px}
-.btn{background:var(--cu);color:#fff;border:0;padding:12px 22px;border-radius:4px;cursor:pointer;font-weight:600}
-.btn:hover{background:var(--navy)}
-.ghost{background:#fff;border:1px solid var(--ln);padding:10px 16px;border-radius:4px;cursor:pointer}
-.ghost:hover{border-color:var(--navy)}
-.dng{color:var(--bad)}
-.login{max-width:440px;margin:7vh auto;background:#fff;padding:32px;border:1px solid var(--ln);border-radius:8px}
-.login h1{font-size:24px;margin-bottom:6px}.login p,.note{color:var(--gr);font-size:13px;margin-bottom:14px}
-details{font-size:13px;color:var(--gr);margin:6px 0 16px}details li{margin:4px 0 4px 18px}
-.bar{background:var(--navy);color:#fff;display:flex;gap:14px;align-items:center;padding:12px 20px;flex-wrap:wrap;position:sticky;top:0;z-index:5}
-.bar b{font-size:18px;margin-right:auto}
-.bar button{background:none;border:0;color:#cfd8e3;cursor:pointer;padding:6px 10px;border-radius:4px}
-.bar button.on,.bar button:hover{background:rgba(255,255,255,.14);color:#fff}
-.bar #add{background:var(--cu);color:#fff}
-main{max-width:1100px;margin:0 auto;padding:24px 18px 80px}
-h2{margin-bottom:16px}h3{margin:26px 0 12px;font-size:16px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
-.st{background:#fff;border:1px solid var(--ln);border-radius:8px;padding:18px;color:var(--gr);font-size:14px}
-.st b{display:block;font-size:34px;color:var(--navy)}
-.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-.cc{background:#fff;border:1px solid var(--ln);border-radius:8px;padding:16px;display:grid}
-.cc b{font-size:26px}.cc small{color:var(--gr)}
-.flt{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:16px}
-.rw{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--ln);border-radius:8px;padding:10px;margin-bottom:10px;flex-wrap:wrap}
-.rw img{width:48px;height:60px;object-fit:cover;background:#eee;border-radius:3px}
-.mi{flex:1;min-width:180px}.mi small{display:block;color:var(--gr)}
-.bd{font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px}
-.bd.ok{background:#DDF3E6;color:var(--ok)}.bd.dr{background:#EEE;color:#666}.bd.ft{background:#F6E3DB;color:var(--cu)}
-.ac{display:flex;gap:6px;flex-wrap:wrap}.ac button{background:#fff;border:1px solid var(--ln);padding:7px 12px;border-radius:4px;cursor:pointer;font-size:13px}
-.ac button:hover{border-color:var(--navy)}
-.empty{background:#fff;border:1px dashed var(--ln);padding:40px;text-align:center;color:var(--gr);border-radius:8px}
-#modal{position:fixed;inset:0;background:rgba(10,20,32,.7);z-index:20;display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:20px}
-.box{background:#fff;max-width:720px;width:100%;border-radius:8px;padding:26px;position:relative}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.sr-wrap{margin-bottom:8px}
-.sr{display:grid;grid-template-columns:1fr 1fr 40px;gap:8px}
-.sr button{border:1px solid var(--ln);background:#fff;border-radius:4px;cursor:pointer}
-.imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 4px}
-.im{font-size:12px}.pv{aspect-ratio:4/5;background:#eee;border-radius:4px;overflow:hidden;display:grid;place-items:center;color:#888;font-weight:400;transition:border-color .2s,background .2s}
-.pv img{width:100%;height:100%;object-fit:cover}
-.im input{font-size:12px;padding:6px}
-.chk{display:flex;gap:10px;align-items:center;font-weight:500}.chk input{width:auto}
-.fa{display:flex;gap:10px;margin-top:14px}
-#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 20px;border-radius:6px;z-index:30;max-width:92vw}
-#toast.err{background:var(--bad)}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>CraftVeda Admin</title>
+    <style>
+        :root {
+            --navy: #0F2740;
+            --navy-light: #1A3859;
+            --cu: #B5654A;
+            --cu-hover: #9C523A;
+            --bg: #F5F3EF;
+            --surface: #FFFFFF;
+            --ln: #E3DFD7;
+            --ln-strong: #CDC8BE;
+            --gr: #5E6672;
+            --gr-light: #8F97A3;
+            --ok: #1B7F4B;
+            --ok-bg: #EAF7EE;
+            --ok-border: #BCE5CB;
+            --bad: #B3261E;
+            --bad-bg: #FDF2F2;
+            --warn: #B45309;
+            --warn-bg: #FEF3C7;
+            --warn-border: #FDE68A;
+            --sb-w: 256px;
+            --radius-sm: 5px;
+            --radius: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 3px rgba(15, 39, 64, .05);
+            --shadow: 0 3px 10px rgba(15, 39, 64, .07);
+            --shadow-lg: 0 12px 32px rgba(15, 39, 64, .15);
+        }
 
-/* Dropdown Menu & Validation styles */
-.dd-btn{position:relative;display:inline-block}
-.dd-menu{position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid var(--ln);border-radius:6px;box-shadow:0 8px 24px rgba(15,39,64,.15);min-width:160px;z-index:20;display:none;flex-direction:column;overflow:hidden}
-.dd-menu.open{display:flex}
-.dd-menu button{background:none;border:0;color:var(--navy)!important;padding:10px 16px!important;text-align:left;font-size:13px;font-weight:600;cursor:pointer;width:100%;border-radius:0!important}
-.dd-menu button:hover{background:var(--bg)!important;color:var(--cu)!important}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
 
-.f-err{display:block;font-size:12px;color:var(--bad);margin-top:3px;font-weight:500}
-.is-err{border-color:var(--bad)!important;background:#FFF7F6!important}
-.pv.is-err{border:2px dashed var(--bad)!important;background:#FFF0EF!important}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--navy);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
 
-@media(max-width:640px){.flt,.two,.imgs{grid-template-columns:1fr}.sr{grid-template-columns:1fr 1fr 40px}}
-</style>
+        [hidden] {
+            display: none !important
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+            color: inherit
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 13px;
+            border: 1px solid var(--ln);
+            background: #fff;
+            border-radius: var(--radius-sm);
+            transition: border-color .18s, box-shadow .18s;
+            font-size: 13.5px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--cu);
+            box-shadow: 0 0 0 3px rgba(181, 101, 74, .15);
+        }
+
+        label {
+            display: grid;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--navy)
+        }
+
+        .btn {
+            background: var(--cu);
+            color: #fff;
+            border: 0;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background .18s, transform .1s;
+        }
+
+        .btn:hover {
+            background: var(--cu-hover)
+        }
+
+        .btn:active {
+            transform: scale(.98)
+        }
+
+        .btn:disabled {
+            opacity: .55;
+            cursor: not-allowed;
+            transform: none
+        }
+
+        .btn.navy-btn {
+            background: var(--navy)
+        }
+
+        .btn.navy-btn:hover {
+            background: var(--navy-light)
+        }
+
+        .ghost {
+            background: #fff;
+            border: 1px solid var(--ln);
+            color: var(--navy);
+            padding: 9px 15px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-weight: 500;
+            font-size: 13px;
+            transition: all .18s;
+        }
+
+        .ghost:hover {
+            border-color: var(--navy);
+            background: #FAF9F7
+        }
+
+        .dng {
+            color: var(--bad)
+        }
+
+        .dng:hover {
+            background: var(--bad-bg);
+            border-color: var(--bad)
+        }
+
+        /* Layout & Sidebar */
+        .layout {
+            display: flex;
+            min-height: 100vh
+        }
+
+        .sidebar {
+            width: var(--sb-w);
+            background: var(--navy);
+            color: #fff;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            z-index: 25;
+            transition: transform .24s cubic-bezier(.2, .8, .2, 1);
+            overflow-y: auto;
+        }
+
+        .sb-header {
+            padding: 20px 18px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .sb-brand {
+            display: flex;
+            align-items: center;
+            gap: 11px
+        }
+
+        .sb-logo {
+            width: 34px;
+            height: 34px;
+            background: var(--cu);
+            color: #fff;
+            border-radius: var(--radius-sm);
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: .5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+        }
+
+        .sb-title-wrap b {
+            display: block;
+            font-size: 16px;
+            line-height: 1.2;
+            color: #fff;
+            letter-spacing: -.2px
+        }
+
+        .sb-title-wrap small {
+            font-size: 11px;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: .8px
+        }
+
+
+
+        .sb-cta {
+            padding: 16px 14px 10px
+        }
+
+        .sb-add-btn {
+            width: 100%;
+            background: var(--cu);
+            color: #fff;
+            border: 0;
+            padding: 11px 14px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background .18s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+        }
+
+        .sb-add-btn:hover {
+            background: var(--cu-hover)
+        }
+
+        .sb-nav {
+            padding: 10px 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 3px
+        }
+
+        .sb-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 12px;
+            border-radius: var(--radius-sm);
+            color: #CBD5E1;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            width: 100%;
+            text-align: left;
+            transition: all .15s ease;
+        }
+
+        .sb-item:hover {
+            background: rgba(255, 255, 255, .08);
+            color: #fff
+        }
+
+        .sb-item.on {
+            background: rgba(255, 255, 255, .16);
+            color: #fff;
+            font-weight: 600
+        }
+
+        .sb-item svg {
+            flex-shrink: 0;
+            opacity: .85
+        }
+
+        .sb-item.on svg {
+            opacity: 1
+        }
+
+        .sb-badge {
+            margin-left: auto;
+            background: rgba(255, 255, 255, .18);
+            color: #fff;
+            padding: 2px 7px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .sb-footer {
+            padding: 14px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sb-kbd-tip {
+            font-size: 11px;
+            color: #94A3B8;
+            text-align: center
+        }
+
+        .sb-kbd-tip kbd {
+            background: rgba(255, 255, 255, .12);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #fff;
+        }
+
+        .sb-logout-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            color: #CBD5E1;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all .18s;
+        }
+
+        .sb-logout-btn:hover {
+            background: rgba(255, 255, 255, .14);
+            color: #fff;
+            border-color: rgba(255, 255, 255, .24)
+        }
+
+        .sb-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 20, 32, .5);
+            z-index: 20;
+        }
+
+        /* Content Area */
+        .content-wrap {
+            flex: 1;
+            margin-left: var(--sb-w);
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: margin-left .24s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        /* Dynamic Collapsible Sidebar States (Desktop) */
+        body.sb-closed .sidebar {
+            transform: translateX(-100%);
+        }
+
+        body.sb-closed .content-wrap {
+            margin-left: 0;
+        }
+
+        body.sb-closed .bulk-bar {
+            left: 50%;
+        }
+
+        .top-header {
+            height: 62px;
+            background: #fff;
+            border-bottom: 1px solid var(--ln);
+            position: sticky;
+            top: 0;
+            z-index: 15;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            gap: 16px;
+        }
+
+        .top-left {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .sb-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 1px solid var(--ln);
+            color: var(--navy);
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            transition: all .18s;
+        }
+
+        .sb-toggle-btn:hover {
+            background: var(--bg);
+            border-color: var(--navy);
+            color: var(--cu);
+        }
+
+        .top-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--navy)
+        }
+
+
+
+        /* Main body */
+        main {
+            max-width: 1180px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px 22px 90px
+        }
+
+        .page-head {
+            margin-bottom: 18px
+        }
+
+        .page-head h2 {
+            font-size: 22px;
+            color: var(--navy);
+            margin-bottom: 3px;
+            font-weight: 700
+        }
+
+        .page-head p {
+            color: var(--gr);
+            font-size: 13.5px
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px
+        }
+
+        .st {
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius);
+            padding: 18px;
+            color: var(--gr);
+            font-size: 13.5px;
+            box-shadow: var(--shadow-sm)
+        }
+
+        .st b {
+            display: block;
+            font-size: 32px;
+            color: var(--navy);
+            font-weight: 800;
+            margin-bottom: 2px
+        }
+
+        /* Dashboard Action Bar */
+        .dash-actions {
+            display: flex;
+            gap: 12px;
+            margin: 20px 0 24px;
+            flex-wrap: wrap
+        }
+
+        /* Panels */
+        .panel {
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius);
+            padding: 22px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .panel-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .panel-head h3 {
+            margin: 0;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--navy)
+        }
+
+        .att-list {
+            display: grid;
+            gap: 10px
+        }
+
+        .att-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 11px 15px;
+            border-radius: var(--radius-sm);
+            background: #FFFBEB;
+            border: 1px solid var(--warn-border);
+            flex-wrap: wrap;
+        }
+
+        .att-item img {
+            width: 44px;
+            height: 54px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            background: #eee
+        }
+
+        .att-info {
+            flex: 1;
+            min-width: 200px
+        }
+
+        .att-info b {
+            display: block;
+            font-size: 14px
+        }
+
+        .att-info small {
+            color: var(--gr);
+            font-size: 12px
+        }
+
+        .att-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 4px
+        }
+
+        .att-all-ok {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px;
+            background: var(--ok-bg);
+            border: 1px solid var(--ok-border);
+            border-radius: var(--radius-sm);
+            color: var(--ok);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Category Cards */
+        .cats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px
+        }
+
+        .cc {
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius);
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            transition: all .18s;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .cc.clickable {
+            cursor: pointer
+        }
+
+        .cc.clickable:hover {
+            border-color: var(--cu);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow)
+        }
+
+        .cc b {
+            font-size: 26px;
+            color: var(--navy);
+            font-weight: 800;
+            margin: 4px 0
+        }
+
+        .cc small {
+            color: var(--gr);
+            font-size: 12px
+        }
+
+        .cc .cc-arr {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            color: var(--gr-light);
+            font-size: 16px;
+            transition: transform .18s;
+        }
+
+        .cc.clickable:hover .cc-arr {
+            transform: translateX(3px);
+            color: var(--cu)
+        }
+
+        /* ========================================================================== */
+        /* >>> MODERN DATA TABLE (MATCHING ATTACHED SCREENSHOT) <<<                   */
+        /* ========================================================================== */
+        .table-card {
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13.5px;
+        }
+
+        .data-table th {
+            background: #FAF9F7;
+            color: var(--gr);
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--ln);
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--ln);
+            vertical-align: middle;
+        }
+
+        .data-table tbody tr {
+            transition: background .15s ease;
+        }
+
+        .data-table tbody tr:hover {
+            background: #FAF8F5;
+        }
+
+        .data-table tbody tr.selected {
+            background: #F4F8FA;
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        /* Status Pills (matching screenshot design) */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 18px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .status-pill.completed,
+        .status-pill.published {
+            background: #DDF3E6;
+            color: var(--ok);
+        }
+
+        .status-pill.draft {
+            background: #EDEBE8;
+            color: #555;
+        }
+
+        .status-pill.failed,
+        .status-pill.incomplete {
+            background: #FEE2E2;
+            color: var(--bad);
+        }
+
+        .status-pill.featured {
+            background: #F6E3DB;
+            color: var(--cu);
+        }
+
+        /* Table Row Actions */
+        .row-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: flex-end;
+        }
+
+        .row-actions button {
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius-sm);
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .row-actions button:hover {
+            border-color: var(--navy);
+            background: #FAF9F7;
+        }
+
+        /* Collapsible Filter Toolbar */
+        .filter-collapse-box {
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius);
+            padding: 14px;
+            margin-bottom: 16px;
+            display: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-collapse-box.open {
+            display: block;
+        }
+
+        .flt-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 10px
+        }
+
+        .empty {
+            background: #fff;
+            border: 1px dashed var(--ln);
+            padding: 48px 20px;
+            text-align: center;
+            color: var(--gr);
+            border-radius: var(--radius)
+        }
+
+        /* Floating Bulk Action Bar */
+        .bulk-bar {
+            position: fixed;
+            bottom: 24px;
+            left: calc(var(--sb-w) + (100vw - var(--sb-w))/2);
+            transform: translateX(-50%) translateY(100px);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform .25s cubic-bezier(.2, .8, .2, 1), opacity .25s ease;
+            z-index: 30;
+            background: var(--navy);
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            max-width: 92vw;
+            flex-wrap: wrap;
+        }
+
+        .bulk-bar.active {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .bulk-count {
+            font-weight: 700;
+            font-size: 13px;
+            padding-right: 6px;
+            border-right: 1px solid rgba(255, 255, 255, .2);
+            margin-right: 2px
+        }
+
+        .bulk-bar button,
+        .bulk-bar select {
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .18s;
+        }
+
+        .bulk-bar button:hover {
+            background: rgba(255, 255, 255, .25)
+        }
+
+        .bulk-bar button.dng-btn {
+            background: rgba(239, 68, 68, .25);
+            border-color: rgba(239, 68, 68, .4);
+            color: #FCA5A5
+        }
+
+        .bulk-bar button.dng-btn:hover {
+            background: rgba(239, 68, 68, .45)
+        }
+
+        .bulk-bar select {
+            background: #1E3A5F;
+            color: #fff
+        }
+
+        .bulk-bar .bulk-close {
+            background: none;
+            border: 0;
+            color: #94A3B8;
+            font-size: 18px;
+            padding: 2px 6px;
+            cursor: pointer
+        }
+
+        .bulk-bar .bulk-close:hover {
+            color: #fff
+        }
+
+        /* Modal and Form Elements */
+        #modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 20, 32, .75);
+            z-index: 40;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow: auto;
+            padding: 24px 16px
+        }
+
+        .box {
+            background: #fff;
+            max-width: 740px;
+            width: 100%;
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            position: relative;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .sr-wrap {
+            margin-bottom: 8px
+        }
+
+        .sr {
+            display: grid;
+            grid-template-columns: 1fr 1fr 40px;
+            gap: 8px
+        }
+
+        .sr button {
+            border: 1px solid var(--ln);
+            background: #fff;
+            border-radius: var(--radius-sm);
+            cursor: pointer
+        }
+
+        /* Image Slots with Drag-and-Drop & Reordering */
+        .imgs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 14px 0 4px
+        }
+
+        .im-slot {
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px
+        }
+
+        .im-slot-title {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 12.5px
+        }
+
+        .im-slot-desc {
+            font-size: 11px;
+            color: var(--gr);
+            line-height: 1.2
+        }
+
+        .pv-zone {
+            aspect-ratio: 4/5;
+            background: #FAF9F7;
+            border: 2px dashed var(--ln);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            cursor: pointer;
+            position: relative;
+            transition: border-color .2s, background .2s;
+        }
+
+        .pv-zone:hover {
+            border-color: var(--cu);
+            background: #FFFDFC
+        }
+
+        .pv-zone.dragover {
+            border-color: var(--cu);
+            background: #FDF5F2
+        }
+
+        .pv-zone img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .pv-zone.contain img {
+            object-fit: contain
+        }
+
+        .pv-actions {
+            position: absolute;
+            bottom: 6px;
+            left: 6px;
+            right: 6px;
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .pv-btn {
+            background: rgba(15, 39, 64, .85);
+            color: #fff;
+            border: 0;
+            border-radius: 4px;
+            padding: 3px 7px;
+            font-size: 11px;
+            cursor: pointer;
+            backdrop-filter: blur(2px);
+            transition: background .15s;
+        }
+
+        .pv-btn:hover {
+            background: var(--cu)
+        }
+
+        .pv-fit-badge {
+            display: inline-block;
+            font-size: 10.5px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #F1F3F5;
+            color: var(--gr);
+            margin-top: 2px;
+            text-align: center;
+        }
+
+        .pv-fit-badge.cover {
+            background: #E0F2FE;
+            color: #0369A1
+        }
+
+        .pv-fit-badge.contain {
+            background: #FEF3C7;
+            color: #92400E
+        }
+
+        .chk {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 500
+        }
+
+        .chk input {
+            width: auto
+        }
+
+        .fa {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px
+        }
+
+        #toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%);
+            background: var(--navy);
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: var(--radius);
+            z-index: 50;
+            max-width: 92vw;
+            box-shadow: var(--shadow-lg)
+        }
+
+        #toast.err {
+            background: var(--bad)
+        }
+
+        /* Dropdown Menu & Validation */
+        .dd-btn {
+            position: relative;
+            display: inline-block
+        }
+
+        .dd-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            min-width: 160px;
+            z-index: 30;
+            display: none;
+            flex-direction: column;
+            overflow: hidden
+        }
+
+        .dd-menu.open {
+            display: flex
+        }
+
+        .dd-menu button {
+            background: none;
+            border: 0;
+            color: var(--navy) !important;
+            padding: 11px 16px !important;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 0 !important;
+            transition: background .15s
+        }
+
+        .dd-menu button:hover {
+            background: var(--bg) !important;
+            color: var(--cu) !important
+        }
+
+        .f-err {
+            display: block;
+            font-size: 12px;
+            color: var(--bad);
+            margin-top: 3px;
+            font-weight: 500
+        }
+
+        .is-err {
+            border-color: var(--bad) !important;
+            background: var(--bad-bg) !important
+        }
+
+        .pv-zone.is-err {
+            border: 2px dashed var(--bad) !important;
+            background: var(--bad-bg) !important
+        }
+
+        /* AI Assistant Button */
+        .ai-btn {
+            background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+            border: 1px solid #FDBA74;
+            color: #C2410C;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all .18s;
+        }
+
+        .ai-btn:hover {
+            background: #FFEDD5;
+            border-color: #FB923C;
+            box-shadow: 0 1px 4px rgba(194, 65, 12, .15)
+        }
+
+        /* Categories & Settings */
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px
+        }
+
+        .setting-card {
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: var(--shadow-sm)
+        }
+
+        .cat-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 11px 13px;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+            background: #fff;
+            transition: border-color .15s;
+        }
+
+        .cat-item.active {
+            border-color: var(--cu);
+            background: #FDFBF9
+        }
+
+        .cat-item:hover {
+            border-color: var(--navy)
+        }
+
+        .theme-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 11px;
+            background: var(--bg);
+            border: 1px solid var(--ln);
+            border-radius: 18px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .theme-pill button {
+            background: none;
+            border: 0;
+            color: var(--gr);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 0 2px;
+            line-height: 1
+        }
+
+        .theme-pill button:hover {
+            color: var(--bad)
+        }
+
+        /* Responsive */
+        @media(max-width:860px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .sb-backdrop.open {
+                display: block;
+            }
+
+            .content-wrap {
+                margin-left: 0 !important;
+            }
+
+            .bulk-bar {
+                left: 50% !important;
+            }
+
+            .flt-row,
+            .settings-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:640px) {
+
+            .flt-row,
+            .two,
+            .imgs,
+            .settings-grid {
+                grid-template-columns: 1fr
+            }
+
+            .sr {
+                grid-template-columns: 1fr 1fr 40px
+            }
+
+            .bulk-bar {
+                flex-direction: column;
+                align-items: stretch;
+                bottom: 10px
+            }
+
+            .bulk-count {
+                border-right: 0;
+                padding-right: 0;
+                margin-bottom: 4px;
+                text-align: center
+            }
+        }
+
+        /* Login Screen */
+        .login {
+            max-width: 440px;
+            margin: 7vh auto;
+            background: #fff;
+            padding: 32px;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .login h1 {
+            font-size: 24px;
+            margin-bottom: 6px;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .login p,
+        .note {
+            color: var(--gr);
+            font-size: 13px;
+            margin-bottom: 14px;
+        }
+
+        #login-status {
+            font-size: 13px;
+            margin-top: 12px;
+            color: var(--bad);
+            font-weight: 500;
+        }
+    </style>
 </head>
+
 <body>
 
-<div id="login" class="login">
- <h1>CraftVeda Admin</h1>
- <p>Enter your admin password to continue.</p>
- <form id="login-form">
-  <label for="admin-password">Admin password</label>
-  <input id="admin-password" type="password" autocomplete="current-password" required style="width:100%;margin:8px 0 12px;padding:12px;border:1px solid var(--ln);border-radius:4px">
-  <button class="btn" id="login-submit" type="submit">Log in</button>
- </form>
- <p id="login-status" role="status" aria-live="polite"></p>
-</div>
+    <div id="login" class="login">
+        <h1>CraftVeda Admin</h1>
+        <p>Enter your admin password to continue.</p>
+        <form id="login-form">
+            <label for="admin-password">Admin password</label>
+            <input id="admin-password" type="password" autocomplete="current-password" required
+                style="width:100%;margin:8px 0 12px;padding:12px;border:1px solid var(--ln);border-radius:4px">
+            <button class="btn" id="login-submit" type="submit">Log in</button>
+        </form>
+        <p id="login-status" role="status" aria-live="polite"></p>
+    </div>
 
-<div id="app" hidden>
- <div class="bar"><b>CraftVeda Admin</b>
-  <button data-v="dash">Dashboard</button><button data-v="list">Artworks</button>
-  <div class="dd-btn" id="add-dd">
-   <button id="add" style="background:var(--cu);color:#fff">+ Add artwork &#9662;</button>
-   <div class="dd-menu" id="add-menu">
-    <button id="add-manual" type="button">Manually</button>
-    <button id="add-csv" type="button">From CSV</button>
+    <div id="app" hidden>
+        <div class="layout">
+            <!-- Collapsible Dark Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="sb-header">
+                    <div class="sb-brand">
+                        <span class="sb-logo">CV</span>
+                        <div class="sb-title-wrap">
+                            <b>CraftVeda</b>
+                            <small>Admin Portal</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primary Action: + Add artwork Dropdown (Includes Manual & CSV Import) -->
+                <div class="sb-cta">
+                    <div class="dd-btn" id="add-dd" style="width:100%">
+                        <button id="add" class="sb-add-btn" type="button">
+                            <span>+ Add artwork</span>
+                            <span>&#9662;</span>
+                        </button>
+                        <div class="dd-menu" id="add-menu">
+                            <button id="add-manual" type="button">Manually</button>
+                            <button id="add-csv" type="button">From CSV</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="sb-nav">
+                    <button class="sb-item" data-v="dash" type="button">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="7" height="9" />
+                            <rect x="14" y="3" width="7" height="5" />
+                            <rect x="14" y="12" width="7" height="9" />
+                            <rect x="3" y="16" width="7" height="5" />
+                        </svg>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="sb-item" data-v="list" type="button">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                        <span>Artworks</span>
+                        <span class="sb-badge" id="sb-art-count">0</span>
+                    </button>
+                    <button class="sb-item" data-v="cats" type="button">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18" />
+                        </svg>
+                        <span>Categories & Themes</span>
+                        <span class="sb-badge" id="sb-cat-count">6</span>
+                    </button>
+                </nav>
+
+                <!-- Bottom Pinned Section -->
+                <div class="sb-footer">
+                    <div class="sb-kbd-tip">Press <kbd>N</kbd> to add artwork</div>
+                    <button id="out" class="sb-logout-btn" type="button">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Log out</span>
+                    </button>
+                </div>
+            </aside>
+
+            <div id="sb-backdrop" class="sb-backdrop"></div>
+
+            <!-- Content Wrap -->
+            <div class="content-wrap">
+                <header class="top-header">
+                    <div class="top-left">
+                        <button id="sb-toggle" class="sb-toggle-btn" aria-label="Toggle sidebar" title="Toggle sidebar">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <line x1="9" y1="3" x2="9" y2="21" />
+                            </svg>
+                        </button>
+                        <div class="top-title" id="page-title">Dashboard</div>
+                    </div>
+                </header>
+
+                <main id="main"></main>
+            </div>
+        </div>
+
+        <!-- Floating Bulk Action Bar -->
+        <div id="bulk-bar" class="bulk-bar">
+            <span class="bulk-count" id="bulk-count">0 selected</span>
+            <button type="button" id="bulk-pub-btn">Publish</button>
+            <button type="button" id="bulk-unpub-btn">Unpublish</button>
+            <select id="bulk-cat-select" aria-label="Move category">
+                <option value="">Move category...</option>
+            </select>
+            <button type="button" class="dng-btn" id="bulk-del-btn">Delete</button>
+            <button type="button" class="bulk-close" id="bulk-cancel-btn" title="Clear selection">&times;</button>
+        </div>
+    </div>
+
+    <div id="modal" hidden>
+        <div class="box" id="mb"></div>
+    </div>
+    <div id="toast" hidden></div>
+
+    <script>
+        /* ========================================================================== */
+        /* >>> DEFAULT CONFIG & SETTINGS <<<                                          */
+        /* ========================================================================== */
+        const DEFAULT_SETTINGS = {
+            categories: ["Textured Art", "Abstract Art", "Vastu", "Nature", "Religious", "Custom Art"],
+            themes: {
+                "Religious": ["Ganesha", "Shiva", "Radha Krishna", "Hanuman", "Buddha"],
+                "Custom Art": ["Pencil Sketch", "Charcoal Sketch", "Charcoal Painting", "Abstract Painting", "Portrait Sketch"]
+            }
+        };
+
+        let settings = { ...DEFAULT_SETTINGS };
+        let CATS = [...settings.categories];
+        let THEMES = { ...settings.themes };
+
+        const SHAPES = ["Horizontal", "Square", "Vertical"];
+
+        /* Standard Shape-based Sizes */
+        const SHAPE_SIZES = {
+            "Horizontal": ["24*16 inch", "36*24 inch", "48*32 inch"],
+            "Vertical": ["16*24 inch", "24*36 inch", "32*48 inch"],
+            "Square": ["24*24 inch", "36*36 inch", "48*48 inch"]
+        };
+
+        /* Fallback templates derived from CATALOG and Shape Sizing */
+        const DEFAULT_TEMPLATES = [
+            { id: "tpl-textured", category: "Textured Art", shape: "Horizontal", sizes: [["24*16 inch", 15000], ["36*24 inch", 19000], ["48*32 inch", 25000]], desc: "Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-abstract", category: "Abstract Art", shape: "Square", sizes: [["24*24 inch", 9000], ["36*36 inch", 12000], ["48*48 inch", 16000]], desc: "Hand painted abstract artwork on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-vastu", category: "Vastu", shape: "Horizontal", sizes: [["24*16 inch", 10000], ["36*24 inch", 14000], ["48*32 inch", 20000]], desc: "Hand painted Vastu artwork on stretched canvas, made with colours and symbols traditionally considered auspicious." },
+            { id: "tpl-nature", category: "Nature", shape: "Horizontal", sizes: [["24*16 inch", 7000], ["36*24 inch", 9500], ["48*32 inch", 13500]], desc: "Hand painted nature artwork on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-religious", category: "Religious", shape: "Vertical", sizes: [["16*24 inch", 8000], ["24*36 inch", 10500], ["32*48 inch", 14500]], desc: "Hand painted devotional artwork on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-custom", category: "Custom Art", shape: "Vertical", sizes: [["16*24 inch", 4500], ["24*36 inch", 7000], ["32*48 inch", 11000]], desc: "Made to order from your idea or photo, by hand, in the medium you choose." }
+        ];
+        let templates = [...DEFAULT_TEMPLATES];
+
+        const $ = s => document.querySelector(s);
+        const money = n => "Rs. " + Number(n).toLocaleString("en-IN");
+        const esc = t => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+        const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "art";
+
+        let data = { items: [] }, view = "dash", Q = "", FC = "", FS = "", QSORT = "updated-desc", filtersOpen = false, selectedCatForThemes = null, tt;
+        let selectedIds = new Set();
+
+        function toast(m, err) {
+            const t = $("#toast");
+            t.textContent = m;
+            t.className = err ? "err" : "";
+            t.hidden = false;
+            clearTimeout(tt);
+            if (m) tt = setTimeout(() => t.hidden = true, err ? 6000 : 3500);
+        }
+        const busy = m => { const t = $("#toast"); t.textContent = m; t.className = ""; t.hidden = false; clearTimeout(tt) };
+
+        const updatePublishStatusChip = () => {};
+        const notifySaved = () => {};
+
+        /* ========================================================================== */
+        /* >>> TIME FORMATTER & COMPLETENESS EVALUATOR <<<                            */
+        /* ========================================================================== */
+        function timeAgo(dateStr) {
+            if (!dateStr) return "Recently";
+            const d = new Date(dateStr);
+            if (isNaN(d.getTime())) return "Recently";
+            const secs = Math.floor((Date.now() - d.getTime()) / 1000);
+            if (secs < 60) return "Just now";
+            const mins = Math.floor(secs / 60);
+            if (mins < 60) return `${mins}m ago`;
+            const hours = Math.floor(mins / 60);
+            if (hours < 24) return `${hours}h ago`;
+            const days = Math.floor(hours / 24);
+            if (days < 30) return `${days}d ago`;
+            return d.toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" });
+        }
+
+        function checkCompleteness(it) {
+            const issues = [];
+            if (!it.name || !it.name.trim()) issues.push("Missing name");
+            if (!it.images || !it.images[0]) issues.push("Missing cover image");
+            const validSizes = (it.sizes || []).filter(s => s[0] && +s[1] > 0);
+            if (!validSizes.length) issues.push("Missing sizes or prices");
+            return {
+                isComplete: issues.length === 0,
+                issues
+            };
+        }
+
+        /* ========================================================================== */
+                /* ========================================================================== */
+        /* ---------- GitHub API ---------- */
+        let cfg = { proxy: true, branch: "main" };
+        let sha = null, settingsSha = null;
+
+        const gh = (path, o = {}) => fetch("/api/gh/" + path + (o.q || ""), { method: o.method || "GET", headers: { "Content-Type": "application/json" }, body: o.body ? JSON.stringify(o.body) : undefined });
+        const enc64 = s => { let r = ""; new TextEncoder().encode(s).forEach(c => r += String.fromCharCode(c)); return btoa(r) };
+        const dec64 = b => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, "")), c => c.charCodeAt(0)));
+
+        async function load() {
+            const r = await gh("products.json", { q: `?ref=${cfg.branch}&t=${Date.now()}` });
+            if (r.status === 404) { data = { items: [] }; sha = null; return }
+            if (r.status === 401 || r.status === 403) throw new Error("Token not accepted. Check the token and its Contents permission.");
+            if (!r.ok) throw new Error("GitHub error " + r.status + ". Check the repository name and branch.");
+            const j = await r.json(); sha = j.sha; data = JSON.parse(dec64(j.content)); if (!Array.isArray(data.items)) data.items = [];
+
+            /* Load settings.json */
+            try {
+                const sr = await gh("settings.json", { q: `?ref=${cfg.branch}&t=${Date.now()}` });
+                if (sr.ok) {
+                    const sj = await sr.json();
+                    settingsSha = sj.sha;
+                    const sdata = JSON.parse(dec64(sj.content));
+                    if (sdata) {
+                        settings = sdata;
+                        if (Array.isArray(settings.categories) && settings.categories.length) CATS = [...settings.categories];
+                        if (settings.themes) THEMES = { ...settings.themes };
+                    }
+                }
+            } catch (e) { }
+
+            /* Load templates.json if available */
+            try {
+                const tr = await gh("templates.json", { q: `?ref=${cfg.branch}&t=${Date.now()}` });
+                if (tr.ok) {
+                    const tj = await tr.json();
+                    const tdata = JSON.parse(dec64(tj.content));
+                    if (Array.isArray(tdata) && tdata.length) templates = tdata;
+                }
+            } catch (e) { }
+        }
+
+        async function save(msg) {
+            for (let i = 0; i < 3; i++) {
+                const r = await gh("products.json", { method: "PUT", body: { message: msg, content: enc64(JSON.stringify(data, null, 1)), branch: cfg.branch, ...(sha ? { sha } : {}) } });
+                if (r.ok) { sha = (await r.json()).content.sha; return }
+                if (r.status === 409 || r.status === 422) { const g = await gh("products.json", { q: `?ref=${cfg.branch}&t=${Date.now()}` }); sha = g.ok ? (await g.json()).sha : null; continue }
+                throw new Error("Could not save (" + r.status + ")")
+            }
+            throw new Error("Could not save. Please try again.")
+        }
+
+        async function saveSettings(msg = "Update Settings") {
+            for (let i = 0; i < 3; i++) {
+                const r = await gh("settings.json", { method: "PUT", body: { message: msg, content: enc64(JSON.stringify(settings, null, 2)), branch: cfg.branch, ...(settingsSha ? { sha: settingsSha } : {}) } });
+                if (r.ok) { settingsSha = (await r.json()).content.sha; CATS = [...settings.categories]; THEMES = { ...settings.themes }; toast("Settings saved successfully."); return }
+                if (r.status === 409 || r.status === 422) { const g = await gh("settings.json", { q: `?ref=${cfg.branch}&t=${Date.now()}` }); settingsSha = g.ok ? (await g.json()).sha : null; continue }
+                throw new Error("Could not save settings (" + r.status + ")")
+            }
+            throw new Error("Could not save settings. Please try again.")
+        }
+
+        async function putImage(name, b64) {
+            const path = "images/" + name;
+            let imgSha;
+            const existing = await gh(path, { q: "?ref=" + cfg.branch + "&t=" + Date.now() });
+            if (existing.ok) { const item = await existing.json(); imgSha = item.sha }
+            else if (existing.status !== 404) throw new Error("Could not check image (" + existing.status + ")");
+            const r = await gh(path, { method: "PUT", body: { message: (imgSha ? "Update " : "Add ") + "image " + name, content: b64, branch: cfg.branch, ...(imgSha ? { sha: imgSha } : {}) } });
+            if (!r.ok) throw new Error("Image upload failed (" + r.status + ")");
+            return path
+        }
+
+        async function delImage(p) { try { const g = await gh(p, { q: "?ref=" + cfg.branch }); if (!g.ok) return; await gh(p, { method: "DELETE", body: { message: "Remove " + p, sha: (await g.json()).sha, branch: cfg.branch } }) } catch (e) { } }
+
+        function toJpeg(file, fit) {
+            return new Promise((ok, no) => {
+                const im = new Image(); im.onload = () => {
+                    const W = 1080, H = 1350, c = document.createElement("canvas"); c.width = W; c.height = H; const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, W, H);
+                    const k = fit === "cover" ? Math.max(W / im.width, H / im.height) : Math.min(W / im.width, H / im.height), w = im.width * k, h = im.height * k; x.drawImage(im, (W - w) / 2, (H - h) / 2, w, h); ok(c.toDataURL("image/jpeg", .85).split(",")[1])
+                }; im.onerror = () => no(new Error("That file is not an image")); im.src = URL.createObjectURL(file)
+            })
+        }
+
+        /* ---------- Password login ---------- */
+        const errMsg = x => x instanceof TypeError ? "Could not reach CraftVeda. Check your internet connection and try again." : x.message;
+        async function checkSession() {
+            const status = $("#login-status");
+            try {
+                const r = await fetch("/api/gh/products.json?t=" + Date.now(), { cache: "no-store" });
+                if (r.status === 401) { $("#login").hidden = false; $("#app").hidden = true; return }
+                if (!r.ok) { let j = {}; try { j = await r.json() } catch (e) { }; status.textContent = j.message || ("Admin service error (" + r.status + "). Check Cloudflare environment variables."); return }
+                await load(); $("#login").hidden = true; $("#app").hidden = false; render();
+            } catch (x) { status.textContent = errMsg(x) }
+        }
+        $("#login-form").addEventListener("submit", async e => {
+            e.preventDefault(); const status = $("#login-status"), btn = $("#login-submit"); btn.disabled = true; status.textContent = "Checking password…";
+            try {
+                const r = await fetch("/api/admin-login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password: $("#admin-password").value }) });
+                const j = await r.json().catch(() => ({}));
+                if (!r.ok) { status.textContent = j.message || "Login failed. Check your password."; return }
+                $("#admin-password").value = ""; status.textContent = "Login successful."; await checkSession();
+            } catch (x) { status.textContent = errMsg(x) } finally { btn.disabled = false }
+        });
+        $("#out").onclick = async () => { try { await fetch("/api/admin-logout", { method: "POST" }) } finally { location.reload() } };
+        checkSession();
+
+        /* ---------- Dynamic Sidebar Toggle & Navigation ---------- */
+        const sidebar = $("#sidebar");
+        const sbBackdrop = $("#sb-backdrop");
+        const sbToggleBtn = $("#sb-toggle");
+
+        // By default sidebar is open on desktop (> 860px)
+        let isSidebarOpen = window.innerWidth > 860;
+
+        function setSidebarState(open) {
+            isSidebarOpen = open;
+            if (window.innerWidth > 860) {
+                // Desktop mode: toggles sb-closed on body, shifts content-wrap
+                sidebar.classList.remove("open");
+                sbBackdrop.classList.remove("open");
+                if (isSidebarOpen) {
+                    document.body.classList.remove("sb-closed");
+                    sbToggleBtn.setAttribute("title", "Close sidebar");
+                    sbToggleBtn.setAttribute("aria-label", "Close sidebar");
+                } else {
+                    document.body.classList.add("sb-closed");
+                    sbToggleBtn.setAttribute("title", "Open sidebar");
+                    sbToggleBtn.setAttribute("aria-label", "Open sidebar");
+                }
+            } else {
+                // Mobile drawer mode
+                document.body.classList.remove("sb-closed");
+                if (isSidebarOpen) {
+                    sidebar.classList.add("open");
+                    sbBackdrop.classList.add("open");
+                    sbToggleBtn.setAttribute("title", "Close sidebar");
+                    sbToggleBtn.setAttribute("aria-label", "Close sidebar");
+                } else {
+                    sidebar.classList.remove("open");
+                    sbBackdrop.classList.remove("open");
+                    sbToggleBtn.setAttribute("title", "Open sidebar");
+                    sbToggleBtn.setAttribute("aria-label", "Open sidebar");
+                }
+            }
+        }
+
+        // Initialize default open state
+        setSidebarState(window.innerWidth > 860);
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 860) {
+                setSidebarState(isSidebarOpen);
+            } else {
+                setSidebarState(false);
+            }
+        });
+
+        sbToggleBtn.onclick = () => {
+            setSidebarState(!isSidebarOpen);
+        };
+
+        sbBackdrop.onclick = () => {
+            setSidebarState(false);
+        };
+
+        document.querySelectorAll("[data-v]").forEach(b => b.onclick = () => {
+            view = b.dataset.v;
+            if (window.innerWidth <= 860) setSidebarState(false);
+            render();
+        });
+
+        /* Dropdown "+ Add artwork" behavior */
+        $("#add").onclick = e => {
+            e.stopPropagation();
+            $("#add-menu").classList.toggle("open");
+        };
+        document.addEventListener("click", e => {
+            if (!e.target.closest("#add-dd")) $("#add-menu").classList.remove("open");
+        });
+        $("#add-manual").onclick = () => {
+            $("#add-menu").classList.remove("open");
+            if (window.innerWidth <= 860) setSidebarState(false);
+            form();
+        };
+        $("#add-csv").onclick = () => {
+            $("#add-menu").classList.remove("open");
+            if (window.innerWidth <= 860) setSidebarState(false);
+            csvModal();
+        };
+
+        /* Keyboard Shortcut: Press 'N' to open Add Artwork */
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape") {
+                $("#modal").hidden = true;
+                $("#add-menu").classList.remove("open");
+                if (window.innerWidth <= 860) setSidebarState(false);
+                return;
+            }
+            if ((e.key === "n" || e.key === "N") && !e.ctrlKey && !e.metaKey && !e.altKey) {
+                const active = document.activeElement;
+                if (active && ["INPUT", "TEXTAREA", "SELECT"].includes(active.tagName)) return;
+                if (!$("#modal").hidden) return;
+                e.preventDefault();
+                form();
+            }
+        });
+
+        /* ---------- Render Views ---------- */
+        function render() {
+            document.querySelectorAll("[data-v]").forEach(b => b.classList.toggle("on", b.dataset.v === view));
+            $("#sb-art-count").textContent = data.items.length;
+            $("#sb-cat-count").textContent = CATS.length;
+            updatePublishStatusChip();
+
+            if (view === "dash") {
+                $("#page-title").textContent = "Dashboard";
+                $("#bulk-bar").classList.remove("active");
+                $("#main").innerHTML = dash();
+                bindDashEvents();
+            } else if (view === "list") {
+                $("#page-title").textContent = "Artworks";
+                $("#main").innerHTML = listView();
+                bindListEvents();
+                rows();
+            } else if (view === "cats") {
+                $("#page-title").textContent = "Categories & Themes";
+                $("#bulk-bar").classList.remove("active");
+                $("#main").innerHTML = categoriesView();
+                bindCategoriesEvents();
+            }
+        }
+
+        /* ========================================================================== */
+        /* >>> DASHBOARD <<<                                                          */
+        /* ========================================================================== */
+        function dash() {
+            const it = data.items;
+            const pub = it.filter(i => i.published !== false).length;
+            const feat = it.filter(i => i.featured).length;
+
+            const needsAttention = it.filter(i => {
+                const comp = checkCompleteness(i);
+                return !comp.isComplete || (i.published === false && (!i.images || !i.images[0]));
+            });
+
+            return `
+  <div class="page-head">
+   <h2>Dashboard</h2>
+   <p>Overview of your catalog, publish states, and action items.</p>
+  </div>
+
+  <div class="stats">
+   <div class="st"><b>${it.length}</b>Total artworks</div>
+   <div class="st"><b>${pub}</b>Published</div>
+   <div class="st"><b>${it.length - pub}</b>Draft / unpublished</div>
+   <div class="st"><b>${feat}</b>Featured</div>
+  </div>
+
+  <div class="dash-actions">
+   <button class="btn" id="dash-add-btn" type="button">+ Add artwork</button>
+   <button class="ghost" id="dash-csv-btn" type="button">Import from CSV</button>
+  </div>
+
+  <!-- Needs Attention Panel (Dynamic: only visible if attention is needed) -->
+  ${needsAttention.length ? `
+  <div class="panel">
+   <div class="panel-head">
+    <h3>
+     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+     Needs attention (${needsAttention.length})
+    </h3>
+   </div>
+   <div class="att-list">
+    ${needsAttention.slice(0, 5).map(item => {
+        const comp = checkCompleteness(item);
+        const img = item.images && item.images[0] ? item.images[0] : '';
+        return `
+      <div class="att-item">
+       <img src="${esc(img)}" alt="" onerror="this.style.visibility='hidden'">
+       <div class="att-info">
+        <b>${esc(item.name || 'Untitled Artwork')}</b>
+        <small>${esc(item.category)}${item.theme ? ' · ' + esc(item.theme) : ''} · ${esc(item.shape)}</small>
+        <div class="att-tags">
+         ${comp.issues.map(iss => `<span class="status-pill failed">⚠ ${iss}</span>`).join('')}
+        </div>
+       </div>
+       <button class="ghost" style="padding:6px 12px;font-size:12px" data-fix="${item.id}">Fix & Edit</button>
+      </div>
+     `;
+    }).join('')}
+    ${needsAttention.length > 5 ? `<div style="text-align:center;font-size:12px;color:var(--gr);padding-top:4px">+ ${needsAttention.length - 5} more items needing attention in Artworks list</div>` : ''}
    </div>
   </div>
-  <button id="out">Log out</button></div>
- <main id="main"></main>
-</div>
-<div id="modal" hidden><div class="box" id="mb"></div></div>
-<div id="toast" hidden></div>
+  ` : ''}
 
-<script>
-const CATS=["Textured Art","Abstract Art","Vastu","Nature","Religious","Custom Art"];
-const THEMES={"Religious":["Ganesha","Shiva","Radha Krishna","Hanuman","Buddha"],"Custom Art":["Pencil Sketch","Charcoal Sketch","Charcoal Painting","Abstract Painting","Portrait Sketch"]};
-const SHAPES=["Horizontal","Square","Vertical"];
+  <div class="panel-head" style="margin-top:28px">
+   <h3>Artworks by category (click to filter)</h3>
+   <button class="ghost" id="dash-cats-manage" style="font-size:12px;padding:6px 12px">Manage Categories &rarr;</button>
+  </div>
+  <div class="cats">
+   ${CATS.map(c => {
+                const a = it.filter(i => i.category === c);
+                const p = a.filter(i => i.published !== false).length;
+                return `
+     <div class="cc clickable" data-cat="${c}" title="View all ${c} artworks">
+      <span>${c}</span>
+      <b>${a.length}</b>
+      <small>${p} published, ${a.length - p} draft</small>
+      <span class="cc-arr">&rarr;</span>
+     </div>
+    `;
+            }).join('')}
+  </div>
+ `;
+        }
 
-/* Standard Shape-based Sizes */
-const SHAPE_SIZES={
- "Horizontal":["24*16 inch","36*24 inch","48*32 inch"],
- "Vertical":["16*24 inch","24*36 inch","32*48 inch"],
- "Square":["24*24 inch","36*36 inch","48*48 inch"]
-};
+        function bindDashEvents() {
+            $("#dash-add-btn").onclick = () => form();
+            $("#dash-csv-btn").onclick = () => csvModal();
+            $("#dash-cats-manage").onclick = () => { view = "cats"; render() };
 
-/* Fallback templates derived from CATALOG and Shape Sizing */
-const DEFAULT_TEMPLATES=[
- {id:"tpl-textured",category:"Textured Art",shape:"Horizontal",sizes:[["24*16 inch",15000],["36*24 inch",19000],["48*32 inch",25000]],desc:"Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours."},
- {id:"tpl-abstract",category:"Abstract Art",shape:"Square",sizes:[["24*24 inch",9000],["36*36 inch",12000],["48*48 inch",16000]],desc:"Hand painted abstract artwork on stretched canvas, finished in acrylic colours."},
- {id:"tpl-vastu",category:"Vastu",shape:"Horizontal",sizes:[["24*16 inch",10000],["36*24 inch",14000],["48*32 inch",20000]],desc:"Hand painted Vastu artwork on stretched canvas, made with colours and symbols traditionally considered auspicious."},
- {id:"tpl-nature",category:"Nature",shape:"Horizontal",sizes:[["24*16 inch",7000],["36*24 inch",9500],["48*32 inch",13500]],desc:"Hand painted nature artwork on stretched canvas, finished in acrylic colours."},
- {id:"tpl-religious",category:"Religious",shape:"Vertical",sizes:[["16*24 inch",8000],["24*36 inch",10500],["32*48 inch",14500]],desc:"Hand painted devotional artwork on stretched canvas, finished in acrylic colours."},
- {id:"tpl-custom",category:"Custom Art",shape:"Vertical",sizes:[["16*24 inch",4500],["24*36 inch",7000],["32*48 inch",11000]],desc:"Made to order from your idea or photo, by hand, in the medium you choose."}
-];
-let templates=[...DEFAULT_TEMPLATES];
+            document.querySelectorAll(".cc.clickable").forEach(card => {
+                card.onclick = () => {
+                    FC = card.dataset.cat;
+                    view = "list";
+                    render();
+                };
+            });
 
-const $=s=>document.querySelector(s);
-const money=n=>"Rs. "+Number(n).toLocaleString("en-IN");
-const esc=t=>String(t==null?"":t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const slug=t=>t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40)||"art";
-let cfg={proxy:true,branch:"main"},data={items:[]},sha=null,view="dash",Q="",FC="",FS="",tt;
+            document.querySelectorAll("[data-fix]").forEach(b => {
+                b.onclick = () => {
+                    const it = data.items.find(x => x.id === b.dataset.fix);
+                    if (it) form(it);
+                };
+            });
+        }
 
-function toast(m,err){const t=$("#toast");t.textContent=m;t.className=err?"err":"";t.hidden=false;clearTimeout(tt);if(m)tt=setTimeout(()=>t.hidden=true,err?6000:3500)}
-const busy=m=>{const t=$("#toast");t.textContent=m;t.className="";t.hidden=false;clearTimeout(tt)};
+        /* ========================================================================== */
+        /* >>> ARTWORKS TABLE VIEW (MATCHING ATTACHED SCREENSHOT) <<<                 */
+        /* ========================================================================== */
+        function listView() {
+            return `
+  <div class="page-head" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+   <div>
+    <h2>Artworks</h2>
+    <p id="list-count-tag" style="margin:0">Showing 0 artworks</p>
+   </div>
+   <div style="display:flex;align-items:center;gap:10px">
+    <button id="toggle-filter-btn" class="ghost" type="button" style="font-weight:600">
+     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+     <span>Filters</span>
+    </button>
+    <button id="artworks-export-btn" class="btn navy-btn" type="button">
+     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+     <span>Export</span>
+    </button>
+   </div>
+  </div>
 
-/* ---------- GitHub API ---------- */
-const gh=(path,o={})=>fetch("/api/gh/"+path+(o.q||""),{method:o.method||"GET",headers:{"Content-Type":"application/json"},body:o.body?JSON.stringify(o.body):undefined});
-const enc64=s=>{let r="";new TextEncoder().encode(s).forEach(c=>r+=String.fromCharCode(c));return btoa(r)};
-const dec64=b=>new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g,"")),c=>c.charCodeAt(0)));
-async function load(){
- const r=await gh("products.json",{q:`?ref=${cfg.branch}&t=${Date.now()}`});
- if(r.status===404){data={items:[]};sha=null;return}
- if(r.status===401||r.status===403)throw new Error("Token not accepted. Check the token and its Contents permission.");
- if(!r.ok)throw new Error("GitHub error "+r.status+". Check the repository name and branch.");
- const j=await r.json();sha=j.sha;data=JSON.parse(dec64(j.content));if(!Array.isArray(data.items))data.items=[];
+  <!-- Collapsible Search & Filter Toolbar -->
+  <div class="filter-collapse-box ${filtersOpen ? 'open' : ''}" id="filter-box">
+   <div class="flt-row">
+    <input id="qs" placeholder="Search by artwork name..." value="${esc(Q)}">
+    <select id="qc" aria-label="Filter by category">
+     <option value="">All categories</option>
+     ${CATS.map(c => `<option ${c === FC ? "selected" : ""}>${c}</option>`).join("")}
+    </select>
+    <select id="qt" aria-label="Filter by status">
+     <option value="">All status</option>
+     <option value="p" ${FS === "p" ? "selected" : ""}>Published</option>
+     <option value="d" ${FS === "d" ? "selected" : ""}>Draft</option>
+     <option value="inc" ${FS === "inc" ? "selected" : ""}>Incomplete</option>
+    </select>
+    <select id="qsort" aria-label="Sort artworks">
+     <option value="updated-desc" ${QSORT === "updated-desc" ? "selected" : ""}>Sort: Recently updated</option>
+     <option value="name-asc" ${QSORT === "name-asc" ? "selected" : ""}>Sort: Name (A–Z)</option>
+     <option value="price-asc" ${QSORT === "price-asc" ? "selected" : ""}>Sort: Price (Low &rarr; High)</option>
+     <option value="price-desc" ${QSORT === "price-desc" ? "selected" : ""}>Sort: Price (High &rarr; Low)</option>
+     <option value="cat-asc" ${QSORT === "cat-asc" ? "selected" : ""}>Sort: Category</option>
+    </select>
+   </div>
+  </div>
 
- /* Load templates.json if available via GitHub API or fallback */
- try{
-  const tr=await gh("templates.json",{q:`?ref=${cfg.branch}&t=${Date.now()}`});
-  if(tr.ok){
-   const tj=await tr.json();
-   const tdata=JSON.parse(dec64(tj.content));
-   if(Array.isArray(tdata)&&tdata.length)templates=tdata;
-  }
- }catch(e){}
-}
-async function save(msg){
- for(let i=0;i<3;i++){
-  const r=await gh("products.json",{method:"PUT",body:{message:msg,content:enc64(JSON.stringify(data,null,1)),branch:cfg.branch,...(sha?{sha}:{})}});
-  if(r.ok){sha=(await r.json()).content.sha;return}
-  if(r.status===409||r.status===422){const g=await gh("products.json",{q:`?ref=${cfg.branch}&t=${Date.now()}`});sha=g.ok?(await g.json()).sha:null;continue}
-  throw new Error("Could not save ("+r.status+")")}
- throw new Error("Could not save. Please try again.")}
-async function putImage(name,b64){
- const path="images/"+name;
- let sha;
- const existing=await gh(path,{q:"?ref="+cfg.branch+"&t="+Date.now()});
- if(existing.ok){const item=await existing.json();sha=item.sha}
- else if(existing.status!==404)throw new Error("Could not check image ("+existing.status+")");
- const r=await gh(path,{method:"PUT",body:{message:(sha?"Update ":"Add ")+"image "+name,content:b64,branch:cfg.branch,...(sha?{sha}:{})}});
- if(!r.ok)throw new Error("Image upload failed ("+r.status+")");
- return path
-}
-async function delImage(p){try{const g=await gh(p,{q:"?ref="+cfg.branch});if(!g.ok)return;await gh(p,{method:"DELETE",body:{message:"Remove "+p,sha:(await g.json()).sha,branch:cfg.branch}})}catch(e){}}
-function toJpeg(file,fit){return new Promise((ok,no)=>{const im=new Image();im.onload=()=>{const W=1080,H=1350,c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,W,H);
- const k=fit==="cover"?Math.max(W/im.width,H/im.height):Math.min(W/im.width,H/im.height),w=im.width*k,h=im.height*k;x.drawImage(im,(W-w)/2,(H-h)/2,w,h);ok(c.toDataURL("image/jpeg",.85).split(",")[1])};im.onerror=()=>no(new Error("That file is not an image"));im.src=URL.createObjectURL(file)})}
+  <!-- Modern Data Table -->
+  <div class="table-card">
+   <div class="table-responsive">
+    <table class="data-table">
+     <thead>
+      <tr>
+       <th style="width:36px;padding-right:0"><input type="checkbox" id="chk-all" aria-label="Select all visible"></th>
+       <th style="width:52px">PREVIEW</th>
+       <th>ARTWORK</th>
+       <th>CATEGORY</th>
+       <th>STARTING PRICE</th>
+       <th>STATUS</th>
+       <th>LAST UPDATED</th>
+       <th style="text-align:right">ACTIONS</th>
+      </tr>
+     </thead>
+     <tbody id="rows-tbody"></tbody>
+    </table>
+   </div>
+  </div>
+ `;
+        }
 
-/* ---------- Password login ---------- */
-const errMsg=x=>x instanceof TypeError?"Could not reach CraftVeda. Check your internet connection and try again.":x.message;
-async function checkSession(){
- const status=$("#login-status");
- try {
-  const r=await fetch("/api/gh/products.json?t="+Date.now(),{cache:"no-store"});
-  if(r.status===401){$("#login").hidden=false;$("#app").hidden=true;return}
-  if(!r.ok){let j={};try{j=await r.json()}catch(e){};status.textContent=j.message||("Admin service error ("+r.status+"). Check Cloudflare environment variables.");return}
-  await load();$("#login").hidden=true;$("#app").hidden=false;render();
- }catch(x){status.textContent=errMsg(x)}
-}
-$("#login-form").addEventListener("submit",async e=>{
- e.preventDefault();const status=$("#login-status"),btn=$("#login-submit");btn.disabled=true;status.textContent="Checking password…";
- try{
-  const r=await fetch("/api/admin-login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({password:$("#admin-password").value})});
-  const j=await r.json().catch(()=>({}));
-  if(!r.ok){status.textContent=j.message||"Login failed. Check your password.";return}
-  $("#admin-password").value="";status.textContent="Login successful.";await checkSession();
- }catch(x){status.textContent=errMsg(x)}finally{btn.disabled=false}
-});
-$("#out").onclick=async()=>{try{await fetch("/api/admin-logout",{method:"POST"})}finally{location.reload()}};
-checkSession();
+        function bindListEvents() {
+            $("#toggle-filter-btn").onclick = () => {
+                filtersOpen = !filtersOpen;
+                $("#filter-box").classList.toggle("open", filtersOpen);
+            };
 
-/* ---------- views ---------- */
-document.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>{view=b.dataset.v;render()});
+            $("#artworks-export-btn").onclick = () => {
+                exportCurrentArtworksCSV();
+            };
 
-/* Dropdown "+ Add artwork" behavior */
-$("#add").onclick=e=>{
- e.stopPropagation();
- $("#add-menu").classList.toggle("open");
-};
-document.addEventListener("click",e=>{
- if(!e.target.closest("#add-dd"))$("#add-menu").classList.remove("open");
-});
-$("#add-manual").onclick=()=>{
- $("#add-menu").classList.remove("open");
- form();
-};
-$("#add-csv").onclick=()=>{
- $("#add-menu").classList.remove("open");
- csvModal();
-};
+            $("#qs").oninput = e => { Q = e.target.value; rows() };
+            $("#qc").onchange = e => { FC = e.target.value; rows() };
+            $("#qt").onchange = e => { FS = e.target.value; rows() };
+            $("#qsort").onchange = e => { QSORT = e.target.value; rows() };
 
-function render(){document.querySelectorAll("[data-v]").forEach(b=>b.classList.toggle("on",b.dataset.v===view));
- if(view==="dash")$("#main").innerHTML=dash();else{$("#main").innerHTML=`<h2>Artworks</h2><div class="flt"><input id="qs" placeholder="Search by name" value="${esc(Q)}"><select id="qc"><option value="">All categories</option>${CATS.map(c=>`<option ${c===FC?"selected":""}>${c}</option>`).join("")}</select><select id="qt"><option value="">All status</option><option value="p" ${FS==="p"?"selected":""}>Published</option><option value="d" ${FS==="d"?"selected":""}>Draft</option></select></div><div id="rows"></div>`;
-  $("#qs").oninput=e=>{Q=e.target.value;rows()};$("#qc").onchange=e=>{FC=e.target.value;rows()};$("#qt").onchange=e=>{FS=e.target.value;rows()};rows()}}
-function dash(){const it=data.items,pub=it.filter(i=>i.published!==false).length;
- return `<h2>Dashboard</h2><div class="stats">${[["Total artworks",it.length],["Published",pub],["Draft / unpublished",it.length-pub],["Featured",it.filter(i=>i.featured).length]].map(([a,b])=>`<div class="st"><b>${b}</b>${a}</div>`).join("")}</div>
- <h3>Artworks by category</h3><div class="cats">${CATS.map(c=>{const a=it.filter(i=>i.category===c),p=a.filter(i=>i.published!==false).length;return `<div class="cc"><span>${c}</span><b>${a.length}</b><small>${p} published, ${a.length-p} draft</small></div>`}).join("")}</div>
- <p class="note" style="margin-top:22px">After you save, the website updates in about 1 to 2 minutes.</p>`}
-function rows(){const l=data.items.filter(i=>(!Q||i.name.toLowerCase().includes(Q.toLowerCase()))&&(!FC||i.category===FC)&&(!FS||(FS==="p")===(i.published!==false)));
- $("#rows").innerHTML=l.length?l.slice().reverse().map(i=>`<div class="rw"><img src="${esc(i.images[0]||"")}" alt="" onerror="this.style.visibility='hidden'"><div class="mi"><b>${esc(i.name)}</b><small>${esc(i.category)}${i.theme?" · "+esc(i.theme):""} · ${esc(i.shape)} · from ${money(Math.min(...i.sizes.map(s=>s[1])))}</small></div><span class="bd ${i.published!==false?"ok":"dr"}">${i.published!==false?"Published":"Draft"}</span>${i.featured?'<span class="bd ft">Featured</span>':""}<div class="ac"><button data-e="${i.id}">Edit</button><button data-dup="${i.id}">Duplicate</button><button data-t="${i.id}">${i.published!==false?"Unpublish":"Publish"}</button><button data-d="${i.id}" class="dng">Delete</button></div></div>`).join(""):`<div class="empty">${data.items.length?"No artworks match your search.":"No artworks yet. Click + Add artwork."}</div>`;
- $("#rows").onclick=async e=>{const b=e.target.closest("button");if(!b)return;const id=b.dataset.e||b.dataset.dup||b.dataset.t||b.dataset.d,it=data.items.find(x=>x.id===id);if(!it)return;
-  if(b.dataset.e)form(it);
-  else if(b.dataset.dup){
-   const clone={...JSON.parse(JSON.stringify(it)),id:"",name:it.name+" (Copy)",published:false,featured:false,createdAt:new Date().toISOString()};
-   form(clone,true);
-  }
-  else if(b.dataset.t){try{busy("Saving...");it.published=!(it.published!==false);it.updatedAt=new Date().toISOString();await save((it.published?"Publish ":"Unpublish ")+it.name);toast(it.published?"Published":"Moved to draft");render()}catch(x){it.published=!it.published;toast(x.message,1)}}
-  else if(b.dataset.d&&confirm(`Delete "${it.name}" permanently?`)){try{busy("Deleting...");const keep=data.items;data.items=keep.filter(x=>x.id!==id);try{await save("Delete "+it.name)}catch(x){data.items=keep;throw x}it.images.forEach(p=>p&&delImage(p));toast("Deleted");render()}catch(x){toast(x.message,1)}}}}
+            $("#chk-all").onchange = e => {
+                const isChecked = e.target.checked;
+                const visibleBoxes = document.querySelectorAll(".row-chk");
+                visibleBoxes.forEach(chk => {
+                    chk.checked = isChecked;
+                    const id = chk.dataset.id;
+                    if (isChecked) selectedIds.add(id); else selectedIds.delete(id);
+                    const rowEl = chk.closest("tr");
+                    if (rowEl) rowEl.classList.toggle("selected", isChecked);
+                });
+                updateBulkBar();
+            };
 
-/* ---------- CSV Parser and Import Modal ---------- */
-function parseCSV(t){
- const r=[];let row=[],c="",q=false;
- for(let i=0;i<t.length;i++){
-  const ch=t[i];
-  if(q){
-   if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}
-   else c+=ch;
-  }else if(ch==='"')q=true;
-  else if(ch===','){row.push(c);c=""}
-  else if(ch==='\n'){row.push(c);r.push(row);row=[];c=""}
-  else if(ch!=='\r')c+=ch;
- }
- if(c||row.length){row.push(c);r.push(row)}
- return r;
-}
+            const catSelect = $("#bulk-cat-select");
+            catSelect.innerHTML = `<option value="">Move category...</option>` + CATS.map(c => `<option value="${c}">${c}</option>`).join("");
+        }
 
-function csvModal(){
- $("#mb").innerHTML=`<h2>Import Artworks from CSV</h2>
+        function getFilteredAndSorted() {
+            let l = data.items.filter(i => {
+                const matchesName = !Q || i.name.toLowerCase().includes(Q.toLowerCase());
+                const matchesCat = !FC || i.category === FC;
+                let matchesStatus = true;
+                if (FS === "p") matchesStatus = (i.published !== false);
+                else if (FS === "d") matchesStatus = (i.published === false);
+                else if (FS === "inc") matchesStatus = !checkCompleteness(i).isComplete;
+                return matchesName && matchesCat && matchesStatus;
+            });
+
+            const minPrice = it => (it.sizes && it.sizes.length) ? Math.min(...it.sizes.map(s => +s[1] || 0)) : 0;
+
+            if (QSORT === "updated-desc") {
+                l.sort((a, b) => new Date(b.updatedAt || b.createdAt || 0) - new Date(a.updatedAt || a.createdAt || 0));
+            } else if (QSORT === "name-asc") {
+                l.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (QSORT === "price-asc") {
+                l.sort((a, b) => minPrice(a) - minPrice(b));
+            } else if (QSORT === "price-desc") {
+                l.sort((a, b) => minPrice(b) - minPrice(a));
+            } else if (QSORT === "cat-asc") {
+                l.sort((a, b) => a.category.localeCompare(b.category));
+            }
+
+            return l;
+        }
+
+        function updateBulkBar() {
+            const count = selectedIds.size;
+            const bar = $("#bulk-bar");
+            const countEl = $("#bulk-count");
+
+            if (count > 0) {
+                bar.classList.add("active");
+                countEl.textContent = `${count} selected`;
+                $("#bulk-pub-btn").textContent = `Publish (${count})`;
+                $("#bulk-unpub-btn").textContent = `Unpublish (${count})`;
+                $("#bulk-del-btn").textContent = `Delete (${count})`;
+            } else {
+                bar.classList.remove("active");
+                const chkAll = $("#chk-all");
+                if (chkAll) chkAll.checked = false;
+            }
+        }
+
+        function rows() {
+            const l = getFilteredAndSorted();
+            const countTag = $("#list-count-tag");
+            if (countTag) countTag.textContent = `Showing ${l.length} of ${data.items.length} artworks`;
+
+            const chkAll = $("#chk-all");
+            if (chkAll) {
+                chkAll.checked = l.length > 0 && l.every(i => selectedIds.has(i.id));
+            }
+
+            const tbody = $("#rows-tbody");
+            if (!l.length) {
+                tbody.innerHTML = `
+   <tr>
+    <td colspan="8" style="text-align:center;padding:48px 20px;color:var(--gr)">
+     ${data.items.length ? "No artworks match your search or filter." : "No artworks yet. Click + Add artwork."}
+    </td>
+   </tr>
+  `;
+                return;
+            }
+
+            tbody.innerHTML = l.map(i => {
+                const comp = checkCompleteness(i);
+                const isChecked = selectedIds.has(i.id);
+                const startingPrice = (i.sizes && i.sizes.length) ? Math.min(...i.sizes.map(s => +s[1] || 0)) : 0;
+                const lastUpdated = timeAgo(i.updatedAt || i.createdAt);
+
+                return `
+   <tr class="${isChecked ? 'selected' : ''}" data-id="${i.id}">
+    <td style="padding-right:0">
+     <input type="checkbox" class="row-chk" data-id="${i.id}" ${isChecked ? 'checked' : ''} aria-label="Select artwork">
+    </td>
+    <td>
+     <img src="${esc(i.images[0] || "")}" alt="" onerror="this.style.visibility='hidden'" style="width:38px;height:48px;object-fit:cover;border-radius:4px;background:#eee;display:block">
+    </td>
+    <td>
+     <div style="font-weight:600;color:var(--navy);font-size:14px">${esc(i.name)}</div>
+     <small style="color:var(--gr);font-size:11.5px">${i.theme ? esc(i.theme) + ' &middot; ' : ''}${esc(i.shape)}</small>
+    </td>
+    <td>
+     <span style="font-weight:500;font-size:13px">${esc(i.category)}</span>
+    </td>
+    <td>
+     <span style="font-weight:700;color:var(--navy);font-size:13.5px">${money(startingPrice)}</span>
+    </td>
+    <td>
+     <div style="display:flex;gap:4px;flex-wrap:wrap">
+      ${!comp.isComplete ? `<span class="status-pill failed" title="${comp.issues.join(', ')}">INCOMPLETE</span>` : ''}
+      <span class="status-pill ${i.published !== false ? "completed" : "draft"}">${i.published !== false ? "PUBLISHED" : "DRAFT"}</span>
+      ${i.featured ? '<span class="status-pill featured">FEATURED</span>' : ''}
+     </div>
+    </td>
+    <td>
+     <span style="color:var(--gr);font-size:12.5px" title="${i.updatedAt || i.createdAt || ''}">${lastUpdated}</span>
+    </td>
+    <td>
+     <div class="row-actions">
+      <button data-e="${i.id}" type="button">Edit</button>
+      <button data-t="${i.id}" type="button">${i.published !== false ? "Unpublish" : "Publish"}</button>
+      <button data-d="${i.id}" class="dng" type="button">Delete</button>
+     </div>
+    </td>
+   </tr>
+  `;
+            }).join("");
+
+            /* Bind row clicks & action buttons */
+            tbody.onclick = async e => {
+                const chk = e.target.closest(".row-chk");
+                if (chk) {
+                    const id = chk.dataset.id;
+                    if (chk.checked) selectedIds.add(id); else selectedIds.delete(id);
+                    const tr = chk.closest("tr");
+                    if (tr) tr.classList.toggle("selected", chk.checked);
+                    updateBulkBar();
+                    const visible = getFilteredAndSorted();
+                    if (chkAll) chkAll.checked = visible.length > 0 && visible.every(i => selectedIds.has(i.id));
+                    return;
+                }
+
+                const b = e.target.closest("button");
+                if (!b) return;
+                const id = b.dataset.e || b.dataset.t || b.dataset.d;
+                const it = data.items.find(x => x.id === id);
+                if (!it) return;
+
+                if (b.dataset.e) form(it);
+                else if (b.dataset.t) {
+                    try {
+                        busy("Saving...");
+                        it.published = !(it.published !== false);
+                        it.updatedAt = new Date().toISOString();
+                        await save((it.published ? "Publish " : "Unpublish ") + it.name);
+                        toast(it.published ? "Published" : "Moved to draft");
+                        render();
+                    } catch (x) { it.published = !it.published; toast(x.message, 1) }
+                }
+                else if (b.dataset.d && confirm(`Delete "${it.name}" permanently?`)) {
+                    try {
+                        busy("Deleting...");
+                        const keep = data.items;
+                        data.items = keep.filter(x => x.id !== id);
+                        selectedIds.delete(id);
+                        try { await save("Delete " + it.name) } catch (x) { data.items = keep; throw x }
+                        it.images.forEach(p => p && delImage(p));
+                        toast("Deleted");
+                        render();
+                    } catch (x) { toast(x.message, 1) }
+                }
+            };
+
+            updateBulkBar();
+        }
+
+        /* CSV Export Function (Direct Table Export) */
+        function exportCurrentArtworksCSV() {
+            const itemsToExport = getFilteredAndSorted();
+            if (!itemsToExport.length) {
+                return toast("No artworks match current filter to export", 1);
+            }
+            const headers = ["Name", "Category", "Theme", "Shape", "Sizes", "Description", "Published", "Featured", "UpdatedAt"];
+            const rowsData = [headers];
+
+            itemsToExport.forEach(it => {
+                const sizesStr = (it.sizes || []).map(s => `${s[0]}:${s[1]}`).join("|");
+                rowsData.push([
+                    it.name || "",
+                    it.category || "",
+                    it.theme || "",
+                    it.shape || "",
+                    sizesStr,
+                    it.desc || "",
+                    it.published !== false ? "true" : "false",
+                    it.featured ? "true" : "false",
+                    it.updatedAt || it.createdAt || ""
+                ]);
+            });
+
+            const csvContent = rowsData.map(r => r.map(cell => {
+                const s = String(cell).replace(/"/g, '""');
+                return `"${s}"`;
+            }).join(",")).join("\n");
+
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            const dateStr = new Date().toISOString().split("T")[0];
+            a.href = url;
+            a.download = `craftveda_artworks_${dateStr}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+            toast(`Exported ${itemsToExport.length} artworks to CSV!`);
+        }
+
+        /* Bulk Action Handlers */
+        $("#bulk-cancel-btn").onclick = () => {
+            selectedIds.clear();
+            rows();
+            updateBulkBar();
+        };
+
+        $("#bulk-pub-btn").onclick = async () => {
+            if (!selectedIds.size) return;
+            const count = selectedIds.size;
+            busy(`Publishing ${count} artworks...`);
+            const now = new Date().toISOString();
+            data.items.forEach(it => {
+                if (selectedIds.has(it.id)) {
+                    it.published = true;
+                    it.updatedAt = now;
+                }
+            });
+            await save(`Bulk published ${count} artworks`);
+            toast(`Successfully published ${count} artworks!`);
+            selectedIds.clear();
+            render();
+        };
+
+        $("#bulk-unpub-btn").onclick = async () => {
+            if (!selectedIds.size) return;
+            const count = selectedIds.size;
+            busy(`Unpublishing ${count} artworks...`);
+            const now = new Date().toISOString();
+            data.items.forEach(it => {
+                if (selectedIds.has(it.id)) {
+                    it.published = false;
+                    it.updatedAt = now;
+                }
+            });
+            await save(`Bulk moved ${count} artworks to draft`);
+            toast(`Moved ${count} artworks to draft`);
+            selectedIds.clear();
+            render();
+        };
+
+        $("#bulk-cat-select").onchange = async e => {
+            const newCat = e.target.value;
+            if (!newCat || !selectedIds.size) return;
+            const count = selectedIds.size;
+            if (!confirm(`Move ${count} selected artworks to category "${newCat}"?`)) {
+                e.target.value = "";
+                return;
+            }
+            busy(`Moving ${count} artworks to ${newCat}...`);
+            const now = new Date().toISOString();
+            data.items.forEach(it => {
+                if (selectedIds.has(it.id)) {
+                    it.category = newCat;
+                    it.updatedAt = now;
+                }
+            });
+            await save(`Bulk moved ${count} artworks to ${newCat}`);
+            toast(`Moved ${count} artworks to ${newCat}`);
+            e.target.value = "";
+            selectedIds.clear();
+            render();
+        };
+
+        $("#bulk-del-btn").onclick = async () => {
+            if (!selectedIds.size) return;
+            const count = selectedIds.size;
+            if (!confirm(`Permanently delete all ${count} selected artworks? This action cannot be undone.`)) return;
+            busy(`Deleting ${count} artworks...`);
+            const keep = data.items.filter(it => !selectedIds.has(it.id));
+            data.items = keep;
+            try {
+                await save(`Bulk deleted ${count} artworks`);
+                toast(`Permanently deleted ${count} artworks`);
+                selectedIds.clear();
+                render();
+            } catch (err) {
+                toast(err.message, 1);
+            }
+        };
+
+        /* ========================================================================== */
+        /* >>> CATEGORIES & THEMES SCREEN <<<                                         */
+        /* ========================================================================== */
+        function categoriesView() {
+            if (!selectedCatForThemes || !CATS.includes(selectedCatForThemes)) {
+                selectedCatForThemes = CATS.find(c => THEMES[c] && THEMES[c].length) || CATS[0];
+            }
+
+            const currentThemes = THEMES[selectedCatForThemes] || [];
+
+            return `
+  <div class="page-head">
+   <h2>Categories & Themes</h2>
+   <p>Add, edit, or reorganize categories and dependent sub-themes without editing code.</p>
+  </div>
+
+  <div class="settings-grid">
+   <!-- Left Column: Categories List -->
+   <div class="setting-card">
+    <div class="panel-head">
+     <h3>Categories (${CATS.length})</h3>
+     <button class="btn" id="add-cat-btn" style="font-size:12px;padding:6px 12px">+ Add Category</button>
+    </div>
+    <div id="cats-list" style="display:grid;gap:6px">
+     ${CATS.map(cat => {
+                const count = data.items.filter(i => i.category === cat).length;
+                const themeCount = THEMES[cat] ? THEMES[cat].length : 0;
+                const isSelected = cat === selectedCatForThemes;
+                return `
+       <div class="cat-item ${isSelected ? 'active' : ''}" data-cat="${esc(cat)}">
+        <div>
+         <b>${esc(cat)}</b>
+         <small style="color:var(--gr);display:block">${count} artwork${count === 1 ? '' : 's'}${themeCount ? ` · ${themeCount} themes` : ''}</small>
+        </div>
+        <div style="display:flex;gap:4px">
+         <button class="ghost" style="padding:4px 8px;font-size:11px" data-manage-th="${esc(cat)}" title="Manage sub-themes">Themes</button>
+         <button class="ghost" style="padding:4px 8px;font-size:11px" data-ren-cat="${esc(cat)}" title="Rename category">Rename</button>
+         <button class="ghost dng" style="padding:4px 8px;font-size:11px" data-del-cat="${esc(cat)}" title="Delete category">&times;</button>
+        </div>
+       </div>
+      `;
+            }).join('')}
+    </div>
+   </div>
+
+   <!-- Right Column: Themes for Selected Category -->
+   <div class="setting-card">
+    <div class="panel-head">
+     <h3>Themes for: <span style="color:var(--cu)">${esc(selectedCatForThemes)}</span></h3>
+    </div>
+    <p class="note" style="margin-bottom:14px">These sub-types appear in the "Type" dropdown when this category is selected in the artwork form.</p>
+
+    <div style="display:flex;gap:8px;margin-bottom:14px">
+     <input id="new-theme-in" placeholder="New theme name (e.g. Saraswati, Modern Minimal)..." style="font-size:13px">
+     <button class="btn" id="add-theme-btn" style="padding:8px 14px;white-space:nowrap;font-size:12px">+ Add Theme</button>
+    </div>
+
+    <div id="themes-list" style="display:flex;flex-wrap:wrap;gap:8px">
+     ${currentThemes.length ? currentThemes.map(th => `
+      <span class="theme-pill">
+       <span>${esc(th)}</span>
+       <button type="button" data-del-th="${esc(th)}" title="Remove theme">&times;</button>
+      </span>
+     `).join('') : `
+      <div style="color:var(--gr);font-size:13px;padding:20px;border:1px dashed var(--ln);width:100%;text-align:center;border-radius:6px">
+       No themes configured for ${esc(selectedCatForThemes)}. Type a theme above to add one.
+      </div>
+     `}
+    </div>
+   </div>
+  </div>
+ `;
+        }
+
+        function bindCategoriesEvents() {
+            document.querySelectorAll(".cat-item").forEach(item => {
+                item.onclick = e => {
+                    if (e.target.closest("button")) return;
+                    selectedCatForThemes = item.dataset.cat;
+                    render();
+                };
+            });
+
+            document.querySelectorAll("[data-manage-th]").forEach(b => {
+                b.onclick = () => {
+                    selectedCatForThemes = b.dataset.manageTh;
+                    render();
+                };
+            });
+
+            $("#add-cat-btn").onclick = async () => {
+                const name = prompt("Enter new Category name:");
+                if (!name || !name.trim()) return;
+                const trimmed = name.trim();
+                if (CATS.includes(trimmed)) return alert("This category already exists.");
+                CATS.push(trimmed);
+                settings.categories = [...CATS];
+                await saveSettings(`Added category "${trimmed}"`);
+                selectedCatForThemes = trimmed;
+                render();
+            };
+
+            document.querySelectorAll("[data-ren-cat]").forEach(b => {
+                b.onclick = async () => {
+                    const oldCat = b.dataset.renCat;
+                    const newCat = prompt(`Rename category "${oldCat}" to:`, oldCat);
+                    if (!newCat || !newCat.trim() || newCat.trim() === oldCat) return;
+                    const trimmed = newCat.trim();
+                    if (CATS.includes(trimmed)) return alert("A category with this name already exists.");
+
+                    const idx = CATS.indexOf(oldCat);
+                    if (idx >= 0) CATS[idx] = trimmed;
+                    settings.categories = [...CATS];
+
+                    if (THEMES[oldCat]) {
+                        THEMES[trimmed] = THEMES[oldCat];
+                        delete THEMES[oldCat];
+                        settings.themes = { ...THEMES };
+                    }
+
+                    let count = 0;
+                    data.items.forEach(it => {
+                        if (it.category === oldCat) {
+                            it.category = trimmed;
+                            it.updatedAt = new Date().toISOString();
+                            count++;
+                        }
+                    });
+
+                    await saveSettings(`Renamed category to "${trimmed}"`);
+                    if (count > 0) await save(`Updated category name on ${count} artworks`);
+                    if (selectedCatForThemes === oldCat) selectedCatForThemes = trimmed;
+                    render();
+                };
+            });
+
+            document.querySelectorAll("[data-del-cat]").forEach(b => {
+                b.onclick = async () => {
+                    const cat = b.dataset.delCat;
+                    const count = data.items.filter(i => i.category === cat).length;
+                    if (count > 0) {
+                        return alert(`Cannot delete category "${cat}" because ${count} artwork(s) currently belong to it. Please reassign those artworks first.`);
+                    }
+                    if (!confirm(`Delete category "${cat}"?`)) return;
+
+                    CATS = CATS.filter(c => c !== cat);
+                    settings.categories = [...CATS];
+                    if (THEMES[cat]) { delete THEMES[cat]; settings.themes = { ...THEMES } }
+
+                    await saveSettings(`Deleted category "${cat}"`);
+                    if (selectedCatForThemes === cat) selectedCatForThemes = CATS[0] || "";
+                    render();
+                };
+            });
+
+            const addTheme = async () => {
+                const inEl = $("#new-theme-in");
+                const thName = inEl.value.trim();
+                if (!thName) return;
+                if (!THEMES[selectedCatForThemes]) THEMES[selectedCatForThemes] = [];
+                if (THEMES[selectedCatForThemes].includes(thName)) return alert("Theme already exists.");
+
+                THEMES[selectedCatForThemes].push(thName);
+                settings.themes = { ...THEMES };
+                await saveSettings(`Added theme "${thName}" to ${selectedCatForThemes}`);
+                render();
+            };
+
+            $("#add-theme-btn").onclick = addTheme;
+            $("#new-theme-in").onkeydown = e => { if (e.key === "Enter") addTheme() };
+
+            document.querySelectorAll("[data-del-th]").forEach(b => {
+                b.onclick = async () => {
+                    const th = b.dataset.delTh;
+                    if (!confirm(`Remove theme "${th}" from ${selectedCatForThemes}?`)) return;
+                    THEMES[selectedCatForThemes] = THEMES[selectedCatForThemes].filter(t => t !== th);
+                    settings.themes = { ...THEMES };
+                    await saveSettings(`Removed theme "${th}"`);
+                    render();
+                };
+            });
+        }
+
+        /* ========================================================================== */
+        /* >>> CSV PARSER FOR MODAL IMPORT <<<                                        */
+        /* ========================================================================== */
+        function parseCSV(t) {
+            const r = []; let row = [], c = "", q = false;
+            for (let i = 0; i < t.length; i++) {
+                const ch = t[i];
+                if (q) {
+                    if (ch === '"') { if (t[i + 1] === '"') { c += '"'; i++ } else q = false }
+                    else c += ch;
+                } else if (ch === '"') q = true;
+                else if (ch === ',') { row.push(c); c = "" }
+                else if (ch === '\n') { row.push(c); r.push(row); row = []; c = "" }
+                else if (ch !== '\r') c += ch;
+            }
+            if (c || row.length) { row.push(c); r.push(row) }
+            return r;
+        }
+
+        function csvModal() {
+            $("#mb").innerHTML = `<h2>Import Artworks from CSV</h2>
  <p class="note" style="margin-bottom:14px">Upload a CSV file to generate draft artworks. Each imported piece will be saved as a <b>Draft</b> without images. You can then edit each artwork, upload images, and publish.</p>
  <div style="background:var(--bg);border:1px solid var(--ln);border-radius:6px;padding:14px;margin-bottom:16px;font-size:13px">
   <b>Expected CSV Columns:</b>
@@ -273,405 +2440,541 @@ function csvModal(){
   <button class="btn" id="csv-submit-btn" disabled>Import as Drafts</button>
   <button type="button" class="ghost" id="csv-cancel-btn">Cancel</button>
  </div>`;
- $("#modal").hidden=false;
+            $("#modal").hidden = false;
 
- let parsedItems=[];
+            let parsedItems = [];
 
- $("#dl-sample-csv").onclick=()=>{
-  const sample="Name,Category,Theme,Shape,Sizes,Description\n"
-   +'"Golden Horizon Textured Art","Textured Art","","Horizontal","24*16 inch:15000|36*24 inch:19000|48*32 inch:25000","Handcrafted layered relief acrylic art on stretched canvas."\n'
-   +'"Divine Lotus Ganesha","Religious","Ganesha","Vertical","16*24 inch:8000|24*36 inch:10500|32*48 inch:14500","Hand painted spiritual artwork for living rooms and mandirs."\n'
-   +'"Geometric Harmony","Abstract Art","","Square","24*24 inch:9000|36*36 inch:12000|48*48 inch:16000","Contemporary minimalist abstract painting."\n';
-  const blob=new Blob([sample],{type:"text/csv;charset=utf-8;"});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-  a.href=url;a.download="craftveda_artworks_sample.csv";a.click();
-  URL.revokeObjectURL(url);
- };
+            $("#dl-sample-csv").onclick = () => {
+                const sample = "Name,Category,Theme,Shape,Sizes,Description\n"
+                    + '"Golden Horizon Textured Art","Textured Art","","Horizontal","24*16 inch:15000|36*24 inch:19000|48*32 inch:25000","Handcrafted layered relief acrylic art on stretched canvas."\n'
+                    + '"Divine Lotus Ganesha","Religious","Ganesha","Vertical","16*24 inch:8000|24*36 inch:10500|32*48 inch:14500","Hand painted spiritual artwork for living rooms and mandirs."\n'
+                    + '"Geometric Harmony","Abstract Art","","Square","24*24 inch:9000|36*36 inch:12000|48*48 inch:16000","Contemporary minimalist abstract painting."\n';
+                const blob = new Blob([sample], { type: "text/csv;charset=utf-8;" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url; a.download = "craftveda_artworks_sample.csv"; a.click();
+                URL.revokeObjectURL(url);
+            };
 
- const fileInput=$("#csv-file-input");
- const dropzone=$("#csv-dropzone");
+            const fileInput = $("#csv-file-input");
+            const dropzone = $("#csv-dropzone");
 
- dropzone.onclick=()=>fileInput.click();
- dropzone.ondragover=e=>{e.preventDefault();dropzone.style.borderColor="var(--cu)";dropzone.style.background="#FDFBF7"};
- dropzone.ondragleave=()=>{dropzone.style.borderColor="var(--ln)";dropzone.style.background="#fff"};
- dropzone.ondrop=e=>{
-  e.preventDefault();
-  dropzone.style.borderColor="var(--ln)";dropzone.style.background="#fff";
-  if(e.dataTransfer.files&&e.dataTransfer.files[0])processCSV(e.dataTransfer.files[0]);
- };
- fileInput.onchange=e=>{
-  if(e.target.files&&e.target.files[0])processCSV(e.target.files[0]);
- };
+            dropzone.onclick = () => fileInput.click();
+            dropzone.ondragover = e => { e.preventDefault(); dropzone.style.borderColor = "var(--cu)"; dropzone.style.background = "#FDFBF7" };
+            dropzone.ondragleave = () => { dropzone.style.borderColor = "var(--ln)"; dropzone.style.background = "#fff" };
+            dropzone.ondrop = e => {
+                e.preventDefault();
+                dropzone.style.borderColor = "var(--ln)"; dropzone.style.background = "#fff";
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) processCSV(e.dataTransfer.files[0]);
+            };
+            fileInput.onchange = e => {
+                if (e.target.files && e.target.files[0]) processCSV(e.target.files[0]);
+            };
 
- function processCSV(file){
-  $("#csv-file-name").textContent=`${file.name} (${(file.size/1024).toFixed(1)} KB)`;
-  $("#csv-err").textContent="";
-  const reader=new FileReader();
-  reader.onload=e=>{
-   try{
-    const rows=parseCSV(e.target.result);
-    if(!rows.length||rows.length<2){
-     $("#csv-err").textContent="CSV file is empty or missing headers.";
-     $("#csv-submit-btn").disabled=true;
-     return;
-    }
-    const headers=rows[0].map(h=>h.trim().toLowerCase());
-    const nameIdx=headers.indexOf("name");
-    if(nameIdx<0){
-     $("#csv-err").textContent="CSV must have a 'Name' header column.";
-     $("#csv-submit-btn").disabled=true;
-     return;
-    }
-    const catIdx=headers.indexOf("category");
-    const themeIdx=headers.indexOf("theme");
-    const shapeIdx=headers.indexOf("shape");
-    const sizesIdx=headers.indexOf("sizes");
-    const descIdx=headers.indexOf("description")>=0?headers.indexOf("description"):headers.indexOf("desc");
+            function processCSV(file) {
+                $("#csv-file-name").textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+                $("#csv-err").textContent = "";
+                const reader = new FileReader();
+                reader.onload = e => {
+                    try {
+                        const rows = parseCSV(e.target.result);
+                        if (!rows.length || rows.length < 2) {
+                            $("#csv-err").textContent = "CSV file is empty or missing headers.";
+                            $("#csv-submit-btn").disabled = true;
+                            return;
+                        }
+                        const headers = rows[0].map(h => h.trim().toLowerCase());
+                        const nameIdx = headers.indexOf("name");
+                        if (nameIdx < 0) {
+                            $("#csv-err").textContent = "CSV must have a 'Name' header column.";
+                            $("#csv-submit-btn").disabled = true;
+                            return;
+                        }
+                        const catIdx = headers.indexOf("category");
+                        const themeIdx = headers.indexOf("theme");
+                        const shapeIdx = headers.indexOf("shape");
+                        const sizesIdx = headers.indexOf("sizes");
+                        const descIdx = headers.indexOf("description") >= 0 ? headers.indexOf("description") : headers.indexOf("desc");
 
-    parsedItems=[];
-    for(let i=1;i<rows.length;i++){
-     const r=rows[i];
-     const name=(r[nameIdx]||"").trim();
-     if(!name)continue;
+                        parsedItems = [];
+                        for (let i = 1; i < rows.length; i++) {
+                            const r = rows[i];
+                            const name = (r[nameIdx] || "").trim();
+                            if (!name) continue;
 
-     let category=catIdx>=0?(r[catIdx]||"").trim():"";
-     if(!CATS.includes(category))category=CATS[0];
+                            let category = catIdx >= 0 ? (r[catIdx] || "").trim() : "";
+                            if (!CATS.includes(category)) category = CATS[0];
 
-     const theme=themeIdx>=0?(r[themeIdx]||"").trim():"";
-     let shape=shapeIdx>=0?(r[shapeIdx]||"").trim():"";
-     if(!SHAPES.includes(shape)){
-      const tpl=templates.find(t=>t.category===category)||DEFAULT_TEMPLATES.find(t=>t.category===category);
-      shape=tpl?tpl.shape:"Horizontal";
-     }
+                            const theme = themeIdx >= 0 ? (r[themeIdx] || "").trim() : "";
+                            let shape = shapeIdx >= 0 ? (r[shapeIdx] || "").trim() : "";
+                            if (!SHAPES.includes(shape)) {
+                                const tpl = templates.find(t => t.category === category) || DEFAULT_TEMPLATES.find(t => t.category === category);
+                                shape = tpl ? tpl.shape : "Horizontal";
+                            }
 
-     let sizes=[];
-     if(sizesIdx>=0&&(r[sizesIdx]||"").trim()){
-      sizes=(r[sizesIdx]||"").split("|").map(s=>s.split(":")).filter(s=>s[0]&&s[1]).map(s=>[s[0].trim(),+s[1].replace(/[^\d]/g,"")]).filter(s=>s[0]&&s[1]>0);
-     }
-     if(!sizes.length){
-      const std=SHAPE_SIZES[shape]||SHAPE_SIZES["Horizontal"];
-      const tpl=templates.find(t=>t.category===category)||DEFAULT_TEMPLATES.find(t=>t.category===category);
-      const prices=tpl&&tpl.sizes?tpl.sizes.map(s=>s[1]):[15000,19000,25000];
-      sizes=std.map((sz,idx)=>[sz,prices[idx]||15000]);
-     }
+                            let sizes = [];
+                            if (sizesIdx >= 0 && (r[sizesIdx] || "").trim()) {
+                                sizes = (r[sizesIdx] || "").split("|").map(s => s.split(":")).filter(s => s[0] && s[1]).map(s => [s[0].trim(), +s[1].replace(/[^\d]/g, "")]).filter(s => s[0] && s[1] > 0);
+                            }
+                            if (!sizes.length) {
+                                const std = SHAPE_SIZES[shape] || SHAPE_SIZES["Horizontal"];
+                                const tpl = templates.find(t => t.category === category) || DEFAULT_TEMPLATES.find(t => t.category === category);
+                                const prices = tpl && tpl.sizes ? tpl.sizes.map(s => s[1]) : [15000, 19000, 25000];
+                                sizes = std.map((sz, idx) => [sz, prices[idx] || 15000]);
+                            }
 
-     let desc=descIdx>=0?(r[descIdx]||"").trim():"";
-     if(!desc){
-      const tpl=templates.find(t=>t.category===category)||DEFAULT_TEMPLATES.find(t=>t.category===category);
-      desc=tpl?tpl.desc:"";
-     }
+                            let desc = descIdx >= 0 ? (r[descIdx] || "").trim() : "";
+                            if (!desc) {
+                                const tpl = templates.find(t => t.category === category) || DEFAULT_TEMPLATES.find(t => t.category === category);
+                                desc = tpl ? tpl.desc : "";
+                            }
 
-     parsedItems.push({name,category,theme,shape,sizes,desc});
-    }
+                            parsedItems.push({ name, category, theme, shape, sizes, desc });
+                        }
 
-    if(!parsedItems.length){
-     $("#csv-err").textContent="No valid artwork rows found in CSV.";
-     $("#csv-submit-btn").disabled=true;
-     return;
-    }
+                        if (!parsedItems.length) {
+                            $("#csv-err").textContent = "No valid artwork rows found in CSV.";
+                            $("#csv-submit-btn").disabled = true;
+                            return;
+                        }
 
-    const previewEl=$("#csv-preview");
-    previewEl.style.display="block";
-    previewEl.innerHTML=`<div style="padding:8px 12px;background:var(--bg);border-bottom:1px solid var(--ln);font-weight:600">Found ${parsedItems.length} artwork(s) ready to import as Drafts:</div>`+
-     parsedItems.map(p=>`<div style="padding:8px 12px;border-bottom:1px solid var(--ln);display:flex;justify-content:space-between;align-items:center">
-      <div><b>${esc(p.name)}</b> <span style="color:var(--gr)">(${esc(p.category)}${p.theme?" · "+esc(p.theme):""} · ${esc(p.shape)})</span></div>
-      <span class="bd dr" style="font-size:11px">Draft (no images)</span>
+                        const previewEl = $("#csv-preview");
+                        previewEl.style.display = "block";
+                        previewEl.innerHTML = `<div style="padding:8px 12px;background:var(--bg);border-bottom:1px solid var(--ln);font-weight:600">Found ${parsedItems.length} artwork(s) ready to import as Drafts:</div>` +
+                            parsedItems.map(p => `<div style="padding:8px 12px;border-bottom:1px solid var(--ln);display:flex;justify-content:space-between;align-items:center">
+      <div><b>${esc(p.name)}</b> <span style="color:var(--gr)">(${esc(p.category)}${p.theme ? " · " + esc(p.theme) : ""} · ${esc(p.shape)})</span></div>
+      <span class="status-pill draft">Draft</span>
      </div>`).join("");
 
-    $("#csv-submit-btn").disabled=false;
-    $("#csv-submit-btn").textContent=`Import ${parsedItems.length} Artworks as Drafts`;
-   }catch(err){
-    $("#csv-err").textContent="Error parsing CSV: "+err.message;
-    $("#csv-submit-btn").disabled=true;
-   }
-  };
-  reader.readAsText(file);
- }
+                        $("#csv-submit-btn").disabled = false;
+                        $("#csv-submit-btn").textContent = `Import ${parsedItems.length} Artworks as Drafts`;
+                    } catch (err) {
+                        $("#csv-err").textContent = "Error parsing CSV: " + err.message;
+                        $("#csv-submit-btn").disabled = true;
+                    }
+                };
+                reader.readAsText(file);
+            }
 
- $("#csv-submit-btn").onclick=async()=>{
-  if(!parsedItems.length)return;
-  const btn=$("#csv-submit-btn");
-  btn.disabled=true;
-  busy("Importing draft artworks...");
-  try{
-   const now=new Date().toISOString();
-   const newItems=parsedItems.map((p,k)=>({
-    id:Date.now().toString(36)+k.toString(36),
-    name:p.name,
-    category:p.category,
-    theme:p.theme,
-    shape:p.shape,
-    sizes:p.sizes,
-    desc:p.desc,
-    images:[],
-    published:false,
-    featured:false,
-    createdAt:now,
-    updatedAt:now
-   }));
-   data.items.push(...newItems);
-   await save(`Imported ${newItems.length} draft artworks from CSV`);
-   $("#modal").hidden=true;
-   toast(`Successfully imported ${newItems.length} draft artworks!`);
-   view="list";
-   render();
-  }catch(err){
-   toast(err.message,1);
-  }finally{
-   btn.disabled=false;
-  }
- };
+            $("#csv-submit-btn").onclick = async () => {
+                if (!parsedItems.length) return;
+                const btn = $("#csv-submit-btn");
+                btn.disabled = true;
+                busy("Importing draft artworks...");
+                try {
+                    const now = new Date().toISOString();
+                    const newItems = parsedItems.map((p, k) => ({
+                        id: Date.now().toString(36) + k.toString(36),
+                        name: p.name,
+                        category: p.category,
+                        theme: p.theme,
+                        shape: p.shape,
+                        sizes: p.sizes,
+                        desc: p.desc,
+                        images: [],
+                        published: false,
+                        featured: false,
+                        createdAt: now,
+                        updatedAt: now
+                    }));
+                    data.items.push(...newItems);
+                    await save(`Imported ${newItems.length} draft artworks from CSV`);
+                    $("#modal").hidden = true;
+                    toast(`Successfully imported ${newItems.length} draft artworks!`);
+                    view = "list";
+                    render();
+                } catch (err) {
+                    toast(err.message, 1);
+                } finally {
+                    btn.disabled = false;
+                }
+            };
 
- $("#csv-cancel-btn").onclick=()=>{$("#modal").hidden=true};
-}
+            $("#csv-cancel-btn").onclick = () => { $("#modal").hidden = true };
+        }
 
-/* ---------- add / edit form ---------- */
-const sizeRow=(s="",p="")=>`<div class="sr-wrap"><div class="sr"><input class="sz" placeholder="Size, e.g. 24*16 inch" value="${esc(s)}"><input class="pr" type="number" min="1" placeholder="Price (Rs.)" value="${esc(p)}"><button type="button" class="x" aria-label="Remove size">&times;</button></div><span class="f-err"></span></div>`;
-function form(it,isDuplicate=false){
- const isNew=!it||isDuplicate;
- const currentCategory=it?it.category:CATS[0];
- const tpl=templates.find(t=>t.category===currentCategory)||DEFAULT_TEMPLATES.find(t=>t.category===currentCategory);
+        /* ========================================================================== */
+        /* >>> ADD / EDIT FORM WITH D&D, REORDERING & AI DRAFTING <<<                 */
+        /* ========================================================================== */
+        const sizeRow = (s = "", p = "") => `<div class="sr-wrap"><div class="sr"><input class="sz" placeholder="Size, e.g. 24*16 inch" value="${esc(s)}"><input class="pr" type="number" min="1" placeholder="Price (Rs.)" value="${esc(p)}"><button type="button" class="x" aria-label="Remove size">&times;</button></div><span class="f-err"></span></div>`;
 
- const initialShape=it?it.shape:(tpl?tpl.shape:"Horizontal");
- const defaultShapeSizes=SHAPE_SIZES[initialShape]||SHAPE_SIZES["Horizontal"];
- const defaultSizes=tpl&&tpl.sizes?tpl.sizes:defaultShapeSizes.map(s=>[s,"15000"]);
+        /* AI Description Generator (Section 9 - Human Reviewed) */
+        function generateAIDescription(name, category, theme, shape) {
+            const cleanName = name.trim() || "This handcrafted artwork";
+            const themePart = theme ? `celebrating ${theme}` : "";
 
- it=it||{name:"",category:currentCategory,theme:"",shape:initialShape,sizes:defaultSizes,desc:tpl?tpl.desc:"",images:[],published:true,featured:false};
- const imgs=[...(it.images||[]),"","",""].slice(0,3);
+            const templatesByCat = {
+                "Textured Art": `Sculpted with tactile depth, ${cleanName} features multi-layered impasto relief hand-built across stretched cotton canvas. Acrylic pigments interact with natural ambient light to produce subtle shadow contours and an organic, modern presence suited for contemporary living and dining spaces.`,
+                "Abstract Art": `A study in visual balance and contemporary form, ${cleanName} balances dynamic gestures with understated tonal harmony. Hand-painted on premium stretched canvas in acrylic pigments, it serves as an anchor piece designed to evoke tranquility and contemplative focus.`,
+                "Vastu": `Conceived in accordance with traditional Vastu Shastra principles, ${cleanName} brings auspicious geometric balance and positive energetic alignment to residential and executive interiors. Rich acrylic pigments on stretched canvas celebrate enduring prosperity and peaceful harmony.`,
+                "Religious": `A devotional masterpiece ${themePart}, ${cleanName} captures sacred grace and peaceful sanctification. Painted by hand on premium stretched canvas in lasting acrylic tones, it brings a serene spiritual aura to prayer mandirs, entry foyers, and living rooms.`,
+                "Nature": `Evoking organic serenity and botanical calm, ${cleanName} draws inspiration from the natural world. Rendered in gentle earth tones and fluid acrylic washes on hand-stretched canvas, it imparts restorative warmth and natural beauty to interior settings.`,
+                "Custom Art": `Handcrafted to order with meticulous attention to detail, ${cleanName} embodies personalized artistry. Created in fine acrylics on gallery-stretched canvas, every stroke is uniquely composed to celebrate timeless memories.`
+            };
 
- const modalTitle=isDuplicate?"Duplicate artwork":(isNew?"Add artwork":"Edit artwork");
+            return templatesByCat[category] || `Handcrafted with care on stretched canvas, ${cleanName} features rich acrylic pigments and textured detail, creating an elegant visual centerpiece tailored for discerning interior spaces.`;
+        }
 
- $("#mb").innerHTML=`<h2>${modalTitle}</h2><form id="af" novalidate>
+        function form(it) {
+            const isNew = !it;
+            const currentCategory = it ? it.category : CATS[0];
+            const tpl = templates.find(t => t.category === currentCategory) || DEFAULT_TEMPLATES.find(t => t.category === currentCategory);
+
+            const initialShape = it ? it.shape : (tpl ? tpl.shape : "Horizontal");
+            const defaultShapeSizes = SHAPE_SIZES[initialShape] || SHAPE_SIZES["Horizontal"];
+            const defaultSizes = tpl && tpl.sizes ? tpl.sizes : defaultShapeSizes.map(s => [s, "15000"]);
+
+            it = it || { name: "", category: currentCategory, theme: "", shape: initialShape, sizes: defaultSizes, desc: tpl ? tpl.desc : "", images: [], published: true, featured: false };
+            const imgs = [...(it.images || []), "", "", ""].slice(0, 3);
+            const slotFiles = [null, null, null];
+
+            const modalTitle = isNew ? "Add artwork" : "Edit artwork";
+
+            $("#mb").innerHTML = `<h2>${modalTitle}</h2><form id="af" novalidate>
  <label>Artwork name
   <input id="fn" required value="${esc(it.name)}" placeholder="e.g. Radha Krishna Textured Art">
   <span id="fn-err" class="f-err"></span>
  </label>
 
  <div class="two">
-  <label>Category<select id="fc">${CATS.map(c=>`<option ${c===it.category?"selected":""}>${c}</option>`).join("")}</select></label>
+  <label>Category<select id="fc">${CATS.map(c => `<option ${c === it.category ? "selected" : ""}>${c}</option>`).join("")}</select></label>
   <label id="fthw">Type<select id="fth"></select></label>
  </div>
 
- <label>Shape<select id="fsh">${SHAPES.map(c=>`<option ${c===it.shape?"selected":""}>${c}</option>`).join("")}</select></label>
+ <label>Shape<select id="fsh">${SHAPES.map(c => `<option ${c === it.shape ? "selected" : ""}>${c}</option>`).join("")}</select></label>
 
  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">
   <div style="font-size:13px;font-weight:600">Sizes (inches) and prices</div>
   <small style="color:var(--gr);font-size:12px">Auto-filled by shape; edit prices below</small>
  </div>
- <div id="szr">${it.sizes.map(s=>sizeRow(s[0],s[1])).join("")}</div>
+ <div id="szr">${it.sizes.map(s => sizeRow(s[0], s[1])).join("")}</div>
  <span id="sz-err" class="f-err" style="margin-bottom:8px"></span>
  <button type="button" class="ghost" id="addsz" style="margin-bottom:14px">+ Add custom size</button>
 
- <label>Description<textarea id="fd" rows="3">${esc(it.desc)}</textarea></label>
+ <!-- Description with AI Assistant -->
+ <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+  <div style="font-size:13px;font-weight:600">Description</div>
+  <button type="button" class="ai-btn" id="ai-draft-btn" title="Draft description based on name, category, and theme">✨ Draft with AI</button>
+ </div>
+ <textarea id="fd" rows="3" placeholder="Description of the artwork...">${esc(it.desc)}</textarea>
+ <span id="ai-msg" style="font-size:11.5px;color:var(--cu);margin-bottom:12px;display:none;font-weight:500"></span>
 
- <div class="imgs">${["Room / mockup image","Main artwork image (white background)","Side view image"].map((t,k)=>`<label class="im">${t}<div class="pv" id="pv${k}">${imgs[k]?`<img src="../${esc(imgs[k])}" alt="">`:"No image"}</div><input type="file" accept="image/*" id="fi${k}"><span id="img${k}-err" class="f-err"></span></label>`).join("")}</div>
- <p class="note">${isNew&&!isDuplicate?"The room / mockup image is required. ":"Choose a file only if you want to replace that image. "}Photos are resized to 1080 x 1350 automatically.</p>
+ <!-- Image Slots with Drag-and-Drop, Reordering & Crop Preview -->
+ <div style="margin-top:10px">
+  <div style="font-size:13px;font-weight:600">Artwork Images (1080 &times; 1350)</div>
+  <small style="color:var(--gr);font-size:12px">Drag & drop photos onto slots or click to choose. Use arrow buttons to reorder slots.</small>
+ </div>
 
- <label class="chk"><input type="checkbox" id="fp" ${it.published!==false?"checked":""}> Publish (show on website)</label>
- <label class="chk"><input type="checkbox" id="ff" ${it.featured?"checked":""}> Featured (show in Favorites)</label>
- <div class="fa"><button class="btn" type="submit">Save</button><button type="button" class="ghost" id="cn">Cancel</button></div></form>`;
+ <div class="imgs">
+  ${[
+                    { title: "1. Room / Mockup", desc: "Hero lifestyle mockup", fit: "cover", fitLabel: "Cover (fills canvas)", req: true },
+                    { title: "2. Main Artwork", desc: "White background view", fit: "contain", fitLabel: "Full View (No Crop)", req: false },
+                    { title: "3. Side View", desc: "Texture close-up angle", fit: "contain", fitLabel: "Full View (No Crop)", req: false }
+                ].map((slot, k) => `
+   <div class="im-slot" data-slot="${k}">
+    <div class="im-slot-title">${slot.title}${slot.req ? ' *' : ''}</div>
+    <div class="pv-zone ${slot.fit}" id="pv${k}" title="Click or drag image here">
+     <div id="pv-content${k}" style="width:100%;height:100%;display:grid;place-items:center">
+      ${imgs[k] ? `<img src="${esc(imgs[k])}" alt="">` : `<span style="font-size:12px;text-align:center;padding:10px">${slot.desc}<br><small style="color:var(--cu);font-weight:600">+ Upload</small></span>`}
+     </div>
+     <div class="pv-actions" id="pv-act${k}" style="display:${imgs[k] || slotFiles[k] ? 'flex' : 'none'}">
+      ${k > 0 ? `<button type="button" class="pv-btn" data-mv="${k},${k - 1}" title="Swap with slot ${k}">&larr;</button>` : ''}
+      ${k < 2 ? `<button type="button" class="pv-btn" data-mv="${k},${k + 1}" title="Swap with slot ${k + 2}">&rarr;</button>` : ''}
+      <button type="button" class="pv-btn" data-rm="${k}" title="Remove image" style="background:#B3261E">&times;</button>
+     </div>
+    </div>
+    <span class="pv-fit-badge ${slot.fit}">${slot.fitLabel}</span>
+    <input type="file" accept="image/*" id="fi${k}" style="display:none">
+    <span id="img${k}-err" class="f-err"></span>
+   </div>
+  `).join("")}
+ </div>
+ <p class="note" style="margin-top:8px">${isNew ? "The room / mockup image is required for publishing. " : "Choose a file only if you want to replace that image. "}Photos are resized client-side to 1080 &times; 1350 automatically.</p>
 
- $("#modal").hidden=false;
+ <label class="chk" style="margin-top:12px"><input type="checkbox" id="fp" ${it.published !== false ? "checked" : ""}> Publish (show live on website)</label>
+ <label class="chk"><input type="checkbox" id="ff" ${it.featured ? "checked" : ""}> Featured (show in Favorites)</label>
+ <div class="fa"><button class="btn" type="submit">Save Artwork</button><button type="button" class="ghost" id="cn">Cancel</button></div></form>`;
 
- /* Auto-fill 3 standard sizes for selected Shape, preserving any entered prices */
- const applyShapeSizes=(preservePrices=true)=>{
-  const sh=$("#fsh").value;
-  const stdSizes=SHAPE_SIZES[sh]||SHAPE_SIZES["Horizontal"];
-  const cat=$("#fc").value;
-  const curTpl=templates.find(t=>t.category===cat)||DEFAULT_TEMPLATES.find(t=>t.category===cat);
-  const tplPrices=curTpl&&curTpl.sizes?curTpl.sizes.map(s=>s[1]):["","",""];
+            $("#modal").hidden = false;
 
-  const currentRows=[...document.querySelectorAll(".sr")];
-  const currentPrices=currentRows.map(r=>r.querySelector(".pr").value.trim());
+            /* Auto-fill 3 standard sizes for selected Shape, preserving any entered prices */
+            const applyShapeSizes = (preservePrices = true) => {
+                const sh = $("#fsh").value;
+                const stdSizes = SHAPE_SIZES[sh] || SHAPE_SIZES["Horizontal"];
+                const cat = $("#fc").value;
+                const curTpl = templates.find(t => t.category === cat) || DEFAULT_TEMPLATES.find(t => t.category === cat);
+                const tplPrices = curTpl && curTpl.sizes ? curTpl.sizes.map(s => s[1]) : ["", "", ""];
 
-  const newRows=stdSizes.map((sz,idx)=>{
-   let pr="";
-   if(preservePrices&&currentPrices[idx]&&+currentPrices[idx]>0){
-    pr=currentPrices[idx];
-   }else if(tplPrices[idx]){
-    pr=tplPrices[idx];
-   }
-   return sizeRow(sz,pr);
-  });
+                const currentRows = [...document.querySelectorAll(".sr")];
+                const currentPrices = currentRows.map(r => r.querySelector(".pr").value.trim());
 
-  $("#szr").innerHTML=newRows.join("");
-  $("#sz-err").textContent="";
- };
+                const newRows = stdSizes.map((sz, idx) => {
+                    let pr = "";
+                    if (preservePrices && currentPrices[idx] && +currentPrices[idx] > 0) {
+                        pr = currentPrices[idx];
+                    } else if (tplPrices[idx]) {
+                        pr = tplPrices[idx];
+                    }
+                    return sizeRow(sz, pr);
+                });
 
- const th=()=>{
-  const l=THEMES[$("#fc").value];
-  $("#fthw").hidden=!l;
-  $("#fth").innerHTML=l?l.map(x=>`<option ${x===it.theme?"selected":""}>${x}</option>`).join(""):""
- };
+                $("#szr").innerHTML = newRows.join("");
+                $("#sz-err").textContent = "";
+            };
 
- th();
+            const th = () => {
+                const l = THEMES[$("#fc").value];
+                $("#fthw").hidden = !l;
+                $("#fth").innerHTML = l ? l.map(x => `<option ${x === it.theme ? "selected" : ""}>${x}</option>`).join("") : ""
+            };
 
- /* On Shape change: immediately auto-fill standard sizes for that shape */
- $("#fsh").onchange=()=>{
-  applyShapeSizes(true);
- };
+            th();
 
- /* Auto-fill on Category change when adding new artwork */
- $("#fc").onchange=()=>{
-  th();
-  if(isNew&&!isDuplicate){
-   const newTpl=templates.find(t=>t.category===$("#fc").value)||DEFAULT_TEMPLATES.find(t=>t.category===$("#fc").value);
-   if(newTpl){
-    if(newTpl.shape)$("#fsh").value=newTpl.shape;
-    if(newTpl.desc)$("#fd").value=newTpl.desc;
-   }
-   applyShapeSizes(false);
-  }
- };
+            $("#fsh").onchange = () => { applyShapeSizes(true) };
 
- $("#addsz").onclick=()=>{$("#szr").insertAdjacentHTML("beforeend",sizeRow());$("#sz-err").textContent=""};
- $("#szr").onclick=e=>{
-  if(e.target.classList.contains("x")&&document.querySelectorAll(".sr").length>1){
-   e.target.closest(".sr-wrap").remove();
-  }
- };
+            $("#fc").onchange = () => {
+                th();
+                if (isNew) {
+                    const newTpl = templates.find(t => t.category === $("#fc").value) || DEFAULT_TEMPLATES.find(t => t.category === $("#fc").value);
+                    if (newTpl) {
+                        if (newTpl.shape) $("#fsh").value = newTpl.shape;
+                        if (newTpl.desc) $("#fd").value = newTpl.desc;
+                    }
+                    applyShapeSizes(false);
+                }
+            };
 
- [0,1,2].forEach(k=>$("#fi"+k).onchange=e=>{
-  const f=e.target.files[0];
-  if(f){
-   $("#pv"+k).innerHTML=`<img src="${URL.createObjectURL(f)}" alt="">`;
-   $("#pv"+k).classList.remove("is-err");
-   const errEl=$("#img"+k+"-err");if(errEl)errEl.textContent="";
-  }
- });
+            $("#addsz").onclick = () => { $("#szr").insertAdjacentHTML("beforeend", sizeRow()); $("#sz-err").textContent = "" };
+            $("#szr").onclick = e => {
+                if (e.target.classList.contains("x") && document.querySelectorAll(".sr").length > 1) {
+                    e.target.closest(".sr-wrap").remove();
+                }
+            };
 
- /* Real-time error clearing */
- $("#fn").oninput=()=>{
-  if($("#fn").value.trim()){$("#fn").classList.remove("is-err");$("#fn-err").textContent=""}
- };
- $("#szr").oninput=e=>{
-  if(e.target.classList.contains("sz")||e.target.classList.contains("pr")){
-   e.target.classList.remove("is-err");
-   const wrap=e.target.closest(".sr-wrap");
-   if(wrap){const err=wrap.querySelector(".f-err");if(err)err.textContent=""}
-   $("#sz-err").textContent="";
-  }
- };
+            /* AI Draft Description Button */
+            $("#ai-draft-btn").onclick = () => {
+                const name = $("#fn").value;
+                const cat = $("#fc").value;
+                const theme = $("#fthw").hidden ? "" : $("#fth").value;
+                const shape = $("#fsh").value;
+                const drafted = generateAIDescription(name, cat, theme, shape);
 
- /* Snapshot for dirty form checking */
- const getSnapshot=()=>JSON.stringify({
-  n:$("#fn").value.trim(),
-  c:$("#fc").value,
-  th:$("#fthw").hidden?"":$("#fth").value,
-  sh:$("#fsh").value,
-  sz:[...document.querySelectorAll(".sr")].map(r=>[r.querySelector(".sz").value.trim(),r.querySelector(".pr").value.trim()]),
-  d:$("#fd").value.trim(),
-  p:$("#fp").checked,
-  f:$("#ff").checked,
-  fl:[0,1,2].map(k=>$("#fi"+k).files[0]?.name||"")
- });
- const initialSnapshot=getSnapshot();
- const discardIfDirty=()=>{
-  if(getSnapshot()!==initialSnapshot){
-   return confirm("Discard unsaved changes?");
-  }
-  return true;
- };
+                $("#fd").value = drafted;
+                $("#fd").style.borderColor = "var(--cu)";
+                const msgEl = $("#ai-msg");
+                msgEl.style.display = "block";
+                msgEl.textContent = "✨ Drafted with AI — please review, personalize or edit before saving.";
+                setTimeout(() => { if ($("#fd")) $("#fd").style.borderColor = "var(--ln)" }, 2000);
+            };
 
- $("#cn").onclick=()=>{if(discardIfDirty())$("#modal").hidden=true};
- $("#modal").onclick=e=>{if(e.target.id==="modal"&&discardIfDirty())$("#modal").hidden=true};
+            /* Image Slot Drag-and-Drop and Reordering Handlers */
+            function updateSlotPreview(k) {
+                const cntEl = $("#pv-content" + k);
+                const actEl = $("#pv-act" + k);
+                const errEl = $("#img" + k + "-err");
+                if (errEl) errEl.textContent = "";
+                $("#pv" + k).classList.remove("is-err");
 
- $("#af").onsubmit=async e=>{
-  e.preventDefault();
+                const hasImg = imgs[k] || slotFiles[k];
+                if (slotFiles[k]) {
+                    cntEl.innerHTML = `<img src="${URL.createObjectURL(slotFiles[k])}" alt="">`;
+                    actEl.style.display = "flex";
+                } else if (imgs[k]) {
+                    cntEl.innerHTML = `<img src="${esc(imgs[k])}" alt="">`;
+                    actEl.style.display = "flex";
+                } else {
+                    const slotDesc = ["Hero lifestyle mockup", "White background view", "Texture close-up angle"][k];
+                    cntEl.innerHTML = `<span style="font-size:12px;text-align:center;padding:10px">${slotDesc}<br><small style="color:var(--cu);font-weight:600">+ Upload</small></span>`;
+                    actEl.style.display = "none";
+                }
+            }
 
-  /* Inline field validation */
-  let isValid=true;
-  document.querySelectorAll(".is-err").forEach(el=>el.classList.remove("is-err"));
-  document.querySelectorAll(".f-err").forEach(el=>el.textContent="");
+            [0, 1, 2].forEach(k => {
+                const dropzone = $("#pv" + k);
+                const fileInput = $("#fi" + k);
 
-  const name=$("#fn").value.trim();
-  if(!name){
-   $("#fn").classList.add("is-err");
-   $("#fn-err").textContent="Artwork name is required.";
-   isValid=false;
-  }else if(data.items.some(x=>x.name.toLowerCase()===name.toLowerCase()&&x.id!==it.id)){
-   $("#fn").classList.add("is-err");
-   $("#fn-err").textContent="Another artwork already has this name.";
-   isValid=false;
-  }
+                dropzone.onclick = e => {
+                    if (e.target.closest(".pv-actions")) return;
+                    fileInput.click();
+                };
 
-  const srWraps=[...document.querySelectorAll(".sr-wrap")];
-  const validSizes=[];
-  srWraps.forEach(wrap=>{
-   const szIn=wrap.querySelector(".sz");
-   const prIn=wrap.querySelector(".pr");
-   const errEl=wrap.querySelector(".f-err");
-   const sVal=szIn.value.trim();
-   const pVal=+prIn.value;
+                fileInput.onchange = e => {
+                    const f = e.target.files[0];
+                    if (f) {
+                        slotFiles[k] = f;
+                        updateSlotPreview(k);
+                    }
+                };
 
-   let rowErr="";
-   if(!sVal&&pVal>0){
-    szIn.classList.add("is-err");
-    rowErr="Size cannot be empty.";
-   }else if(sVal&&(!pVal||pVal<=0)){
-    prIn.classList.add("is-err");
-    rowErr="Price must be greater than 0.";
-   }else if(sVal&&pVal>0){
-    validSizes.push([sVal,pVal]);
-   }
-   if(rowErr){errEl.textContent=rowErr;isValid=false}
-  });
+                dropzone.ondragover = e => {
+                    e.preventDefault();
+                    dropzone.classList.add("dragover");
+                };
+                dropzone.ondragleave = () => {
+                    dropzone.classList.remove("dragover");
+                };
+                dropzone.ondrop = e => {
+                    e.preventDefault();
+                    dropzone.classList.remove("dragover");
+                    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                        slotFiles[k] = e.dataTransfer.files[0];
+                        updateSlotPreview(k);
+                    }
+                };
+            });
 
-  if(!validSizes.length){
-   $("#sz-err").textContent="Add at least one size with a valid price.";
-   isValid=false;
-  }
+            /* Swap / Remove Image Actions */
+            $("#mb").onclick = e => {
+                const rmBtn = e.target.closest("[data-rm]");
+                if (rmBtn) {
+                    const idx = +rmBtn.dataset.rm;
+                    imgs[idx] = "";
+                    slotFiles[idx] = null;
+                    $("#fi" + idx).value = "";
+                    updateSlotPreview(idx);
+                    return;
+                }
 
-  const files=[0,1,2].map(k=>$("#fi"+k).files[0]);
-  if(isNew&&!isDuplicate&&!files[0]&&!imgs[0]){
-   $("#pv0").classList.add("is-err");
-   $("#img0-err").textContent="The room / mockup image is required for new artworks.";
-   isValid=false;
-  }
+                const mvBtn = e.target.closest("[data-mv]");
+                if (mvBtn) {
+                    const [from, to] = mvBtn.dataset.mv.split(",").map(Number);
+                    const tempImg = imgs[from]; imgs[from] = imgs[to]; imgs[to] = tempImg;
+                    const tempFile = slotFiles[from]; slotFiles[from] = slotFiles[to]; slotFiles[to] = tempFile;
+                    updateSlotPreview(from);
+                    updateSlotPreview(to);
+                    return;
+                }
+            };
 
-  if(!isValid){
-   const firstErr=document.querySelector(".is-err");
-   if(firstErr)firstErr.focus();
-   return toast("Please fix the errors marked in red",1);
-  }
+            /* Error clearing */
+            $("#fn").oninput = () => {
+                if ($("#fn").value.trim()) { $("#fn").classList.remove("is-err"); $("#fn-err").textContent = "" }
+            };
+            $("#szr").oninput = e => {
+                if (e.target.classList.contains("sz") || e.target.classList.contains("pr")) {
+                    e.target.classList.remove("is-err");
+                    const wrap = e.target.closest(".sr-wrap");
+                    if (wrap) { const err = wrap.querySelector(".f-err"); if (err) err.textContent = "" }
+                    $("#sz-err").textContent = "";
+                }
+            };
 
-  const btn=e.submitter;btn.disabled=true;
-  try{
-   const out=[...imgs];
-   for(let k=0;k<3;k++)if(files[k]){
-    busy(`Uploading image ${k+1}...`);
-    const b=await toJpeg(files[k],k?"contain":"cover");
-    const old=out[k];
-    out[k]=await putImage(`${slug(name)}-${k+1}-${Date.now().toString(36)}.jpg`,b);
-    if(old)delImage(old);
-   }
-   const now=new Date().toISOString();
-   const rec={
-    id:it.id||Date.now().toString(36),
-    name,
-    category:$("#fc").value,
-    theme:THEMES[$("#fc").value]?$("#fth").value:"",
-    shape:$("#fsh").value,
-    sizes:validSizes,
-    desc:$("#fd").value.trim(),
-    images:out,
-    published:$("#fp").checked,
-    featured:$("#ff").checked,
-    createdAt:it.createdAt||now,
-    updatedAt:now
-   };
-   busy("Saving...");
-   const before=JSON.stringify(data.items);
-   const ix=data.items.findIndex(x=>x.id===rec.id);
-   if(ix>=0)data.items[ix]=rec;else data.items.push(rec);
-   try{await save((isNew?"Add ":"Update ")+name)}catch(x){data.items=JSON.parse(before);throw x}
-   $("#modal").hidden=true;
-   toast("Saved. It will be live on the website in 1 to 2 minutes.");
-   render();
-  }catch(x){toast(x.message,1)}finally{btn.disabled=false}
- };
-}
-</script>
+            /* Snapshot for dirty form checking */
+            const getSnapshot = () => JSON.stringify({
+                n: $("#fn").value.trim(),
+                c: $("#fc").value,
+                th: $("#fthw").hidden ? "" : $("#fth").value,
+                sh: $("#fsh").value,
+                sz: [...document.querySelectorAll(".sr")].map(r => [r.querySelector(".sz").value.trim(), r.querySelector(".pr").value.trim()]),
+                d: $("#fd").value.trim(),
+                p: $("#fp").checked,
+                f: $("#ff").checked,
+                fl: slotFiles.map(f => f ? f.name : ""),
+                im: imgs
+            });
+            const initialSnapshot = getSnapshot();
+            const discardIfDirty = () => {
+                if (getSnapshot() !== initialSnapshot) {
+                    return confirm("Discard unsaved changes?");
+                }
+                return true;
+            };
+
+            $("#cn").onclick = () => { if (discardIfDirty()) $("#modal").hidden = true };
+            $("#modal").onclick = e => { if (e.target.id === "modal" && discardIfDirty()) $("#modal").hidden = true };
+
+            $("#af").onsubmit = async e => {
+                e.preventDefault();
+
+                let isValid = true;
+                document.querySelectorAll(".is-err").forEach(el => el.classList.remove("is-err"));
+                document.querySelectorAll(".f-err").forEach(el => el.textContent = "");
+
+                const name = $("#fn").value.trim();
+                if (!name) {
+                    $("#fn").classList.add("is-err");
+                    $("#fn-err").textContent = "Artwork name is required.";
+                    isValid = false;
+                } else if (data.items.some(x => x.name.toLowerCase() === name.toLowerCase() && x.id !== it.id)) {
+                    $("#fn").classList.add("is-err");
+                    $("#fn-err").textContent = "Another artwork already has this name.";
+                    isValid = false;
+                }
+
+                const srWraps = [...document.querySelectorAll(".sr-wrap")];
+                const validSizes = [];
+                srWraps.forEach(wrap => {
+                    const szIn = wrap.querySelector(".sz");
+                    const prIn = wrap.querySelector(".pr");
+                    const errEl = wrap.querySelector(".f-err");
+                    const sVal = szIn.value.trim();
+                    const pVal = +prIn.value;
+
+                    let rowErr = "";
+                    if (!sVal && pVal > 0) {
+                        szIn.classList.add("is-err");
+                        rowErr = "Size cannot be empty.";
+                    } else if (sVal && (!pVal || pVal <= 0)) {
+                        prIn.classList.add("is-err");
+                        rowErr = "Price must be greater than 0.";
+                    } else if (sVal && pVal > 0) {
+                        validSizes.push([sVal, pVal]);
+                    }
+                    if (rowErr) { errEl.textContent = rowErr; isValid = false }
+                });
+
+                if (!validSizes.length) {
+                    $("#sz-err").textContent = "Add at least one size with a valid price.";
+                    isValid = false;
+                }
+
+                if (isNew && !slotFiles[0] && !imgs[0]) {
+                    $("#pv0").classList.add("is-err");
+                    $("#img0-err").textContent = "The room / mockup image is required for new artworks.";
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    const firstErr = document.querySelector(".is-err");
+                    if (firstErr) firstErr.focus();
+                    return toast("Please fix the errors marked in red", 1);
+                }
+
+                const btn = e.submitter; btn.disabled = true;
+                try {
+                    const out = [...imgs];
+                    for (let k = 0; k < 3; k++)if (slotFiles[k]) {
+                        busy(`Uploading image ${k + 1}...`);
+                        const b = await toJpeg(slotFiles[k], k ? "contain" : "cover");
+                        out[k] = await putImage(`${slug(name)}-${k + 1}-${Date.now().toString(36)}.jpg`, b);
+                    }
+                    const now = new Date().toISOString();
+                    const rec = {
+                        id: it.id || Date.now().toString(36),
+                        name,
+                        category: $("#fc").value,
+                        theme: THEMES[$("#fc").value] ? $("#fth").value : "",
+                        shape: $("#fsh").value,
+                        sizes: validSizes,
+                        desc: $("#fd").value.trim(),
+                        images: out.filter(Boolean),
+                        published: $("#fp").checked,
+                        featured: $("#ff").checked,
+                        createdAt: it.createdAt || now,
+                        updatedAt: now
+                    };
+                    busy("Saving...");
+                    const before = JSON.stringify(data.items);
+                    const ix = data.items.findIndex(x => x.id === rec.id);
+                    if (ix >= 0) data.items[ix] = rec; else data.items.push(rec);
+                    try { await save((isNew ? "Add " : "Update ") + name) } catch (x) { data.items = JSON.parse(before); throw x }
+                    $("#modal").hidden = true;
+                    toast("Saved. It will be live on the website in 1 to 2 minutes.");
+                    render();
+                } catch (x) { toast(x.message, 1) } finally { btn.disabled = false }
+            };
+        }
+    </script>
 </body>
+
 </html>

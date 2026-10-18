@@ -539,14 +539,54 @@ const BENTO=[["Charcoal Sketch","th","tile-charcoal.jpg","short"],["Textured Art
 const SOCIAL={Instagram:"https://www.instagram.com/craftvedaa/",LinkedIn:"https://www.linkedin.com/",Facebook:"https://www.facebook.com/"};   /* paste your page links */
 const SOLD_OUT=[];   /* names of sold out artworks, e.g. ["Nature 01"] */
 const JURIS="Jaipur, Rajasthan",UPDATED="30 September 2026";      /* courts city and policy date */
-const CUSTOM_TYPES=[["Pencil Sketch","cover-pencil.jpg"],["Charcoal Sketch","cover-charcoal.jpg"],["Charcoal Painting","cover-charcoalp.jpg"],["Abstract Painting","cover-abstract.jpg"],["Portrait Sketch","cover-portrait.jpg"]];
 
-/* Launch collections. Add new names here later, e.g. "Vastu", "Abstract". */
-const CATEGORIES=["Textured Art","Abstract Art","Vastu","Nature","Religious","Custom Art"];
-const MENU_CATS=["Textured Art","Abstract Art","Vastu","Nature"];   /* shown in the Category menu */
-const ART_OPTS=["Textured Art","Abstract Art","Vastu","Nature","Religious",...CUSTOM_TYPES.map(x=>x[0])];
-const FAITH=[["Ganesha","cover-ganesha.jpg"],["Shiva","cover-shiva.jpg"],["Radha Krishna","cover-krishna.jpg"],["Hanuman","cover-hanuman.jpg"],["Buddha","cover-buddha.jpg"]];
+/* Cover mapping for deity and custom themes */
+const COVER_MAP={"Ganesha":"cover-ganesha.jpg","Shiva":"cover-shiva.jpg","Radha Krishna":"cover-krishna.jpg","Hanuman":"cover-hanuman.jpg","Buddha":"cover-buddha.jpg","Pencil Sketch":"cover-pencil.jpg","Charcoal Sketch":"cover-charcoal.jpg","Charcoal Painting":"cover-charcoalp.jpg","Abstract Painting":"cover-abstract.jpg","Portrait Sketch":"cover-portrait.jpg"};
+const getThemeCover=n=>COVER_MAP[n]||`cover-${n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}.jpg`;
+
+/* Dynamic Categories & Themes (defaults sync with settings.json) */
+let CATEGORIES=["Textured Art","Abstract Art","Vastu","Nature","Religious","Custom Art"];
+let THEMES={"Religious":["Ganesha","Shiva","Radha Krishna","Hanuman","Buddha"],"Custom Art":["Pencil Sketch","Charcoal Sketch","Charcoal Painting","Abstract Painting","Portrait Sketch"]};
+let MENU_CATS=["Textured Art","Abstract Art","Vastu","Nature"];
+let FAITH=(THEMES["Religious"]||[]).map(x=>[x,getThemeCover(x)]);
+let CUSTOM_TYPES=(THEMES["Custom Art"]||[]).map(x=>[x,getThemeCover(x)]);
+let ART_OPTS=[...new Set([...CATEGORIES,...Object.values(THEMES).flat()])];
 const SHAPES=["Square","Vertical","Horizontal","Round","Multi Panel"];
+const SEC={"Textured Art":"textured","Abstract Art":"abstract","Vastu":"vastu","Nature":"nature","Religious":"religious","Custom Art":"customart"};
+
+function renderTaxonomy(){
+ const t2=$("#t2");if(t2)t2.innerHTML=FAITH.map(([n,c])=>`<button class="tl rv" data-th="${n}"><img src="images/${c}" alt="" onerror="this.remove()"><span>${n}</span></button>`).join("");
+ const fcats=$("#fcats");if(fcats)fcats.innerHTML=CATEGORIES.map(n=>`<a data-cat="${n}">${n}</a>`).join("")+"<a href='#custom'>Request custom art</a>";
+ const chips=$("#chips");if(chips)chips.innerHTML=ART_OPTS.map(n=>`<span>${n}</span>`).join("");
+ const shapes=$("#shapes");if(shapes)shapes.innerHTML=SHAPES.map(n=>`<span>${n}</span>`).join("");
+ const ct=$("#ct");if(ct)ct.innerHTML=ART_OPTS.map(n=>`<option>${n}</option>`).join("");
+ const cp=$("#cp");if(cp)cp.innerHTML=SHAPES.map(n=>`<option>${n}</option>`).join("");
+ const ddr=$("#ddr");if(ddr)ddr.innerHTML=FAITH.map(([n])=>`<a data-th="${n}">${n}</a>`).join("");
+ const ddc=$("#ddc");if(ddc)ddc.innerHTML=CUSTOM_TYPES.map(([n])=>`<a data-th="${n}">${n}</a>`).join("");
+ const t3=$("#t3");if(t3)t3.innerHTML=CUSTOM_TYPES.map(([n,c])=>`<button class="tl rv" data-th="${n}"><img src="images/${c}" alt="" onerror="this.remove()"><span>${n}</span></button>`).join("");
+ const ddk=$("#ddk");if(ddk)ddk.innerHTML=MENU_CATS.map(n=>(SEC[n]?`<a href="#${SEC[n]}">${n}</a>`:`<a data-cat="${n}">${n}</a>`)).join("");
+}
+
+function applySettings(s){
+ if(!s)return;
+ if(Array.isArray(s.categories)&&s.categories.length)CATEGORIES=[...s.categories];
+ if(s.themes)THEMES={...s.themes};
+ MENU_CATS=CATEGORIES.filter(c=>c!=="Religious"&&c!=="Custom Art");
+ FAITH=(THEMES["Religious"]||[]).map(x=>[x,getThemeCover(x)]);
+ CUSTOM_TYPES=(THEMES["Custom Art"]||[]).map(x=>[x,getThemeCover(x)]);
+ ART_OPTS=[...new Set([...CATEGORIES,...Object.values(THEMES).flat()])];
+ renderTaxonomy();
+}
+
+async function loadSettings(){
+ try{
+  const r=await fetch("settings.json?t="+Date.now());
+  if(r.ok){
+   const s=await r.json();
+   applySettings(s);
+  }
+ }catch(e){}
+}
 
 /* category must match CATEGORIES. For Religious pieces, set theme to a FAITH name. featured:true shows in top strip. mrp = old price (optional). */
 /* Har category me 10 products. Sirf name, sizes aur images badlo.
@@ -641,8 +681,8 @@ const card=(p,i)=>`<div class="pc" data-i="${i}" tabindex="0"><div class="im"><i
 const emptyHTML=()=>`<p class="empty">New artworks are coming soon. <a target="_blank" rel="noopener" href="${wa("Hi, which artworks are ready right now?")}">Ask on WhatsApp</a> to see what is ready.</p>`;
 const list=(f,max)=>{const l=PRODUCTS.map((p,i)=>[p,i]).filter(([p])=>f(p)).slice(0,max||99);return l.length?l.map(([p,i])=>card(p,i)).join(""):`${emptyHTML()}`};
 
-$("#t2").innerHTML=FAITH.map(([n,c])=>`<button class="tl rv" data-th="${n}"><img src="images/${c}" alt="" onerror="this.remove()"><span>${n}</span></button>`).join("");
-$("#fcats").innerHTML=CATEGORIES.map(n=>`<a data-cat="${n}">${n}</a>`).join("")+"<a href='#custom'>Request custom art</a>";
+renderTaxonomy();
+loadSettings();
 
 function showList(title,f){$("#mb").innerHTML=`<div class="lst"><h3>${title}</h3><div class="grid" id="lg">${list(f)}</div></div>`;op();drawW();$("#lg").onclick=e=>{if(e.target.closest("[data-w]"))return;const c=e.target.closest(".pc");if(c)openP(+c.dataset.i)}}
 const txt=o=>o.s?`<div class="pol"><h3>${o.t}</h3><small>Last updated: ${UPDATED}</small>${o.s.map(([h,ps])=>`<h4>${h}</h4>${ps.map(x=>`<p>${x}</p>`).join("")}`).join("")}</div>`:`<div class="pol"><h3>${o.t}</h3>${o.b.map(x=>`<p>${x}</p>`).join("")}</div>`;
@@ -692,10 +732,8 @@ function openP(i){const p=PRODUCTS[i];sel=0;
  const qp=$(".g .ga.prev"),qn=$(".g .ga.next");if(qp){qp.onclick=()=>qs(qi-1);qn.onclick=()=>qs(qi+1)}
  op()}
 
-$("#chips").innerHTML=ART_OPTS.map(n=>`<span>${n}</span>`).join("");
-$("#shapes").innerHTML=SHAPES.map(n=>`<span>${n}</span>`).join("");
-$("#ct").innerHTML=ART_OPTS.map(n=>`<option>${n}</option>`).join("");
-$("#cp").innerHTML=SHAPES.map(n=>`<option>${n}</option>`).join("");
+$("#chips").onclick=e=>{const s=e.target.closest("span");if(s)$("#ct").value=s.textContent};
+$("#shapes").onclick=e=>{const s=e.target.closest("span");if(s)$("#cp").value=s.textContent};
 $("#cf").onsubmit=e=>{e.preventDefault();
  open(wa(`Hi, I would like custom art.\nName: ${$("#cn").value}\nType: ${$("#ct").value}\nShape: ${$("#cp").value}\nWall size: ${$("#cs").value||"-"}\nIdea: ${$("#ci").value||"-"}${who()}`),"_blank")};
 
@@ -711,17 +749,12 @@ $("#wbtn").onclick=()=>{const l=PRODUCTS.map((p,i)=>[p,i]).filter(([p])=>wl.incl
 $("#ubtn").onclick=()=>{let p={};try{p=JSON.parse(localStorage.getItem("cvp")||"{}")}catch(e){}
  openDr("Your profile",`<p style="font-size:14px;color:var(--gr);margin-bottom:14px">Save your details once and they are added to your WhatsApp orders. They stay on this device only.</p><form id="pf" style="padding:0"><label>Name<input id="pn" value="${esc(p.n)}"></label><label>Phone<input id="pp" value="${esc(p.p)}"></label><label>Email<input id="pe" value="${esc(p.e)}"></label><label>Delivery address<textarea id="pa" rows="3">${esc(p.a)}</textarea></label><button class="btn" type="submit">Save profile</button><p id="pm" style="font-size:13px;color:#128C4A"></p></form>`);
  $("#pf").onsubmit=e=>{e.preventDefault();try{localStorage.setItem("cvp",JSON.stringify({n:$("#pn").value,p:$("#pp").value,e:$("#pe").value,a:$("#pa").value}))}catch(x){}$("#pm").textContent="Saved on this device."}};
-$("#mnu").onclick=()=>openDr("Menu",`<div class="mnl">${[["Collections","#collections"],["Textured Art","#textured"],["Abstract Art","#abstract"],["Vastu","#vastu"],["Nature","#nature"],["Religious","#religious"],["Custom Art","#customart"],["Request a custom piece","#custom"]].map(([n,h])=>`<a href="${h}" data-close>${n}</a>`).join("")}</div>`);
+$("#mnu").onclick=()=>openDr("Menu",`<div class="mnl">${[["Collections","#collections"],...CATEGORIES.map(n=>[n,SEC[n]?`#${SEC[n]}`:`#/cat/${enc(n)}`]),["Request a custom piece","#custom"]].map(([n,h])=>`<a href="${h}" data-close>${n}</a>`).join("")}</div>`);
 $("#fph").href="tel:"+PHONE.replace(/\s/g,"");$("#fph").textContent=PHONE;$("#fem").href="mailto:"+EMAIL;$("#fem").setAttribute("data-mail","");$("#fem").textContent=EMAIL;
-$("#ddr").innerHTML=FAITH.map(([n])=>`<a data-th="${n}">${n}</a>`).join("");
-$("#ddc").innerHTML=CUSTOM_TYPES.map(([n])=>`<a data-th="${n}">${n}</a>`).join("");
-$("#t3").innerHTML=CUSTOM_TYPES.map(([n,c])=>`<button class="tl rv" data-th="${n}"><img src="images/${c}" alt="" onerror="this.remove()"><span>${n}</span></button>`).join("");
 const up=$("#up"),ur=$("#upr");
 addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-innerHeight,p=h>0?scrollY/h:0;ur.style.strokeDashoffset=100-p*100;up.classList.toggle("show",scrollY>300)},{passive:true});
 up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
 drawW();
-const SEC={"Textured Art":"textured","Abstract Art":"abstract","Vastu":"vastu","Nature":"nature"};
-$("#ddk").innerHTML=MENU_CATS.map(n=>`<a href="#${SEC[n]}">${n}</a>`).join("");
 const doSearch=q=>{q=q.trim();if(q)location.hash="#/search/"+encodeURIComponent(q)};
 $("#sf").onsubmit=e=>{e.preventDefault();doSearch($("#sq").value)};
 $("#sbtn").onclick=()=>{openDr("Search",`<form id="sf2" style="padding:0"><label>Search artworks<input id="sq2" placeholder="Type to discover your style"></label><button class="btn" type="submit">Search</button></form>`);$("#sf2").onsubmit=e=>{e.preventDefault();const q=$("#sq2").value;closeDr();doSearch(q)}};
@@ -751,7 +784,7 @@ function tileImg(n){const p=PRODUCTS.find(x=>x.category===n||x.theme===n);return
 function bfb(i){i.dataset.fall="1";const u=tileImg(i.alt);if(u){i.onerror=()=>fb(i);i.src=u}else{i.onerror=null;fb(i)}}
 function fromJSON(j){return (j.items||[]).filter(i=>i.published!==false&&i.name).map(i=>{const base=CATALOG[i.category]||{};
  return{name:i.name,category:i.category,theme:i.theme||"",shape:i.shape||base.shape||"",sizes:(i.sizes&&i.sizes.length)?i.sizes:(base.sizes||[["24x36",0]]),features:i.details||base.features||"",desc:i.desc||"",images:(i.images||[]).filter(Boolean).map(imgPath),featured:!!i.featured,isNew:i.createdAt?(Date.now()-new Date(i.createdAt))<30*864e5:false}})}
-async function loadJSON(){try{const r=await fetch("products.json?t="+Date.now());if(r.ok){const l=fromJSON(await r.json());PRODUCTS.length=0;PRODUCTS.push(...l)}}catch(e){}sheetReady=true;drawHome();drawW();route()}
+async function loadJSON(){await loadSettings();try{const r=await fetch("products.json?t="+Date.now());if(r.ok){const l=fromJSON(await r.json());PRODUCTS.length=0;PRODUCTS.push(...l)}}catch(e){}sheetReady=true;drawHome();drawW();route()}
 let sheetReady=false;
 async function loadSheet(){if(!SHEET_URL)return loadJSON();
  try{const r=await fetch(SHEET_URL+(SHEET_URL.includes("?")?"&":"?")+"t="+Date.now());const t=await r.text();const l=fromSheet(t);

@@ -316,11 +316,11 @@ footer a,footer p{overflow-wrap:anywhere}
 .ga:hover{background:var(--navy);color:#fff}
 .ga.prev{left:12px}.ga.next{right:12px}
 @media(max-width:900px){.ga{width:38px;height:38px;font-size:14px}.mimg img,.pd .g img{max-height:70vh}}
-:root{--gut:clamp(16px,calc((100vw - 640px)*.18),160px)}
-.wrap{width:min(100% - 2*var(--gut),1300px);max-width:none;margin-inline:auto;padding:0}
+:root{--gut:clamp(16px,calc((100vw - 640px)*.22),280px)}
+.wrap{width:min(100% - 2*var(--gut),1240px);max-width:none;margin-inline:auto;padding:0}
 header .wrap,.mrow .wrap{width:100%}
 header .wrap{padding:0 20px}
-.tbo{width:min(100% - 2*var(--gut),1300px);max-width:none;padding:0}
+.tbo{width:min(100% - 2*var(--gut),1240px);max-width:none;padding:0}
 @media(max-width:400px){header .wrap{padding:0 12px}}
 
 /* ===== always-responsive rules ===== */
@@ -344,6 +344,26 @@ section{padding:clamp(44px,7vw,76px) 0}
 .mimg{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;max-height:calc(100vh - 130px);min-height:280px;background:#f3efe9;overflow:hidden}
 .mimg img{width:100%;height:100%;max-height:none;object-fit:contain;aspect-ratio:auto;margin:0}
 @media(max-width:900px){.mimg{max-height:75vh}}
+
+/* ===== craftico-style compact header + calmer sizes (desktop) ===== */
+@media(min-width:901px){
+body{font-size:15px}
+.hrow{height:78px}
+.hrow .logo{font-size:23px;letter-spacing:.1em}
+.hrow .srch{height:46px;max-width:340px}
+.srch input{font-size:13.5px}
+.hrow .icons{gap:14px}
+.ib svg{width:22px;height:22px}
+.ib{padding:5px}
+.mn{height:46px;gap:40px}
+.mn .dd{height:46px}
+.mn a{font-size:14.5px}
+.pc h3{font-size:16px}
+.pinfo h1{font-size:clamp(22px,2.4vw,27px)}
+.pinfo .pprice{font-size:18px}
+h2{font-size:clamp(24px,3.2vw,36px)}
+.bt span{font-size:19px}
+}
 </style>
 </head>
 <body>

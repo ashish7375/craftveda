@@ -381,6 +381,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T07:57:14.047Z"
+  },
+  {
+   "id": "mvdjazws",
+   "name": "Hanuman Divine Watercolor Art",
+   "category": "Religious",
+   "theme": "Hanuman",
+   "shape": "Square",
+   "sizes": [
+    [
+     "24x24",
+     9000
+    ],
+    [
+     "36x36",
+     9750
+    ],
+    [
+     "48x48",
+     11250
+    ]
+   ],
+   "desc": "A devotional watercolor portrait\nLord Hanuman is portrayed with a dignified expression, traditional ornaments, and a rich saffron palette. Loose watercolor washes and colorful splashes lend the artwork a lively, expressive character that suits a prayer room or spiritual collection.",
+   "images": [
+    "images/hanuman-divine-watercolor-art-1-mvdjat82.jpg",
+    "images/hanuman-divine-watercolor-art-2-mvdjavfz.jpg",
+    "images/hanuman-divine-watercolor-art-3-mvdjaxrb.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-18T07:59:08.620Z"
   }
  ]
 }

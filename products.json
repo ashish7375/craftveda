@@ -832,11 +832,15 @@
     ]
    ],
    "desc": "A peaceful Buddha portrait in muted beige and taupe is framed by a golden halo. Fine facial details, patterned hair, and layered textures give the devotional artwork a calm, meditative presence.",
-   "images": [],
+   "images": [
+    "images/serene-buddha-textured-art-1-mve4poic.jpg",
+    "images/serene-buddha-textured-art-2-mve4pqmm.jpg",
+    "images/serene-buddha-textured-art-3-mve4pslk.jpg"
+   ],
    "published": false,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T17:10:04.182Z"
+   "updatedAt": "2026-10-18T17:58:33.268Z"
   },
   {
    "id": "mve2zhqua",

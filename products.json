@@ -351,6 +351,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T07:55:28.674Z"
+  },
+  {
+   "id": "mvdj8ji7",
+   "name": "Shiva Eternal Textured Art",
+   "category": "Religious",
+   "theme": "Shiva",
+   "shape": "Square",
+   "sizes": [
+    [
+     "24x24",
+     9000
+    ],
+    [
+     "36x36",
+     9750
+    ],
+    [
+     "48x48",
+     11250
+    ]
+   ],
+   "desc": "A bold spiritual statement\nThis dramatic portrait of Lord Shiva combines midnight blue, fiery orange, and golden highlights with symbolic elements including the crescent moon and trident. Strong contrasts and expressive surface details evoke strength, stillness, and timeless spiritual energy.",
+   "images": [
+    "images/shiva-eternal-textured-art-1-mvdj8cq6.jpg",
+    "images/shiva-eternal-textured-art-2-mvdj8f4r.jpg",
+    "images/shiva-eternal-textured-art-3-mvdj8h7l.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-18T07:57:14.047Z"
   }
  ]
 }

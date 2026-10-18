@@ -890,11 +890,15 @@
     ]
    ],
    "desc": "Two owls sit close together on a fine branch before a large golden moon and deep forest-green background. Warm neutral feathers and delicate gold accents create a serene, intimate composition.",
-   "images": [],
+   "images": [
+    "images/golden-moon-owls-textured-art-1-mve4ry4e.jpg",
+    "images/golden-moon-owls-textured-art-2-mve4s0i3.jpg",
+    "images/golden-moon-owls-textured-art-3-mve4s2gx.jpg"
+   ],
    "published": false,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T17:10:04.182Z"
+   "updatedAt": "2026-10-18T18:00:19.689Z"
   }
  ]
 }

@@ -411,6 +411,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T07:59:08.620Z"
+  },
+  {
+   "id": "mvdjfnc1",
+   "name": "Hanuman Textured Art",
+   "category": "Religious",
+   "theme": "Hanuman",
+   "shape": "Square",
+   "sizes": [
+    [
+     "24x24",
+     9750
+    ],
+    [
+     "36x36",
+     11250
+    ],
+    [
+     "48x48",
+     12750
+    ]
+   ],
+   "desc": "A tranquil mountain-inspired abstract\nMuted mountain silhouettes meet earthy rust and warm ivory tones in this atmospheric landscape. Layered marks and subtle surface variation give the composition a natural, weathered character, ideal for calm and contemporary interiors.",
+   "images": [
+    "images/hanuman-textured-art-1-mvdjfcl9.jpg",
+    "images/hanuman-textured-art-2-mvdjfg2m.jpg",
+    "images/hanuman-textured-art-3-mvdjfjvw.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-18T08:02:45.601Z"
   }
  ]
 }

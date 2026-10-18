@@ -291,6 +291,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-17T21:18:30.867Z"
+  },
+  {
+   "id": "mvdj0lez",
+   "name": "Ganesha Heritage Textured Art",
+   "category": "Textured Art",
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24x16",
+     11250
+    ],
+    [
+     "36x24",
+     12250
+    ],
+    [
+     "48x32",
+     13000
+    ]
+   ],
+   "desc": "A traditional motif with a modern finish\nFeaturing Lord Ganesha in rich gold, charcoal, and ivory tones, this artwork blends traditional symbolism with a bold decorative composition. Its visibly layered, relief-like details give it a distinctive presence in elegant living spaces and devotional settings.",
+   "images": [
+    "images/ganesha-heritage-textured-art-1-mvdj0eev.jpg",
+    "images/ganesha-heritage-textured-art-2-mvdj0gvp.jpg",
+    "images/ganesha-heritage-textured-art-3-mvdj0jbm.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-18T07:51:03.276Z"
   }
  ]
 }

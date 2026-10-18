@@ -588,11 +588,15 @@
     ]
    ],
    "desc": "A winding ivory river flows through deep forest-green hills beneath a luminous golden moon. Raised-looking textures and fine gold accents give this composition an elegant, contemplative feel.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-moon-river-textured-art-1-mve32sjm.jpg",
+    "images/golden-moon-river-textured-art-2-mve32uvb.jpg",
+    "images/golden-moon-river-textured-art-3-mve32wss.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T17:10:04.182Z"
+   "updatedAt": "2026-10-18T17:12:46.228Z"
   },
   {
    "id": "mve2zhqu2",

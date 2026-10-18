@@ -364,6 +364,15 @@ body{font-size:15px}
 h2{font-size:clamp(24px,3.2vw,36px)}
 .bt span{font-size:19px}
 }
+
+/* ===== craftico-style homepage collage ===== */
+.bento{gap:clamp(12px,2.6vw,36px)}
+.bcol{gap:clamp(12px,2.6vw,36px)}
+.bt{border-radius:6px;border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 10px rgba(0,0,0,.08);background:#e8e1d6}
+.bt:before{background:linear-gradient(to top,rgba(0,0,0,.38),rgba(0,0,0,0) 32%)}
+.bt span{bottom:12px;font-family:Inter,system-ui,sans-serif;font-size:clamp(13px,1.15vw,15px);font-weight:600;letter-spacing:.01em;text-shadow:0 1px 4px rgba(0,0,0,.45)}
+.bt span:after{display:none}
+.bt:hover span{transform:none}
 </style>
 </head>
 <body>
@@ -388,8 +397,7 @@ h2{font-size:clamp(24px,3.2vw,36px)}
 </header>
 
 <main id="top">
-<section id="collections" style="padding:44px 0 72px"><div class="wrap">
- <div class="sh" style="justify-content:center;text-align:center"><div><h2>Explore our collections</h2><p class="sub" style="margin:8px auto 0">Every piece is handmade. Choose a collection to begin.</p></div></div>
+<section id="collections" style="padding:clamp(28px,5vw,64px) 0 72px"><div class="wrap">
  <div class="bento" id="bento"></div>
 </div></section>
 
@@ -700,7 +708,7 @@ $("#ddk").innerHTML=MENU_CATS.map(n=>`<a href="#${SEC[n]}">${n}</a>`).join("");
 const doSearch=q=>{q=q.trim();if(q)location.hash="#/search/"+encodeURIComponent(q)};
 $("#sf").onsubmit=e=>{e.preventDefault();doSearch($("#sq").value)};
 $("#sbtn").onclick=()=>{openDr("Search",`<form id="sf2" style="padding:0"><label>Search artworks<input id="sq2" placeholder="Type to discover your style"></label><button class="btn" type="submit">Search</button></form>`);$("#sf2").onsubmit=e=>{e.preventDefault();const q=$("#sq2").value;closeDr();doSearch(q)}};
-$("#bento").innerHTML=[0,2,4,6].map(i=>`<div class="bcol">${BENTO.slice(i,i+2).map(([n,k,c,sh])=>`<button class="bt ${sh} rv" data-${k}="${n}"><img loading="lazy" src="images/${c}" alt="${n}" onerror="fb(this)"><span>${n}</span></button>`).join("")}</div>`).join("");
+$("#bento").innerHTML=[0,2,4,6].map(i=>`<div class="bcol">${BENTO.slice(i,i+2).map(([n,k,c,sh])=>`<button class="bt ${sh} rv" data-${k}="${n}"><img loading="lazy" src="images/${c}" alt="${n}" onerror="bfb(this)"><span>${n}</span></button>`).join("")}</div>`).join("");
 let cart=[];try{cart=JSON.parse(localStorage.getItem("cv")||"[]")}catch(e){}
 const saveC=()=>{try{localStorage.setItem("cv",JSON.stringify(cart))}catch(e){}};
 function addCart(p,z){cart.push({n:p.name,z:z[0],pr:z[1],im:p.images[0]});saveC();drawC()}
@@ -720,7 +728,10 @@ function fromSheet(csv){const [h,...rows]=parseCSV(csv);const H=h.map(x=>x.trim(
   const sz=g("sizes").split("|").map(x=>x.split(":")).filter(x=>x[1]).map(x=>[x[0].trim().replace(/[*X]/g,"x"),+x[1].replace(/[^\d]/g,"")]);
   return{name:g("name"),category:cat,theme:g("theme"),shape:g("shape")||base.shape||"",sizes:sz.length?sz:(base.sizes||[["24x36",0]]),features:g("details")||base.features||"",desc:g("description"),images:[g("image1"),g("image2"),g("image3")].filter(Boolean).map(imgPath),featured:/^y/i.test(g("featured")),isNew:/^y/i.test(g("new"))}})}
 function drawHome(){
- [["gtx","Textured Art"],["gab","Abstract Art"],["gvs","Vastu"],["gnt","Nature"],["gr","Religious"],["gc","Custom Art"]].forEach(([g,c])=>{$("#"+g).innerHTML=list(p=>p.category===c,4)})}
+ [["gtx","Textured Art"],["gab","Abstract Art"],["gvs","Vastu"],["gnt","Nature"],["gr","Religious"],["gc","Custom Art"]].forEach(([g,c])=>{$("#"+g).innerHTML=list(p=>p.category===c,4)});
+ document.querySelectorAll(".bt img[data-fall]").forEach(i=>{const u=tileImg(i.alt);if(u&&!i.src.endsWith(u)){i.onerror=()=>fb(i);i.src=u}})}
+function tileImg(n){const p=PRODUCTS.find(x=>x.category===n||x.theme===n);return p&&p.images[0]}
+function bfb(i){i.dataset.fall="1";const u=tileImg(i.alt);if(u){i.onerror=()=>fb(i);i.src=u}else{i.onerror=null;fb(i)}}
 function fromJSON(j){return (j.items||[]).filter(i=>i.published!==false&&i.name).map(i=>{const base=CATALOG[i.category]||{};
  return{name:i.name,category:i.category,theme:i.theme||"",shape:i.shape||base.shape||"",sizes:(i.sizes&&i.sizes.length)?i.sizes:(base.sizes||[["24x36",0]]),features:i.details||base.features||"",desc:i.desc||"",images:(i.images||[]).filter(Boolean).map(imgPath),featured:!!i.featured,isNew:i.createdAt?(Date.now()-new Date(i.createdAt))<30*864e5:false}})}
 async function loadJSON(){try{const r=await fetch("products.json?t="+Date.now());if(r.ok){const l=fromJSON(await r.json());PRODUCTS.length=0;PRODUCTS.push(...l)}}catch(e){}sheetReady=true;drawHome();drawW();route()}

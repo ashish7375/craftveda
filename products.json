@@ -441,6 +441,36 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T08:02:45.601Z"
+  },
+  {
+   "id": "mvdjj00f",
+   "name": "Krishna Radha Sunset Textured Art",
+   "category": "Religious",
+   "theme": "Radha Krishna",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24x16",
+     12250
+    ],
+    [
+     "36x24",
+     13000
+    ],
+    [
+     "48x32",
+     13750
+    ]
+   ],
+   "desc": "A romantic devotional landscape\nRadha and Krishna sit beside a glowing river as the setting sun reflects across the water. Warm amber light, deep silhouettes, and expressive brushwork create a contemplative scene celebrating devotion, companionship, and serenity.",
+   "images": [
+    "images/krishna-radha-sunset-textured-art-1-mvdjitxt.jpg",
+    "images/krishna-radha-sunset-textured-art-2-mvdjiw61.jpg",
+    "images/krishna-radha-sunset-textured-art-3-mvdjiy7j.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-18T08:05:22.000Z"
   }
  ]
 }

@@ -21,5 +21,71 @@
       "Abstract Painting",
       "Portrait Sketch"
     ]
-  }
+  },
+  "bento": [
+    {
+      "id": "b1",
+      "title": "Charcoal Sketch",
+      "type": "th",
+      "target": "Charcoal Sketch",
+      "shape": "short",
+      "image": "images/tile-charcoal.jpg"
+    },
+    {
+      "id": "b2",
+      "title": "Textured Art",
+      "type": "cat",
+      "target": "Textured Art",
+      "shape": "tall",
+      "image": "images/tile-textured.jpg"
+    },
+    {
+      "id": "b3",
+      "title": "Religious",
+      "type": "cat",
+      "target": "Religious",
+      "shape": "tall",
+      "image": "images/tile-religious.jpg"
+    },
+    {
+      "id": "b4",
+      "title": "Pencil Sketch",
+      "type": "th",
+      "target": "Pencil Sketch",
+      "shape": "short",
+      "image": "images/tile-pencil.jpg"
+    },
+    {
+      "id": "b5",
+      "title": "Abstract Art",
+      "type": "cat",
+      "target": "Abstract Art",
+      "shape": "short",
+      "image": "images/tile-abstract.jpg"
+    },
+    {
+      "id": "b6",
+      "title": "Nature",
+      "type": "cat",
+      "target": "Nature",
+      "shape": "tall",
+      "image": "images/tile-nature.jpg"
+    },
+    {
+      "id": "b7",
+      "title": "Custom Art",
+      "type": "cat",
+      "target": "Custom Art",
+      "shape": "tall",
+      "image": "images/tile-custom.jpg"
+    },
+    {
+      "id": "b8",
+      "title": "Vastu",
+      "type": "cat",
+      "target": "Vastu",
+      "shape": "short",
+      "image": "images/tile-vastu.jpg"
+    }
+  ]
 }

@@ -300,10 +300,16 @@ footer a,footer p{overflow-wrap:anywhere}
 .empty{grid-column:1/-1;text-align:center;padding:40px 20px;border:1px dashed rgba(120,130,145,.5);color:var(--gr)}.empty a{color:var(--cu);font-weight:600}.dk .empty{color:#A9B7C6}
 
 .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-auto-rows:auto}
-.bcol{display:flex;flex-direction:column;gap:14px;min-width:0}
 .bt.short{aspect-ratio:1.36/1}
 .bt.tall{aspect-ratio:.9/1}
-.pc .im img,.mimg img{aspect-ratio:4/5;object-fit:cover}
+@media(min-width:501px) and (max-width:900px){
+ .bt.tab-short{aspect-ratio:1.36/1!important}
+ .bt.tab-tall{aspect-ratio:.9/1!important}
+}
+@media(max-width:500px){
+ .bt.mob-short{aspect-ratio:1.36/1!important}
+ .bt.mob-tall{aspect-ratio:.9/1!important}
+}
 .mimg img{width:100%;display:block}
 .pd .g img{aspect-ratio:4/5;object-fit:cover}
 @media(max-width:900px){.bento{grid-template-columns:1fr 1fr;grid-auto-rows:auto;gap:10px}.bcol{gap:10px}.bt span{font-size:18px}}
@@ -536,6 +542,7 @@ const BENTO=[["Charcoal Sketch","th","tile-charcoal.jpg","short"],["Textured Art
  ["Religious","cat","tile-religious.jpg","tall"],["Pencil Sketch","th","tile-pencil.jpg","short"],
  ["Abstract Art","cat","tile-abstract.jpg","short"],["Nature","cat","tile-nature.jpg","tall"],
  ["Custom Art","cat","tile-custom.jpg","tall"],["Vastu","cat","tile-vastu.jpg","short"]];
+let BENTO_ITEMS=BENTO.map(([title,type,image,shape])=>({title,type,image,shape,target:title}));
 const SOCIAL={Instagram:"https://www.instagram.com/craftvedaa/",LinkedIn:"https://www.linkedin.com/",Facebook:"https://www.facebook.com/"};   /* paste your page links */
 const SOLD_OUT=[];   /* names of sold out artworks, e.g. ["Nature 01"] */
 const JURIS="Jaipur, Rajasthan",UPDATED="30 September 2026";      /* courts city and policy date */
@@ -575,18 +582,33 @@ function applySettings(s){
  FAITH=(THEMES["Religious"]||[]).map(x=>[x,getThemeCover(x)]);
  CUSTOM_TYPES=(THEMES["Custom Art"]||[]).map(x=>[x,getThemeCover(x)]);
  ART_OPTS=[...new Set([...CATEGORIES,...Object.values(THEMES).flat()])];
+ if(Array.isArray(s.bento)&&s.bento.length){
+  BENTO_ITEMS=s.bento.map(t=>({title:t.title||"",type:t.type||"cat",target:t.target||t.title||"",shape:t.shape||"tall",shapeTablet:t.shapeTablet||t.shape||"tall",shapeMobile:t.shapeMobile||t.shapeTablet||t.shape||"tall",image:t.image||""}));
+  renderBento();
+ }
  renderTaxonomy();
 }
 
 async function loadSettings(){
  try{
-  const r=await fetch("settings.json?t="+Date.now());
-  if(r.ok){
-   const s=await r.json();
-   applySettings(s);
+  let s=null;
+  try{
+   const d=localStorage.getItem("cv_settings") || localStorage.getItem("craftveda_admin_draft_settings");
+   if(d)s=JSON.parse(d);
+  }catch(_){}
+  if(!s){
+   const r=await fetch("settings.json?t="+Date.now());
+   if(r.ok)s=await r.json();
   }
+  if(s)applySettings(s);
  }catch(e){}
 }
+window.addEventListener("storage",e=>{
+ if(e.key==="cv_settings"||e.key==="craftveda_admin_draft_settings"||e.key==="craftveda_bento_images"){
+  loadSettings();
+  renderBento();
+ }
+});
 
 /* category must match CATEGORIES. For Religious pieces, set theme to a FAITH name. featured:true shows in top strip. mrp = old price (optional). */
 /* Har category me 10 products. Sirf name, sizes aur images badlo.
@@ -757,8 +779,27 @@ up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
 drawW();
 const doSearch=q=>{q=q.trim();if(q)location.hash="#/search/"+encodeURIComponent(q)};
 $("#sf").onsubmit=e=>{e.preventDefault();doSearch($("#sq").value)};
-$("#sbtn").onclick=()=>{openDr("Search",`<form id="sf2" style="padding:0"><label>Search artworks<input id="sq2" placeholder="Type to discover your style"></label><button class="btn" type="submit">Search</button></form>`);$("#sf2").onsubmit=e=>{e.preventDefault();const q=$("#sq2").value;closeDr();doSearch(q)}};
-$("#bento").innerHTML=[0,2,4,6].map(i=>`<div class="bcol">${BENTO.slice(i,i+2).map(([n,k,c,sh])=>`<button class="bt ${sh} rv" data-${k}="${n}"><img loading="lazy" src="images/${c}" alt="${n}" onerror="bfb(this)"><span>${n}</span></button>`).join("")}</div>`).join("");
+function renderBento(){
+ const el=$("#bento");if(!el)return;
+ const items=(BENTO_ITEMS&&BENTO_ITEMS.length)?BENTO_ITEMS:BENTO.map(([title,type,image,shape])=>({title,type,image,shape,target:title}));
+ const cols=[];for(let i=0;i<items.length;i+=2)cols.push(items.slice(i,i+2));
+ let bentoCache={};
+ try{bentoCache=JSON.parse(localStorage.getItem("craftveda_bento_images")||"{}")}catch(_){}
+ el.innerHTML=cols.map(col=>`<div class="bcol">${col.map(t=>{
+  const n=t.title||"";
+  const k=t.type||"cat";
+  const tgt=t.target||n;
+  const shDesk=t.shape||"tall";
+  const shTab=t.shapeTablet||shDesk;
+  const shMob=t.shapeMobile||shTab;
+  let im=t.image||"";
+  if(im&&bentoCache[im])im=bentoCache[im];
+  else if(im&&!im.startsWith("data:")&&!im.startsWith("http")&&!im.startsWith("images/"))im="images/"+im;
+  return `<button class="bt ${shDesk} tab-${shTab} mob-${shMob} rv" data-${k}="${tgt}"><img loading="lazy" src="${im||ph(n)}" alt="${n}" onerror="bfb(this)"><span>${n}</span></button>`;
+ }).join("")}</div>`).join("");
+ if(typeof io!=="undefined"&&io){el.querySelectorAll(".rv:not(.in)").forEach(b=>io.observe(b))}
+}
+renderBento();
 let cart=[];try{cart=JSON.parse(localStorage.getItem("cv")||"[]")}catch(e){}
 const saveC=()=>{try{localStorage.setItem("cv",JSON.stringify(cart))}catch(e){}};
 function addCart(p,z){cart.push({n:p.name,z:z[0],pr:z[1],im:p.images[0]});saveC();drawC()}
@@ -778,12 +819,15 @@ function fromSheet(csv){const [h,...rows]=parseCSV(csv);const H=h.map(x=>x.trim(
   const sz=g("sizes").split("|").map(x=>x.split(":")).filter(x=>x[1]).map(x=>[x[0].trim().replace(/[*X]/g,"x"),+x[1].replace(/[^\d]/g,"")]);
   return{name:g("name"),category:cat,theme:g("theme"),shape:g("shape")||base.shape||"",sizes:sz.length?sz:(base.sizes||[["24x36",0]]),features:g("details")||base.features||"",desc:g("description"),images:[g("image1"),g("image2"),g("image3")].filter(Boolean).map(imgPath),featured:/^y/i.test(g("featured")),isNew:/^y/i.test(g("new"))}})}
 function drawHome(){
- [["gtx","Textured Art"],["gab","Abstract Art"],["gvs","Vastu"],["gnt","Nature"],["gr","Religious"],["gc","Custom Art"]].forEach(([g,c])=>{$("#"+g).innerHTML=list(p=>p.category===c,4)});
+ [["gtx","Textured Art"],["gab","Abstract Art"],["gvs","Vastu"],["gnt","Nature"],["gr","Religious"],["gc","Custom Art"]].forEach(([g,c])=>{$("#"+g).innerHTML=list(p=>(p.categories?p.categories.includes(c):p.category===c),4)});
  document.querySelectorAll(".bt img[data-fall]").forEach(i=>{const u=tileImg(i.alt);if(u&&!i.src.endsWith(u)){i.onerror=()=>fb(i);i.src=u}})}
-function tileImg(n){const p=PRODUCTS.find(x=>x.category===n||x.theme===n);return p&&p.images[0]}
+function tileImg(n){const p=PRODUCTS.find(x=>(x.categories?x.categories.includes(n):x.category===n)||x.theme===n);return p&&p.images[0]}
 function bfb(i){i.dataset.fall="1";const u=tileImg(i.alt);if(u){i.onerror=()=>fb(i);i.src=u}else{i.onerror=null;fb(i)}}
-function fromJSON(j){return (j.items||[]).filter(i=>i.published!==false&&i.name).map(i=>{const base=CATALOG[i.category]||{};
- return{name:i.name,category:i.category,theme:i.theme||"",shape:i.shape||base.shape||"",sizes:(i.sizes&&i.sizes.length)?i.sizes:(base.sizes||[["24x36",0]]),features:i.details||base.features||"",desc:i.desc||"",images:(i.images||[]).filter(Boolean).map(imgPath),featured:!!i.featured,isNew:i.createdAt?(Date.now()-new Date(i.createdAt))<30*864e5:false}})}
+function fromJSON(j){return (j.items||[]).filter(i=>i.published!==false&&i.name).map(i=>{
+ const cats=Array.isArray(i.categories)&&i.categories.length?i.categories:(i.category?String(i.category).split(/[,;|]/).map(s=>s.trim()).filter(Boolean):[]);
+ const primCat=cats[0]||i.category||"";
+ const base=CATALOG[primCat]||CATALOG[i.category]||{};
+ return{name:i.name,category:primCat,categories:cats.length?cats:[primCat],theme:i.theme||"",shape:i.shape||base.shape||"",sizes:(i.sizes&&i.sizes.length)?i.sizes:(base.sizes||[["24x36",0]]),features:i.details||base.features||"",desc:i.desc||"",images:(i.images||[]).filter(Boolean).map(imgPath),featured:!!i.featured,isNew:i.createdAt?(Date.now()-new Date(i.createdAt))<30*864e5:false}})}
 async function loadJSON(){await loadSettings();try{const r=await fetch("products.json?t="+Date.now());if(r.ok){const l=fromJSON(await r.json());PRODUCTS.length=0;PRODUCTS.push(...l)}}catch(e){}sheetReady=true;drawHome();drawW();route()}
 let sheetReady=false;
 async function loadSheet(){if(!SHEET_URL)return loadJSON();
@@ -868,11 +912,11 @@ function route(){
  const [,k,...r]=h.split("/"),a=dec(r.join("/"));
  homeEl.hidden=true;viewEl.hidden=false;scrollTo(0,0);
  if(k==="p"){const i=PRODUCTS.findIndex(p=>p.name===a);if(i<0){if(!sheetReady)return;location.hash="#top";return}productPage(i)}
- else if(k==="cat")catPage(esc(a),p=>p.category===a,crumb([esc(a)]));
+ else if(k==="cat")catPage(esc(a),p=>(p.categories?p.categories.includes(a):p.category===a),crumb([esc(a)]));
  else if(k==="th")catPage(esc(a),p=>p.theme===a,crumb([esc(a)]));
  else if(k==="new")catPage("New arrivals",p=>p.isNew,crumb(["New arrivals"]));
  else if(k==="fav")catPage("Favourite artworks",p=>p.featured,crumb(["Favourite artworks"]));
- else if(k==="search"){const q=a.toLowerCase();catPage("Results for "+esc(a),p=>[p.name,p.category,p.theme,p.shape].join(" ").toLowerCase().includes(q),crumb(["Search"]))}
+ else if(k==="search"){const q=a.toLowerCase();catPage("Results for "+esc(a),p=>[p.name,p.category,...(p.categories||[]),p.theme,p.shape].join(" ").toLowerCase().includes(q),crumb(["Search"]))}
  else location.hash="#top"}
 addEventListener("hashchange",route);route();loadSheet();
 (()=>{const h=document.querySelector("body>header");let ly=scrollY;

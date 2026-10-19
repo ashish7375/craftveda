@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,nofollow">
     <title>CraftVeda Admin</title>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --navy: #0F2740;
@@ -285,13 +287,43 @@
             font-weight: 600
         }
 
-        .sb-item svg {
-            flex-shrink: 0;
-            opacity: .85
+        /* Lucide Icons Base */
+        .lucide {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2;
+            vertical-align: middle;
+            display: inline-block;
         }
 
-        .sb-item.on svg {
-            opacity: 1
+        .sb-item .lucide,
+        .sb-item svg,
+        .sb-item i {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            opacity: .85;
+        }
+
+        .sb-item.on .lucide,
+        .sb-item.on svg,
+        .sb-item.on i {
+            opacity: 1;
+        }
+
+        .sb-logout-btn .lucide,
+        .sb-logout-btn svg,
+        .sb-logout-btn i {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .sb-toggle-btn .lucide,
+        .sb-toggle-btn svg,
+        .sb-toggle-btn i {
+            width: 18px;
+            height: 18px;
         }
 
         .sb-badge {
@@ -1015,6 +1047,83 @@
             color: #92400E
         }
 
+        /* Multi-Category Badges & Table Pills */
+        .cat-badges-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 6px 0 10px;
+        }
+
+        .cat-badge-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 13px;
+            border-radius: 20px;
+            font-size: 12.5px;
+            font-weight: 500;
+            background: #fff;
+            border: 1.5px solid var(--ln);
+            color: var(--navy);
+            cursor: pointer;
+            transition: all .16s ease;
+            user-select: none;
+        }
+
+        .cat-badge-btn:hover {
+            border-color: var(--cu);
+            background: #FAF8F5;
+            transform: translateY(-1px);
+        }
+
+        .cat-badge-btn.selected {
+            background: var(--navy);
+            color: #fff;
+            border-color: var(--navy);
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(15, 39, 64, .25);
+        }
+
+        .cat-badge-btn .badge-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            font-size: 10px;
+            font-weight: 700;
+            background: var(--ln);
+            color: var(--gr);
+            line-height: 1;
+        }
+
+        .cat-badge-btn .badge-icon .lucide {
+            width: 10px;
+            height: 10px;
+            stroke-width: 3;
+        }
+
+        .cat-badge-btn.selected .badge-icon {
+            background: var(--cu);
+            color: #fff;
+        }
+
+        .cat-pill {
+            display: inline-flex;
+            align-items: center;
+            background: #EEF2F6;
+            color: var(--navy);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2.5px 8px;
+            border-radius: 12px;
+            letter-spacing: .2px;
+            border: 1px solid rgba(15, 39, 64, .08);
+            white-space: nowrap;
+        }
+
         .chk {
             display: flex;
             gap: 10px;
@@ -1283,6 +1392,605 @@
             color: var(--bad);
             font-weight: 500;
         }
+
+        /* Homepage Bento Grid Manager Styles */
+        .bento-manager-layout {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 24px;
+            align-items: start;
+            margin-top: 18px;
+        }
+
+        .bento-preview-wrap {
+            background: #0B1929;
+            border-radius: var(--radius);
+            padding: 22px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            color: #fff;
+            position: relative;
+            transition: max-width .3s ease, padding .3s ease, border-radius .3s ease;
+        }
+
+        .bento-preview-wrap.mode-laptop {
+            max-width: 100%;
+        }
+
+        .bento-preview-wrap.mode-tablet {
+            max-width: 620px;
+            margin: 0 auto;
+            border: 3px solid rgba(255, 255, 255, .3);
+            border-radius: 18px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, .6);
+            padding: 20px 18px;
+        }
+
+        .bento-preview-wrap.mode-mobile {
+            max-width: 380px;
+            margin: 0 auto;
+            border: 4px solid rgba(255, 255, 255, .35);
+            border-radius: 26px;
+            box-shadow: 0 16px 44px rgba(0, 0, 0, .7);
+            padding: 18px 14px;
+        }
+
+        .bento-preview-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .bento-preview-head h3 {
+            color: #fff;
+            font-size: 15px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bento-preview-head small {
+            color: #94A3B8;
+            font-size: 12px;
+        }
+
+        .bento-device-pill {
+            background: none;
+            border: 1px solid transparent;
+            color: #94A3B8;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all .15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .bento-device-pill:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .bento-device-pill.active {
+            background: #fff;
+            color: var(--navy);
+            font-weight: 700;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+        }
+
+        .size-pill-btn {
+            background: var(--bg);
+            border: 1px solid var(--ln);
+            color: var(--gr);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .size-pill-btn:hover {
+            border-color: var(--cu);
+            color: var(--navy);
+        }
+
+        .size-pill-btn.active {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .bento-grid-preview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            transition: all .3s ease;
+        }
+
+        .bento-preview-wrap.mode-tablet .bento-grid-preview {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .bento-preview-wrap.mode-mobile .bento-grid-preview {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .bento-preview-wrap.mode-mobile .bt-tile-title {
+            font-size: 13px;
+        }
+
+        .bcol-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .bt-tile-admin {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 2px solid rgba(255, 255, 255, .18);
+            background: #1B3A5C;
+            cursor: pointer;
+            padding: 0;
+            color: #fff;
+            font: inherit;
+            transition: transform .2s, border-color .2s, box-shadow .2s;
+            text-align: center;
+            user-select: none;
+        }
+
+        .bt-tile-admin.short {
+            aspect-ratio: 1.36 / 1;
+        }
+
+        .bt-tile-admin.tall {
+            aspect-ratio: .9 / 1;
+        }
+
+        .bt-tile-admin:hover {
+            border-color: rgba(255, 255, 255, .5);
+            transform: translateY(-2px);
+        }
+
+        .bt-tile-admin.selected {
+            border-color: var(--cu);
+            box-shadow: 0 0 0 3px rgba(181, 101, 74, .45), 0 8px 24px rgba(0, 0, 0, .4);
+        }
+
+        .bt-tile-admin img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s;
+        }
+
+        .bt-tile-admin:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 22, 38, .88) 0%, rgba(10, 22, 38, .25) 55%, rgba(10, 22, 38, .45) 100%);
+            z-index: 1;
+        }
+
+        .bt-tile-content {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 12px;
+            pointer-events: none;
+        }
+
+        .bt-tile-tag {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: #F1D3C6;
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+
+        .bt-tile-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+        }
+
+        .bt-tile-admin.dragging {
+            opacity: .4;
+            transform: scale(.95);
+            border: 2px dashed #B5654A !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+        }
+
+        .bt-tile-admin.drag-over {
+            border-color: #22C55E !important;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, .45), 0 8px 24px rgba(0, 0, 0, .5) !important;
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .bt-drag-grip {
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            z-index: 3;
+            background: rgba(15, 39, 64, .88);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, .25);
+            cursor: grab;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all .15s;
+        }
+
+        .bt-drag-grip:hover {
+            background: var(--cu);
+            border-color: #fff;
+            transform: scale(1.05);
+        }
+
+        .bt-drag-grip:active {
+            cursor: grabbing;
+        }
+
+        .bt-resize-handle {
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+            z-index: 4;
+            width: 26px;
+            height: 26px;
+            background: rgba(15, 39, 64, .9);
+            border: 1px solid rgba(255, 255, 255, .3);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: nwse-resize;
+            transition: all .2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
+        }
+
+        .bt-resize-handle:hover {
+            background: var(--cu);
+            border-color: #fff;
+            transform: scale(1.15);
+        }
+
+        .bt-resize-handle svg {
+            width: 14px;
+            height: 14px;
+            pointer-events: none;
+        }
+
+        .resize-tooltip {
+            position: absolute;
+            bottom: 32px;
+            right: 0;
+            background: rgba(15, 39, 64, .95);
+            color: #fff;
+            font-size: 10px;
+            padding: 3px 7px;
+            border-radius: 4px;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .15s;
+            border: 1px solid rgba(255, 255, 255, .2);
+        }
+
+        .bt-resize-handle:hover .resize-tooltip {
+            opacity: 1;
+        }
+
+        .tile-editor-panel {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 22px;
+            border: 1px solid var(--ln);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 90px;
+        }
+
+        .tile-editor-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--ln);
+        }
+
+        .tile-editor-head h3 {
+            margin: 0;
+            font-size: 16px;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .segmented-size-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            background: var(--bg);
+            padding: 4px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+        }
+
+        .size-opt-btn {
+            background: none;
+            border: 1px solid transparent;
+            padding: 9px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gr);
+            cursor: pointer;
+            text-align: center;
+            transition: all .15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .size-opt-btn.active {
+            background: #fff;
+            color: var(--navy);
+            border-color: var(--ln);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+        }
+
+        /* 4-way move grid */
+        .move-4way-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .move-btn {
+            background: var(--bg);
+            border: 1px solid var(--ln);
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all .15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .move-btn:hover:not(:disabled) {
+            background: #fff;
+            border-color: var(--cu);
+            color: var(--cu);
+        }
+
+        .move-btn:disabled {
+            opacity: .4;
+            cursor: not-allowed;
+        }
+
+        /* Photoshop Canvas Guide */
+        .ps-spec-card {
+            background: linear-gradient(135deg, #0B1929 0%, #152A42 100%);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 8px;
+            padding: 13px 15px;
+            color: #fff;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+        }
+
+        .ps-spec-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .ps-app-badge {
+            background: #001E36;
+            color: #31A8FF;
+            font-weight: 800;
+            font-size: 12px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid rgba(49, 168, 255, .35);
+            letter-spacing: .02em;
+        }
+
+        .ps-dim-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 8px;
+            background: rgba(0, 0, 0, .28);
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            margin-bottom: 0;
+        }
+
+        .ps-dim-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .ps-dim-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            color: #94A3B8;
+            letter-spacing: .06em;
+            font-weight: 600;
+        }
+
+        .ps-dim-val {
+            font-size: 13px;
+            font-weight: 700;
+            color: #F1D3C6;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        /* Filtered Category Artworks Gallery */
+        .bento-artwork-group {
+            border: 1px solid var(--ln);
+            border-radius: 6px;
+            padding: 9px 11px;
+            margin-bottom: 8px;
+            background: #fff;
+        }
+
+        .bento-artwork-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bento-artwork-views {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 3px;
+        }
+
+        .bento-view-thumb {
+            width: 64px;
+            height: 64px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+            flex-shrink: 0;
+            position: relative;
+            background: #eee;
+            transition: all .15s;
+        }
+
+        .bento-view-thumb:hover {
+            border-color: var(--cu);
+            transform: scale(1.05);
+        }
+
+        .bento-view-thumb.selected {
+            border-color: var(--cu);
+            box-shadow: 0 0 0 2px rgba(181, 101, 74, .4);
+        }
+
+        .bento-view-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bento-view-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 39, 64, .75);
+            color: #fff;
+            font-size: 9px;
+            text-align: center;
+            padding: 1px 0;
+            backdrop-filter: blur(2px);
+        }
+
+        .art-picker-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+            gap: 8px;
+            max-height: 140px;
+            overflow-y: auto;
+            border: 1px solid var(--ln);
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            margin-top: 6px;
+            background: #FAFAFA;
+        }
+
+        .art-picker-thumb {
+            aspect-ratio: 1/1;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            background: #eee;
+            transition: transform .15s, border-color .15s;
+        }
+
+        .art-picker-thumb:hover {
+            transform: scale(1.05);
+            border-color: var(--cu);
+        }
+
+        .art-picker-thumb.selected {
+            border-color: var(--cu);
+            box-shadow: 0 0 0 2px rgba(181, 101, 74, .3);
+        }
+
+        .art-picker-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media(max-width: 900px) {
+            .bento-manager-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-grid-preview {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .tile-editor-panel {
+                position: static;
+            }
+        }
+    
     </style>
 </head>
 
@@ -1317,13 +2025,13 @@
                 <!-- Primary Action: + Add artwork Dropdown (Includes Manual & CSV Import) -->
                 <div class="sb-cta">
                     <div class="dd-btn" id="add-dd" style="width:100%">
-                        <button id="add" class="sb-add-btn" type="button">
-                            <span>+ Add artwork</span>
-                            <span>&#9662;</span>
+                        <button id="add" class="sb-add-btn" type="button" style="display:flex;align-items:center;justify-content:space-between">
+                            <span style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="plus" style="width:15px;height:15px"></i><span>Add artwork</span></span>
+                            <i data-lucide="chevron-down" style="width:14px;height:14px"></i>
                         </button>
                         <div class="dd-menu" id="add-menu">
-                            <button id="add-manual" type="button">Manually</button>
-                            <button id="add-csv" type="button">From CSV</button>
+                            <button id="add-manual" type="button"><i data-lucide="plus-circle" style="width:14px;height:14px;margin-right:6px"></i>Manually</button>
+                            <button id="add-csv" type="button"><i data-lucide="file-spreadsheet" style="width:14px;height:14px;margin-right:6px"></i>From CSV</button>
                         </div>
                     </div>
                 </div>
@@ -1331,30 +2039,20 @@
                 <!-- Navigation Menu -->
                 <nav class="sb-nav">
                     <button class="sb-item" data-v="dash" type="button">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="3" y="3" width="7" height="9" />
-                            <rect x="14" y="3" width="7" height="5" />
-                            <rect x="14" y="12" width="7" height="9" />
-                            <rect x="3" y="16" width="7" height="5" />
-                        </svg>
+                        <i data-lucide="layout-dashboard"></i>
                         <span>Dashboard</span>
                     </button>
                     <button class="sb-item" data-v="list" type="button">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M4 6h16M4 12h16M4 18h7" />
-                        </svg>
+                        <i data-lucide="image"></i>
                         <span>Artworks</span>
-                        <span class="sb-badge" id="sb-art-count">0</span>
                     </button>
                     <button class="sb-item" data-v="cats" type="button">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18" />
-                        </svg>
+                        <i data-lucide="tags"></i>
                         <span>Categories & Themes</span>
-                        <span class="sb-badge" id="sb-cat-count">6</span>
+                    </button>
+                    <button class="sb-item" data-v="bento" type="button">
+                        <i data-lucide="layout-grid"></i>
+                        <span>Homepage Bento</span>
                     </button>
                 </nav>
 
@@ -1362,10 +2060,7 @@
                 <div class="sb-footer">
                     <div class="sb-kbd-tip">Press <kbd>N</kbd> to add artwork</div>
                     <button id="out" class="sb-logout-btn" type="button">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
-                        </svg>
+                        <i data-lucide="log-out"></i>
                         <span>Log out</span>
                     </button>
                 </div>
@@ -1378,10 +2073,7 @@
                 <header class="top-header">
                     <div class="top-left">
                         <button id="sb-toggle" class="sb-toggle-btn" aria-label="Toggle sidebar" title="Toggle sidebar">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <line x1="9" y1="3" x2="9" y2="21" />
-                            </svg>
+                            <i data-lucide="panel-left"></i>
                         </button>
                         <div class="top-title" id="page-title">Dashboard</div>
                     </div>
@@ -1400,7 +2092,7 @@
                 <option value="">Move category...</option>
             </select>
             <button type="button" class="dng-btn" id="bulk-del-btn">Delete</button>
-            <button type="button" class="bulk-close" id="bulk-cancel-btn" title="Clear selection">&times;</button>
+            <button type="button" class="bulk-close" id="bulk-cancel-btn" title="Clear selection" style="display:inline-flex;align-items:center;justify-content:center"><i data-lucide="x" style="width:16px;height:16px"></i></button>
         </div>
     </div>
 
@@ -1413,17 +2105,31 @@
         /* ========================================================================== */
         /* >>> DEFAULT CONFIG & SETTINGS <<<                                          */
         /* ========================================================================== */
+        const DEFAULT_BENTO = [
+            { id: "b1", title: "Charcoal Sketch", type: "th", target: "Charcoal Sketch", shape: "short", image: "images/tile-charcoal.jpg" },
+            { id: "b2", title: "Textured Art", type: "cat", target: "Textured Art", shape: "tall", image: "images/tile-textured.jpg" },
+            { id: "b3", title: "Religious", type: "cat", target: "Religious", shape: "tall", image: "images/tile-religious.jpg" },
+            { id: "b4", title: "Pencil Sketch", type: "th", target: "Pencil Sketch", shape: "short", image: "images/tile-pencil.jpg" },
+            { id: "b5", title: "Abstract Art", type: "cat", target: "Abstract Art", shape: "short", image: "images/tile-abstract.jpg" },
+            { id: "b6", title: "Nature", type: "cat", target: "Nature", shape: "tall", image: "images/tile-nature.jpg" },
+            { id: "b7", title: "Custom Art", type: "cat", target: "Custom Art", shape: "tall", image: "images/tile-custom.jpg" },
+            { id: "b8", title: "Vastu", type: "cat", target: "Vastu", shape: "short", image: "images/tile-vastu.jpg" }
+        ];
+
         const DEFAULT_SETTINGS = {
             categories: ["Textured Art", "Abstract Art", "Vastu", "Nature", "Religious", "Custom Art"],
             themes: {
                 "Religious": ["Ganesha", "Shiva", "Radha Krishna", "Hanuman", "Buddha"],
                 "Custom Art": ["Pencil Sketch", "Charcoal Sketch", "Charcoal Painting", "Abstract Painting", "Portrait Sketch"]
-            }
+            },
+            bento: JSON.parse(JSON.stringify(DEFAULT_BENTO))
         };
 
         let settings = JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
         let CATS = [...settings.categories];
         let THEMES = JSON.parse(JSON.stringify(settings.themes));
+        let selectedBentoIndex = 0;
+        let bentoDeviceMode = "laptop"; // "laptop" | "tablet" | "mobile"
 
         const SHAPES = ["Horizontal", "Square", "Vertical"];
 
@@ -1496,6 +2202,17 @@
             };
         }
 
+        function getItemCategories(it) {
+            if (!it) return [];
+            if (Array.isArray(it.categories) && it.categories.length) {
+                return it.categories.filter(Boolean);
+            }
+            if (typeof it.category === "string" && it.category.trim()) {
+                return it.category.split(/[,;|]/).map(s => s.trim()).filter(Boolean);
+            }
+            return [];
+        }
+
         /* ========================================================================== */
                 /* ========================================================================== */
         /* ---------- GitHub API ---------- */
@@ -1524,7 +2241,8 @@
                         settings = sdata;
                         if (Array.isArray(settings.categories) && settings.categories.length) CATS = [...settings.categories];
                         if (settings.themes) THEMES = JSON.parse(JSON.stringify(settings.themes));
-                        try { localStorage.setItem("cv_settings", JSON.stringify(settings)); } catch (e) { }
+                        if (!Array.isArray(settings.bento) || !settings.bento.length) settings.bento = JSON.parse(JSON.stringify(DEFAULT_BENTO));
+                        try { localStorage.setItem("cv_settings", JSON.stringify(settings)); localStorage.setItem("craftveda_admin_draft_settings", JSON.stringify(settings)); } catch (e) { }
                     }
                 }
             } catch (e) { }
@@ -1577,7 +2295,7 @@
         }
 
         async function saveSettings(msg = "Update Settings") {
-            try { localStorage.setItem("cv_settings", JSON.stringify(settings)); } catch (e) { }
+            try { localStorage.setItem("cv_settings", JSON.stringify(settings)); localStorage.setItem("craftveda_admin_draft_settings", JSON.stringify(settings)); } catch (e) { }
             for (let i = 0; i < 3; i++) {
                 if (!settingsSha) {
                     try {
@@ -1762,8 +2480,6 @@
         /* ---------- Render Views ---------- */
         function render() {
             document.querySelectorAll("[data-v]").forEach(b => b.classList.toggle("on", b.dataset.v === view));
-            $("#sb-art-count").textContent = data.items.length;
-            $("#sb-cat-count").textContent = CATS.length;
             updatePublishStatusChip();
 
             if (view === "dash") {
@@ -1781,6 +2497,19 @@
                 $("#bulk-bar").classList.remove("active");
                 $("#main").innerHTML = categoriesView();
                 bindCategoriesEvents();
+            } else if (view === "bento") {
+                $("#page-title").textContent = "Homepage Bento Grid";
+                $("#bulk-bar").classList.remove("active");
+                $("#main").innerHTML = bentoView();
+                bindBentoEvents();
+            }
+            initIcons();
+        }
+
+        /* ---------- Lucide Icons Initialization ---------- */
+        function initIcons() {
+            if (window.lucide && typeof window.lucide.createIcons === "function") {
+                window.lucide.createIcons();
             }
         }
 
@@ -1811,8 +2540,8 @@
   </div>
 
   <div class="dash-actions">
-   <button class="btn" id="dash-add-btn" type="button">+ Add artwork</button>
-   <button class="ghost" id="dash-csv-btn" type="button">Import from CSV</button>
+   <button class="btn" id="dash-add-btn" type="button" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="plus" style="width:15px;height:15px"></i><span>Add artwork</span></button>
+   <button class="ghost" id="dash-csv-btn" type="button" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="file-spreadsheet" style="width:14px;height:14px"></i><span>Import from CSV</span></button>
   </div>
 
   <!-- Needs Attention Panel (Dynamic: only visible if attention is needed) -->
@@ -1820,7 +2549,7 @@
   <div class="panel">
    <div class="panel-head">
     <h3>
-     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+     <i data-lucide="alert-triangle" style="color:var(--warn);width:18px;height:18px"></i>
      Needs attention (${needsAttention.length})
     </h3>
    </div>
@@ -1833,9 +2562,9 @@
        <img src="${esc(img)}" alt="" onerror="this.style.visibility='hidden'">
        <div class="att-info">
         <b>${esc(item.name || 'Untitled Artwork')}</b>
-        <small>${esc(item.category)}${item.theme ? ' · ' + esc(item.theme) : ''} · ${esc(item.shape)}</small>
+        <small>${esc(getItemCategories(item).join(", "))}${item.theme ? ' · ' + esc(item.theme) : ''} · ${esc(item.shape)}</small>
         <div class="att-tags">
-         ${comp.issues.map(iss => `<span class="status-pill failed">⚠ ${iss}</span>`).join('')}
+         ${comp.issues.map(iss => `<span class="status-pill failed" style="display:inline-flex;align-items:center;gap:4px"><i data-lucide="alert-circle" style="width:12px;height:12px"></i><span>${iss}</span></span>`).join('')}
         </div>
        </div>
        <button class="ghost" style="padding:6px 12px;font-size:12px" data-fix="${item.id}">Fix & Edit</button>
@@ -1849,18 +2578,18 @@
 
   <div class="panel-head" style="margin-top:28px">
    <h3>Artworks by category (click to filter)</h3>
-   <button class="ghost" id="dash-cats-manage" style="font-size:12px;padding:6px 12px">Manage Categories &rarr;</button>
+   <button class="ghost" id="dash-cats-manage" style="font-size:12px;padding:6px 12px;display:inline-flex;align-items:center;gap:6px"><span>Manage Categories</span><i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
   </div>
   <div class="cats">
    ${CATS.map(c => {
-                const a = it.filter(i => i.category === c);
+                const a = it.filter(i => getItemCategories(i).includes(c));
                 const p = a.filter(i => i.published !== false).length;
                 return `
      <div class="cc clickable" data-cat="${c}" title="View all ${c} artworks">
       <span>${c}</span>
       <b>${a.length}</b>
       <small>${p} published, ${a.length - p} draft</small>
-      <span class="cc-arr">&rarr;</span>
+      <span class="cc-arr"><i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
      </div>
     `;
             }).join('')}
@@ -1900,12 +2629,12 @@
     <p id="list-count-tag" style="margin:0">Showing 0 artworks</p>
    </div>
    <div style="display:flex;align-items:center;gap:10px">
-    <button id="toggle-filter-btn" class="ghost" type="button" style="font-weight:600">
-     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+    <button id="toggle-filter-btn" class="ghost" type="button" style="font-weight:600;display:inline-flex;align-items:center;gap:6px">
+     <i data-lucide="sliders-horizontal" style="width:15px;height:15px"></i>
      <span>Filters</span>
     </button>
-    <button id="artworks-export-btn" class="btn navy-btn" type="button">
-     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <button id="artworks-export-btn" class="btn navy-btn" type="button" style="display:inline-flex;align-items:center;gap:6px">
+     <i data-lucide="download" style="width:15px;height:15px"></i>
      <span>Export</span>
     </button>
    </div>
@@ -1928,8 +2657,8 @@
     <select id="qsort" aria-label="Sort artworks">
      <option value="updated-desc" ${QSORT === "updated-desc" ? "selected" : ""}>Sort: Recently updated</option>
      <option value="name-asc" ${QSORT === "name-asc" ? "selected" : ""}>Sort: Name (A–Z)</option>
-     <option value="price-asc" ${QSORT === "price-asc" ? "selected" : ""}>Sort: Price (Low &rarr; High)</option>
-     <option value="price-desc" ${QSORT === "price-desc" ? "selected" : ""}>Sort: Price (High &rarr; Low)</option>
+     <option value="price-asc" ${QSORT === "price-asc" ? "selected" : ""}>Sort: Price (Low to High)</option>
+     <option value="price-desc" ${QSORT === "price-desc" ? "selected" : ""}>Sort: Price (High to Low)</option>
      <option value="cat-asc" ${QSORT === "cat-asc" ? "selected" : ""}>Sort: Category</option>
     </select>
    </div>
@@ -1993,7 +2722,7 @@
         function getFilteredAndSorted() {
             let l = data.items.filter(i => {
                 const matchesName = !Q || i.name.toLowerCase().includes(Q.toLowerCase());
-                const matchesCat = !FC || i.category === FC;
+                const matchesCat = !FC || getItemCategories(i).includes(FC);
                 let matchesStatus = true;
                 if (FS === "p") matchesStatus = (i.published !== false);
                 else if (FS === "d") matchesStatus = (i.published === false);
@@ -2012,7 +2741,7 @@
             } else if (QSORT === "price-desc") {
                 l.sort((a, b) => minPrice(b) - minPrice(a));
             } else if (QSORT === "cat-asc") {
-                l.sort((a, b) => a.category.localeCompare(b.category));
+                l.sort((a, b) => getItemCategories(a).join(", ").localeCompare(getItemCategories(b).join(", ")));
             }
 
             return l;
@@ -2077,7 +2806,9 @@
      <small style="color:var(--gr);font-size:11.5px">${i.theme ? esc(i.theme) + ' &middot; ' : ''}${esc(i.shape)}</small>
     </td>
     <td>
-     <span style="font-weight:500;font-size:13px">${esc(i.category)}</span>
+     <div style="display:flex;gap:4px;flex-wrap:wrap">
+      ${getItemCategories(i).map(c => `<span class="cat-pill">${esc(c)}</span>`).join("")}
+     </div>
     </td>
     <td>
      <span style="font-weight:700;color:var(--navy);font-size:13.5px">${money(startingPrice)}</span>
@@ -2164,7 +2895,7 @@
                 const sizesStr = (it.sizes || []).map(s => `${s[0]}:${s[1]}`).join("|");
                 rowsData.push([
                     it.name || "",
-                    it.category || "",
+                    getItemCategories(it).join(", "),
                     it.theme || "",
                     it.shape || "",
                     sizesStr,
@@ -2244,7 +2975,10 @@
             const now = new Date().toISOString();
             data.items.forEach(it => {
                 if (selectedIds.has(it.id)) {
-                    it.category = newCat;
+                    const existing = getItemCategories(it);
+                    if (!existing.includes(newCat)) existing.push(newCat);
+                    it.categories = existing;
+                    it.category = existing.join(", ");
                     it.updatedAt = now;
                 }
             });
@@ -2293,11 +3027,11 @@
    <div class="setting-card">
     <div class="panel-head">
      <h3>Categories (${CATS.length})</h3>
-     <button class="btn" id="add-cat-btn" style="font-size:12px;padding:6px 12px">+ Add Category</button>
+     <button class="btn" id="add-cat-btn" style="font-size:12px;padding:6px 12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="plus" style="width:14px;height:14px"></i><span>Add Category</span></button>
     </div>
     <div id="cats-list" style="display:grid;gap:6px">
      ${CATS.map(cat => {
-                const count = data.items.filter(i => i.category === cat).length;
+                const count = data.items.filter(i => getItemCategories(i).includes(cat)).length;
                 const themeCount = THEMES[cat] ? THEMES[cat].length : 0;
                 const isSelected = cat === selectedCatForThemes;
                 return `
@@ -2309,7 +3043,7 @@
         <div style="display:flex;gap:4px">
          <button class="ghost" style="padding:4px 8px;font-size:11px" data-manage-th="${esc(cat)}" title="Manage sub-themes">Themes</button>
          <button class="ghost" style="padding:4px 8px;font-size:11px" data-ren-cat="${esc(cat)}" title="Rename category">Rename</button>
-         <button class="ghost dng" style="padding:4px 8px;font-size:11px" data-del-cat="${esc(cat)}" title="Delete category">&times;</button>
+         <button class="ghost dng" style="padding:4px 8px;font-size:11px;display:inline-flex;align-items:center;justify-content:center" data-del-cat="${esc(cat)}" title="Delete category"><i data-lucide="trash-2" style="width:13px;height:13px"></i></button>
         </div>
        </div>
       `;
@@ -2326,14 +3060,14 @@
 
     <div style="display:flex;gap:8px;margin-bottom:14px">
      <input id="new-theme-in" placeholder="New theme name (e.g. Saraswati, Modern Minimal)..." style="font-size:13px">
-     <button class="btn" id="add-theme-btn" style="padding:8px 14px;white-space:nowrap;font-size:12px">+ Add Theme</button>
+     <button class="btn" id="add-theme-btn" style="padding:8px 14px;white-space:nowrap;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="plus" style="width:14px;height:14px"></i><span>Add Theme</span></button>
     </div>
 
     <div id="themes-list" style="display:flex;flex-wrap:wrap;gap:8px">
      ${currentThemes.length ? currentThemes.map(th => `
       <span class="theme-pill">
        <span>${esc(th)}</span>
-       <button type="button" data-del-th="${esc(th)}" title="Remove theme">&times;</button>
+       <button type="button" data-del-th="${esc(th)}" title="Remove theme" style="display:inline-flex;align-items:center;justify-content:center"><i data-lucide="x" style="width:12px;height:12px"></i></button>
       </span>
      `).join('') : `
       <div style="color:var(--gr);font-size:13px;padding:20px;border:1px dashed var(--ln);width:100%;text-align:center;border-radius:6px">
@@ -2400,8 +3134,11 @@
 
                     let count = 0;
                     data.items.forEach(it => {
-                        if (it.category === oldCat) {
-                            it.category = trimmed;
+                        const existing = getItemCategories(it);
+                        if (existing.includes(oldCat)) {
+                            const next = existing.map(c => c === oldCat ? trimmed : c);
+                            it.categories = next;
+                            it.category = next.join(", ");
                             it.updatedAt = new Date().toISOString();
                             count++;
                         }
@@ -2423,7 +3160,7 @@
             document.querySelectorAll("[data-del-cat]").forEach(b => {
                 b.onclick = async () => {
                     const cat = b.dataset.delCat;
-                    const count = data.items.filter(i => i.category === cat).length;
+                    const count = data.items.filter(i => getItemCategories(i).includes(cat)).length;
                     if (count > 0) {
                         return alert(`Cannot delete category "${cat}" because ${count} artwork(s) currently belong to it. Please reassign those artworks first.`);
                     }
@@ -2491,6 +3228,791 @@
         }
 
         /* ========================================================================== */
+        /* >>> HOMEPAGE BENTO GRID SCREEN <<<                                         */
+        /* ========================================================================== */
+        function toBentoJpeg(file, shape) {
+            return new Promise((ok, no) => {
+                const im = new Image();
+                im.onload = () => {
+                    const W = 1080;
+                    const H = shape === 'tall' ? 1200 : 795;
+                    const c = document.createElement("canvas");
+                    c.width = W;
+                    c.height = H;
+                    const x = c.getContext("2d");
+                    x.fillStyle = "#fff";
+                    x.fillRect(0, 0, W, H);
+                    const k = Math.max(W / im.width, H / im.height);
+                    const w = im.width * k, h = im.height * k;
+                    x.drawImage(im, (W - w) / 2, (H - h) / 2, w, h);
+                    ok(c.toDataURL("image/jpeg", .88).split(",")[1]);
+                };
+                im.onerror = () => no(new Error("That file is not an image"));
+                im.src = URL.createObjectURL(file);
+            });
+        }
+
+        function getTileShape(tile, mode) {
+            if (!tile) return "tall";
+            if (mode === "tablet") return tile.shapeTablet || tile.shape || "tall";
+            if (mode === "mobile") return tile.shapeMobile || tile.shapeTablet || tile.shape || "tall";
+            return tile.shape || "tall";
+        }
+
+        function bentoView() {
+            if (!settings.bento || !Array.isArray(settings.bento) || !settings.bento.length) {
+                settings.bento = JSON.parse(JSON.stringify(DEFAULT_BENTO));
+            }
+
+            if (selectedBentoIndex < 0 || selectedBentoIndex >= settings.bento.length) {
+                selectedBentoIndex = 0;
+            }
+
+            const curTile = settings.bento[selectedBentoIndex] || settings.bento[0];
+
+            // Organize into columns (pairs of 2 tiles)
+            const cols = [];
+            for (let i = 0; i < settings.bento.length; i += 2) {
+                cols.push(settings.bento.slice(i, i + 2));
+            }
+
+            // Filter artworks belonging to current category/theme
+            const targetLower = (curTile.target || curTile.title || "").toLowerCase();
+            const catMatchingArtworks = data.items.filter(it => {
+                const cats = getItemCategories(it).map(s => s.toLowerCase());
+                const th = (it.theme || "").toLowerCase();
+                return cats.includes(targetLower) || th === targetLower;
+            });
+
+            // Read bento image cache from localStorage
+            let bentoCache = {};
+            try { bentoCache = JSON.parse(localStorage.getItem("craftveda_bento_images") || "{}"); } catch (_) { }
+
+            const activeCurShape = getTileShape(curTile, bentoDeviceMode);
+            const deviceIcons = { laptop: '<i data-lucide="laptop" style="width:14px;height:14px"></i>', tablet: '<i data-lucide="tablet" style="width:14px;height:14px"></i>', mobile: '<i data-lucide="smartphone" style="width:14px;height:14px"></i>' };
+            const deviceLabels = { laptop: "Laptop (Desktop)", tablet: "Tablet (768px)", mobile: "Mobile (390px)" };
+
+            // Two standard instances for all screens (short: 1080 × 795 px, tall: 1080 × 1200 px)
+            const isTall = activeCurShape === 'tall';
+            const specDimensions = isTall ? '1080 × 1200 px' : '1080 × 795 px';
+            const specRatio = isTall ? '9 : 10 (0.9:1)' : '1.36 : 1';
+
+            return `
+  <div class="page-head" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px">
+   <div>
+    <h2>Homepage Bento Grid</h2>
+    <p>Customize your storefront collage independently for Laptop, Tablet, and Mobile screens without interfering with each other.</p>
+   </div>
+   <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="ghost" id="bento-auto-all-btn" style="padding:8px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="wand-2" style="width:14px;height:14px"></i><span>Auto-match All From Catalog</span></button>
+    <button class="ghost" id="bento-add-tile-btn" style="padding:8px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="plus" style="width:14px;height:14px"></i><span>Add Tile</span></button>
+    <button class="ghost" id="bento-reset-all-btn" style="padding:8px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="rotate-ccw" style="width:14px;height:14px"></i><span>Reset to Defaults</span></button>
+    <button class="btn" id="bento-save-btn" style="padding:8px 18px;font-size:13px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="save" style="width:14px;height:14px"></i><span>Save Bento Grid</span></button>
+   </div>
+  </div>
+
+  <div class="bento-manager-layout">
+   <!-- Left Column: Visual Bento Grid Live Preview -->
+   <div class="bento-preview-wrap mode-${bentoDeviceMode}">
+    <div class="bento-preview-head">
+     <div>
+      <h3 style="display:flex;align-items:center;gap:8px">
+       <i data-lucide="layout-grid" style="width:18px;height:18px"></i>
+       <span>Live Storefront Preview (${bentoDeviceMode.toUpperCase()})</span>
+      </h3>
+      <small style="color:#94A3B8">
+       Screen: <b>${deviceLabels[bentoDeviceMode]}</b> • Drag card to reorder • Drag corner to resize
+      </small>
+     </div>
+
+     <!-- Device Screen Switcher -->
+     <div style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:4px;border-radius:6px;border:1px solid rgba(255,255,255,.15);flex-wrap:wrap">
+      <button type="button" class="bento-device-pill ${bentoDeviceMode === 'laptop' ? 'active' : ''}" data-device-mode="laptop" title="Switch to Laptop (Desktop) screen" style="display:inline-flex;align-items:center;gap:6px">
+       <i data-lucide="laptop" style="width:14px;height:14px"></i><span>Laptop</span>
+      </button>
+      <button type="button" class="bento-device-pill ${bentoDeviceMode === 'tablet' ? 'active' : ''}" data-device-mode="tablet" title="Switch to Tablet screen (768px)" style="display:inline-flex;align-items:center;gap:6px">
+       <i data-lucide="tablet" style="width:14px;height:14px"></i><span>Tablet</span>
+      </button>
+      <button type="button" class="bento-device-pill ${bentoDeviceMode === 'mobile' ? 'active' : ''}" data-device-mode="mobile" title="Switch to Mobile screen (390px)" style="display:inline-flex;align-items:center;gap:6px">
+       <i data-lucide="smartphone" style="width:14px;height:14px"></i><span>Mobile</span>
+      </button>
+     </div>
+    </div>
+
+    <div class="bento-grid-preview" id="bento-live-grid">
+     ${cols.map((col, cIdx) => `
+      <div class="bcol-preview">
+       ${col.map((tile, rIdx) => {
+                const tileIdx = cIdx * 2 + rIdx;
+                const isSel = tileIdx === selectedBentoIndex;
+                let imgUrl = tile.image || "";
+                if (imgUrl && bentoCache[imgUrl]) imgUrl = bentoCache[imgUrl];
+                else if (imgUrl && !imgUrl.startsWith("data:") && !imgUrl.startsWith("http") && !imgUrl.startsWith("images/")) imgUrl = "images/" + imgUrl;
+                if (!imgUrl) imgUrl = ph(tile.title);
+
+                const tileShape = getTileShape(tile, bentoDeviceMode);
+
+                return `
+            <div class="bt-tile-admin ${tileShape} ${isSel ? 'selected' : ''}" 
+                 data-tile-idx="${tileIdx}" 
+                 draggable="true" 
+                 title="Tile #${tileIdx + 1}: ${esc(tile.title)} [${bentoDeviceMode.toUpperCase()}: ${tileShape.toUpperCase()}]. Drag to reorder, click corner to resize.">
+             <div class="bt-drag-grip" title="Drag to move card (left, right, up, down)">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+               <circle cx="8" cy="6" r="2.2"/><circle cx="16" cy="6" r="2.2"/>
+               <circle cx="8" cy="12" r="2.2"/><circle cx="16" cy="12" r="2.2"/>
+               <circle cx="8" cy="18" r="2.2"/><circle cx="16" cy="18" r="2.2"/>
+              </svg>
+              <span>#${tileIdx + 1}</span>
+             </div>
+
+             <div class="bt-resize-handle" data-resize-idx="${tileIdx}" title="Click or drag corner to toggle Tall / Short for ${bentoDeviceMode.toUpperCase()}">
+              <svg viewBox="0 0 12 12" width="12" height="12">
+               <path d="M11 2L2 11M11 6L6 11M11 10L10 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+              <span class="resize-tooltip">${tileShape === 'tall' ? 'Tall' : 'Short'} (${bentoDeviceMode.toUpperCase()})</span>
+             </div>
+
+             <img src="${esc(imgUrl)}" alt="${esc(tile.title)}" onerror="this.onerror=null;this.src=ph('${esc(tile.title)}')">
+             <div class="bt-tile-content">
+              <span class="bt-tile-tag">${tile.type === 'cat' ? 'Category' : 'Theme'}: ${esc(tile.target)}</span>
+              <div class="bt-tile-title">${esc(tile.title)}</div>
+             </div>
+            </div>
+           `;
+            }).join('')}
+      </div>
+     `).join('')}
+    </div>
+
+   </div>
+
+   <!-- Right Column: Selected Tile Inspector -->
+   <div class="tile-editor-panel">
+    <div class="tile-editor-head">
+     <h3>
+      <span>Tile #${selectedBentoIndex + 1} Inspector</span>
+     </h3>
+     <span class="bd ok" style="font-size:11px;padding:2px 8px">${activeCurShape.toUpperCase()} (${bentoDeviceMode.toUpperCase()})</span>
+    </div>
+
+    <form id="bento-editor-form" onsubmit="return false">
+     <!-- Selectable Category / Theme (Sets Title & Link automatically) -->
+     <div style="margin-bottom:14px">
+      <label style="font-weight:600;color:var(--navy);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center">
+       <span>Category / Theme</span>
+       <span class="bd ok" style="font-size:10px;padding:2px 7px;text-transform:uppercase">${curTile.type === 'cat' ? 'Category' : 'Theme'}</span>
+      </label>
+      <select id="bento-target-select" style="font-size:14px;padding:10px 12px;font-weight:600;border:1.5px solid var(--ln);border-radius:6px;background:#fff;width:100%">
+       <optgroup label="Main Categories">
+        ${CATS.map(c => `
+         <option value="cat:${esc(c)}" ${(curTile.type === 'cat' && (curTile.target === c || curTile.title === c)) ? 'selected' : ''}>
+          Category: ${esc(c)}
+         </option>
+        `).join('')}
+       </optgroup>
+       ${Object.entries(THEMES).map(([catName, thList]) => `
+        <optgroup label="Themes under ${esc(catName)}">
+         ${thList.map(th => `
+          <option value="th:${esc(th)}" ${(curTile.type === 'th' && (curTile.target === th || curTile.title === th)) ? 'selected' : ''}>
+           Theme: ${esc(th)} (${esc(catName)})
+          </option>
+         `).join('')}
+        </optgroup>
+       `).join('')}
+      </select>
+      <div style="margin-top:6px;font-size:11px;color:var(--gr);display:flex;align-items:center;gap:6px">
+       <span>Display: <b style="color:var(--navy)">${esc(curTile.title)}</b></span>
+       <span>•</span>
+       <span>Store Link: <code style="font-size:10.5px">#/${curTile.type === 'cat' ? 'cat' : 'th'}/${encodeURIComponent(curTile.target)}</code></span>
+      </div>
+     </div>
+
+     <!-- Independent Screen Sizing Manager (Laptop, Tablet, Mobile) -->
+     <div style="background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:12px;margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+       <label style="font-weight:700;font-size:12px;color:var(--navy);margin:0">
+        Independent Screen Sizing
+       </label>
+       <span class="bd ok" style="font-size:10px;padding:2px 7px;text-transform:uppercase">Active: ${bentoDeviceMode}</span>
+      </div>
+
+      <!-- Laptop Row -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 8px;border-radius:5px;background:${bentoDeviceMode === 'laptop' ? '#fff' : 'transparent'};border:1px solid ${bentoDeviceMode === 'laptop' ? 'var(--ln)' : 'transparent'};margin-bottom:4px">
+       <div style="display:flex;align-items:center;gap:6px">
+        <i data-lucide="laptop" style="width:14px;height:14px;color:var(--navy)"></i>
+        <span style="font-size:12px;font-weight:${bentoDeviceMode === 'laptop' ? '700' : '500'};color:var(--navy)">Laptop Screen</span>
+       </div>
+       <div style="display:flex;gap:4px">
+        <button type="button" class="size-pill-btn ${(curTile.shape || 'tall') === 'tall' ? 'active' : ''}" data-screen="laptop" data-size="tall">Tall</button>
+        <button type="button" class="size-pill-btn ${(curTile.shape || 'tall') === 'short' ? 'active' : ''}" data-screen="laptop" data-size="short">Short</button>
+       </div>
+      </div>
+
+      <!-- Tablet Row -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 8px;border-radius:5px;background:${bentoDeviceMode === 'tablet' ? '#fff' : 'transparent'};border:1px solid ${bentoDeviceMode === 'tablet' ? 'var(--ln)' : 'transparent'};margin-bottom:4px">
+       <div style="display:flex;align-items:center;gap:6px">
+        <i data-lucide="tablet" style="width:14px;height:14px;color:var(--navy)"></i>
+        <span style="font-size:12px;font-weight:${bentoDeviceMode === 'tablet' ? '700' : '500'};color:var(--navy)">Tablet Screen</span>
+       </div>
+       <div style="display:flex;gap:4px">
+        <button type="button" class="size-pill-btn ${(curTile.shapeTablet || curTile.shape || 'tall') === 'tall' ? 'active' : ''}" data-screen="tablet" data-size="tall">Tall</button>
+        <button type="button" class="size-pill-btn ${(curTile.shapeTablet || curTile.shape || 'tall') === 'short' ? 'active' : ''}" data-screen="tablet" data-size="short">Short</button>
+       </div>
+      </div>
+
+      <!-- Mobile Row -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 8px;border-radius:5px;background:${bentoDeviceMode === 'mobile' ? '#fff' : 'transparent'};border:1px solid ${bentoDeviceMode === 'mobile' ? 'var(--ln)' : 'transparent'}">
+       <div style="display:flex;align-items:center;gap:6px">
+        <i data-lucide="smartphone" style="width:14px;height:14px;color:var(--navy)"></i>
+        <span style="font-size:12px;font-weight:${bentoDeviceMode === 'mobile' ? '700' : '500'};color:var(--navy)">Mobile Screen</span>
+       </div>
+       <div style="display:flex;gap:4px">
+        <button type="button" class="size-pill-btn ${(curTile.shapeMobile || curTile.shapeTablet || curTile.shape || 'tall') === 'tall' ? 'active' : ''}" data-screen="mobile" data-size="tall">Tall</button>
+        <button type="button" class="size-pill-btn ${(curTile.shapeMobile || curTile.shapeTablet || curTile.shape || 'tall') === 'short' ? 'active' : ''}" data-screen="mobile" data-size="short">Short</button>
+       </div>
+      </div>
+     </div>
+
+     <!-- 4-Way Move Grid (Left, Right, Up, Down) -->
+     <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+       <small style="font-weight:600;color:var(--navy)">Move Card (Drag or use 4-way arrows):</small>
+       <small style="color:var(--gr);font-size:11px">Card #${selectedBentoIndex + 1} of ${settings.bento.length}</small>
+      </div>
+      <div class="move-4way-grid">
+       <button type="button" class="move-btn" id="bento-move-left" ${selectedBentoIndex < 2 ? 'disabled' : ''} title="Move to previous column on left" style="display:inline-flex;align-items:center;justify-content:center;gap:6px">
+        <i data-lucide="arrow-left" style="width:13px;height:13px"></i><span>Move Left (Col)</span>
+       </button>
+       <button type="button" class="move-btn" id="bento-move-right" ${selectedBentoIndex >= settings.bento.length - 2 ? 'disabled' : ''} title="Move to next column on right" style="display:inline-flex;align-items:center;justify-content:center;gap:6px">
+        <span>Move Right (Col)</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i>
+       </button>
+       <button type="button" class="move-btn" id="bento-move-up" ${selectedBentoIndex === 0 ? 'disabled' : ''} title="Move card earlier/up" style="display:inline-flex;align-items:center;justify-content:center;gap:6px">
+        <i data-lucide="arrow-up" style="width:13px;height:13px"></i><span>Move Earlier / Up</span>
+       </button>
+       <button type="button" class="move-btn" id="bento-move-down" ${selectedBentoIndex >= settings.bento.length - 1 ? 'disabled' : ''} title="Move card later/down" style="display:inline-flex;align-items:center;justify-content:center;gap:6px">
+        <span>Move Later / Down</span><i data-lucide="arrow-down" style="width:13px;height:13px"></i>
+       </button>
+      </div>
+     </div>
+
+     <!-- Photoshop Canvas Setup Guide (Standard 1080px Instances) -->
+     <div class="ps-spec-card">
+      <div class="ps-spec-header">
+       <div style="display:flex;align-items:center;gap:8px">
+        <span class="ps-app-badge">Ps</span>
+        <strong style="color:#fff;font-size:13px">Photoshop Canvas Guide</strong>
+       </div>
+       <span class="bd ok" style="font-size:10px;padding:2px 7px;font-weight:700">
+        ${activeCurShape.toUpperCase()} CARD
+       </span>
+      </div>
+
+      <div class="ps-dim-grid">
+       <div class="ps-dim-col">
+        <span class="ps-dim-label">Dimensions</span>
+        <span class="ps-dim-val">${specDimensions}</span>
+       </div>
+       <div class="ps-dim-col">
+        <span class="ps-dim-label">Aspect Ratio</span>
+        <span class="ps-dim-val">${specRatio}</span>
+       </div>
+       <div class="ps-dim-col">
+        <span class="ps-dim-label">Format</span>
+        <span class="ps-dim-val">High-Res JPEG</span>
+       </div>
+      </div>
+     </div>
+
+     <!-- Cover Photo Section -->
+     <label style="font-weight:600;color:var(--navy);display:block;margin-bottom:8px">
+      Cover Photo
+      <div style="display:flex;gap:12px;align-items:center;margin-top:6px">
+       <div style="width:72px;height:72px;border-radius:6px;overflow:hidden;border:1px solid var(--ln);background:#0B1929;flex-shrink:0">
+        <img id="bento-cur-img" src="${esc(curTile.image ? (bentoCache[curTile.image] || curTile.image) : ph(curTile.title))}" style="width:100%;height:100%;object-fit:cover" onerror="this.onerror=null;this.src=ph('${esc(curTile.title)}')">
+       </div>
+       <div style="flex:1">
+        <input id="bento-img-path" value="${esc(curTile.image || '')}" placeholder="images/bento/... or URL" style="font-size:12px;padding:7px 10px;margin-bottom:6px">
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+         <label class="btn" style="padding:6px 13px;font-size:11px;cursor:pointer;margin:0;display:inline-flex;align-items:center;gap:4px">
+          <i data-lucide="upload" style="width:12px;height:12px"></i>
+          <span>Upload Image</span>
+          <input type="file" id="bento-file-in" accept="image/*" style="display:none">
+         </label>
+         <button type="button" class="ghost" id="bento-auto-pic-btn" style="padding:6px 10px;font-size:11px;display:inline-flex;align-items:center;gap:4px" title="Auto-match first artwork from this category"><i data-lucide="wand-2" style="width:12px;height:12px"></i><span>Auto-match</span></button>
+         <button type="button" class="ghost dng" id="bento-clear-img-btn" style="padding:6px 10px;font-size:11px;display:inline-flex;align-items:center;gap:4px"><i data-lucide="trash-2" style="width:12px;height:12px"></i><span>Clear</span></button>
+        </div>
+       </div>
+      </div>
+     </label>
+
+     <!-- Artworks in Selected Category/Theme -->
+     <div style="margin-top:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+       <small style="font-weight:700;color:var(--navy);font-size:12px">
+        Artworks in "${esc(curTile.target)}" (${catMatchingArtworks.length}):
+       </small>
+       <small style="color:var(--gr);font-size:11px">Click any view to apply</small>
+      </div>
+
+      ${catMatchingArtworks.length ? `
+       <div style="display:flex;flex-direction:column;gap:8px;max-height:220px;overflow-y:auto;padding-right:4px">
+        ${catMatchingArtworks.map(it => `
+         <div class="bento-artwork-group">
+          <div class="bento-artwork-title">
+           <span>${esc(it.name)}</span>
+           <small style="color:var(--gr);font-size:10px">${esc(it.category)}</small>
+          </div>
+          <div class="bento-artwork-views">
+           ${(it.images || []).map((img, vIdx) => {
+                const isSel = curTile.image === img;
+                const viewLabels = ["Room View", "On White", "Side View"];
+                return `
+                <div class="bento-view-thumb ${isSel ? 'selected' : ''}" data-pick-img="${esc(img)}" title="${esc(it.name)} - ${viewLabels[vIdx] || 'View ' + (vIdx + 1)}">
+                 <img src="${esc(img)}" alt="${esc(it.name)}" onerror="this.src=ph('${esc(it.name)}')">
+                 <span class="bento-view-label">${viewLabels[vIdx] || 'View ' + (vIdx + 1)}</span>
+                </div>
+               `;
+            }).join('')}
+          </div>
+         </div>
+        `).join('')}
+       </div>
+      ` : `
+       <div style="padding:14px;border:1px dashed var(--ln);border-radius:6px;background:#fafafa;text-align:center;font-size:12px;color:var(--gr)">
+        No artworks found under "${esc(curTile.target)}" yet. Choose from all store artworks below or upload a custom image.
+       </div>
+      `}
+     </div>
+
+     <!-- Collapsible Full Catalog Picker -->
+     <details style="margin-top:12px;border:1px solid var(--ln);border-radius:6px;padding:8px 12px;background:#FAFAFA">
+      <summary style="font-weight:600;font-size:12px;cursor:pointer;color:var(--navy);display:flex;justify-content:space-between;align-items:center">
+       <span>Browse All Store Artworks (${data.items.length})</span>
+      </summary>
+      <div class="art-picker-list" style="margin-top:8px">
+       ${data.items.map(it => {
+                const img = (it.images && it.images[0]) || '';
+                const isSel = curTile.image === img;
+                return `
+            <div class="art-picker-thumb ${isSel ? 'selected' : ''}" data-pick-img="${esc(img)}" title="${esc(it.name)} (${esc(it.category)})">
+             <img src="${esc(img)}" alt="${esc(it.name)}" onerror="this.src=ph('${esc(it.name)}')">
+            </div>
+           `;
+            }).join('')}
+      </div>
+     </details>
+
+     <div style="display:flex;justify-content:flex-end;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid var(--ln)">
+      <button type="button" class="ghost dng" id="bento-del-tile" ${settings.bento.length <= 4 ? 'disabled title="Minimum 4 tiles required"' : ''} style="padding:6px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="trash-2" style="width:13px;height:13px"></i><span>Delete Tile</span></button>
+     </div>
+    </form>
+   </div>
+  </div>
+  `;
+        }
+
+        function bindBentoEvents() {
+            // Direct Device Mode Tabs
+            document.querySelectorAll("[data-device-mode]").forEach(pill => {
+                pill.onclick = () => {
+                    bentoDeviceMode = pill.dataset.deviceMode;
+                    toast(`Switched preview to ${bentoDeviceMode.toUpperCase()} screen`);
+                    render();
+                };
+            });
+
+            // Drag and drop & Click handling on tiles
+            let draggedTileIdx = null;
+            document.querySelectorAll(".bt-tile-admin").forEach(el => {
+                el.addEventListener("dragstart", e => {
+                    draggedTileIdx = +el.dataset.tileIdx;
+                    e.dataTransfer.setData("text/plain", String(draggedTileIdx));
+                    e.dataTransfer.effectAllowed = "move";
+                    el.classList.add("dragging");
+                });
+
+                el.addEventListener("dragend", () => {
+                    el.classList.remove("dragging");
+                    document.querySelectorAll(".bt-tile-admin").forEach(x => x.classList.remove("drag-over"));
+                });
+
+                el.addEventListener("dragover", e => {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = "move";
+                    const targetIdx = +el.dataset.tileIdx;
+                    if (targetIdx !== draggedTileIdx) {
+                        el.classList.add("drag-over");
+                    }
+                });
+
+                el.addEventListener("dragleave", () => {
+                    el.classList.remove("drag-over");
+                });
+
+                el.addEventListener("drop", e => {
+                    e.preventDefault();
+                    el.classList.remove("drag-over");
+                    const targetIdx = +el.dataset.tileIdx;
+                    if (draggedTileIdx !== null && draggedTileIdx !== targetIdx && settings.bento[draggedTileIdx]) {
+                        const movedItem = settings.bento.splice(draggedTileIdx, 1)[0];
+                        settings.bento.splice(targetIdx, 0, movedItem);
+                        selectedBentoIndex = targetIdx;
+                        toast(`Moved "${movedItem.title}" to position #${targetIdx + 1}`);
+                        draggedTileIdx = null;
+                        render();
+                    }
+                });
+
+                el.addEventListener("click", e => {
+                    if (e.target.closest(".bt-resize-handle")) return;
+                    const tileIdx = +el.dataset.tileIdx;
+                    if (!isNaN(tileIdx)) {
+                        selectedBentoIndex = tileIdx;
+                        render();
+                    }
+                });
+            });
+
+            // Corner Resize Handles (Click to toggle & Mouse drag to resize per screen)
+            document.querySelectorAll(".bt-resize-handle").forEach(handle => {
+                handle.onclick = e => {
+                    e.stopPropagation();
+                    const idx = +handle.dataset.resizeIdx;
+                    if (settings.bento[idx]) {
+                        const tile = settings.bento[idx];
+                        const curShape = getTileShape(tile, bentoDeviceMode);
+                        const nextShape = curShape === "tall" ? "short" : "tall";
+                        if (bentoDeviceMode === "tablet") {
+                            tile.shapeTablet = nextShape;
+                        } else if (bentoDeviceMode === "mobile") {
+                            tile.shapeMobile = nextShape;
+                        } else {
+                            tile.shape = nextShape;
+                        }
+                        toast(`Resized Tile #${idx + 1} for ${bentoDeviceMode.toUpperCase()} to ${nextShape.toUpperCase()}`);
+                        render();
+                    }
+                };
+
+                handle.onmousedown = e => {
+                    e.stopPropagation();
+                    const idx = +handle.dataset.resizeIdx;
+                    const tileEl = handle.closest(".bt-tile-admin");
+                    if (!tileEl || !settings.bento[idx]) return;
+                    const startY = e.clientY;
+                    const initialShape = getTileShape(settings.bento[idx], bentoDeviceMode);
+                    let currentShape = initialShape;
+
+                    const onMouseMove = ev => {
+                        const dy = ev.clientY - startY;
+                        if (dy > 30 && currentShape !== "tall") {
+                            currentShape = "tall";
+                            tileEl.classList.remove("short");
+                            tileEl.classList.add("tall");
+                        } else if (dy < -30 && currentShape !== "short") {
+                            currentShape = "short";
+                            tileEl.classList.remove("tall");
+                            tileEl.classList.add("short");
+                        }
+                    };
+
+                    const onMouseUp = () => {
+                        window.removeEventListener("mousemove", onMouseMove);
+                        window.removeEventListener("mouseup", onMouseUp);
+                        if (currentShape !== initialShape) {
+                            if (bentoDeviceMode === "tablet") {
+                                settings.bento[idx].shapeTablet = currentShape;
+                            } else if (bentoDeviceMode === "mobile") {
+                                settings.bento[idx].shapeMobile = currentShape;
+                            } else {
+                                settings.bento[idx].shape = currentShape;
+                            }
+                            toast(`Resized Tile #${idx + 1} for ${bentoDeviceMode.toUpperCase()} to ${currentShape.toUpperCase()}`);
+                            render();
+                        }
+                    };
+
+                    window.addEventListener("mousemove", onMouseMove);
+                    window.addEventListener("mouseup", onMouseUp);
+                };
+            });
+
+            const curTile = settings.bento[selectedBentoIndex] || settings.bento[0];
+
+            // Unified Category / Theme Select (Sets Title & Link)
+            const targetSelect = $("#bento-target-select");
+            if (targetSelect) {
+                targetSelect.onchange = () => {
+                    const val = targetSelect.value;
+                    if (val.startsWith("cat:")) {
+                        curTile.type = "cat";
+                        curTile.target = val.slice(4);
+                        curTile.title = curTile.target;
+                    } else if (val.startsWith("th:")) {
+                        curTile.type = "th";
+                        curTile.target = val.slice(3);
+                        curTile.title = curTile.target;
+                    }
+                    toast(`Linked Tile #${selectedBentoIndex + 1} to "${curTile.title}"`);
+                    render();
+                };
+            }
+
+            // Independent Screen Size Pill Buttons (Laptop, Tablet, Mobile)
+            document.querySelectorAll(".size-pill-btn").forEach(btn => {
+                btn.onclick = () => {
+                    const screen = btn.dataset.screen;
+                    const size = btn.dataset.size;
+                    if (screen === "laptop") {
+                        curTile.shape = size;
+                    } else if (screen === "tablet") {
+                        curTile.shapeTablet = size;
+                    } else if (screen === "mobile") {
+                        curTile.shapeMobile = size;
+                    }
+                    toast(`Set ${screen.toUpperCase()} sizing to ${size.toUpperCase()}`);
+                    render();
+                };
+            });
+
+            // 4-Way Move Grid (Left, Right, Up, Down)
+            const moveLeftBtn = $("#bento-move-left");
+            const moveRightBtn = $("#bento-move-right");
+            const moveUpBtn = $("#bento-move-up");
+            const moveDownBtn = $("#bento-move-down");
+
+            if (moveLeftBtn) {
+                moveLeftBtn.onclick = () => {
+                    if (selectedBentoIndex >= 2) {
+                        const temp = settings.bento[selectedBentoIndex];
+                        settings.bento[selectedBentoIndex] = settings.bento[selectedBentoIndex - 2];
+                        settings.bento[selectedBentoIndex - 2] = temp;
+                        selectedBentoIndex -= 2;
+                        render();
+                    }
+                };
+            }
+            if (moveRightBtn) {
+                moveRightBtn.onclick = () => {
+                    if (selectedBentoIndex < settings.bento.length - 2) {
+                        const temp = settings.bento[selectedBentoIndex];
+                        settings.bento[selectedBentoIndex] = settings.bento[selectedBentoIndex + 2];
+                        settings.bento[selectedBentoIndex + 2] = temp;
+                        selectedBentoIndex += 2;
+                        render();
+                    }
+                };
+            }
+            if (moveUpBtn) {
+                moveUpBtn.onclick = () => {
+                    if (selectedBentoIndex > 0) {
+                        const temp = settings.bento[selectedBentoIndex];
+                        settings.bento[selectedBentoIndex] = settings.bento[selectedBentoIndex - 1];
+                        settings.bento[selectedBentoIndex - 1] = temp;
+                        selectedBentoIndex--;
+                        render();
+                    }
+                };
+            }
+            if (moveDownBtn) {
+                moveDownBtn.onclick = () => {
+                    if (selectedBentoIndex < settings.bento.length - 1) {
+                        const temp = settings.bento[selectedBentoIndex];
+                        settings.bento[selectedBentoIndex] = settings.bento[selectedBentoIndex + 1];
+                        settings.bento[selectedBentoIndex + 1] = temp;
+                        selectedBentoIndex++;
+                        render();
+                    }
+                };
+            }
+
+            // Image Path Input
+            const imgPathIn = $("#bento-img-path");
+            if (imgPathIn) {
+                imgPathIn.oninput = e => {
+                    curTile.image = e.target.value.trim();
+                    const curImg = $("#bento-cur-img");
+                    if (curImg) curImg.src = curTile.image || ph(curTile.title);
+                    const previewImg = document.querySelector(`.bt-tile-admin[data-tile-idx="${selectedBentoIndex}"] img`);
+                    if (previewImg) previewImg.src = curTile.image || ph(curTile.title);
+                };
+            }
+
+            // Artwork Picker (Click to apply artwork image)
+            document.querySelectorAll("[data-pick-img]").forEach(thumb => {
+                thumb.onclick = () => {
+                    const img = thumb.dataset.pickImg;
+                    if (!img) return;
+                    curTile.image = img;
+                    toast(`Applied artwork photo to Tile #${selectedBentoIndex + 1}`);
+                    render();
+                };
+            });
+
+            // Upload Custom Image File (Processed to images/bento/ path)
+            const fileIn = $("#bento-file-in");
+            if (fileIn) {
+                fileIn.onchange = async e => {
+                    const f = e.target.files[0];
+                    if (!f) return;
+                    try {
+                        busy("Optimizing and saving photo to images/bento/...");
+                        const slug = (curTile.target || curTile.title || "tile").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+                        const filename = `images/bento/${slug}-${getTileShape(curTile, bentoDeviceMode)}.jpg`;
+
+                        const b64 = await toBentoJpeg(f, getTileShape(curTile, bentoDeviceMode));
+                        const dataUrl = "data:image/jpeg;base64," + b64;
+
+                        // Store in localStorage cache
+                        let bentoImgs = {};
+                        try { bentoImgs = JSON.parse(localStorage.getItem("craftveda_bento_images") || "{}"); } catch (_) { }
+                        bentoImgs[filename] = dataUrl;
+                        localStorage.setItem("craftveda_bento_images", JSON.stringify(bentoImgs));
+
+                        // Upload to GitHub images/bento/ if logged in
+                        if (typeof putImage === "function" && cfg && cfg.proxy) {
+                            try {
+                                await putImage(`bento/${slug}-${getTileShape(curTile, bentoDeviceMode)}.jpg`, b64);
+                            } catch (ghErr) {
+                                console.warn("GitHub upload notice (cached locally):", ghErr);
+                            }
+                        }
+
+                        curTile.image = filename;
+                        toast(`Uploaded & saved photo to ${filename}`);
+                        render();
+                    } catch (err) {
+                        toast(err.message, 1);
+                    } finally {
+                        busy(false);
+                    }
+                };
+            }
+
+            // Auto-match image for selected tile
+            const autoBtn = $("#bento-auto-pic-btn");
+            if (autoBtn) {
+                autoBtn.onclick = () => {
+                    const match = data.items.find(x => {
+                        const cats = getItemCategories(x).map(s => s.toLowerCase());
+                        const tgt = (curTile.target || "").toLowerCase();
+                        const ttl = (curTile.title || "").toLowerCase();
+                        return cats.includes(tgt) ||
+                            (x.theme && x.theme.toLowerCase() === tgt) ||
+                            cats.includes(ttl) ||
+                            (x.theme && x.theme.toLowerCase() === ttl);
+                    });
+                    if (match && match.images && match.images[0]) {
+                        curTile.image = match.images[0];
+                        toast(`Matched with "${match.name}"`);
+                        render();
+                    } else {
+                        toast(`No published artwork found for "${curTile.target}" yet`, 1);
+                    }
+                };
+            }
+
+            // Clear Image
+            const clearBtn = $("#bento-clear-img-btn");
+            if (clearBtn) {
+                clearBtn.onclick = () => {
+                    curTile.image = "";
+                    render();
+                };
+            }
+
+            // Delete tile
+            const delTileBtn = $("#bento-del-tile");
+            if (delTileBtn) {
+                delTileBtn.onclick = () => {
+                    if (settings.bento.length <= 4) return alert("A minimum of 4 tiles is required for the layout.");
+                    if (!confirm(`Delete Tile #${selectedBentoIndex + 1} ("${curTile.title}")?`)) return;
+                    settings.bento.splice(selectedBentoIndex, 1);
+                    if (selectedBentoIndex >= settings.bento.length) selectedBentoIndex = settings.bento.length - 1;
+                    render();
+                };
+            }
+
+            // Add tile
+            const addTileBtn = $("#bento-add-tile-btn");
+            if (addTileBtn) {
+                addTileBtn.onclick = () => {
+                    const title = prompt("Enter title for new Bento tile:", "New Style");
+                    if (!title || !title.trim()) return;
+                    const newId = "b" + (settings.bento.length + 1) + "_" + Date.now().toString(36);
+                    settings.bento.push({
+                        id: newId,
+                        title: title.trim(),
+                        type: "cat",
+                        target: CATS[0] || "Textured Art",
+                        shape: "short",
+                        shapeTablet: "short",
+                        shapeMobile: "short",
+                        image: ""
+                    });
+                    selectedBentoIndex = settings.bento.length - 1;
+                    toast(`Added tile "${title.trim()}"`);
+                    render();
+                };
+            }
+
+            // Auto-match all tiles from catalog
+            const autoAllBtn = $("#bento-auto-all-btn");
+            if (autoAllBtn) {
+                autoAllBtn.onclick = () => {
+                    let matchedCount = 0;
+                    settings.bento.forEach(tile => {
+                        const tgt = (tile.target || "").toLowerCase();
+                        const ttl = (tile.title || "").toLowerCase();
+                        const match = data.items.find(x => {
+                            const cats = getItemCategories(x).map(s => s.toLowerCase());
+                            return cats.includes(tgt) ||
+                                (x.theme && x.theme.toLowerCase() === tgt) ||
+                                cats.includes(ttl) ||
+                                (x.theme && x.theme.toLowerCase() === ttl);
+                        });
+                        if (match && match.images && match.images[0]) {
+                            tile.image = match.images[0];
+                            matchedCount++;
+                        }
+                    });
+                    toast(`Auto-matched ${matchedCount} tile photos from your catalog!`);
+                    render();
+                };
+            }
+
+            // Reset all to defaults
+            const resetAllBtn = $("#bento-reset-all-btn");
+            if (resetAllBtn) {
+                resetAllBtn.onclick = () => {
+                    if (!confirm("Reset all Bento Grid tiles to initial defaults?")) return;
+                    settings.bento = JSON.parse(JSON.stringify(DEFAULT_BENTO));
+                    selectedBentoIndex = 0;
+                    toast("Reset Bento Grid to defaults.");
+                    render();
+                };
+            }
+
+            // Save Bento Grid
+            const saveBtn = $("#bento-save-btn");
+            if (saveBtn) {
+                saveBtn.onclick = async () => {
+                    saveBtn.disabled = true;
+                    busy("Saving Bento Grid changes...");
+                    try {
+                        await saveSettings("Updated Homepage Bento Grid");
+                        toast("Homepage Bento Grid saved successfully!");
+                    } catch (err) {
+                        toast(err.message, 1);
+                    } finally {
+                        saveBtn.disabled = false;
+                    }
+                };
+            }
+        }
+
+        /* ========================================================================== */
         /* >>> CSV PARSER FOR MODAL IMPORT <<<                                        */
         /* ========================================================================== */
         function parseCSV(t) {
@@ -2515,29 +4037,37 @@
  <div style="background:var(--bg);border:1px solid var(--ln);border-radius:6px;padding:14px;margin-bottom:16px;font-size:13px">
   <b>Expected CSV Columns:</b>
   <div style="color:var(--navy);font-family:monospace;font-size:12px;margin:6px 0">Name, Category, Theme, Shape, Sizes, Description</div>
-  <div style="color:var(--gr);font-size:12px">Sizes format: <code>24*16 inch:15000|36*24 inch:19000|48*32 inch:25000</code> (leave empty to use default shape sizes).</div>
-  <div style="margin-top:10px"><button type="button" class="ghost" id="dl-sample-csv" style="padding:6px 14px;font-size:12px">&#8595; Download Sample CSV Template</button></div>
+  <div style="color:var(--gr);font-size:12px;line-height:1.5">
+   • <b>Category:</b> Supports multiple categories separated by commas, e.g. <code>"Religious, Custom Art"</code>.<br>
+   • <b>Sizes:</b> Format: <code>24*16 inch:15000|36*24 inch:19000|48*32 inch:25000</code> (leave empty to use default shape sizes).
+  </div>
+  <div style="margin-top:10px"><button type="button" class="ghost" id="dl-sample-csv" style="padding:6px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="download" style="width:14px;height:14px"></i>Download Sample CSV Template</button></div>
  </div>
  <div id="csv-dropzone" style="border:2px dashed var(--ln);border-radius:6px;padding:34px 20px;text-align:center;background:#fff;cursor:pointer;transition:.2s">
   <input type="file" accept=".csv,text/csv" id="csv-file-input" style="display:none">
+  <i data-lucide="file-up" style="width:36px;height:36px;color:var(--navy);margin:0 auto 10px;display:block"></i>
   <div style="font-size:15px;font-weight:600;color:var(--navy);margin-bottom:4px">Click or drag & drop a .csv file here</div>
   <div style="font-size:12px;color:var(--gr)" id="csv-file-name">No file selected</div>
  </div>
  <div id="csv-preview" style="margin-top:14px;max-height:160px;overflow:auto;display:none;border:1px solid var(--ln);border-radius:6px;font-size:12px"></div>
  <span id="csv-err" class="f-err" style="margin-top:8px"></span>
  <div class="fa" style="margin-top:18px">
-  <button class="btn" id="csv-submit-btn" disabled>Import as Drafts</button>
+  <button class="btn" id="csv-submit-btn" disabled style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="upload" style="width:14px;height:14px"></i>Import as Drafts</button>
   <button type="button" class="ghost" id="csv-cancel-btn">Cancel</button>
  </div>`;
             $("#modal").hidden = false;
+            initIcons();
+            initIcons();
 
             let parsedItems = [];
 
             $("#dl-sample-csv").onclick = () => {
                 const sample = "Name,Category,Theme,Shape,Sizes,Description\n"
-                    + '"Golden Horizon Textured Art","Textured Art","","Horizontal","24*16 inch:15000|36*24 inch:19000|48*32 inch:25000","Handcrafted layered relief acrylic art on stretched canvas."\n'
-                    + '"Divine Lotus Ganesha","Religious","Ganesha","Vertical","16*24 inch:8000|24*36 inch:10500|32*48 inch:14500","Hand painted spiritual artwork for living rooms and mandirs."\n'
-                    + '"Geometric Harmony","Abstract Art","","Square","24*24 inch:9000|36*36 inch:12000|48*48 inch:16000","Contemporary minimalist abstract painting."\n';
+                    + '"Radha Krishna Devotional Sketch","Religious, Custom Art","Radha Krishna","Horizontal","24*16 inch:15000|36*24 inch:19000|48*32 inch:25000","Handcrafted devotional artwork celebrating divine love, suitable as sacred and custom wall art."\n'
+                    + '"Golden Horizon Textured Art","Textured Art, Abstract Art","","Horizontal","24*16 inch:15000|36*24 inch:19000|48*32 inch:25000","Handcrafted layered impasto relief acrylic art on stretched canvas."\n'
+                    + '"Divine Lotus Ganesha","Religious","Ganesha","Vertical","16*24 inch:8000|24*36 inch:10500|32*48 inch:14500","Hand painted spiritual artwork for living rooms and prayer mandirs."\n'
+                    + '"Charcoal Meditation Buddha","Religious, Custom Art","Buddha","Square","24*24 inch:9000|36*36 inch:12000|48*48 inch:16000","Handcrafted charcoal drawing depicting Buddha in peaceful contemplative meditation."\n'
+                    + '"Forest Mist Panoramic Art","Nature, Textured Art","","Panoramic","36*18 inch:14000|48*24 inch:18000|60*30 inch:23000","Scenic nature composition bringing organic serenity and botanical calm into living spaces."\n';
                 const blob = new Blob([sample], { type: "text/csv;charset=utf-8;" });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement("a");
@@ -2591,13 +4121,21 @@
                             const name = (r[nameIdx] || "").trim();
                             if (!name) continue;
 
-                            let category = catIdx >= 0 ? (r[catIdx] || "").trim() : "";
-                            if (!CATS.includes(category)) category = CATS[0];
+                            const rawCat = catIdx >= 0 ? (r[catIdx] || "").trim() : "";
+                            const rawParts = rawCat.split(/[,;|]/).map(s => s.trim()).filter(Boolean);
+                            const matchedCats = [];
+                            rawParts.forEach(p => {
+                                const found = CATS.find(c => c.toLowerCase() === p.toLowerCase());
+                                if (found && !matchedCats.includes(found)) matchedCats.push(found);
+                                else if (!matchedCats.includes(p) && p) matchedCats.push(p);
+                            });
+                            const categories = matchedCats.length ? matchedCats : [CATS[0] || "Textured Art"];
+                            const category = categories.join(", ");
 
                             const theme = themeIdx >= 0 ? (r[themeIdx] || "").trim() : "";
                             let shape = shapeIdx >= 0 ? (r[shapeIdx] || "").trim() : "";
                             if (!SHAPES.includes(shape)) {
-                                const tpl = templates.find(t => t.category === category) || DEFAULT_TEMPLATES.find(t => t.category === category);
+                                const tpl = templates.find(t => categories.includes(t.category)) || DEFAULT_TEMPLATES.find(t => categories.includes(t.category));
                                 shape = tpl ? tpl.shape : "Horizontal";
                             }
 
@@ -2607,18 +4145,18 @@
                             }
                             if (!sizes.length) {
                                 const std = SHAPE_SIZES[shape] || SHAPE_SIZES["Horizontal"];
-                                const tpl = templates.find(t => t.category === category) || DEFAULT_TEMPLATES.find(t => t.category === category);
+                                const tpl = templates.find(t => categories.includes(t.category)) || DEFAULT_TEMPLATES.find(t => categories.includes(t.category));
                                 const prices = tpl && tpl.sizes ? tpl.sizes.map(s => s[1]) : [15000, 19000, 25000];
                                 sizes = std.map((sz, idx) => [sz, prices[idx] || 15000]);
                             }
 
                             let desc = descIdx >= 0 ? (r[descIdx] || "").trim() : "";
                             if (!desc) {
-                                const tpl = templates.find(t => t.category === category) || DEFAULT_TEMPLATES.find(t => t.category === category);
+                                const tpl = templates.find(t => categories.includes(t.category)) || DEFAULT_TEMPLATES.find(t => categories.includes(t.category));
                                 desc = tpl ? tpl.desc : "";
                             }
 
-                            parsedItems.push({ name, category, theme, shape, sizes, desc });
+                            parsedItems.push({ name, category, categories, theme, shape, sizes, desc });
                         }
 
                         if (!parsedItems.length) {
@@ -2656,6 +4194,7 @@
                         id: Date.now().toString(36) + k.toString(36),
                         name: p.name,
                         category: p.category,
+                        categories: p.categories,
                         theme: p.theme,
                         shape: p.shape,
                         sizes: p.sizes,
@@ -2685,7 +4224,7 @@
         /* ========================================================================== */
         /* >>> ADD / EDIT FORM WITH D&D, REORDERING & AI DRAFTING <<<                 */
         /* ========================================================================== */
-        const sizeRow = (s = "", p = "") => `<div class="sr-wrap"><div class="sr"><input class="sz" placeholder="Size, e.g. 24*16 inch" value="${esc(s)}"><input class="pr" type="number" min="1" placeholder="Price (Rs.)" value="${esc(p)}"><button type="button" class="x" aria-label="Remove size">&times;</button></div><span class="f-err"></span></div>`;
+        const sizeRow = (s = "", p = "") => `<div class="sr-wrap"><div class="sr"><input class="sz" placeholder="Size, e.g. 24*16 inch" value="${esc(s)}"><input class="pr" type="number" min="1" placeholder="Price (Rs.)" value="${esc(p)}"><button type="button" class="x" aria-label="Remove size" style="display:inline-flex;align-items:center;justify-content:center"><i data-lucide="x" style="width:13px;height:13px"></i></button></div><span class="f-err"></span></div>`;
 
         /* AI Description Generator (Section 9 - Human Reviewed) */
         function generateAIDescription(name, category, theme, shape) {
@@ -2706,14 +4245,15 @@
 
         function form(it) {
             const isNew = !it;
-            const currentCategory = it ? it.category : CATS[0];
-            const tpl = templates.find(t => t.category === currentCategory) || DEFAULT_TEMPLATES.find(t => t.category === currentCategory);
+            const existingCats = getItemCategories(it);
+            let selectedCats = existingCats.length ? [...existingCats] : [CATS[0] || "Textured Art"];
+            const tpl = templates.find(t => selectedCats.includes(t.category)) || DEFAULT_TEMPLATES.find(t => selectedCats.includes(t.category));
 
             const initialShape = it ? it.shape : (tpl ? tpl.shape : "Horizontal");
             const defaultShapeSizes = SHAPE_SIZES[initialShape] || SHAPE_SIZES["Horizontal"];
             const defaultSizes = tpl && tpl.sizes ? tpl.sizes : defaultShapeSizes.map(s => [s, "15000"]);
 
-            it = it || { name: "", category: currentCategory, theme: "", shape: initialShape, sizes: defaultSizes, desc: tpl ? tpl.desc : "", images: [], published: true, featured: false };
+            it = it || { name: "", category: selectedCats.join(", "), categories: selectedCats, theme: "", shape: initialShape, sizes: defaultSizes, desc: tpl ? tpl.desc : "", images: [], published: true, featured: false };
             const imgs = [...(it.images || []), "", "", ""].slice(0, 3);
             const slotFiles = [null, null, null];
 
@@ -2725,12 +4265,29 @@
   <span id="fn-err" class="f-err"></span>
  </label>
 
- <div class="two">
-  <label>Category<select id="fc">${CATS.map(c => `<option ${c === it.category ? "selected" : ""}>${c}</option>`).join("")}</select></label>
-  <label id="fthw">Type<select id="fth"></select></label>
+ <div style="margin-bottom:12px">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+   <div style="font-size:13px;font-weight:600">Categories (click badges to select all that apply) *</div>
+   <small style="color:var(--gr);font-size:11.5px" id="cat-badge-count">${selectedCats.length} selected</small>
+  </div>
+  <div class="cat-badges-grid" id="cat-badges-wrap">
+   ${CATS.map(c => {
+       const isSel = selectedCats.includes(c);
+       return `
+        <button type="button" class="cat-badge-btn ${isSel ? 'selected' : ''}" data-cat-badge="${esc(c)}">
+         <span class="badge-icon">${isSel ? '<i data-lucide="check" style="width:10px;height:10px"></i>' : '<i data-lucide="plus" style="width:10px;height:10px"></i>'}</span>
+         <span>${esc(c)}</span>
+        </button>
+       `;
+   }).join('')}
+  </div>
+  <span id="fc-err" class="f-err" style="margin-bottom:6px"></span>
  </div>
 
- <label>Shape<select id="fsh">${SHAPES.map(c => `<option ${c === it.shape ? "selected" : ""}>${c}</option>`).join("")}</select></label>
+ <div class="two">
+  <label id="fthw">Theme / Style<select id="fth"></select></label>
+  <label>Shape<select id="fsh">${SHAPES.map(c => `<option ${c === it.shape ? "selected" : ""}>${c}</option>`).join("")}</select></label>
+ </div>
 
  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">
   <div style="font-size:13px;font-weight:600">Sizes (inches) and prices</div>
@@ -2738,12 +4295,12 @@
  </div>
  <div id="szr">${it.sizes.map(s => sizeRow(s[0], s[1])).join("")}</div>
  <span id="sz-err" class="f-err" style="margin-bottom:8px"></span>
- <button type="button" class="ghost" id="addsz" style="margin-bottom:14px">+ Add custom size</button>
+ <button type="button" class="ghost" id="addsz" style="margin-bottom:14px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="plus" style="width:14px;height:14px"></i><span>Add custom size</span></button>
 
  <!-- Description with AI Assistant -->
  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
   <div style="font-size:13px;font-weight:600">Description</div>
-  <button type="button" class="ai-btn" id="ai-draft-btn" title="Draft description based on name, category, and theme">✨ Draft with AI</button>
+  <button type="button" class="ai-btn" id="ai-draft-btn" style="display:inline-flex;align-items:center;gap:6px" title="Draft description based on name, category, and theme"><i data-lucide="sparkles" style="width:14px;height:14px"></i><span>Draft with AI</span></button>
  </div>
  <textarea id="fd" rows="3" placeholder="Description of the artwork...">${esc(it.desc)}</textarea>
  <span id="ai-msg" style="font-size:11.5px;color:var(--cu);margin-bottom:12px;display:none;font-weight:500"></span>
@@ -2764,12 +4321,12 @@
     <div class="im-slot-title">${slot.title}${slot.req ? ' *' : ''}</div>
     <div class="pv-zone ${slot.fit}" id="pv${k}" title="Click or drag image here">
      <div id="pv-content${k}" style="width:100%;height:100%;display:grid;place-items:center">
-      ${imgs[k] ? `<img src="${esc(imgs[k])}" alt="">` : `<span style="font-size:12px;text-align:center;padding:10px">${slot.desc}<br><small style="color:var(--cu);font-weight:600">+ Upload</small></span>`}
+      ${imgs[k] ? `<img src="${esc(imgs[k])}" alt="">` : `<span style="font-size:12px;text-align:center;padding:10px">${slot.desc}<br><small style="color:var(--cu);font-weight:600;display:inline-flex;align-items:center;gap:4px;justify-content:center"><i data-lucide="upload" style="width:11px;height:11px"></i><span>Upload</span></small></span>`}
      </div>
      <div class="pv-actions" id="pv-act${k}" style="display:${imgs[k] || slotFiles[k] ? 'flex' : 'none'}">
-      ${k > 0 ? `<button type="button" class="pv-btn" data-mv="${k},${k - 1}" title="Swap with slot ${k}">&larr;</button>` : ''}
-      ${k < 2 ? `<button type="button" class="pv-btn" data-mv="${k},${k + 1}" title="Swap with slot ${k + 2}">&rarr;</button>` : ''}
-      <button type="button" class="pv-btn" data-rm="${k}" title="Remove image" style="background:#B3261E">&times;</button>
+      ${k > 0 ? `<button type="button" class="pv-btn" data-mv="${k},${k - 1}" title="Swap with slot ${k}" style="display:inline-flex;align-items:center;justify-content:center"><i data-lucide="arrow-left" style="width:13px;height:13px"></i></button>` : ''}
+      ${k < 2 ? `<button type="button" class="pv-btn" data-mv="${k},${k + 1}" title="Swap with slot ${k + 2}" style="display:inline-flex;align-items:center;justify-content:center"><i data-lucide="arrow-right" style="width:13px;height:13px"></i></button>` : ''}
+      <button type="button" class="pv-btn" data-rm="${k}" title="Remove image" style="background:#B3261E;display:inline-flex;align-items:center;justify-content:center"><i data-lucide="trash-2" style="width:13px;height:13px"></i></button>
      </div>
     </div>
     <span class="pv-fit-badge ${slot.fit}">${slot.fitLabel}</span>
@@ -2782,7 +4339,7 @@
 
  <label class="chk" style="margin-top:12px"><input type="checkbox" id="fp" ${it.published !== false ? "checked" : ""}> Publish (show live on website)</label>
  <label class="chk"><input type="checkbox" id="ff" ${it.featured ? "checked" : ""}> Featured (show in Favorites)</label>
- <div class="fa"><button class="btn" type="submit">Save Artwork</button><button type="button" class="ghost" id="cn">Cancel</button></div></form>`;
+ <div class="fa"><button class="btn" type="submit" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="check" style="width:14px;height:14px"></i><span>Save Artwork</span></button><button type="button" class="ghost" id="cn" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="x" style="width:14px;height:14px"></i><span>Cancel</span></button></div></form>`;
 
             $("#modal").hidden = false;
 
@@ -2790,8 +4347,7 @@
             const applyShapeSizes = (preservePrices = true) => {
                 const sh = $("#fsh").value;
                 const stdSizes = SHAPE_SIZES[sh] || SHAPE_SIZES["Horizontal"];
-                const cat = $("#fc").value;
-                const curTpl = templates.find(t => t.category === cat) || DEFAULT_TEMPLATES.find(t => t.category === cat);
+                const curTpl = templates.find(t => selectedCats.includes(t.category)) || DEFAULT_TEMPLATES.find(t => selectedCats.includes(t.category));
                 const tplPrices = curTpl && curTpl.sizes ? curTpl.sizes.map(s => s[1]) : ["", "", ""];
 
                 const currentRows = [...document.querySelectorAll(".sr")];
@@ -2811,29 +4367,81 @@
                 $("#sz-err").textContent = "";
             };
 
-            const th = () => {
-                const l = THEMES[$("#fc").value];
-                $("#fthw").hidden = !l;
-                $("#fth").innerHTML = l ? l.map(x => `<option ${x === it.theme ? "selected" : ""}>${x}</option>`).join("") : ""
-            };
+            const updateThemesDropdown = () => {
+                const availableThemes = [];
+                selectedCats.forEach(c => {
+                    const list = THEMES[c] || [];
+                    list.forEach(th => {
+                        if (!availableThemes.some(x => x.theme === th)) {
+                            availableThemes.push({ category: c, theme: th });
+                        }
+                    });
+                });
 
-            th();
-
-            $("#fsh").onchange = () => { applyShapeSizes(true) };
-
-            $("#fc").onchange = () => {
-                th();
-                if (isNew) {
-                    const newTpl = templates.find(t => t.category === $("#fc").value) || DEFAULT_TEMPLATES.find(t => t.category === $("#fc").value);
-                    if (newTpl) {
-                        if (newTpl.shape) $("#fsh").value = newTpl.shape;
-                        if (newTpl.desc) $("#fd").value = newTpl.desc;
+                const thw = $("#fthw");
+                const thSelect = $("#fth");
+                if (!availableThemes.length) {
+                    thw.hidden = true;
+                    thSelect.innerHTML = "";
+                } else {
+                    thw.hidden = false;
+                    const curTheme = it.theme || "";
+                    if (selectedCats.filter(c => THEMES[c] && THEMES[c].length).length > 1) {
+                        thSelect.innerHTML = `<option value="">None / General</option>` + selectedCats.map(c => {
+                            const thList = THEMES[c] || [];
+                            if (!thList.length) return "";
+                            return `<optgroup label="${esc(c)} Themes">${thList.map(th => `<option value="${esc(th)}" ${th === curTheme ? "selected" : ""}>${esc(th)}</option>`).join("")}</optgroup>`;
+                        }).join("");
+                    } else {
+                        thSelect.innerHTML = `<option value="">None / General</option>` + availableThemes.map(x => `<option value="${esc(x.theme)}" ${x.theme === curTheme ? "selected" : ""}>${esc(x.theme)}</option>`).join("");
                     }
-                    applyShapeSizes(false);
                 }
             };
 
-            $("#addsz").onclick = () => { $("#szr").insertAdjacentHTML("beforeend", sizeRow()); $("#sz-err").textContent = "" };
+            updateThemesDropdown();
+
+            document.querySelectorAll("[data-cat-badge]").forEach(badge => {
+                badge.onclick = () => {
+                    const cat = badge.dataset.catBadge;
+                    const idx = selectedCats.indexOf(cat);
+                    if (idx >= 0) {
+                        if (selectedCats.length > 1) {
+                            selectedCats.splice(idx, 1);
+                        } else {
+                            toast("Artwork must have at least one category badge", 1);
+                            return;
+                        }
+                    } else {
+                        selectedCats.push(cat);
+                    }
+
+                    document.querySelectorAll("[data-cat-badge]").forEach(b => {
+                        const isSel = selectedCats.includes(b.dataset.catBadge);
+                        b.classList.toggle("selected", isSel);
+                        const icon = b.querySelector(".badge-icon");
+                        if (icon) icon.textContent = isSel ? '✓' : '+';
+                    });
+
+                    const countEl = $("#cat-badge-count");
+                    if (countEl) countEl.textContent = `${selectedCats.length} selected`;
+                    const errEl = $("#fc-err");
+                    if (errEl) errEl.textContent = "";
+
+                    updateThemesDropdown();
+                    if (isNew) {
+                        const newTpl = templates.find(t => selectedCats.includes(t.category)) || DEFAULT_TEMPLATES.find(t => selectedCats.includes(t.category));
+                        if (newTpl) {
+                            if (newTpl.shape && !$("#fsh").value) $("#fsh").value = newTpl.shape;
+                            if (newTpl.desc && !$("#fd").value) $("#fd").value = newTpl.desc;
+                        }
+                        applyShapeSizes(false);
+                    }
+                };
+            });
+
+            $("#fsh").onchange = () => { applyShapeSizes(true) };
+
+            $("#addsz").onclick = () => { $("#szr").insertAdjacentHTML("beforeend", sizeRow()); $("#sz-err").textContent = ""; initIcons(); };
             $("#szr").onclick = e => {
                 if (e.target.classList.contains("x") && document.querySelectorAll(".sr").length > 1) {
                     e.target.closest(".sr-wrap").remove();
@@ -2843,7 +4451,7 @@
             /* AI Draft Description Button */
             $("#ai-draft-btn").onclick = () => {
                 const name = $("#fn").value;
-                const cat = $("#fc").value;
+                const cat = selectedCats.join(", ");
                 const theme = $("#fthw").hidden ? "" : $("#fth").value;
                 const shape = $("#fsh").value;
                 const drafted = generateAIDescription(name, cat, theme, shape);
@@ -2852,7 +4460,7 @@
                 $("#fd").style.borderColor = "var(--cu)";
                 const msgEl = $("#ai-msg");
                 msgEl.style.display = "block";
-                msgEl.textContent = "✨ Drafted with AI — please review, personalize or edit before saving.";
+                msgEl.innerHTML = '<span style="display:inline-flex;align-items:center;gap:5px"><i data-lucide="sparkles" style="width:13px;height:13px"></i><span>Drafted with AI — please review, personalize or edit before saving.</span></span>'; initIcons();
                 setTimeout(() => { if ($("#fd")) $("#fd").style.borderColor = "var(--ln)" }, 2000);
             };
 
@@ -2873,7 +4481,7 @@
                     actEl.style.display = "flex";
                 } else {
                     const slotDesc = ["Hero lifestyle mockup", "White background view", "Texture close-up angle"][k];
-                    cntEl.innerHTML = `<span style="font-size:12px;text-align:center;padding:10px">${slotDesc}<br><small style="color:var(--cu);font-weight:600">+ Upload</small></span>`;
+                    cntEl.innerHTML = `<span style="font-size:12px;text-align:center;padding:10px">${slotDesc}<br><small style="color:var(--cu);font-weight:600;display:inline-flex;align-items:center;gap:4px;justify-content:center"><i data-lucide="upload" style="width:11px;height:11px"></i><span>Upload</span></small></span>`; initIcons();
                     actEl.style.display = "none";
                 }
             }
@@ -2951,7 +4559,7 @@
             /* Snapshot for dirty form checking */
             const getSnapshot = () => JSON.stringify({
                 n: $("#fn").value.trim(),
-                c: $("#fc").value,
+                c: selectedCats.join(", "),
                 th: $("#fthw").hidden ? "" : $("#fth").value,
                 sh: $("#fsh").value,
                 sz: [...document.querySelectorAll(".sr")].map(r => [r.querySelector(".sz").value.trim(), r.querySelector(".pr").value.trim()]),
@@ -3023,6 +4631,11 @@
                     isValid = false;
                 }
 
+                if (!selectedCats.length) {
+                    $("#fc-err").textContent = "Please select at least one category badge.";
+                    isValid = false;
+                }
+
                 if (!isValid) {
                     const firstErr = document.querySelector(".is-err");
                     if (firstErr) firstErr.focus();
@@ -3041,8 +4654,9 @@
                     const rec = {
                         id: it.id || Date.now().toString(36),
                         name,
-                        category: $("#fc").value,
-                        theme: THEMES[$("#fc").value] ? $("#fth").value : "",
+                        category: selectedCats.join(", "),
+                        categories: selectedCats,
+                        theme: $("#fthw").hidden ? "" : $("#fth").value,
                         shape: $("#fsh").value,
                         sizes: validSizes,
                         desc: $("#fd").value.trim(),

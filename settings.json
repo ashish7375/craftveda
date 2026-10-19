@@ -29,7 +29,7 @@
       "type": "th",
       "target": "Charcoal Sketch",
       "shape": "short",
-      "image": "images/tile-charcoal.jpg"
+      "image": "images/moonlit-ocean-textured-art-1-mve6abow.jpg"
     },
     {
       "id": "b2",
@@ -53,7 +53,7 @@
       "type": "th",
       "target": "Pencil Sketch",
       "shape": "short",
-      "image": "images/tile-pencil.jpg"
+      "image": "images/serene-buddha-textured-art-1-mve4poic.jpg"
     },
     {
       "id": "b5",
@@ -61,7 +61,7 @@
       "type": "cat",
       "target": "Abstract Art",
       "shape": "short",
-      "image": "images/tile-abstract.jpg"
+      "image": "images/earth-tones-cracked-texture-art-1-mve5xasd.jpg"
     },
     {
       "id": "b6",
@@ -69,7 +69,7 @@
       "type": "cat",
       "target": "Nature",
       "shape": "tall",
-      "image": "images/tile-nature.jpg"
+      "image": "images/golden-moon-owls-textured-art-1-mve4ry4e.jpg"
     },
     {
       "id": "b7",
@@ -77,7 +77,7 @@
       "type": "cat",
       "target": "Custom Art",
       "shape": "tall",
-      "image": "images/tile-custom.jpg"
+      "image": "images/ram-sita-watercolor-art-1-mvcvdlzc.jpg"
     },
     {
       "id": "b8",
@@ -85,7 +85,7 @@
       "type": "cat",
       "target": "Vastu",
       "shape": "short",
-      "image": "images/tile-vastu.jpg"
+      "image": "images/golden-horizon-sunset-textured-art-1-mve5rwrq.jpg"
     }
   ]
 }

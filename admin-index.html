@@ -766,16 +766,24 @@
             background: #fff;
             border: 1px solid var(--ln);
             border-radius: var(--radius-sm);
-            padding: 5px 10px;
+            padding: 5px 8px;
             font-size: 12px;
             font-weight: 500;
             cursor: pointer;
             transition: all .15s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
         }
 
-        .row-actions button:hover {
-            border-color: var(--navy);
-            background: #FAF9F7;
+        .row-actions button.dng {
+            color: var(--bad);
+        }
+
+        .row-actions button.dng:hover {
+            border-color: var(--bad);
+            background: var(--bad-bg);
         }
 
         /* Collapsible Filter Toolbar */
@@ -1269,6 +1277,7 @@
             margin-bottom: 8px;
             background: #fff;
             transition: border-color .15s;
+            cursor: pointer;
         }
 
         .cat-item.active {
@@ -1541,7 +1550,7 @@
         .bt-tile-admin {
             position: relative;
             overflow: hidden;
-            border-radius: 6px;
+            border-radius: 0;
             border: 2px solid rgba(255, 255, 255, .18);
             background: #1B3A5C;
             cursor: pointer;
@@ -2825,14 +2834,15 @@
     </td>
     <td>
      <div class="row-actions">
-      <button data-e="${i.id}" type="button">Edit</button>
-      <button data-t="${i.id}" type="button">${i.published !== false ? "Unpublish" : "Publish"}</button>
-      <button data-d="${i.id}" class="dng" type="button">Delete</button>
+      <button data-e="${i.id}" type="button" title="Edit artwork" aria-label="Edit"><i data-lucide="pen-line" style="width:14px;height:14px"></i></button>
+      <button data-t="${i.id}" type="button" title="${i.published !== false ? "Unpublish artwork" : "Publish artwork"}" aria-label="${i.published !== false ? "Unpublish" : "Publish"}"><i data-lucide="${i.published !== false ? "image-down" : "image-up"}" style="width:14px;height:14px"></i></button>
+      <button data-d="${i.id}" class="dng" type="button" title="Delete artwork" aria-label="Delete"><i data-lucide="trash-2" style="width:14px;height:14px"></i></button>
      </div>
     </td>
    </tr>
   `;
             }).join("");
+            initIcons();
 
             /* Bind row clicks & action buttons */
             tbody.onclick = async e => {
@@ -3041,9 +3051,8 @@
          <small style="color:var(--gr);display:block">${count} artwork${count === 1 ? '' : 's'}${themeCount ? ` · ${themeCount} themes` : ''}</small>
         </div>
         <div style="display:flex;gap:4px">
-         <button class="ghost" style="padding:4px 8px;font-size:11px" data-manage-th="${esc(cat)}" title="Manage sub-themes">Themes</button>
-         <button class="ghost" style="padding:4px 8px;font-size:11px" data-ren-cat="${esc(cat)}" title="Rename category">Rename</button>
-         <button class="ghost dng" style="padding:4px 8px;font-size:11px;display:inline-flex;align-items:center;justify-content:center" data-del-cat="${esc(cat)}" title="Delete category"><i data-lucide="trash-2" style="width:13px;height:13px"></i></button>
+         <button class="ghost" style="padding:4px 8px;font-size:11px;display:inline-flex;align-items:center;justify-content:center" data-ren-cat="${esc(cat)}" title="Rename category" aria-label="Rename category"><i data-lucide="pen-line" style="width:13px;height:13px"></i></button>
+         <button class="ghost dng" style="padding:4px 8px;font-size:11px;display:inline-flex;align-items:center;justify-content:center" data-del-cat="${esc(cat)}" title="Delete category" aria-label="Delete category"><i data-lucide="trash-2" style="width:13px;height:13px"></i></button>
         </div>
        </div>
       `;

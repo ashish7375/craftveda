@@ -1421,9 +1421,9 @@
             }
         };
 
-        let settings = { ...DEFAULT_SETTINGS };
+        let settings = JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
         let CATS = [...settings.categories];
-        let THEMES = { ...settings.themes };
+        let THEMES = JSON.parse(JSON.stringify(settings.themes));
 
         const SHAPES = ["Horizontal", "Square", "Vertical"];
 
@@ -1523,10 +1523,37 @@
                     if (sdata) {
                         settings = sdata;
                         if (Array.isArray(settings.categories) && settings.categories.length) CATS = [...settings.categories];
-                        if (settings.themes) THEMES = { ...settings.themes };
+                        if (settings.themes) THEMES = JSON.parse(JSON.stringify(settings.themes));
+                        try { localStorage.setItem("cv_settings", JSON.stringify(settings)); } catch (e) { }
                     }
                 }
             } catch (e) { }
+
+            /* Fallback to localStorage or static fetch if gh didn't yield sha */
+            if (!settingsSha) {
+                try {
+                    const localS = localStorage.getItem("cv_settings");
+                    if (localS) {
+                        const sdata = JSON.parse(localS);
+                        if (sdata && Array.isArray(sdata.categories) && sdata.categories.length) {
+                            settings = sdata;
+                            CATS = [...settings.categories];
+                            if (settings.themes) THEMES = JSON.parse(JSON.stringify(settings.themes));
+                        }
+                    }
+                } catch (e) { }
+                try {
+                    const rStat = await fetch("settings.json?t=" + Date.now());
+                    if (rStat.ok) {
+                        const sdata = await rStat.json();
+                        if (sdata && Array.isArray(sdata.categories) && sdata.categories.length) {
+                            settings = sdata;
+                            CATS = [...settings.categories];
+                            if (settings.themes) THEMES = JSON.parse(JSON.stringify(settings.themes));
+                        }
+                    }
+                } catch (e) { }
+            }
 
             /* Load templates.json if available */
             try {
@@ -1550,13 +1577,40 @@
         }
 
         async function saveSettings(msg = "Update Settings") {
+            try { localStorage.setItem("cv_settings", JSON.stringify(settings)); } catch (e) { }
             for (let i = 0; i < 3; i++) {
-                const r = await gh("settings.json", { method: "PUT", body: { message: msg, content: enc64(JSON.stringify(settings, null, 2)), branch: cfg.branch, ...(settingsSha ? { sha: settingsSha } : {}) } });
-                if (r.ok) { settingsSha = (await r.json()).content.sha; CATS = [...settings.categories]; THEMES = { ...settings.themes }; toast("Settings saved successfully."); return }
-                if (r.status === 409 || r.status === 422) { const g = await gh("settings.json", { q: `?ref=${cfg.branch}&t=${Date.now()}` }); settingsSha = g.ok ? (await g.json()).sha : null; continue }
-                throw new Error("Could not save settings (" + r.status + ")")
+                if (!settingsSha) {
+                    try {
+                        const g = await gh("settings.json", { q: `?ref=${cfg.branch}&t=${Date.now()}` });
+                        if (g.ok) settingsSha = (await g.json()).sha;
+                    } catch (e) { }
+                }
+                const r = await gh("settings.json", {
+                    method: "PUT",
+                    body: {
+                        message: msg,
+                        content: enc64(JSON.stringify(settings, null, 2)),
+                        branch: cfg.branch,
+                        ...(settingsSha ? { sha: settingsSha } : {})
+                    }
+                });
+                if (r.ok) {
+                    const resJson = await r.json();
+                    settingsSha = resJson.content?.sha || resJson.sha;
+                    CATS = [...settings.categories];
+                    THEMES = JSON.parse(JSON.stringify(settings.themes || {}));
+                    return;
+                }
+                if (r.status === 409 || r.status === 422) {
+                    const g = await gh("settings.json", { q: `?ref=${cfg.branch}&t=${Date.now()}` });
+                    settingsSha = g.ok ? (await g.json()).sha : null;
+                    continue;
+                }
+                let errText = "";
+                try { const ej = await r.json(); errText = ej.message; } catch (e) { }
+                throw new Error("Could not save settings (" + (errText || r.status) + ")");
             }
-            throw new Error("Could not save settings. Please try again.")
+            throw new Error("Could not save settings. Please try again.");
         }
 
         async function putImage(name, b64) {
@@ -2315,9 +2369,15 @@
                 if (CATS.includes(trimmed)) return alert("This category already exists.");
                 CATS.push(trimmed);
                 settings.categories = [...CATS];
-                await saveSettings(`Added category "${trimmed}"`);
-                selectedCatForThemes = trimmed;
-                render();
+                busy("Adding category...");
+                try {
+                    await saveSettings(`Added category "${trimmed}"`);
+                    selectedCatForThemes = trimmed;
+                    toast(`Added category "${trimmed}"`);
+                    render();
+                } catch (err) {
+                    toast(err.message, 1);
+                }
             };
 
             document.querySelectorAll("[data-ren-cat]").forEach(b => {
@@ -2335,7 +2395,7 @@
                     if (THEMES[oldCat]) {
                         THEMES[trimmed] = THEMES[oldCat];
                         delete THEMES[oldCat];
-                        settings.themes = { ...THEMES };
+                        settings.themes = JSON.parse(JSON.stringify(THEMES));
                     }
 
                     let count = 0;
@@ -2347,10 +2407,16 @@
                         }
                     });
 
-                    await saveSettings(`Renamed category to "${trimmed}"`);
-                    if (count > 0) await save(`Updated category name on ${count} artworks`);
-                    if (selectedCatForThemes === oldCat) selectedCatForThemes = trimmed;
-                    render();
+                    busy("Renaming category...");
+                    try {
+                        await saveSettings(`Renamed category to "${trimmed}"`);
+                        if (count > 0) await save(`Updated category name on ${count} artworks`);
+                        if (selectedCatForThemes === oldCat) selectedCatForThemes = trimmed;
+                        toast(`Category renamed to "${trimmed}"`);
+                        render();
+                    } catch (err) {
+                        toast(err.message, 1);
+                    }
                 };
             });
 
@@ -2365,11 +2431,20 @@
 
                     CATS = CATS.filter(c => c !== cat);
                     settings.categories = [...CATS];
-                    if (THEMES[cat]) { delete THEMES[cat]; settings.themes = { ...THEMES } }
+                    if (THEMES[cat]) {
+                        delete THEMES[cat];
+                        settings.themes = JSON.parse(JSON.stringify(THEMES));
+                    }
 
-                    await saveSettings(`Deleted category "${cat}"`);
-                    if (selectedCatForThemes === cat) selectedCatForThemes = CATS[0] || "";
-                    render();
+                    busy("Deleting category...");
+                    try {
+                        await saveSettings(`Deleted category "${cat}"`);
+                        if (selectedCatForThemes === cat) selectedCatForThemes = CATS[0] || "";
+                        toast(`Deleted category "${cat}"`);
+                        render();
+                    } catch (err) {
+                        toast(err.message, 1);
+                    }
                 };
             });
 
@@ -2381,9 +2456,15 @@
                 if (THEMES[selectedCatForThemes].includes(thName)) return alert("Theme already exists.");
 
                 THEMES[selectedCatForThemes].push(thName);
-                settings.themes = { ...THEMES };
-                await saveSettings(`Added theme "${thName}" to ${selectedCatForThemes}`);
-                render();
+                settings.themes = JSON.parse(JSON.stringify(THEMES));
+                busy("Adding theme...");
+                try {
+                    await saveSettings(`Added theme "${thName}" to ${selectedCatForThemes}`);
+                    toast(`Added theme "${thName}"`);
+                    render();
+                } catch (err) {
+                    toast(err.message, 1);
+                }
             };
 
             $("#add-theme-btn").onclick = addTheme;
@@ -2393,10 +2474,18 @@
                 b.onclick = async () => {
                     const th = b.dataset.delTh;
                     if (!confirm(`Remove theme "${th}" from ${selectedCatForThemes}?`)) return;
-                    THEMES[selectedCatForThemes] = THEMES[selectedCatForThemes].filter(t => t !== th);
-                    settings.themes = { ...THEMES };
-                    await saveSettings(`Removed theme "${th}"`);
-                    render();
+                    if (THEMES[selectedCatForThemes]) {
+                        THEMES[selectedCatForThemes] = THEMES[selectedCatForThemes].filter(t => t !== th);
+                    }
+                    settings.themes = JSON.parse(JSON.stringify(THEMES));
+                    busy("Removing theme...");
+                    try {
+                        await saveSettings(`Removed theme "${th}" from ${selectedCatForThemes}`);
+                        toast(`Removed theme "${th}"`);
+                        render();
+                    } catch (err) {
+                        toast(err.message, 1);
+                    }
                 };
             });
         }

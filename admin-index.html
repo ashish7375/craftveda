@@ -786,6 +786,11 @@
             background: var(--bad-bg);
         }
 
+        .row-actions button:hover {
+            border-color: var(--navy);
+            background: #FAF9F7;
+        }
+
         /* Collapsible Filter Toolbar */
         .filter-collapse-box {
             background: #fff;
@@ -814,6 +819,354 @@
             text-align: center;
             color: var(--gr);
             border-radius: var(--radius)
+        }
+
+        /* ========================================================================== */
+        /* >>> ARTWORKS VIEW MODES (DETAIL, IMAGE, SMALL IMAGE) <<<                   */
+        /* ========================================================================== */
+        .view-switcher {
+            display: inline-flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius-sm);
+            padding: 2px;
+            gap: 2px;
+        }
+
+        .view-btn {
+            border: 0;
+            background: transparent;
+            color: var(--navy);
+            padding: 5px 9px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all .15s ease;
+        }
+
+        .view-btn:hover {
+            background: #FAF8F5;
+            color: var(--cu);
+        }
+
+        .view-btn.active {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .art-subbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 14px;
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Large Image Card View */
+        .art-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .art-card {
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .art-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--navy-light);
+        }
+
+        .art-card.selected {
+            border-color: var(--navy);
+            box-shadow: 0 0 0 2px var(--navy), var(--shadow);
+        }
+
+        .art-card-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: #FAF9F7;
+            overflow: hidden;
+            border-bottom: 1px solid var(--ln);
+        }
+
+        .art-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .3s ease;
+        }
+
+        .art-card:hover .art-card-img-wrap img {
+            transform: scale(1.02);
+        }
+
+        .art-card-chk-box {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 3;
+            background: rgba(255, 255, 255, .92);
+            backdrop-filter: blur(4px);
+            border-radius: 4px;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,.15);
+        }
+
+        .art-card-chk-box input {
+            cursor: pointer;
+            margin: 0;
+            width: 16px;
+            height: 16px;
+        }
+
+        .art-card-badges {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: flex-end;
+        }
+
+        .art-card-badges .status-pill {
+            box-shadow: 0 1px 4px rgba(0,0,0,.12);
+        }
+
+        .art-card-body {
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .art-card-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .art-card-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.3;
+            margin: 0;
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .art-card-price {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--cu);
+            white-space: nowrap;
+        }
+
+        .art-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11.5px;
+            color: var(--gr);
+        }
+
+        .art-card-cats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .art-card-foot {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid var(--ln);
+        }
+
+        .art-card-actions {
+            display: flex;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .art-card-actions button {
+            background: #FAF9F7;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius-sm);
+            padding: 6px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .15s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            color: var(--navy);
+        }
+
+        .art-card-actions button.main-edit {
+            flex: 1;
+        }
+
+        .art-card-actions button:hover {
+            background: #fff;
+            border-color: var(--navy);
+        }
+
+        .art-card-actions button.dng {
+            color: var(--bad);
+        }
+
+        .art-card-actions button.dng:hover {
+            border-color: var(--bad);
+            background: var(--bad-bg);
+        }
+
+        /* Compact Small Image View */
+        .art-small-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+            gap: 12px;
+        }
+
+        .art-card-compact {
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .art-card-compact:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--navy-light);
+        }
+
+        .art-card-compact.selected {
+            border-color: var(--navy);
+            box-shadow: 0 0 0 2px var(--navy);
+        }
+
+        .art-compact-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: #FAF9F7;
+            overflow: hidden;
+            border-bottom: 1px solid var(--ln);
+        }
+
+        .art-compact-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .art-compact-body {
+            padding: 9px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .art-compact-title {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--navy);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .art-compact-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11.5px;
+        }
+
+        .art-compact-price {
+            font-weight: 700;
+            color: var(--cu);
+        }
+
+        .art-compact-shape {
+            color: var(--gr);
+            font-size: 10.5px;
+        }
+
+        .art-compact-actions {
+            display: flex;
+            gap: 4px;
+            padding-top: 6px;
+            border-top: 1px solid var(--ln);
+        }
+
+        .art-compact-actions button {
+            background: #FAF9F7;
+            border: 1px solid var(--ln);
+            border-radius: 3px;
+            padding: 4px;
+            flex: 1;
+            font-size: 11px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            transition: all .15s;
+        }
+
+        .art-compact-actions button:hover {
+            background: #fff;
+            border-color: var(--navy);
+        }
+
+        .art-compact-actions button.dng {
+            color: var(--bad);
+        }
+
+        .art-compact-actions button.dng:hover {
+            border-color: var(--bad);
+            background: var(--bad-bg);
         }
 
         /* Floating Bulk Action Bar */
@@ -1066,10 +1419,11 @@
         .cat-badge-btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 13px;
+            justify-content: center;
+            padding: 7px 16px;
+            font-size: 13px;
             border-radius: 20px;
-            font-size: 12.5px;
+
             font-weight: 500;
             background: #fff;
             border: 1.5px solid var(--ln);
@@ -1550,7 +1904,7 @@
         .bt-tile-admin {
             position: relative;
             overflow: hidden;
-            border-radius: 0;
+            border-radius: 4px;
             border: 2px solid rgba(255, 255, 255, .18);
             background: #1B3A5C;
             cursor: pointer;
@@ -2167,6 +2521,7 @@
 
         let data = { items: [] }, view = "dash", Q = "", FC = "", FS = "", QSORT = "updated-desc", filtersOpen = false, selectedCatForThemes = null, tt;
         let selectedIds = new Set();
+        let artworkViewMode = localStorage.getItem("craftveda_artwork_view_mode") || "detail"; // "detail" | "image" | "small"
 
         function toast(m, err) {
             const t = $("#toast");
@@ -2224,6 +2579,8 @@
 
         /* ========================================================================== */
                 /* ========================================================================== */
+                /* ========================================================================== */
+        /* ========================================================================== */
         /* ---------- GitHub API ---------- */
         let cfg = { proxy: true, branch: "main" };
         let sha = null, settingsSha = null;
@@ -2642,6 +2999,20 @@
      <i data-lucide="sliders-horizontal" style="width:15px;height:15px"></i>
      <span>Filters</span>
     </button>
+    <div class="view-switcher" role="group" aria-label="Artwork view layout">
+     <button type="button" class="view-btn ${artworkViewMode === 'detail' ? 'active' : ''}" data-view-mode="detail" title="Detail (Table) View">
+      <i data-lucide="list" style="width:14px;height:14px"></i>
+      <span>Detail</span>
+     </button>
+     <button type="button" class="view-btn ${artworkViewMode === 'image' ? 'active' : ''}" data-view-mode="image" title="Image (Card) View">
+      <i data-lucide="layout-grid" style="width:14px;height:14px"></i>
+      <span>Image</span>
+     </button>
+     <button type="button" class="view-btn ${artworkViewMode === 'small' ? 'active' : ''}" data-view-mode="small" title="Small Image View">
+      <i data-lucide="grid-3x3" style="width:14px;height:14px"></i>
+      <span>Small</span>
+     </button>
+    </div>
     <button id="artworks-export-btn" class="btn navy-btn" type="button" style="display:inline-flex;align-items:center;gap:6px">
      <i data-lucide="download" style="width:15px;height:15px"></i>
      <span>Export</span>
@@ -2673,7 +3044,7 @@
    </div>
   </div>
 
-  <!-- Modern Data Table -->
+  <div id="artworks-container"></div>
   <div class="table-card">
    <div class="table-responsive">
     <table class="data-table">
@@ -2693,6 +3064,7 @@
     </table>
    </div>
   </div>
+  </div>
  `;
         }
 
@@ -2705,6 +3077,17 @@
             $("#artworks-export-btn").onclick = () => {
                 exportCurrentArtworksCSV();
             };
+
+            document.querySelectorAll(".view-btn").forEach(btn => {
+                btn.onclick = () => {
+                    artworkViewMode = btn.dataset.viewMode;
+                    try { localStorage.setItem("craftveda_artwork_view_mode", artworkViewMode); } catch (_) {}
+                    document.querySelectorAll(".view-btn").forEach(b => {
+                        b.classList.toggle("active", b.dataset.viewMode === artworkViewMode);
+                    });
+                    rows();
+                };
+            });
 
             $("#qs").oninput = e => { Q = e.target.value; rows() };
             $("#qc").onchange = e => { FC = e.target.value; rows() };
@@ -2775,6 +3158,273 @@
         }
 
         function rows() {
+            const l = getFilteredAndSorted();
+            const countTag = $("#list-count-tag");
+            if (countTag) countTag.textContent = `Showing ${l.length} of ${data.items.length} artworks`;
+
+            const container = $("#artworks-container");
+            if (!container) return;
+
+            const isAllSelected = l.length > 0 && l.every(i => selectedIds.has(i.id));
+
+            if (!l.length) {
+                container.innerHTML = `
+    <div class="empty">
+     <i data-lucide="image-off" style="width:36px;height:36px;color:var(--gr-light);margin-bottom:10px"></i>
+     <p style="font-size:14px;color:var(--gr)">
+      ${data.items.length ? "No artworks match your search or filter." : "No artworks yet. Click + Add artwork."}
+     </p>
+    </div>
+   `;
+                initIcons();
+                updateBulkBar();
+                return;
+            }
+
+            if (artworkViewMode === "image") {
+                // Large Image Grid View
+                container.innerHTML = `
+    <div class="art-subbar">
+     <label class="chk" style="font-size:12.5px;font-weight:600;color:var(--navy);cursor:pointer;margin:0">
+      <input type="checkbox" id="chk-all" ${isAllSelected ? 'checked' : ''} aria-label="Select all visible">
+      <span>Select all visible (${l.length})</span>
+     </label>
+     <span style="font-size:12px;color:var(--gr)">Card View with Large Image Preview</span>
+    </div>
+    <div class="art-grid-layout">
+     ${l.map(i => {
+         const comp = checkCompleteness(i);
+         const isChecked = selectedIds.has(i.id);
+         const startingPrice = (i.sizes && i.sizes.length) ? Math.min(...i.sizes.map(s => +s[1] || 0)) : 0;
+         const lastUpdated = timeAgo(i.updatedAt || i.createdAt);
+         const imgCount = (i.images || []).filter(Boolean).length;
+         const coverImg = (i.images && i.images[0]) || '';
+
+         return `
+      <div class="art-card ${isChecked ? 'selected' : ''}" data-id="${i.id}">
+       <div class="art-card-img-wrap">
+        <div class="art-card-chk-box">
+         <input type="checkbox" class="row-chk" data-id="${i.id}" ${isChecked ? 'checked' : ''} aria-label="Select artwork">
+        </div>
+        <img src="${esc(coverImg)}" alt="${esc(i.name)}" onerror="this.src=ph('${esc(i.name)}')" loading="lazy">
+        <div class="art-card-badges">
+         ${!comp.isComplete ? '<span class="status-pill failed" title="' + comp.issues.join(', ') + '">INCOMPLETE</span>' : ''}
+         <span class="status-pill ${i.published !== false ? 'completed' : 'draft'}">${i.published !== false ? 'PUBLISHED' : 'DRAFT'}</span>
+         ${i.featured ? '<span class="status-pill featured">FEATURED</span>' : ''}
+        </div>
+       </div>
+       <div class="art-card-body">
+        <div class="art-card-title-row">
+         <h4 class="art-card-title" title="${esc(i.name)}">${esc(i.name)}</h4>
+         <div class="art-card-price">${money(startingPrice)}</div>
+        </div>
+        <div class="art-card-meta">
+         <span>${i.theme ? esc(i.theme) + ' &middot; ' : ''}${esc(i.shape)} &middot; <i data-lucide="image" style="width:11px;height:11px;vertical-align:middle"></i> ${imgCount}/3</span>
+         <span title="${i.updatedAt || i.createdAt || ''}">${lastUpdated}</span>
+        </div>
+        <div class="art-card-cats">
+         ${getItemCategories(i).map(c => `<span class="cat-pill">${esc(c)}</span>`).join('')}
+        </div>
+        <div class="art-card-foot">
+         <div class="art-card-actions">
+          <button data-e="${i.id}" type="button" class="main-edit" title="Edit artwork"><i data-lucide="pen-line" style="width:13px;height:13px"></i><span>Edit</span></button>
+          <button data-t="${i.id}" type="button" title="${i.published !== false ? 'Unpublish' : 'Publish'}"><i data-lucide="${i.published !== false ? 'image-down' : 'image-up'}" style="width:13px;height:13px"></i></button>
+          <button data-d="${i.id}" class="dng" type="button" title="Delete artwork"><i data-lucide="trash-2" style="width:13px;height:13px"></i></button>
+         </div>
+        </div>
+       </div>
+      </div>
+     `;
+     }).join('')}
+    </div>
+   `;
+            } else if (artworkViewMode === "small") {
+                // Small Image Grid View
+                container.innerHTML = `
+    <div class="art-subbar">
+     <label class="chk" style="font-size:12.5px;font-weight:600;color:var(--navy);cursor:pointer;margin:0">
+      <input type="checkbox" id="chk-all" ${isAllSelected ? 'checked' : ''} aria-label="Select all visible">
+      <span>Select all visible (${l.length})</span>
+     </label>
+     <span style="font-size:12px;color:var(--gr)">Compact Catalog Thumbnail View</span>
+    </div>
+    <div class="art-small-grid-layout">
+     ${l.map(i => {
+         const isChecked = selectedIds.has(i.id);
+         const startingPrice = (i.sizes && i.sizes.length) ? Math.min(...i.sizes.map(s => +s[1] || 0)) : 0;
+         const coverImg = (i.images && i.images[0]) || '';
+
+         return `
+      <div class="art-card-compact ${isChecked ? 'selected' : ''}" data-id="${i.id}">
+       <div class="art-compact-img-wrap">
+        <div class="art-card-chk-box">
+         <input type="checkbox" class="row-chk" data-id="${i.id}" ${isChecked ? 'checked' : ''} aria-label="Select artwork">
+        </div>
+        <img src="${esc(coverImg)}" alt="${esc(i.name)}" onerror="this.src=ph('${esc(i.name)}')" loading="lazy">
+        <div class="art-card-badges">
+         <span class="status-pill ${i.published !== false ? 'completed' : 'draft'}" style="font-size:9px;padding:2px 5px">${i.published !== false ? 'PUB' : 'DRAFT'}</span>
+        </div>
+       </div>
+       <div class="art-compact-body">
+        <div class="art-compact-title" title="${esc(i.name)}">${esc(i.name)}</div>
+        <div class="art-compact-price-row">
+         <span class="art-compact-price">${money(startingPrice)}</span>
+         <span class="art-compact-shape">${esc(i.shape)}</span>
+        </div>
+        <div class="art-compact-actions">
+         <button data-e="${i.id}" type="button" title="Edit"><i data-lucide="pen-line" style="width:12px;height:12px"></i></button>
+         <button data-t="${i.id}" type="button" title="${i.published !== false ? 'Unpublish' : 'Publish'}"><i data-lucide="${i.published !== false ? 'image-down' : 'image-up'}" style="width:12px;height:12px"></i></button>
+         <button data-d="${i.id}" class="dng" type="button" title="Delete"><i data-lucide="trash-2" style="width:12px;height:12px"></i></button>
+        </div>
+       </div>
+      </div>
+     `;
+     }).join('')}
+    </div>
+   `;
+            } else {
+                // Default Detail (Table) View
+                container.innerHTML = `
+    <div class="table-card">
+     <div class="table-responsive">
+      <table class="data-table">
+       <thead>
+        <tr>
+         <th style="width:36px;padding-right:0"><input type="checkbox" id="chk-all" ${isAllSelected ? 'checked' : ''} aria-label="Select all visible"></th>
+         <th style="width:52px">PREVIEW</th>
+         <th>ARTWORK</th>
+         <th>CATEGORY</th>
+         <th>STARTING PRICE</th>
+         <th>STATUS</th>
+         <th>LAST UPDATED</th>
+         <th style="text-align:right">ACTIONS</th>
+        </tr>
+       </thead>
+       <tbody id="rows-tbody">
+        ${l.map(i => {
+            const comp = checkCompleteness(i);
+            const isChecked = selectedIds.has(i.id);
+            const startingPrice = (i.sizes && i.sizes.length) ? Math.min(...i.sizes.map(s => +s[1] || 0)) : 0;
+            const lastUpdated = timeAgo(i.updatedAt || i.createdAt);
+
+            return `
+         <tr class="${isChecked ? 'selected' : ''}" data-id="${i.id}">
+          <td style="padding-right:0">
+           <input type="checkbox" class="row-chk" data-id="${i.id}" ${isChecked ? 'checked' : ''} aria-label="Select artwork">
+          </td>
+          <td>
+           <img src="${esc(i.images[0] || "")}" alt="" onerror="this.style.visibility='hidden'" style="width:38px;height:48px;object-fit:cover;border-radius:4px;background:#eee;display:block">
+          </td>
+          <td>
+           <div style="font-weight:600;color:var(--navy);font-size:14px">${esc(i.name)}</div>
+           <small style="color:var(--gr);font-size:11.5px">${i.theme ? esc(i.theme) + ' &middot; ' : ''}${esc(i.shape)}</small>
+          </td>
+          <td>
+           <div style="display:flex;gap:4px;flex-wrap:wrap">
+            ${getItemCategories(i).map(c => `<span class="cat-pill">${esc(c)}</span>`).join("")}
+           </div>
+          </td>
+          <td>
+           <span style="font-weight:700;color:var(--navy);font-size:13.5px">${money(startingPrice)}</span>
+          </td>
+          <td>
+           <div style="display:flex;gap:4px;flex-wrap:wrap">
+            ${!comp.isComplete ? `<span class="status-pill failed" title="${comp.issues.join(', ')}">INCOMPLETE</span>` : ''}
+            <span class="status-pill ${i.published !== false ? "completed" : "draft"}">${i.published !== false ? "PUBLISHED" : "DRAFT"}</span>
+            ${i.featured ? '<span class="status-pill featured">FEATURED</span>' : ''}
+           </div>
+          </td>
+          <td>
+           <span style="color:var(--gr);font-size:12.5px" title="${i.updatedAt || i.createdAt || ''}">${lastUpdated}</span>
+          </td>
+          <td>
+           <div class="row-actions">
+            <button data-e="${i.id}" type="button" title="Edit artwork" aria-label="Edit"><i data-lucide="pen-line" style="width:14px;height:14px"></i></button>
+            <button data-t="${i.id}" type="button" title="${i.published !== false ? "Unpublish artwork" : "Publish artwork"}" aria-label="${i.published !== false ? "Unpublish" : "Publish"}"><i data-lucide="${i.published !== false ? "image-down" : "image-up"}" style="width:14px;height:14px"></i></button>
+            <button data-d="${i.id}" class="dng" type="button" title="Delete artwork" aria-label="Delete"><i data-lucide="trash-2" style="width:14px;height:14px"></i></button>
+           </div>
+          </td>
+         </tr>
+        `;
+        }).join("")}
+       </tbody>
+      </table>
+     </div>
+    </div>
+   `;
+            }
+
+            initIcons();
+
+            // Bind Select All Checkbox
+            const chkAll = $("#chk-all");
+            if (chkAll) {
+                chkAll.onchange = e => {
+                    const isChecked = e.target.checked;
+                    const visibleBoxes = document.querySelectorAll(".row-chk");
+                    visibleBoxes.forEach(chk => {
+                        chk.checked = isChecked;
+                        const id = chk.dataset.id;
+                        if (isChecked) selectedIds.add(id); else selectedIds.delete(id);
+                        const parentCard = chk.closest("tr, .art-card, .art-card-compact");
+                        if (parentCard) parentCard.classList.toggle("selected", isChecked);
+                    });
+                    updateBulkBar();
+                };
+            }
+
+            // Bind Action Buttons and Checkboxes inside container
+            container.onclick = async e => {
+                const chk = e.target.closest(".row-chk");
+                if (chk) {
+                    const id = chk.dataset.id;
+                    if (chk.checked) selectedIds.add(id); else selectedIds.delete(id);
+                    const parentCard = chk.closest("tr, .art-card, .art-card-compact");
+                    if (parentCard) parentCard.classList.toggle("selected", chk.checked);
+                    updateBulkBar();
+                    const visible = getFilteredAndSorted();
+                    const ca = $("#chk-all");
+                    if (ca) ca.checked = visible.length > 0 && visible.every(i => selectedIds.has(i.id));
+                    return;
+                }
+
+                const b = e.target.closest("button");
+                if (!b) return;
+                const id = b.dataset.e || b.dataset.t || b.dataset.d;
+                if (!id) return;
+                const it = data.items.find(x => x.id === id);
+                if (!it) return;
+
+                if (b.dataset.e) form(it);
+                else if (b.dataset.t) {
+                    try {
+                        busy("Saving...");
+                        it.published = !(it.published !== false);
+                        it.updatedAt = new Date().toISOString();
+                        await save((it.published ? "Publish " : "Unpublish ") + it.name);
+                        toast(it.published ? "Published" : "Moved to draft");
+                        render();
+                    } catch (x) { it.published = !it.published; toast(x.message, 1) }
+                }
+                else if (b.dataset.d && confirm(`Delete "${it.name}" permanently?`)) {
+                    try {
+                        busy("Deleting...");
+                        const keep = data.items;
+                        data.items = keep.filter(x => x.id !== id);
+                        selectedIds.delete(id);
+                        try { await save("Delete " + it.name) } catch (x) { data.items = keep; throw x }
+                        it.images.forEach(p => p && delImage(p));
+                        toast("Deleted " + it.name);
+                        render();
+                    } catch (x) { toast(x.message, 1) }
+                }
+            };
+
+            updateBulkBar();
+            return;
+        }
+
+        function _old_rows_unused() {
             const l = getFilteredAndSorted();
             const countTag = $("#list-count-tag");
             if (countTag) countTag.textContent = `Showing ${l.length} of ${data.items.length} artworks`;
@@ -3313,7 +3963,7 @@
     <p>Customize your storefront collage independently for Laptop, Tablet, and Mobile screens without interfering with each other.</p>
    </div>
    <div style="display:flex;gap:8px;flex-wrap:wrap">
-    <button class="ghost" id="bento-auto-all-btn" style="padding:8px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="wand-2" style="width:14px;height:14px"></i><span>Auto-match All From Catalog</span></button>
+
     <button class="ghost" id="bento-add-tile-btn" style="padding:8px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="plus" style="width:14px;height:14px"></i><span>Add Tile</span></button>
     <button class="ghost" id="bento-reset-all-btn" style="padding:8px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="rotate-ccw" style="width:14px;height:14px"></i><span>Reset to Defaults</span></button>
     <button class="btn" id="bento-save-btn" style="padding:8px 18px;font-size:13px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="save" style="width:14px;height:14px"></i><span>Save Bento Grid</span></button>
@@ -3555,7 +4205,8 @@
       </div>
      </label>
 
-     <!-- Artworks in Selected Category/Theme -->
+     <!-- Artworks section removed per user request: admin uploads custom bento images -->
+     <div style="display:none !important">
      <div style="margin-top:14px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
        <small style="font-weight:700;color:var(--navy);font-size:12px">
@@ -3611,6 +4262,7 @@
             }).join('')}
       </div>
      </details>
+     </div>
 
      <div style="display:flex;justify-content:flex-end;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid var(--ln)">
       <button type="button" class="ghost dng" id="bento-del-tile" ${settings.bento.length <= 4 ? 'disabled title="Minimum 4 tiles required"' : ''} style="padding:6px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="trash-2" style="width:13px;height:13px"></i><span>Delete Tile</span></button>
@@ -4284,7 +4936,7 @@
        const isSel = selectedCats.includes(c);
        return `
         <button type="button" class="cat-badge-btn ${isSel ? 'selected' : ''}" data-cat-badge="${esc(c)}">
-         <span class="badge-icon">${isSel ? '<i data-lucide="check" style="width:10px;height:10px"></i>' : '<i data-lucide="plus" style="width:10px;height:10px"></i>'}</span>
+         
          <span>${esc(c)}</span>
         </button>
        `;
@@ -4309,10 +4961,10 @@
  <!-- Description with AI Assistant -->
  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
   <div style="font-size:13px;font-weight:600">Description</div>
-  <button type="button" class="ai-btn" id="ai-draft-btn" style="display:inline-flex;align-items:center;gap:6px" title="Draft description based on name, category, and theme"><i data-lucide="sparkles" style="width:14px;height:14px"></i><span>Draft with AI</span></button>
+  
  </div>
  <textarea id="fd" rows="3" placeholder="Description of the artwork...">${esc(it.desc)}</textarea>
- <span id="ai-msg" style="font-size:11.5px;color:var(--cu);margin-bottom:12px;display:none;font-weight:500"></span>
+ 
 
  <!-- Image Slots with Drag-and-Drop, Reordering & Crop Preview -->
  <div style="margin-top:10px">
@@ -4427,8 +5079,8 @@
                     document.querySelectorAll("[data-cat-badge]").forEach(b => {
                         const isSel = selectedCats.includes(b.dataset.catBadge);
                         b.classList.toggle("selected", isSel);
-                        const icon = b.querySelector(".badge-icon");
-                        if (icon) icon.textContent = isSel ? '✓' : '+';
+                        
+                        
                     });
 
                     const countEl = $("#cat-badge-count");
@@ -4458,7 +5110,7 @@
             };
 
             /* AI Draft Description Button */
-            $("#ai-draft-btn").onclick = () => {
+            if ($("#ai-draft-btn")) $("#ai-draft-btn").onclick = () => {
                 const name = $("#fn").value;
                 const cat = selectedCats.join(", ");
                 const theme = $("#fthw").hidden ? "" : $("#fth").value;

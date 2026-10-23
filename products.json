@@ -1,916 +1,916 @@
 {
- "items": [
-  {
-   "id": "mvcum9bb",
-   "name": "Himalayan Sunset Textured Art",
-   "category": "Religious",
-   "theme": "Shiva",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16 inch",
-     12750
-    ],
-    [
-     "36x24 inch",
-     13500
-    ],
-    [
-     "48x32 inch",
-     14250
+    "items": [
+        {
+            "id": "mvcum9bb",
+            "name": "Himalayan Sunset Textured Art",
+            "category": "Religious",
+            "theme": "Shiva",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16 inch",
+                    10499
+                ],
+                [
+                    "36x24 inch",
+                    11099
+                ],
+                [
+                    "48x32 inch",
+                    11499
+                ]
+            ],
+            "desc": "A peaceful mountain landscape\nCapture the beauty of a Himalayan sunset with dramatic mountain peaks, glowing orange skies, and shimmering lake reflections. Rich, expressive brushwork adds depth and warmth, creating a serene focal point for your living room or meditation space.",
+            "images": [
+                "images/himalayan-sunset-textured-art-1-mvcum37v.jpg",
+                "images/himalayan-sunset-textured-art-2-mvcum5f0.jpg",
+                "images/himalayan-sunset-textured-art-3-mvcum7hx.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-17T20:28:03.624Z"
+        },
+        {
+            "id": "mvcvds81",
+            "name": "Ram Sita Watercolor Art",
+            "category": "Religious",
+            "theme": "Radha Krishna",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16 inch",
+                    8999
+                ],
+                [
+                    "36x24 inch",
+                    9399
+                ],
+                [
+                    "48x32 inch",
+                    9899
+                ]
+            ],
+            "desc": "A devotional watercolor illustration\nCelebrate the timeless bond of Lord Ram and Goddess Sita through delicate watercolor washes, vibrant accents, and graceful details. The airy white background gives this devotional artwork a light, elegant presence suited to a prayer room or peaceful corner.",
+            "images": [
+                "images/ram-sita-watercolor-art-1-mvcvdlzc.jpg",
+                "images/ram-sita-watercolor-art-2-mvcvdo8o.jpg",
+                "images/ram-sita-watercolor-art-3-mvcvdqbj.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-17T20:49:27.841Z"
+        },
+        {
+            "id": "mvcviubd",
+            "name": "Sacred Ghats Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16 inch",
+                    10699
+                ],
+                [
+                    "36x24 inch",
+                    11199
+                ],
+                [
+                    "48x32 inch",
+                    11699
+                ]
+            ],
+            "desc": "A glowing riverside cityscape\nInspired by the spiritual beauty of India's sacred riverfronts, this artwork features temple silhouettes, boats, and golden reflections beneath a fiery sunset. Layered painterly strokes bring the scene to life with warmth, atmosphere, and depth.",
+            "images": [
+                "images/sacred-ghats-textured-art-1-mvcvio9x.jpg",
+                "images/sacred-ghats-textured-art-2-mvcviqfa.jpg",
+                "images/sacred-ghats-textured-art-3-mvcvisdm.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-17T20:53:23.833Z"
+        },
+        {
+            "id": "mvcvlooe",
+            "name": "Coastal Flow Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Vertical",
+            "sizes": [
+                [
+                    "16x24 inch",
+                    10299
+                ],
+                [
+                    "24x36 inch",
+                    10699
+                ],
+                [
+                    "32x48 inch",
+                    11199
+                ]
+            ],
+            "desc": "A calming abstract composition\nSoft ivory tones blend with muted aqua and blue-green shades in this flowing abstract composition. Sculptural surface details evoke the movement of coastal water, bringing a fresh, tranquil feel to contemporary interiors.",
+            "images": [
+                "images/coastal-flow-textured-art-1-mvcvli7c.jpg",
+                "images/coastal-flow-textured-art-2-mvcvlkb6.jpg",
+                "images/coastal-flow-textured-art-3-mvcvlmv0.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-17T20:55:36.494Z"
+        },
+        {
+            "id": "mvcvplzb",
+            "name": "Abstract Geometry Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16 inch",
+                    9699
+                ],
+                [
+                    "36x24 inch",
+                    10399
+                ],
+                [
+                    "48x32  inch",
+                    10799
+                ]
+            ],
+            "desc": "Modern geometric abstraction\nNeutral tones, bold dark marks, and a striking burgundy accent come together in this contemporary abstract artwork. Its layered forms and distressed-looking details create visual contrast, making it a distinctive addition to modern and minimalist spaces.",
+            "images": [
+                "images/abstract-geometry-textured-art-1-mvcvpg6x.jpg",
+                "images/abstract-geometry-textured-art-2-mvcvpi7m.jpg",
+                "images/abstract-geometry-textured-art-3-mvcvpk04.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-17T20:58:39.623Z"
+        },
+        {
+            "id": "mvcw3xbf",
+            "name": "Desert Horizon Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16 inch",
+                    10399
+                ],
+                [
+                    "36x24 inch",
+                    10799
+                ],
+                [
+                    "48x32 inch",
+                    11399
+                ]
+            ],
+            "desc": "An earthy abstract landscape\nInspired by open desert horizons, this artwork combines sandy neutrals, terracotta shades, and muted charcoal mountain forms. Its layered, expressive surface creates a warm and grounded atmosphere that complements natural materials and understated interiors.",
+            "images": [
+                "images/desert-horizon-textured-art-1-mvcw3qlc.jpg",
+                "images/desert-horizon-textured-art-2-mvcw3t6q.jpg",
+                "images/desert-horizon-textured-art-3-mvcw3vk9.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-17T21:09:47.499Z"
+        },
+        {
+            "id": "mvcw779d",
+            "name": "Krishna Radha Textured Art",
+            "category": "Religious",
+            "theme": "Radha Krishna",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16 inch",
+                    10799
+                ],
+                [
+                    "36x24 inch",
+                    11399
+                ],
+                [
+                    "48x32 inch",
+                    11799
+                ]
+            ],
+            "desc": "A timeless divine connection\nThis expressive depiction of Radha and Krishna pairs deep blue tones with warm ochre, gold, and cream. Flowing forms and bold contours highlight their divine connection, creating a devotional statement piece with a contemporary artistic character.",
+            "images": [
+                "images/krishna-radha-textured-art-1-mvcw710j.jpg",
+                "images/krishna-radha-textured-art-2-mvcw738u.jpg",
+                "images/krishna-radha-textured-art-3-mvcw75g7.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-17T21:12:20.353Z"
+        },
+        {
+            "id": "mvcwbdvo",
+            "name": "Ocean Layers Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16 inch",
+                    10099
+                ],
+                [
+                    "36x24 inch",
+                    10499
+                ],
+                [
+                    "48x32 inch",
+                    10999
+                ]
+            ],
+            "desc": "An abstract study of sea and sand\nDeep ocean blues, soft turquoise, and sandy ivory flow together in layered diagonal forms. The raised-looking surface and natural color transitions evoke the meeting of sea and shore, offering a sophisticated accent for modern interiors.",
+            "images": [
+                "images/ocean-layers-textured-art-1-mvcwb7w9.jpg",
+                "images/ocean-layers-textured-art-2-mvcwba9t.jpg",
+                "images/ocean-layers-textured-art-3-mvcwbc5y.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-17T21:15:35.556Z"
+        },
+        {
+            "id": "mvcwf55f",
+            "name": "Golden Shore Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16 inch",
+                    10499
+                ],
+                [
+                    "36x24 inch",
+                    11099
+                ],
+                [
+                    "48x32 inch",
+                    11499
+                ]
+            ],
+            "desc": "A warm coastal sunset\nGolden sunlight spreads across the shoreline as deep teal waves meet a softly illuminated beach. Textural brushwork enhances the contrast between the sea, sand, and glowing sky, bringing the warmth of a coastal evening into your home.",
+            "images": [
+                "images/golden-shore-textured-art-1-mvcwerk8.jpg",
+                "images/golden-shore-textured-art-2-mvcwetsg.jpg",
+                "images/golden-shore-textured-art-3-mvcwex8a.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-17T21:18:30.867Z"
+        },
+        {
+            "id": "mvdj0lez",
+            "name": "Ganesha Heritage Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16",
+                    9899
+                ],
+                [
+                    "36x24",
+                    10299
+                ],
+                [
+                    "48x32",
+                    10699
+                ]
+            ],
+            "desc": "A traditional motif with a modern finish\nFeaturing Lord Ganesha in rich gold, charcoal, and ivory tones, this artwork blends traditional symbolism with a bold decorative composition. Its visibly layered, relief-like details give it a distinctive presence in elegant living spaces and devotional settings.",
+            "images": [
+                "images/ganesha-heritage-textured-art-1-mvdj0eev.jpg",
+                "images/ganesha-heritage-textured-art-2-mvdj0gvp.jpg",
+                "images/ganesha-heritage-textured-art-3-mvdj0jbm.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T07:51:03.276Z"
+        },
+        {
+            "id": "mvdj6a75",
+            "name": "Krishna Radiance Textured Art",
+            "category": "Religious",
+            "theme": "Radha Krishna",
+            "shape": "Square",
+            "sizes": [
+                [
+                    "24x24",
+                    8599
+                ],
+                [
+                    "36x36",
+                    8999
+                ],
+                [
+                    "48x48",
+                    9899
+                ]
+            ],
+            "desc": "A striking portrait of Krishna\nDeep blue tones and luminous saffron accents define this powerful depiction of Lord Shiva. Bold painterly marks and contrasting colors create an energetic visual impact, making this artwork a meaningful focal point for devotional and contemporary spaces.",
+            "images": [
+                "images/krishna-radiance-textured-art-1-mvdj5xma.jpg",
+                "images/krishna-radiance-textured-art-2-mvdj65hn.jpg",
+                "images/krishna-radiance-textured-art-3-mvdj67xt.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T07:55:28.674Z"
+        },
+        {
+            "id": "mvdj8ji7",
+            "name": "Shiva Eternal Textured Art",
+            "category": "Religious",
+            "theme": "Shiva",
+            "shape": "Square",
+            "sizes": [
+                [
+                    "24x24",
+                    8599
+                ],
+                [
+                    "36x36",
+                    8999
+                ],
+                [
+                    "48x48",
+                    9899
+                ]
+            ],
+            "desc": "A bold spiritual statement\nThis dramatic portrait of Lord Shiva combines midnight blue, fiery orange, and golden highlights with symbolic elements including the crescent moon and trident. Strong contrasts and expressive surface details evoke strength, stillness, and timeless spiritual energy.",
+            "images": [
+                "images/shiva-eternal-textured-art-1-mvdj8cq6.jpg",
+                "images/shiva-eternal-textured-art-2-mvdj8f4r.jpg",
+                "images/shiva-eternal-textured-art-3-mvdj8h7l.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T07:57:14.047Z"
+        },
+        {
+            "id": "mvdjazws",
+            "name": "Hanuman Divine Watercolor Art",
+            "category": "Religious",
+            "theme": "Hanuman",
+            "shape": "Square",
+            "sizes": [
+                [
+                    "24x24",
+                    8599
+                ],
+                [
+                    "36x36",
+                    8999
+                ],
+                [
+                    "48x48",
+                    9899
+                ]
+            ],
+            "desc": "A devotional watercolor portrait\nLord Hanuman is portrayed with a dignified expression, traditional ornaments, and a rich saffron palette. Loose watercolor washes and colorful splashes lend the artwork a lively, expressive character that suits a prayer room or spiritual collection.",
+            "images": [
+                "images/hanuman-divine-watercolor-art-1-mvdjat82.jpg",
+                "images/hanuman-divine-watercolor-art-2-mvdjavfz.jpg",
+                "images/hanuman-divine-watercolor-art-3-mvdjaxrb.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T07:59:08.620Z"
+        },
+        {
+            "id": "mvdjfnc1",
+            "name": "Hanuman Textured Art",
+            "category": "Religious",
+            "theme": "Hanuman",
+            "shape": "Square",
+            "sizes": [
+                [
+                    "24x24",
+                    8999
+                ],
+                [
+                    "36x36",
+                    9899
+                ],
+                [
+                    "48x48",
+                    10499
+                ]
+            ],
+            "desc": "A tranquil mountain-inspired abstract\nMuted mountain silhouettes meet earthy rust and warm ivory tones in this atmospheric landscape. Layered marks and subtle surface variation give the composition a natural, weathered character, ideal for calm and contemporary interiors.",
+            "images": [
+                "images/hanuman-textured-art-1-mvdjfcl9.jpg",
+                "images/hanuman-textured-art-2-mvdjfg2m.jpg",
+                "images/hanuman-textured-art-3-mvdjfjvw.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T08:02:45.601Z"
+        },
+        {
+            "id": "mvdjj00f",
+            "name": "Krishna Radha Sunset Textured Art",
+            "category": "Religious",
+            "theme": "Radha Krishna",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16",
+                    10299
+                ],
+                [
+                    "36x24",
+                    10699
+                ],
+                [
+                    "48x32",
+                    11199
+                ]
+            ],
+            "desc": "A romantic devotional landscape\nRadha and Krishna sit beside a glowing river as the setting sun reflects across the water. Warm amber light, deep silhouettes, and expressive brushwork create a contemplative scene celebrating devotion, companionship, and serenity.",
+            "images": [
+                "images/krishna-radha-sunset-textured-art-1-mvdjitxt.jpg",
+                "images/krishna-radha-sunset-textured-art-2-mvdjiw61.jpg",
+                "images/krishna-radha-sunset-textured-art-3-mvdjiy7j.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T08:05:22.000Z"
+        },
+        {
+            "id": "mvdjpj2h",
+            "name": "Hanuman Valor Textured Art",
+            "category": "Religious",
+            "theme": "Hanuman",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16",
+                    10299
+                ],
+                [
+                    "36x24",
+                    10799
+                ],
+                [
+                    "48x32",
+                    11199
+                ]
+            ],
+            "desc": "A powerful devotional portrait\nLord Hanuman is portrayed with a determined gaze, ornate golden crown, and vibrant saffron and amber highlights. Bold strokes and dramatic contrasts emphasize courage, devotion, and strength, creating a commanding addition to a spiritual art collection.",
+            "images": [
+                "images/hanuman-valor-textured-art-1-mvdjpcja.jpg",
+                "images/hanuman-valor-textured-art-2-mvdjpewf.jpg",
+                "images/hanuman-valor-textured-art-3-mvdjph0n.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T08:10:26.633Z"
+        },
+        {
+            "id": "mvdjt37v",
+            "name": "Shiva Serenity Watercolor Art",
+            "category": "Religious",
+            "theme": "Shiva",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16",
+                    10299
+                ],
+                [
+                    "36x24",
+                    10699
+                ],
+                [
+                    "48x32",
+                    11199
+                ]
+            ],
+            "desc": "A peaceful watercolor interpretation\nThis serene portrayal of Lord Shiva uses cool blue washes, delicate detailing, and soft water-inspired forms to evoke calm and contemplation. Its light background and flowing composition make it well suited to meditation spaces and devotional interiors.",
+            "images": [
+                "images/shiva-serenity-watercolor-art-1-mvdjswpw.jpg",
+                "images/shiva-serenity-watercolor-art-2-mvdjsz2z.jpg",
+                "images/shiva-serenity-watercolor-art-3-mvdjt0xu.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T08:13:12.715Z"
+        },
+        {
+            "id": "mvdmn6pv",
+            "name": "Golden Lotus Path Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24x16",
+                    8599
+                ],
+                [
+                    "36x24",
+                    9399
+                ],
+                [
+                    "48x32",
+                    9999
+                ]
+            ],
+            "desc": "A large ivory lotus with golden detailing emerges from flowing, layered forms. Small golden footprints lead toward the flower, creating a symbolic composition associated with peace, purity, and spiritual growth.",
+            "images": [
+                "images/golden-lotus-path-textured-art-1-mvdmn0d0.jpg",
+                "images/golden-lotus-path-textured-art-2-mvdmn2n0.jpg",
+                "images/golden-lotus-path-textured-art-3-mvdmn4l4.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T09:32:36.164Z"
+        },
+        {
+            "id": "mve2zhqu0",
+            "name": "Moonlit Ocean Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24*16 inch",
+                    8499
+                ],
+                [
+                    "36*24 inch",
+                    8899
+                ],
+                [
+                    "48*32 inch",
+                    9599
+                ]
+            ],
+            "desc": "A dramatic moonlit seascape with deep charcoal-blue clouds, warm golden highlights, and shimmering reflections across the water. The contrast creates a calm yet striking focal point.",
+            "images": [
+                "images/moonlit-ocean-textured-art-1-mve6abow.jpg",
+                "images/moonlit-ocean-textured-art-2-mve5r612.jpg",
+                "images/moonlit-ocean-textured-art-3-mve6aqrx.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:42:55.109Z"
+        },
+        {
+            "id": "mve2zhqu1",
+            "name": "Golden Moon River Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Vertical",
+            "sizes": [
+                [
+                    "16*24 inch",
+                    8599
+                ],
+                [
+                    "24*36 inch",
+                    9299
+                ],
+                [
+                    "32*48 inch",
+                    9999
+                ]
+            ],
+            "desc": "A winding ivory river flows through deep forest-green hills beneath a luminous golden moon. Raised-looking textures and fine gold accents give this composition an elegant, contemplative feel.",
+            "images": [
+                "images/golden-moon-river-textured-art-1-mve32sjm.jpg",
+                "images/golden-moon-river-textured-art-2-mve32uvb.jpg",
+                "images/golden-moon-river-textured-art-3-mve32wss.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T17:12:46.228Z"
+        },
+        {
+            "id": "mve2zhqu2",
+            "name": "Golden Mountain Dawn Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24*16 inch",
+                    8499
+                ],
+                [
+                    "36*24 inch",
+                    9199
+                ],
+                [
+                    "48*32 inch",
+                    9999
+                ]
+            ],
+            "desc": "Layered mountain peaks in warm beige and earthy brown tones rise beneath a golden sun. Textural ridges and subtle metallic-looking accents create depth and a serene natural atmosphere.",
+            "images": [
+                "images/golden-mountain-dawn-textured-art-1-mve3a51z.jpg",
+                "images/golden-mountain-dawn-textured-art-2-mve3a75c.jpg",
+                "images/golden-mountain-dawn-textured-art-3-mve3a9fd.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:00:47.276Z"
+        },
+        {
+            "id": "mve2zhqu3",
+            "name": "Golden Tree of Life Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24*16 inch",
+                    8599
+                ],
+                [
+                    "36*24 inch",
+                    9399
+                ],
+                [
+                    "48*32 inch",
+                    9999
+                ]
+            ],
+            "desc": "A branching tree with golden leaves spreads across a warm neutral background. Sculptural-looking branches, delicate leaf details, and a circular golden motif create a luxurious nature-inspired statement.",
+            "images": [
+                "images/golden-tree-of-life-textured-art-1-mve37cb5.jpg",
+                "images/golden-tree-of-life-textured-art-2-mve37een.jpg",
+                "images/golden-tree-of-life-textured-art-3-mve37gh9.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:00:47.276Z"
+        },
+        {
+            "id": "mve2zhqu4",
+            "name": "Ocean Wave Layers Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24*16 inch",
+                    8499
+                ],
+                [
+                    "36*24 inch",
+                    9199
+                ],
+                [
+                    "48*32 inch",
+                    9999
+                ]
+            ],
+            "desc": "Flowing layers of deep navy, teal, and ivory evoke powerful ocean waves. The contrast between dark water and pale foam gives the abstract composition movement and a refreshing coastal character.",
+            "images": [
+                "images/ocean-wave-layers-textured-art-1-mve37z1d.jpg",
+                "images/ocean-wave-layers-textured-art-2-mve380x6.jpg",
+                "images/ocean-wave-layers-textured-art-3-mve382vi.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:00:47.276Z"
+        },
+        {
+            "id": "mve2zhqu5",
+            "name": "Golden Blossom Sunset Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24*16 inch",
+                    8599
+                ],
+                [
+                    "36*24 inch",
+                    9399
+                ],
+                [
+                    "48*32 inch",
+                    9999
+                ]
+            ],
+            "desc": "A delicate flowering tree frames a glowing golden sunset above reflective water. Soft cream textures and metallic-looking golden details create a peaceful, refined landscape.",
+            "images": [
+                "images/golden-blossom-sunset-textured-art-1-mve3amv6.jpg",
+                "images/golden-blossom-sunset-textured-art-2-mve3aoue.jpg",
+                "images/golden-blossom-sunset-textured-art-3-mve3aqm7.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:00:47.276Z"
+        },
+        {
+            "id": "mve2zhqu6",
+            "name": "Ivory Flow Abstract Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Vertical",
+            "sizes": [
+                [
+                    "16*24 inch",
+                    8499
+                ],
+                [
+                    "24*36 inch",
+                    8699
+                ],
+                [
+                    "32*48 inch",
+                    9399
+                ]
+            ],
+            "desc": "Organic flowing forms in ivory, cream, and sand create a minimalist abstract composition. Subtle tonal variation and layered surface details bring understated elegance to contemporary interiors.",
+            "images": [
+                "images/ivory-flow-abstract-textured-art-1-mve4m5ev.jpg",
+                "images/ivory-flow-abstract-textured-art-2-mve4m7m2.jpg",
+                "images/ivory-flow-abstract-textured-art-3-mve4m9e0.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:00:47.276Z"
+        },
+        {
+            "id": "mve2zhqu7",
+            "name": "Golden Moon Phases Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24*16 inch",
+                    8499
+                ],
+                [
+                    "36*24 inch",
+                    8599
+                ],
+                [
+                    "48*32 inch",
+                    9399
+                ]
+            ],
+            "desc": "A sequence of moon phases combines charcoal, ivory, and gold tones in a balanced celestial design. The circular forms and textured surfaces make this piece a distinctive accent for modern spaces.",
+            "images": [
+                "images/golden-moon-phases-textured-art-1-mve4ooza.jpg",
+                "images/golden-moon-phases-textured-art-2-mve4or31.jpg",
+                "images/golden-moon-phases-textured-art-3-mve4oste.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:00:47.276Z"
+        },
+        {
+            "id": "mve2zhqu8",
+            "name": "Earth Tones Cracked Texture Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24*16 inch",
+                    8499
+                ],
+                [
+                    "36*24 inch",
+                    8699
+                ],
+                [
+                    "48*32 inch",
+                    9399
+                ]
+            ],
+            "desc": "Warm terracotta, rust, taupe, and cream shapes meet in a cracked-earth-inspired abstract. Golden-looking seams emphasize the organic pattern and create a rich, earthy visual effect.",
+            "images": [
+                "images/earth-tones-cracked-texture-art-1-mve5xasd.jpg",
+                "images/earth-tones-cracked-texture-art-2-mve5xd32.jpg",
+                "images/earth-tones-cracked-texture-art-3-mve5xevf.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:42:55.109Z"
+        },
+        {
+            "id": "mve2zhqu9",
+            "name": "Serene Buddha Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Vertical",
+            "sizes": [
+                [
+                    "16*24 inch",
+                    8599
+                ],
+                [
+                    "24*36 inch",
+                    9399
+                ],
+                [
+                    "32*48 inch",
+                    9999
+                ]
+            ],
+            "desc": "A peaceful Buddha portrait in muted beige and taupe is framed by a golden halo. Fine facial details, patterned hair, and layered textures give the devotional artwork a calm, meditative presence.",
+            "images": [
+                "images/serene-buddha-textured-art-1-mve4poic.jpg",
+                "images/serene-buddha-textured-art-2-mve4pqmm.jpg",
+                "images/serene-buddha-textured-art-3-mve4pslk.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:00:47.276Z"
+        },
+        {
+            "id": "mve2zhqua",
+            "name": "Golden Horizon Sunset Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Horizontal",
+            "sizes": [
+                [
+                    "24*16 inch",
+                    8499
+                ],
+                [
+                    "36*24 inch",
+                    9199
+                ],
+                [
+                    "48*32 inch",
+                    9999
+                ]
+            ],
+            "desc": "A glowing sun rests on the horizon above a softly rippled sea and layered neutral-toned shore. Golden highlights and textured strokes evoke the quiet beauty of sunset.",
+            "images": [
+                "images/golden-horizon-sunset-textured-art-1-mve5rwrq.jpg",
+                "images/golden-horizon-sunset-textured-art-2-mve5rytw.jpg",
+                "images/golden-horizon-sunset-textured-art-3-mve5s0xt.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:42:55.109Z"
+        },
+        {
+            "id": "mve2zhquc",
+            "name": "Golden Moon Owls Textured Art",
+            "category": "Textured Art",
+            "theme": "",
+            "shape": "Vertical",
+            "sizes": [
+                [
+                    "16*24 inch",
+                    8499
+                ],
+                [
+                    "24*36 inch",
+                    9199
+                ],
+                [
+                    "32*48 inch",
+                    9899
+                ]
+            ],
+            "desc": "Two owls sit close together on a fine branch before a large golden moon and deep forest-green background. Warm neutral feathers and delicate gold accents create a serene, intimate composition.",
+            "images": [
+                "images/golden-moon-owls-textured-art-1-mve4ry4e.jpg",
+                "images/golden-moon-owls-textured-art-2-mve4s0i3.jpg",
+                "images/golden-moon-owls-textured-art-3-mve4s2gx.jpg"
+            ],
+            "published": true,
+            "featured": false,
+            "createdAt": "2026-10-18T17:10:04.182Z",
+            "updatedAt": "2026-10-18T18:00:47.276Z"
+        }
     ]
-   ],
-   "desc": "A peaceful mountain landscape\nCapture the beauty of a Himalayan sunset with dramatic mountain peaks, glowing orange skies, and shimmering lake reflections. Rich, expressive brushwork adds depth and warmth, creating a serene focal point for your living room or meditation space.",
-   "images": [
-    "images/himalayan-sunset-textured-art-1-mvcum37v.jpg",
-    "images/himalayan-sunset-textured-art-2-mvcum5f0.jpg",
-    "images/himalayan-sunset-textured-art-3-mvcum7hx.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T20:28:03.624Z"
-  },
-  {
-   "id": "mvcvds81",
-   "name": "Ram Sita Watercolor Art",
-   "category": "Religious",
-   "theme": "Radha Krishna",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16 inch",
-     9750
-    ],
-    [
-     "36x24 inch",
-     10500
-    ],
-    [
-     "48x32 inch",
-     11250
-    ]
-   ],
-   "desc": "A devotional watercolor illustration\nCelebrate the timeless bond of Lord Ram and Goddess Sita through delicate watercolor washes, vibrant accents, and graceful details. The airy white background gives this devotional artwork a light, elegant presence suited to a prayer room or peaceful corner.",
-   "images": [
-    "images/ram-sita-watercolor-art-1-mvcvdlzc.jpg",
-    "images/ram-sita-watercolor-art-2-mvcvdo8o.jpg",
-    "images/ram-sita-watercolor-art-3-mvcvdqbj.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T20:49:27.841Z"
-  },
-  {
-   "id": "mvcviubd",
-   "name": "Sacred Ghats Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16 inch",
-     13000
-    ],
-    [
-     "36x24 inch",
-     13750
-    ],
-    [
-     "48x32 inch",
-     14500
-    ]
-   ],
-   "desc": "A glowing riverside cityscape\nInspired by the spiritual beauty of India's sacred riverfronts, this artwork features temple silhouettes, boats, and golden reflections beneath a fiery sunset. Layered painterly strokes bring the scene to life with warmth, atmosphere, and depth.",
-   "images": [
-    "images/sacred-ghats-textured-art-1-mvcvio9x.jpg",
-    "images/sacred-ghats-textured-art-2-mvcviqfa.jpg",
-    "images/sacred-ghats-textured-art-3-mvcvisdm.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T20:53:23.833Z"
-  },
-  {
-   "id": "mvcvlooe",
-   "name": "Coastal Flow Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Vertical",
-   "sizes": [
-    [
-     "16x24 inch",
-     12250
-    ],
-    [
-     "24x36 inch",
-     13000
-    ],
-    [
-     "32x48 inch",
-     13750
-    ]
-   ],
-   "desc": "A calming abstract composition\nSoft ivory tones blend with muted aqua and blue-green shades in this flowing abstract composition. Sculptural surface details evoke the movement of coastal water, bringing a fresh, tranquil feel to contemporary interiors.",
-   "images": [
-    "images/coastal-flow-textured-art-1-mvcvli7c.jpg",
-    "images/coastal-flow-textured-art-2-mvcvlkb6.jpg",
-    "images/coastal-flow-textured-art-3-mvcvlmv0.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T20:55:36.494Z"
-  },
-  {
-   "id": "mvcvplzb",
-   "name": "Abstract Geometry Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16 inch",
-     11175
-    ],
-    [
-     "36x24 inch",
-     12500
-    ],
-    [
-     "48x32  inch",
-     13250
-    ]
-   ],
-   "desc": "Modern geometric abstraction\nNeutral tones, bold dark marks, and a striking burgundy accent come together in this contemporary abstract artwork. Its layered forms and distressed-looking details create visual contrast, making it a distinctive addition to modern and minimalist spaces.",
-   "images": [
-    "images/abstract-geometry-textured-art-1-mvcvpg6x.jpg",
-    "images/abstract-geometry-textured-art-2-mvcvpi7m.jpg",
-    "images/abstract-geometry-textured-art-3-mvcvpk04.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T20:58:39.623Z"
-  },
-  {
-   "id": "mvcw3xbf",
-   "name": "Desert Horizon Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16 inch",
-     12500
-    ],
-    [
-     "36x24 inch",
-     13250
-    ],
-    [
-     "48x32 inch",
-     14000
-    ]
-   ],
-   "desc": "An earthy abstract landscape\nInspired by open desert horizons, this artwork combines sandy neutrals, terracotta shades, and muted charcoal mountain forms. Its layered, expressive surface creates a warm and grounded atmosphere that complements natural materials and understated interiors.",
-   "images": [
-    "images/desert-horizon-textured-art-1-mvcw3qlc.jpg",
-    "images/desert-horizon-textured-art-2-mvcw3t6q.jpg",
-    "images/desert-horizon-textured-art-3-mvcw3vk9.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T21:09:47.499Z"
-  },
-  {
-   "id": "mvcw779d",
-   "name": "Krishna Radha Textured Art",
-   "category": "Religious",
-   "theme": "Radha Krishna",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16 inch",
-     13250
-    ],
-    [
-     "36x24 inch",
-     14000
-    ],
-    [
-     "48x32 inch",
-     14750
-    ]
-   ],
-   "desc": "A timeless divine connection\nThis expressive depiction of Radha and Krishna pairs deep blue tones with warm ochre, gold, and cream. Flowing forms and bold contours highlight their divine connection, creating a devotional statement piece with a contemporary artistic character.",
-   "images": [
-    "images/krishna-radha-textured-art-1-mvcw710j.jpg",
-    "images/krishna-radha-textured-art-2-mvcw738u.jpg",
-    "images/krishna-radha-textured-art-3-mvcw75g7.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T21:12:20.353Z"
-  },
-  {
-   "id": "mvcwbdvo",
-   "name": "Ocean Layers Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16 inch",
-     12000
-    ],
-    [
-     "36x24 inch",
-     12750
-    ],
-    [
-     "48x32 inch",
-     13499
-    ]
-   ],
-   "desc": "An abstract study of sea and sand\nDeep ocean blues, soft turquoise, and sandy ivory flow together in layered diagonal forms. The raised-looking surface and natural color transitions evoke the meeting of sea and shore, offering a sophisticated accent for modern interiors.",
-   "images": [
-    "images/ocean-layers-textured-art-1-mvcwb7w9.jpg",
-    "images/ocean-layers-textured-art-2-mvcwba9t.jpg",
-    "images/ocean-layers-textured-art-3-mvcwbc5y.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T21:15:35.556Z"
-  },
-  {
-   "id": "mvcwf55f",
-   "name": "Golden Shore Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16 inch",
-     12750
-    ],
-    [
-     "36x24 inch",
-     13500
-    ],
-    [
-     "48x32 inch",
-     14250
-    ]
-   ],
-   "desc": "A warm coastal sunset\nGolden sunlight spreads across the shoreline as deep teal waves meet a softly illuminated beach. Textural brushwork enhances the contrast between the sea, sand, and glowing sky, bringing the warmth of a coastal evening into your home.",
-   "images": [
-    "images/golden-shore-textured-art-1-mvcwerk8.jpg",
-    "images/golden-shore-textured-art-2-mvcwetsg.jpg",
-    "images/golden-shore-textured-art-3-mvcwex8a.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-17T21:18:30.867Z"
-  },
-  {
-   "id": "mvdj0lez",
-   "name": "Ganesha Heritage Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16",
-     11250
-    ],
-    [
-     "36x24",
-     12250
-    ],
-    [
-     "48x32",
-     13000
-    ]
-   ],
-   "desc": "A traditional motif with a modern finish\nFeaturing Lord Ganesha in rich gold, charcoal, and ivory tones, this artwork blends traditional symbolism with a bold decorative composition. Its visibly layered, relief-like details give it a distinctive presence in elegant living spaces and devotional settings.",
-   "images": [
-    "images/ganesha-heritage-textured-art-1-mvdj0eev.jpg",
-    "images/ganesha-heritage-textured-art-2-mvdj0gvp.jpg",
-    "images/ganesha-heritage-textured-art-3-mvdj0jbm.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T07:51:03.276Z"
-  },
-  {
-   "id": "mvdj6a75",
-   "name": "Krishna Radiance Textured Art",
-   "category": "Religious",
-   "theme": "Radha Krishna",
-   "shape": "Square",
-   "sizes": [
-    [
-     "24x24",
-     9000
-    ],
-    [
-     "36x36",
-     9750
-    ],
-    [
-     "48x48",
-     11250
-    ]
-   ],
-   "desc": "A striking portrait of Krishna\nDeep blue tones and luminous saffron accents define this powerful depiction of Lord Shiva. Bold painterly marks and contrasting colors create an energetic visual impact, making this artwork a meaningful focal point for devotional and contemporary spaces.",
-   "images": [
-    "images/krishna-radiance-textured-art-1-mvdj5xma.jpg",
-    "images/krishna-radiance-textured-art-2-mvdj65hn.jpg",
-    "images/krishna-radiance-textured-art-3-mvdj67xt.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T07:55:28.674Z"
-  },
-  {
-   "id": "mvdj8ji7",
-   "name": "Shiva Eternal Textured Art",
-   "category": "Religious",
-   "theme": "Shiva",
-   "shape": "Square",
-   "sizes": [
-    [
-     "24x24",
-     9000
-    ],
-    [
-     "36x36",
-     9750
-    ],
-    [
-     "48x48",
-     11250
-    ]
-   ],
-   "desc": "A bold spiritual statement\nThis dramatic portrait of Lord Shiva combines midnight blue, fiery orange, and golden highlights with symbolic elements including the crescent moon and trident. Strong contrasts and expressive surface details evoke strength, stillness, and timeless spiritual energy.",
-   "images": [
-    "images/shiva-eternal-textured-art-1-mvdj8cq6.jpg",
-    "images/shiva-eternal-textured-art-2-mvdj8f4r.jpg",
-    "images/shiva-eternal-textured-art-3-mvdj8h7l.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T07:57:14.047Z"
-  },
-  {
-   "id": "mvdjazws",
-   "name": "Hanuman Divine Watercolor Art",
-   "category": "Religious",
-   "theme": "Hanuman",
-   "shape": "Square",
-   "sizes": [
-    [
-     "24x24",
-     9000
-    ],
-    [
-     "36x36",
-     9750
-    ],
-    [
-     "48x48",
-     11250
-    ]
-   ],
-   "desc": "A devotional watercolor portrait\nLord Hanuman is portrayed with a dignified expression, traditional ornaments, and a rich saffron palette. Loose watercolor washes and colorful splashes lend the artwork a lively, expressive character that suits a prayer room or spiritual collection.",
-   "images": [
-    "images/hanuman-divine-watercolor-art-1-mvdjat82.jpg",
-    "images/hanuman-divine-watercolor-art-2-mvdjavfz.jpg",
-    "images/hanuman-divine-watercolor-art-3-mvdjaxrb.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T07:59:08.620Z"
-  },
-  {
-   "id": "mvdjfnc1",
-   "name": "Hanuman Textured Art",
-   "category": "Religious",
-   "theme": "Hanuman",
-   "shape": "Square",
-   "sizes": [
-    [
-     "24x24",
-     9750
-    ],
-    [
-     "36x36",
-     11250
-    ],
-    [
-     "48x48",
-     12750
-    ]
-   ],
-   "desc": "A tranquil mountain-inspired abstract\nMuted mountain silhouettes meet earthy rust and warm ivory tones in this atmospheric landscape. Layered marks and subtle surface variation give the composition a natural, weathered character, ideal for calm and contemporary interiors.",
-   "images": [
-    "images/hanuman-textured-art-1-mvdjfcl9.jpg",
-    "images/hanuman-textured-art-2-mvdjfg2m.jpg",
-    "images/hanuman-textured-art-3-mvdjfjvw.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T08:02:45.601Z"
-  },
-  {
-   "id": "mvdjj00f",
-   "name": "Krishna Radha Sunset Textured Art",
-   "category": "Religious",
-   "theme": "Radha Krishna",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16",
-     12250
-    ],
-    [
-     "36x24",
-     13000
-    ],
-    [
-     "48x32",
-     13750
-    ]
-   ],
-   "desc": "A romantic devotional landscape\nRadha and Krishna sit beside a glowing river as the setting sun reflects across the water. Warm amber light, deep silhouettes, and expressive brushwork create a contemplative scene celebrating devotion, companionship, and serenity.",
-   "images": [
-    "images/krishna-radha-sunset-textured-art-1-mvdjitxt.jpg",
-    "images/krishna-radha-sunset-textured-art-2-mvdjiw61.jpg",
-    "images/krishna-radha-sunset-textured-art-3-mvdjiy7j.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T08:05:22.000Z"
-  },
-  {
-   "id": "mvdjpj2h",
-   "name": "Hanuman Valor Textured Art",
-   "category": "Religious",
-   "theme": "Hanuman",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16",
-     12250
-    ],
-    [
-     "36x24",
-     13250
-    ],
-    [
-     "48x32",
-     13750
-    ]
-   ],
-   "desc": "A powerful devotional portrait\nLord Hanuman is portrayed with a determined gaze, ornate golden crown, and vibrant saffron and amber highlights. Bold strokes and dramatic contrasts emphasize courage, devotion, and strength, creating a commanding addition to a spiritual art collection.",
-   "images": [
-    "images/hanuman-valor-textured-art-1-mvdjpcja.jpg",
-    "images/hanuman-valor-textured-art-2-mvdjpewf.jpg",
-    "images/hanuman-valor-textured-art-3-mvdjph0n.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T08:10:26.633Z"
-  },
-  {
-   "id": "mvdjt37v",
-   "name": "Shiva Serenity Watercolor Art",
-   "category": "Religious",
-   "theme": "Shiva",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16",
-     12250
-    ],
-    [
-     "36x24",
-     13000
-    ],
-    [
-     "48x32",
-     13750
-    ]
-   ],
-   "desc": "A peaceful watercolor interpretation\nThis serene portrayal of Lord Shiva uses cool blue washes, delicate detailing, and soft water-inspired forms to evoke calm and contemplation. Its light background and flowing composition make it well suited to meditation spaces and devotional interiors.",
-   "images": [
-    "images/shiva-serenity-watercolor-art-1-mvdjswpw.jpg",
-    "images/shiva-serenity-watercolor-art-2-mvdjsz2z.jpg",
-    "images/shiva-serenity-watercolor-art-3-mvdjt0xu.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T08:13:12.715Z"
-  },
-  {
-   "id": "mvdmn6pv",
-   "name": "Golden Lotus Path Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24x16",
-     9000
-    ],
-    [
-     "36x24",
-     10500
-    ],
-    [
-     "48x32",
-     11500
-    ]
-   ],
-   "desc": "A large ivory lotus with golden detailing emerges from flowing, layered forms. Small golden footprints lead toward the flower, creating a symbolic composition associated with peace, purity, and spiritual growth.",
-   "images": [
-    "images/golden-lotus-path-textured-art-1-mvdmn0d0.jpg",
-    "images/golden-lotus-path-textured-art-2-mvdmn2n0.jpg",
-    "images/golden-lotus-path-textured-art-3-mvdmn4l4.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T09:32:36.164Z"
-  },
-  {
-   "id": "mve2zhqu0",
-   "name": "Moonlit Ocean Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8000
-    ],
-    [
-     "36*24 inch",
-     9500
-    ],
-    [
-     "48*32 inch",
-     11000
-    ]
-   ],
-   "desc": "A dramatic moonlit seascape with deep charcoal-blue clouds, warm golden highlights, and shimmering reflections across the water. The contrast creates a calm yet striking focal point.",
-   "images": [
-    "images/moonlit-ocean-textured-art-1-mve6abow.jpg",
-    "images/moonlit-ocean-textured-art-2-mve5r612.jpg",
-    "images/moonlit-ocean-textured-art-3-mve6aqrx.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:42:55.109Z"
-  },
-  {
-   "id": "mve2zhqu1",
-   "name": "Golden Moon River Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Vertical",
-   "sizes": [
-    [
-     "16*24 inch",
-     9000
-    ],
-    [
-     "24*36 inch",
-     10250
-    ],
-    [
-     "32*48 inch",
-     11500
-    ]
-   ],
-   "desc": "A winding ivory river flows through deep forest-green hills beneath a luminous golden moon. Raised-looking textures and fine gold accents give this composition an elegant, contemplative feel.",
-   "images": [
-    "images/golden-moon-river-textured-art-1-mve32sjm.jpg",
-    "images/golden-moon-river-textured-art-2-mve32uvb.jpg",
-    "images/golden-moon-river-textured-art-3-mve32wss.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T17:12:46.228Z"
-  },
-  {
-   "id": "mve2zhqu2",
-   "name": "Golden Mountain Dawn Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8500
-    ],
-    [
-     "36*24 inch",
-     10000
-    ],
-    [
-     "48*32 inch",
-     11500
-    ]
-   ],
-   "desc": "Layered mountain peaks in warm beige and earthy brown tones rise beneath a golden sun. Textural ridges and subtle metallic-looking accents create depth and a serene natural atmosphere.",
-   "images": [
-    "images/golden-mountain-dawn-textured-art-1-mve3a51z.jpg",
-    "images/golden-mountain-dawn-textured-art-2-mve3a75c.jpg",
-    "images/golden-mountain-dawn-textured-art-3-mve3a9fd.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
-  },
-  {
-   "id": "mve2zhqu3",
-   "name": "Golden Tree of Life Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     9000
-    ],
-    [
-     "36*24 inch",
-     10500
-    ],
-    [
-     "48*32 inch",
-     11500
-    ]
-   ],
-   "desc": "A branching tree with golden leaves spreads across a warm neutral background. Sculptural-looking branches, delicate leaf details, and a circular golden motif create a luxurious nature-inspired statement.",
-   "images": [
-    "images/golden-tree-of-life-textured-art-1-mve37cb5.jpg",
-    "images/golden-tree-of-life-textured-art-2-mve37een.jpg",
-    "images/golden-tree-of-life-textured-art-3-mve37gh9.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
-  },
-  {
-   "id": "mve2zhqu4",
-   "name": "Ocean Wave Layers Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8500
-    ],
-    [
-     "36*24 inch",
-     10000
-    ],
-    [
-     "48*32 inch",
-     11500
-    ]
-   ],
-   "desc": "Flowing layers of deep navy, teal, and ivory evoke powerful ocean waves. The contrast between dark water and pale foam gives the abstract composition movement and a refreshing coastal character.",
-   "images": [
-    "images/ocean-wave-layers-textured-art-1-mve37z1d.jpg",
-    "images/ocean-wave-layers-textured-art-2-mve380x6.jpg",
-    "images/ocean-wave-layers-textured-art-3-mve382vi.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
-  },
-  {
-   "id": "mve2zhqu5",
-   "name": "Golden Blossom Sunset Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     9000
-    ],
-    [
-     "36*24 inch",
-     10500
-    ],
-    [
-     "48*32 inch",
-     11500
-    ]
-   ],
-   "desc": "A delicate flowering tree frames a glowing golden sunset above reflective water. Soft cream textures and metallic-looking golden details create a peaceful, refined landscape.",
-   "images": [
-    "images/golden-blossom-sunset-textured-art-1-mve3amv6.jpg",
-    "images/golden-blossom-sunset-textured-art-2-mve3aoue.jpg",
-    "images/golden-blossom-sunset-textured-art-3-mve3aqm7.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
-  },
-  {
-   "id": "mve2zhqu6",
-   "name": "Ivory Flow Abstract Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Vertical",
-   "sizes": [
-    [
-     "16*24 inch",
-     8000
-    ],
-    [
-     "24*36 inch",
-     9250
-    ],
-    [
-     "32*48 inch",
-     10500
-    ]
-   ],
-   "desc": "Organic flowing forms in ivory, cream, and sand create a minimalist abstract composition. Subtle tonal variation and layered surface details bring understated elegance to contemporary interiors.",
-   "images": [
-    "images/ivory-flow-abstract-textured-art-1-mve4m5ev.jpg",
-    "images/ivory-flow-abstract-textured-art-2-mve4m7m2.jpg",
-    "images/ivory-flow-abstract-textured-art-3-mve4m9e0.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
-  },
-  {
-   "id": "mve2zhqu7",
-   "name": "Golden Moon Phases Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8000
-    ],
-    [
-     "36*24 inch",
-     9000
-    ],
-    [
-     "48*32 inch",
-     10500
-    ]
-   ],
-   "desc": "A sequence of moon phases combines charcoal, ivory, and gold tones in a balanced celestial design. The circular forms and textured surfaces make this piece a distinctive accent for modern spaces.",
-   "images": [
-    "images/golden-moon-phases-textured-art-1-mve4ooza.jpg",
-    "images/golden-moon-phases-textured-art-2-mve4or31.jpg",
-    "images/golden-moon-phases-textured-art-3-mve4oste.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
-  },
-  {
-   "id": "mve2zhqu8",
-   "name": "Earth Tones Cracked Texture Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8000
-    ],
-    [
-     "36*24 inch",
-     9250
-    ],
-    [
-     "48*32 inch",
-     10500
-    ]
-   ],
-   "desc": "Warm terracotta, rust, taupe, and cream shapes meet in a cracked-earth-inspired abstract. Golden-looking seams emphasize the organic pattern and create a rich, earthy visual effect.",
-   "images": [
-    "images/earth-tones-cracked-texture-art-1-mve5xasd.jpg",
-    "images/earth-tones-cracked-texture-art-2-mve5xd32.jpg",
-    "images/earth-tones-cracked-texture-art-3-mve5xevf.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:42:55.109Z"
-  },
-  {
-   "id": "mve2zhqu9",
-   "name": "Serene Buddha Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Vertical",
-   "sizes": [
-    [
-     "16*24 inch",
-     9000
-    ],
-    [
-     "24*36 inch",
-     10500
-    ],
-    [
-     "32*48 inch",
-     11500
-    ]
-   ],
-   "desc": "A peaceful Buddha portrait in muted beige and taupe is framed by a golden halo. Fine facial details, patterned hair, and layered textures give the devotional artwork a calm, meditative presence.",
-   "images": [
-    "images/serene-buddha-textured-art-1-mve4poic.jpg",
-    "images/serene-buddha-textured-art-2-mve4pqmm.jpg",
-    "images/serene-buddha-textured-art-3-mve4pslk.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
-  },
-  {
-   "id": "mve2zhqua",
-   "name": "Golden Horizon Sunset Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8500
-    ],
-    [
-     "36*24 inch",
-     10000
-    ],
-    [
-     "48*32 inch",
-     11500
-    ]
-   ],
-   "desc": "A glowing sun rests on the horizon above a softly rippled sea and layered neutral-toned shore. Golden highlights and textured strokes evoke the quiet beauty of sunset.",
-   "images": [
-    "images/golden-horizon-sunset-textured-art-1-mve5rwrq.jpg",
-    "images/golden-horizon-sunset-textured-art-2-mve5rytw.jpg",
-    "images/golden-horizon-sunset-textured-art-3-mve5s0xt.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:42:55.109Z"
-  },
-  {
-   "id": "mve2zhquc",
-   "name": "Golden Moon Owls Textured Art",
-   "category": "Textured Art",
-   "theme": "",
-   "shape": "Vertical",
-   "sizes": [
-    [
-     "16*24 inch",
-     8500
-    ],
-    [
-     "24*36 inch",
-     10000
-    ],
-    [
-     "32*48 inch",
-     11250
-    ]
-   ],
-   "desc": "Two owls sit close together on a fine branch before a large golden moon and deep forest-green background. Warm neutral feathers and delicate gold accents create a serene, intimate composition.",
-   "images": [
-    "images/golden-moon-owls-textured-art-1-mve4ry4e.jpg",
-    "images/golden-moon-owls-textured-art-2-mve4s0i3.jpg",
-    "images/golden-moon-owls-textured-art-3-mve4s2gx.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
-  }
- ]
 }

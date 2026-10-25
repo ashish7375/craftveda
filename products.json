@@ -1039,46 +1039,14 @@
    "updatedAt": "2026-10-25T17:02:56.162Z"
   },
   {
-   "id": "mvo2ta5f5",
-   "name": "Botanical Muse with White Cockatoo",
-   "category": "Nature, Custom Art",
+   "id": "mvo2ta5f4",
+   "name": "Blue Flute Melody in Flowing Sapphire Forms",
+   "category": "Religious, Custom Art",
    "categories": [
-    "Nature",
-    "Custom Art"
-   ],
-   "theme": "Portrait Sketch, Abstract Painting",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8999
-    ],
-    [
-     "36*24 inch",
-     9999
-    ],
-    [
-     "48*32 inch",
-     11499
-    ]
-   ],
-   "desc": "Stylized portrait of a serene woman with long pale hair and a white cockatoo, surrounded by tropical foliage and cream floral patterns.",
-   "images": [],
-   "published": false,
-   "featured": false,
-   "createdAt": "2026-10-25T17:02:56.162Z",
-   "updatedAt": "2026-10-25T17:02:56.162Z"
-  },
-  {
-   "id": "mvo2ta5f6",
-   "name": "Terracotta Sunburst Geometric Mandala",
-   "category": "Vastu, Religious, Custom Art",
-   "categories": [
-    "Vastu",
     "Religious",
     "Custom Art"
    ],
-   "theme": "Mandala, Abstract Painting",
+   "theme": "Krishna, Abstract Painting",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1094,69 +1062,7 @@
      11499
     ]
    ],
-   "desc": "Symmetrical cream geometric mandala with concentric rings, repeating angular motifs, and dotted borders on a rich terracotta ground.",
-   "images": [],
-   "published": false,
-   "featured": false,
-   "createdAt": "2026-10-25T17:02:56.162Z",
-   "updatedAt": "2026-10-25T17:02:56.162Z"
-  },
-  {
-   "id": "mvo2ta5f7",
-   "name": "Urban Rhythm in Navy, Rust and Gold",
-   "category": "Abstract Art, Custom Art",
-   "categories": [
-    "Abstract Art",
-    "Custom Art"
-   ],
-   "theme": "Abstract Painting",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8999
-    ],
-    [
-     "36*24 inch",
-     9999
-    ],
-    [
-     "48*32 inch",
-     11499
-    ]
-   ],
-   "desc": "Bold abstract cityscape made from vertical blocks, textured gold accents, navy shapes, and rust-red and ivory architectural forms.",
-   "images": [],
-   "published": false,
-   "featured": false,
-   "createdAt": "2026-10-25T17:02:56.162Z",
-   "updatedAt": "2026-10-25T17:02:56.162Z"
-  },
-  {
-   "id": "mvo2ta5f8",
-   "name": "Golden Solar Glow in Deep Midnight Blue",
-   "category": "Abstract Art, Vastu",
-   "categories": [
-    "Abstract Art",
-    "Vastu"
-   ],
-   "theme": "Abstract Painting",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8999
-    ],
-    [
-     "36*24 inch",
-     9999
-    ],
-    [
-     "48*32 inch",
-     11499
-    ]
-   ],
-   "desc": "Minimal atmospheric artwork with a radiant golden center fading through amber and muted blue into a deep navy outer field.",
+   "desc": "Expressive blue-and-ivory figurative artwork with a flute, flowing sapphire shapes, and painterly movement against a softly textured background.",
    "images": [],
    "published": false,
    "featured": false,

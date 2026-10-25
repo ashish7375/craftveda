@@ -950,12 +950,13 @@
   {
    "id": "mvo4n1zl1",
    "name": "Sacred Geometry Abstract Art Work",
-   "category": "Abstract Art, Geometric Art",
+   "category": "Abstract Art, Geometric Art, Religious",
    "categories": [
     "Abstract Art",
-    "Geometric Art"
+    "Geometric Art",
+    "Religious"
    ],
-   "theme": "Sacred Geometry",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -972,11 +973,15 @@
     ]
    ],
    "desc": "Cream, rust, mustard and deep green geometric shapes create a balanced composition. Curved forms and symmetry give this artwork a bold, contemporary character.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/sacred-geometry-abstract-art-work-1-mvo4vemt.jpg",
+    "images/sacred-geometry-abstract-art-work-2-mvo4vgs0.jpg",
+    "images/sacred-geometry-abstract-art-work-3-mvo4vipd.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T18:00:42.494Z"
   },
   {
    "id": "mvo4n1zl2",

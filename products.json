@@ -1133,7 +1133,7 @@
     "Abstract Art",
     "Geometric Art"
    ],
-   "theme": "Architectural Arches",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1150,11 +1150,15 @@
     ]
    ],
    "desc": "Overlapping arches in terracotta, olive, mustard and cream create an architectural abstract. Repeating curves add depth and balance.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/archway-harmony-abstract-art-work-1-mvo52r4s.jpg",
+    "images/archway-harmony-abstract-art-work-2-mvo52tqk.jpg",
+    "images/archway-harmony-abstract-art-work-3-mvo52vu7.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T18:06:26.849Z"
   },
   {
    "id": "mvo4n1zl7",

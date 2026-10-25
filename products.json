@@ -920,7 +920,7 @@
     "Abstract Art",
     "Textured Art"
    ],
-   "theme": "Desert Landscape",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -937,11 +937,15 @@
     ]
    ],
    "desc": "Warm terracotta, sand and peach tones form a layered abstract landscape. Soft textures and flowing horizontal strokes bring a calm, warm and sophisticated feel to the space.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/desert-horizon-abstract-art-work-1-mvo4skhj.jpg",
+    "images/desert-horizon-abstract-art-work-2-mvo4smrq.jpg",
+    "images/desert-horizon-abstract-art-work-3-mvo4sork.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T17:58:30.505Z"
   },
   {
    "id": "mvo4n1zl1",

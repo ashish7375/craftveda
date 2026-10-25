@@ -1224,68 +1224,6 @@
    "featured": false,
    "createdAt": "2026-10-25T17:02:56.162Z",
    "updatedAt": "2026-10-25T17:02:56.162Z"
-  },
-  {
-   "id": "mvo2ta5fa",
-   "name": "Ember Glow Textured Abstract Landscape",
-   "category": "Textured Art, Abstract Art",
-   "categories": [
-    "Textured Art",
-    "Abstract Art"
-   ],
-   "theme": "Abstract Painting",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8999
-    ],
-    [
-     "36*24 inch",
-     9999
-    ],
-    [
-     "48*32 inch",
-     11499
-    ]
-   ],
-   "desc": "Richly layered abstract painting in sunset orange, coral, peach, and deep rust with broad expressive strokes and a tactile finish.",
-   "images": [],
-   "published": false,
-   "featured": false,
-   "createdAt": "2026-10-25T17:02:56.162Z",
-   "updatedAt": "2026-10-25T17:02:56.162Z"
-  },
-  {
-   "id": "mvo2ta5fb",
-   "name": "Twin Circles in Blush and Antique Gold",
-   "category": "Textured Art, Abstract Art",
-   "categories": [
-    "Textured Art",
-    "Abstract Art"
-   ],
-   "theme": "Abstract Painting",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8999
-    ],
-    [
-     "36*24 inch",
-     9999
-    ],
-    [
-     "48*32 inch",
-     11499
-    ]
-   ],
-   "desc": "Softly textured geometric artwork featuring two overlapping circles in blush, cream, and antique gold with translucent intersecting forms.",
-   "images": [],
-   "published": false,
-   "featured": false,
-   "createdAt": "2026-10-25T17:02:56.162Z",
-   "updatedAt": "2026-10-25T17:02:56.162Z"
   }
  ]
 }

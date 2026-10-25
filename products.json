@@ -1318,37 +1318,6 @@
    "featured": false,
    "createdAt": "2026-10-25T17:02:56.162Z",
    "updatedAt": "2026-10-25T17:02:56.162Z"
-  },
-  {
-   "id": "mvo2ta5fd",
-   "name": "Terracotta and Olive Archway of Light",
-   "category": "Vastu, Abstract Art",
-   "categories": [
-    "Vastu",
-    "Abstract Art"
-   ],
-   "theme": "Abstract Painting",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8999
-    ],
-    [
-     "36*24 inch",
-     9999
-    ],
-    [
-     "48*32 inch",
-     11499
-    ]
-   ],
-   "desc": "Layered architectural arches in terracotta, mustard, olive, and cream create a warm, symmetrical passage with a sense of depth.",
-   "images": [],
-   "published": false,
-   "featured": false,
-   "createdAt": "2026-10-25T17:02:56.162Z",
-   "updatedAt": "2026-10-25T17:02:56.162Z"
   }
  ]
 }

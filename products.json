@@ -1168,7 +1168,7 @@
     "Abstract Art",
     "Textured Art"
    ],
-   "theme": "Warm Sunset",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1185,11 +1185,15 @@
     ]
    ],
    "desc": "Expressive layers of orange, coral, peach and deep rust create a sunset-like warmth. Textured brushwork gives the artwork energetic character.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/ember-glow-abstract-art-work-1-mvo53vql.jpg",
+    "images/ember-glow-abstract-art-work-2-mvo53y1r.jpg",
+    "images/ember-glow-abstract-art-work-3-mvo540nl.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T18:07:19.093Z"
   },
   {
    "id": "mvo4n1zl8",

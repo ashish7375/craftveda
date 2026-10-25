@@ -1240,7 +1240,7 @@
     "Abstract Art",
     "Geometric Art"
    ],
-   "theme": "Solar Mandala",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1257,11 +1257,15 @@
     ]
    ],
    "desc": "An ivory geometric mandala sits against a rust-orange background. Repeating shapes and a central sun motif create symmetry and a striking focal point.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/solar-mandala-abstract-art-work-1-mvo562mr.jpg",
+    "images/solar-mandala-abstract-art-work-2-mvo565cb.jpg",
+    "images/solar-mandala-abstract-art-work-3-mvo567uo.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T18:09:01.689Z"
   },
   {
    "id": "mvo4n1zla",

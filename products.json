@@ -1027,7 +1027,7 @@
     "Abstract Art",
     "Textured Art"
    ],
-   "theme": "Ascending Forms",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1044,11 +1044,15 @@
     ]
    ],
    "desc": "Ascending rectangular forms shift from charcoal to golden beige, suggesting progress and ambition. Its textured neutral palette suits modern, minimal interiors.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-ascent-abstract-art-work-1-mvo4y7i3.jpg",
+    "images/golden-ascent-abstract-art-work-2-mvo4ya2i.jpg",
+    "images/golden-ascent-abstract-art-work-3-mvo4ycia.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T18:02:54.710Z"
   },
   {
    "id": "mvo4n1zl4",

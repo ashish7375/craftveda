@@ -911,40 +911,6 @@
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
    "updatedAt": "2026-10-18T18:00:47.276Z"
-  },
-  {
-   "id": "mvlcppjj",
-   "name": "zdbgb",
-   "category": "Vastu",
-   "categories": [
-    "Vastu"
-   ],
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     15000
-    ],
-    [
-     "36*24 inch",
-     19000
-    ],
-    [
-     "48*32 inch",
-     25000
-    ]
-   ],
-   "desc": "Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours.",
-   "images": [
-    "images/zdbgb-1-mvlcpfoj.jpg",
-    "images/zdbgb-2-mvlcpjkt.jpg",
-    "images/zdbgb-3-mvlcpmye.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-23T19:16:47.119Z",
-   "updatedAt": "2026-10-25T08:43:55.444Z"
   }
  ]
 }

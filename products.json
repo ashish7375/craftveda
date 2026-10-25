@@ -911,6 +911,347 @@
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
    "updatedAt": "2026-10-18T18:00:47.276Z"
+  },
+  {
+   "id": "mvo4n1zl0",
+   "name": "Desert Horizon Abstract Art Work",
+   "category": "Abstract Art, Textured Art",
+   "categories": [
+    "Abstract Art",
+    "Textured Art"
+   ],
+   "theme": "Desert Landscape",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Warm terracotta, sand and peach tones form a layered abstract landscape. Soft textures and flowing horizontal strokes bring a calm, warm and sophisticated feel to the space.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zl1",
+   "name": "Sacred Geometry Abstract Art Work",
+   "category": "Abstract Art, Geometric Art",
+   "categories": [
+    "Abstract Art",
+    "Geometric Art"
+   ],
+   "theme": "Sacred Geometry",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Cream, rust, mustard and deep green geometric shapes create a balanced composition. Curved forms and symmetry give this artwork a bold, contemporary character.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zl2",
+   "name": "Tree of Life Abstract Art Work",
+   "category": "Abstract Art, Nature Art",
+   "categories": [
+    "Abstract Art",
+    "Nature Art"
+   ],
+   "theme": "Tree of Life",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Golden branches, intricate roots and jewel-toned leaves stand out against a deep navy background. The design evokes growth, connection and harmony.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zl3",
+   "name": "Golden Ascent Abstract Art Work",
+   "category": "Abstract Art, Textured Art",
+   "categories": [
+    "Abstract Art",
+    "Textured Art"
+   ],
+   "theme": "Ascending Forms",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Ascending rectangular forms shift from charcoal to golden beige, suggesting progress and ambition. Its textured neutral palette suits modern, minimal interiors.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zl4",
+   "name": "Golden Connections Abstract Art Work",
+   "category": "Abstract Art, Geometric Art",
+   "categories": [
+    "Abstract Art",
+    "Geometric Art"
+   ],
+   "theme": "Connected Network",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Golden lines and circular nodes create an interconnected pattern across a textured emerald-green background, evoking relationships and modern sophistication.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zl5",
+   "name": "Ocean Layers Abstract Art Work",
+   "category": "Abstract Art, Nature Art",
+   "categories": [
+    "Abstract Art",
+    "Nature Art"
+   ],
+   "theme": "Ocean",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Layered navy, slate blue and icy-white brushstrokes evoke ocean waves and distant horizons. Cool colours create a peaceful, refreshing atmosphere.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zl6",
+   "name": "Archway Harmony Abstract Art Work",
+   "category": "Abstract Art, Geometric Art",
+   "categories": [
+    "Abstract Art",
+    "Geometric Art"
+   ],
+   "theme": "Architectural Arches",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Overlapping arches in terracotta, olive, mustard and cream create an architectural abstract. Repeating curves add depth and balance.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zl7",
+   "name": "Ember Glow Abstract Art Work",
+   "category": "Abstract Art, Textured Art",
+   "categories": [
+    "Abstract Art",
+    "Textured Art"
+   ],
+   "theme": "Warm Sunset",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Expressive layers of orange, coral, peach and deep rust create a sunset-like warmth. Textured brushwork gives the artwork energetic character.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zl8",
+   "name": "Moonlit Grove Abstract Art Work",
+   "category": "Abstract Art, Nature Art",
+   "categories": [
+    "Abstract Art",
+    "Nature Art"
+   ],
+   "theme": "Moonlit Forest",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Golden deer, a luminous moon and turquoise trees form a magical night-forest scene. Decorative details and a dark-blue backdrop create a distinctive statement piece.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zl9",
+   "name": "Solar Mandala Abstract Art Work",
+   "category": "Abstract Art, Geometric Art",
+   "categories": [
+    "Abstract Art",
+    "Geometric Art"
+   ],
+   "theme": "Solar Mandala",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "An ivory geometric mandala sits against a rust-orange background. Repeating shapes and a central sun motif create symmetry and a striking focal point.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
+  },
+  {
+   "id": "mvo4n1zla",
+   "name": "Urban Rhythm Abstract Art Work",
+   "category": "Abstract Art, Modern Art",
+   "categories": [
+    "Abstract Art",
+    "Modern Art"
+   ],
+   "theme": "Geometric Cityscape",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9875
+    ],
+    [
+     "48*32 inch",
+     11250
+    ]
+   ],
+   "desc": "Geometric buildings in navy, rust red, cream and gold depict a modern cityscape. Art Deco-inspired forms add a bold, sophisticated touch to urban interiors.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-25T17:54:04.880Z",
+   "updatedAt": "2026-10-25T17:54:04.880Z"
   }
  ]
 }

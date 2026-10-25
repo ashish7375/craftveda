@@ -1286,38 +1286,6 @@
    "featured": false,
    "createdAt": "2026-10-25T17:02:56.162Z",
    "updatedAt": "2026-10-25T17:02:56.162Z"
-  },
-  {
-   "id": "mvo2ta5fc",
-   "name": "Blue Tidal Layers Minimalist Seascape",
-   "category": "Textured Art, Abstract Art, Nature",
-   "categories": [
-    "Textured Art",
-    "Abstract Art",
-    "Nature"
-   ],
-   "theme": "Abstract Painting",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     8999
-    ],
-    [
-     "36*24 inch",
-     9999
-    ],
-    [
-     "48*32 inch",
-     11499
-    ]
-   ],
-   "desc": "Calming abstract seascape composed of horizontal blue, slate, and ivory bands that evoke distant waves, mist, and a quiet horizon.",
-   "images": [],
-   "published": false,
-   "featured": false,
-   "createdAt": "2026-10-25T17:02:56.162Z",
-   "updatedAt": "2026-10-25T17:02:56.162Z"
   }
  ]
 }

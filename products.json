@@ -1198,12 +1198,14 @@
   {
    "id": "mvo4n1zl8",
    "name": "Moonlit Grove Abstract Art Work",
-   "category": "Abstract Art, Nature Art",
+   "category": "Abstract Art, Nature Art, Vastu, Nature",
    "categories": [
     "Abstract Art",
-    "Nature Art"
+    "Nature Art",
+    "Vastu",
+    "Nature"
    ],
-   "theme": "Moonlit Forest",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1220,11 +1222,15 @@
     ]
    ],
    "desc": "Golden deer, a luminous moon and turquoise trees form a magical night-forest scene. Decorative details and a dark-blue backdrop create a distinctive statement piece.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/moonlit-grove-abstract-art-work-1-mvo54yqq.jpg",
+    "images/moonlit-grove-abstract-art-work-2-mvo556th.jpg",
+    "images/moonlit-grove-abstract-art-work-3-mvo5599z.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T18:08:17.066Z"
   },
   {
    "id": "mvo4n1zl9",

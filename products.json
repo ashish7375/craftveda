@@ -911,40 +911,6 @@
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
    "updatedAt": "2026-10-18T18:00:47.276Z"
-  },
-  {
-   "id": "mvo0hixp",
-   "name": "sdf",
-   "category": "Textured Art",
-   "categories": [
-    "Textured Art"
-   ],
-   "theme": "",
-   "shape": "Horizontal",
-   "sizes": [
-    [
-     "24*16 inch",
-     15000
-    ],
-    [
-     "36*24 inch",
-     19000
-    ],
-    [
-     "48*32 inch",
-     25000
-    ]
-   ],
-   "desc": "Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours.",
-   "images": [
-    "images/sdf-1-mvo0hcns.jpg",
-    "images/sdf-2-mvo0hepm.jpg",
-    "images/sdf-3-mvo0hgrc.jpg"
-   ],
-   "published": true,
-   "featured": false,
-   "createdAt": "2026-10-25T15:57:48.445Z",
-   "updatedAt": "2026-10-25T15:57:48.445Z"
   }
  ]
 }

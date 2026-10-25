@@ -920,7 +920,7 @@
     "Religious",
     "Custom Art"
    ],
-   "theme": "Ganesha, Abstract Painting",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -937,11 +937,15 @@
     ]
    ],
    "desc": "Geometric devotional artwork featuring a stylized Ganesha-inspired spiral, layered arches, and warm terracotta, cream, ochre, and deep green forms.",
-   "images": [],
+   "images": [
+    "images/sacred-ganesh-spiral-in-terracotta-and-f-1-mvo343k6.jpg",
+    "images/sacred-ganesh-spiral-in-terracotta-and-f-2-mvo345yp.jpg",
+    "images/sacred-ganesh-spiral-in-terracotta-and-f-3-mvo34836.jpg"
+   ],
    "published": false,
    "featured": false,
    "createdAt": "2026-10-25T17:02:56.162Z",
-   "updatedAt": "2026-10-25T17:02:56.162Z"
+   "updatedAt": "2026-10-25T17:11:29.350Z"
   },
   {
    "id": "mvo2ta5f1",

@@ -1088,12 +1088,13 @@
   {
    "id": "mvo4n1zl5",
    "name": "Ocean Layers Abstract Art Work",
-   "category": "Abstract Art, Nature Art",
+   "category": "Abstract Art, Nature Art, Nature",
    "categories": [
     "Abstract Art",
-    "Nature Art"
+    "Nature Art",
+    "Nature"
    ],
-   "theme": "Ocean",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1110,11 +1111,15 @@
     ]
    ],
    "desc": "Layered navy, slate blue and icy-white brushstrokes evoke ocean waves and distant horizons. Cool colours create a peaceful, refreshing atmosphere.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/ocean-layers-abstract-art-work-1-mvo4zo2k.jpg",
+    "images/ocean-layers-abstract-art-work-2-mvo4zqno.jpg",
+    "images/ocean-layers-abstract-art-work-3-mvo4zspa.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T18:04:01.985Z"
   },
   {
    "id": "mvo4n1zl6",

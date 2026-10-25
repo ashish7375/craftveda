@@ -1062,7 +1062,7 @@
     "Abstract Art",
     "Geometric Art"
    ],
-   "theme": "Connected Network",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1079,11 +1079,15 @@
     ]
    ],
    "desc": "Golden lines and circular nodes create an interconnected pattern across a textured emerald-green background, evoking relationships and modern sophistication.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-connections-abstract-art-work-1-mvo51mbf.jpg",
+    "images/golden-connections-abstract-art-work-2-mvo51oqx.jpg",
+    "images/golden-connections-abstract-art-work-3-mvo51qws.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T18:05:33.018Z"
   },
   {
    "id": "mvo4n1zl5",

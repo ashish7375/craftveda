@@ -986,12 +986,13 @@
   {
    "id": "mvo4n1zl2",
    "name": "Tree of Life Abstract Art Work",
-   "category": "Abstract Art, Nature Art",
+   "category": "Abstract Art, Nature Art, Vastu",
    "categories": [
     "Abstract Art",
-    "Nature Art"
+    "Nature Art",
+    "Vastu"
    ],
-   "theme": "Tree of Life",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1008,11 +1009,15 @@
     ]
    ],
    "desc": "Golden branches, intricate roots and jewel-toned leaves stand out against a deep navy background. The design evokes growth, connection and harmony.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/tree-of-life-abstract-art-work-1-mvo4wkhi.jpg",
+    "images/tree-of-life-abstract-art-work-2-mvo4wo19.jpg",
+    "images/tree-of-life-abstract-art-work-3-mvo4wr74.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
-   "updatedAt": "2026-10-25T17:54:04.880Z"
+   "updatedAt": "2026-10-25T18:01:41.459Z"
   },
   {
    "id": "mvo4n1zl3",

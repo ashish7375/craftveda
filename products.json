@@ -1820,12 +1820,13 @@
   {
    "id": "mvpqz1a13",
    "name": "Autumn Falls Serenity",
-   "category": "Nature, Landscape Art",
+   "category": "Nature, Landscape Art, Vastu",
    "categories": [
     "Nature",
-    "Landscape Art"
+    "Landscape Art",
+    "Vastu"
    ],
-   "theme": "Waterfall",
+   "theme": "",
    "shape": "Vertical",
    "sizes": [
     [
@@ -1842,11 +1843,15 @@
     ]
    ],
    "desc": "A waterfall framed by autumn foliage, layered mountains, and a warm sunset sky.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/autumn-falls-serenity-1-mvpr7i7b.jpg",
+    "images/autumn-falls-serenity-2-mvpr7l0r.jpg",
+    "images/autumn-falls-serenity-3-mvpr7nm6.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:13:46.435Z"
   },
   {
    "id": "mvpqz1a14",

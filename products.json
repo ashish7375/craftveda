@@ -1749,12 +1749,13 @@
   {
    "id": "mvpqz1a11",
    "name": "Radha Krishna Divine Love",
-   "category": "Religious, Custom Art",
+   "category": "Vastu, Religious, Textured Art",
    "categories": [
+    "Vastu",
     "Religious",
-    "Custom Art"
+    "Textured Art"
    ],
-   "theme": "Radha Krishna",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1763,19 +1764,23 @@
     ],
     [
      "36*24 inch",
-     22200
+     17000
     ],
     [
      "48*32 inch",
-     28200
+     19500
     ]
    ],
    "desc": "A devotional portrait of Radha and Krishna in a tender, peaceful moment, decorated with lotus flowers and gold accents.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/radha-krishna-divine-love-1-mvpr2v2y.jpg",
+    "images/radha-krishna-divine-love-2-mvpr2y9l.jpg",
+    "images/radha-krishna-divine-love-3-mvpr30py.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:10:11.025Z"
   },
   {
    "id": "mvpqz1a12",

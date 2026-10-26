@@ -1785,33 +1785,37 @@
   {
    "id": "mvpqz1a12",
    "name": "Golden Tree of Life",
-   "category": "Nature, Textured Art",
+   "category": "Nature, Vastu",
    "categories": [
     "Nature",
-    "Textured Art"
+    "Vastu"
    ],
-   "theme": "Tree of Life",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
-     "36*18 inch",
-     14000
+     "24*16 inch",
+     9500
     ],
     [
-     "48*24 inch",
-     21200
+     "36*24 inch",
+     11250
     ],
     [
-     "60*30 inch",
-     26200
+     "48*32 inch",
+     14484
     ]
    ],
    "desc": "A sculptural tree with gold and ivory leaves against a deep navy textured background.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-tree-of-life-1-mvpr6got.jpg",
+    "images/golden-tree-of-life-2-mvpr6ji9.jpg",
+    "images/golden-tree-of-life-3-mvpr6luh.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:12:57.532Z"
   },
   {
    "id": "mvpqz1a13",

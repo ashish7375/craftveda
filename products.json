@@ -1343,12 +1343,16 @@
   {
    "id": "mvot0z5z1",
    "name": "Golden Lotus Serenity",
-   "category": "Nature Art, Floral Art",
+   "category": "Nature Art, Floral Art, Vastu, Nature, Abstract Art, Textured Art",
    "categories": [
     "Nature Art",
-    "Floral Art"
+    "Floral Art",
+    "Vastu",
+    "Nature",
+    "Abstract Art",
+    "Textured Art"
    ],
-   "theme": "Golden Lotus Pond",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1365,11 +1369,15 @@
     ]
    ],
    "desc": "Graceful pink and ivory lotus flowers bloom among deep teal lily pads, illuminated by shimmering golden reflections. Rich painterly textures and warm highlights evoke the peaceful beauty of a tranquil pond.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-lotus-serenity-1-mvot50gf.jpg",
+    "images/golden-lotus-serenity-2-mvot5396.jpg",
+    "images/golden-lotus-serenity-3-mvot55k1.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:20:04.534Z"
   },
   {
    "id": "mvot0z5z2",

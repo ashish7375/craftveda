@@ -26,14 +26,6 @@
       "image": "images/golden-moon-phases-textured-art-1-mve4ooza.jpg"
     },
     {
-      "id": "b2",
-      "title": "Textured Art",
-      "type": "cat",
-      "target": "Textured Art",
-      "shape": "tall",
-      "image": "images/bento/textured-art-tall.jpg"
-    },
-    {
       "id": "b3",
       "title": "Religious",
       "type": "cat",
@@ -41,6 +33,14 @@
       "shape": "tall",
       "image": "images/himalayan-sunset-textured-art-1-mvcum37v.jpg",
       "shapeTablet": "tall"
+    },
+    {
+      "id": "b2",
+      "title": "Textured Art",
+      "type": "cat",
+      "target": "Textured Art",
+      "shape": "tall",
+      "image": "images/bento/textured-art-tall.jpg"
     },
     {
       "id": "b4",
@@ -80,7 +80,7 @@
       "type": "cat",
       "target": "Vastu",
       "shape": "short",
-      "image": "images/golden-horizon-sunset-textured-art-1-mve5rwrq.jpg"
+      "image": "images/bento/vastu-short.jpg"
     }
   ]
 }

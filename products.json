@@ -1420,33 +1420,40 @@
   {
    "id": "mvot0z5z3",
    "name": "Autumn Lake Reflections",
-   "category": "Nature Art, Landscape Art",
+   "category": "Nature Art, Landscape Art, Nature, Abstract Art, Textured Art",
    "categories": [
     "Nature Art",
-    "Landscape Art"
+    "Landscape Art",
+    "Nature",
+    "Abstract Art",
+    "Textured Art"
    ],
-   "theme": "Autumn Lake",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
      "24*16 inch",
-     8200
+     8850
     ],
     [
      "36*24 inch",
-     9550
+     9750
     ],
     [
      "48*32 inch",
-     11000
+     11750
     ]
    ],
    "desc": "Fiery autumn foliage frames a peaceful lake where a traditional wooden boat rests on reflective water. Misty mountain peaks and warm sunset tones create a captivating scene inspired by the quiet beauty of autumn.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/autumn-lake-reflections-1-mvota4b2.jpg",
+    "images/autumn-lake-reflections-2-mvota7y5.jpg",
+    "images/autumn-lake-reflections-3-mvotaa1g.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:24:01.304Z"
   },
   {
    "id": "mvot0z5z4",

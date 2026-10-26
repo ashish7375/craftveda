@@ -1893,12 +1893,12 @@
   {
    "id": "mvpqz1a15",
    "name": "Sacred White Cow",
-   "category": "Religious, Indian Traditional Art",
+   "category": "Indian Traditional Art, Vastu",
    "categories": [
-    "Religious",
-    "Indian Traditional Art"
+    "Indian Traditional Art",
+    "Vastu"
    ],
-   "theme": "Cow",
+   "theme": "",
    "shape": "Square",
    "sizes": [
     [
@@ -1907,19 +1907,23 @@
     ],
     [
      "36*36 inch",
-     15200
+     13500
     ],
     [
      "48*48 inch",
-     19200
+     16000
     ]
    ],
    "desc": "A traditional decorative painting of a resting white cow with ornate gold jewelry, lotus flowers, and a golden arch.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/sacred-white-cow-1-mvpraqg5.jpg",
+    "images/sacred-white-cow-2-mvpraz73.jpg",
+    "images/sacred-white-cow-3-mvprb1z9.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:16:25.494Z"
   },
   {
    "id": "mvpqz1a16",

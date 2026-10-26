@@ -2033,33 +2033,40 @@
   {
    "id": "mvpqz1a19",
    "name": "Golden Lake Horizon",
-   "category": "Nature, Landscape Art",
+   "category": "Landscape Art, Abstract Art, Vastu, Nature, Textured Art",
    "categories": [
+    "Landscape Art",
+    "Abstract Art",
+    "Vastu",
     "Nature",
-    "Landscape Art"
+    "Textured Art"
    ],
-   "theme": "Sunset Lake",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
      "24*16 inch",
-     15000
+     9500
     ],
     [
      "36*24 inch",
-     22200
+     11000
     ],
     [
      "48*32 inch",
-     28200
+     13500
     ]
    ],
    "desc": "A panoramic mountain-and-lake scene with a large golden sun reflected across still water.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-lake-horizon-1-mvprhzzo.jpg",
+    "images/golden-lake-horizon-2-mvpri2ln.jpg",
+    "images/golden-lake-horizon-3-mvpri5cy.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:21:56.214Z"
   },
   {
    "id": "mvpqz1a1a",

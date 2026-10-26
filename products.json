@@ -1572,13 +1572,15 @@
   {
    "id": "mvot0z5z7",
    "name": "Sunlit Mountain Majesty",
-   "category": "Nature Art, Landscape Art, Mountain Art",
+   "category": "Nature Art, Landscape Art, Mountain Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
-    "Mountain Art"
+    "Mountain Art",
+    "Nature",
+    "Abstract Art"
    ],
-   "theme": "Mountain Sunset",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1595,11 +1597,15 @@
     ]
    ],
    "desc": "Towering snow-covered mountains catch the fiery glow of a setting sun, revealing dramatic textures in gold, slate blue and lavender. Dark pine silhouettes anchor the foreground, creating a bold and uplifting alpine landscape.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/sunlit-mountain-majesty-1-mvotfaaw.jpg",
+    "images/sunlit-mountain-majesty-2-mvotfdun.jpg",
+    "images/sunlit-mountain-majesty-3-mvotfgyn.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:28:04.559Z"
   },
   {
    "id": "mvot0z5z8",

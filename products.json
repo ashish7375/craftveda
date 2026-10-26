@@ -1708,6 +1708,347 @@
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
    "updatedAt": "2026-10-26T05:29:52.227Z"
+  },
+  {
+   "id": "mvpqz1a10",
+   "name": "Golden Horizon Horses",
+   "category": "Nature, Animal Art",
+   "categories": [
+    "Nature",
+    "Animal Art"
+   ],
+   "theme": "Horses",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     15000
+    ],
+    [
+     "36*24 inch",
+     22200
+    ],
+    [
+     "48*32 inch",
+     28200
+    ]
+   ],
+   "desc": "A herd of white horses running through golden grass beneath a glowing sunset, with layered mountains in the distance.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a11",
+   "name": "Radha Krishna Divine Love",
+   "category": "Religious, Custom Art",
+   "categories": [
+    "Religious",
+    "Custom Art"
+   ],
+   "theme": "Radha Krishna",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     15000
+    ],
+    [
+     "36*24 inch",
+     22200
+    ],
+    [
+     "48*32 inch",
+     28200
+    ]
+   ],
+   "desc": "A devotional portrait of Radha and Krishna in a tender, peaceful moment, decorated with lotus flowers and gold accents.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a12",
+   "name": "Golden Tree of Life",
+   "category": "Nature, Textured Art",
+   "categories": [
+    "Nature",
+    "Textured Art"
+   ],
+   "theme": "Tree of Life",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "36*18 inch",
+     14000
+    ],
+    [
+     "48*24 inch",
+     21200
+    ],
+    [
+     "60*30 inch",
+     26200
+    ]
+   ],
+   "desc": "A sculptural tree with gold and ivory leaves against a deep navy textured background.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a13",
+   "name": "Autumn Falls Serenity",
+   "category": "Nature, Landscape Art",
+   "categories": [
+    "Nature",
+    "Landscape Art"
+   ],
+   "theme": "Waterfall",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     8000
+    ],
+    [
+     "24*36 inch",
+     13700
+    ],
+    [
+     "32*48 inch",
+     17700
+    ]
+   ],
+   "desc": "A waterfall framed by autumn foliage, layered mountains, and a warm sunset sky.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a14",
+   "name": "Emerald Canyon Waterfall",
+   "category": "Nature, Landscape Art",
+   "categories": [
+    "Nature",
+    "Landscape Art"
+   ],
+   "theme": "Waterfall",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     8000
+    ],
+    [
+     "24*36 inch",
+     13700
+    ],
+    [
+     "32*48 inch",
+     17700
+    ]
+   ],
+   "desc": "A tall waterfall flowing between deep green canyon walls beneath a golden sun.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a15",
+   "name": "Sacred White Cow",
+   "category": "Religious, Indian Traditional Art",
+   "categories": [
+    "Religious",
+    "Indian Traditional Art"
+   ],
+   "theme": "Cow",
+   "shape": "Square",
+   "sizes": [
+    [
+     "24*24 inch",
+     9000
+    ],
+    [
+     "36*36 inch",
+     15200
+    ],
+    [
+     "48*48 inch",
+     19200
+    ]
+   ],
+   "desc": "A traditional decorative painting of a resting white cow with ornate gold jewelry, lotus flowers, and a golden arch.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a16",
+   "name": "Buddha of Quiet Wisdom",
+   "category": "Religious, Custom Art",
+   "categories": [
+    "Religious",
+    "Custom Art"
+   ],
+   "theme": "Buddha",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     8000
+    ],
+    [
+     "24*36 inch",
+     13700
+    ],
+    [
+     "32*48 inch",
+     17700
+    ]
+   ],
+   "desc": "A serene Buddha portrait in ivory, stone, and antique gold tones with a softly weathered textured background.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a17",
+   "name": "Golden Lotus Bloom",
+   "category": "Nature, Spiritual Art",
+   "categories": [
+    "Nature",
+    "Spiritual Art"
+   ],
+   "theme": "Lotus",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     8000
+    ],
+    [
+     "24*36 inch",
+     13700
+    ],
+    [
+     "32*48 inch",
+     17700
+    ]
+   ],
+   "desc": "An ivory lotus with gold-edged petals and deep green leaves, rendered in a richly textured style.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a18",
+   "name": "Lotus of Golden Light",
+   "category": "Nature, Spiritual Art",
+   "categories": [
+    "Nature",
+    "Spiritual Art"
+   ],
+   "theme": "Lotus",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     15000
+    ],
+    [
+     "36*24 inch",
+     22200
+    ],
+    [
+     "48*32 inch",
+     28200
+    ]
+   ],
+   "desc": "A luminous cream-and-gold lotus in full bloom above dark foliage against a neutral textured backdrop.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a19",
+   "name": "Golden Lake Horizon",
+   "category": "Nature, Landscape Art",
+   "categories": [
+    "Nature",
+    "Landscape Art"
+   ],
+   "theme": "Sunset Lake",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     15000
+    ],
+    [
+     "36*24 inch",
+     22200
+    ],
+    [
+     "48*32 inch",
+     28200
+    ]
+   ],
+   "desc": "A panoramic mountain-and-lake scene with a large golden sun reflected across still water.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
+  },
+  {
+   "id": "mvpqz1a1a",
+   "name": "Golden Mountain Lake",
+   "category": "Nature, Landscape Art",
+   "categories": [
+    "Nature",
+    "Landscape Art"
+   ],
+   "theme": "Mountain Lake",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     8000
+    ],
+    [
+     "24*36 inch",
+     13700
+    ],
+    [
+     "32*48 inch",
+     17700
+    ]
+   ],
+   "desc": "A vertical mountain lake landscape with golden sunlight, autumn trees, layered peaks, and reflective water.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T21:07:01.561Z",
+   "updatedAt": "2026-10-26T21:07:01.561Z"
   }
  ]
 }

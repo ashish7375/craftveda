@@ -1305,13 +1305,15 @@
   {
    "id": "mvot0z5z0",
    "name": "Alpine Wildflower Valley",
-   "category": "Nature Art, Landscape Art, Floral Art",
+   "category": "Nature Art, Landscape Art, Floral Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
-    "Floral Art"
+    "Floral Art",
+    "Nature",
+    "Abstract Art"
    ],
-   "theme": "Alpine Wildflower Valley",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1324,15 +1326,19 @@
     ],
     [
      "32*48 inch",
-     10800
+     11800
     ]
    ],
    "desc": "Snow-capped mountain peaks rise above rolling green meadows filled with vibrant pink, yellow, purple and white wildflowers. A sparkling stream winds through the valley, creating a cheerful, refreshing nature-inspired scene.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/alpine-wildflower-valley-1-mvot3r7f.jpg",
+    "images/alpine-wildflower-valley-2-mvot3vdj.jpg",
+    "images/alpine-wildflower-valley-3-mvot3y7g.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:19:06.965Z"
   },
   {
    "id": "mvot0z5z1",

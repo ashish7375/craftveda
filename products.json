@@ -1382,13 +1382,15 @@
   {
    "id": "mvot0z5z2",
    "name": "Himalayan Golden Hour",
-   "category": "Nature Art, Landscape Art, Mountain Art",
+   "category": "Nature Art, Landscape Art, Mountain Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
-    "Mountain Art"
+    "Mountain Art",
+    "Nature",
+    "Abstract Art"
    ],
-   "theme": "Himalayan Sunrise",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1405,11 +1407,15 @@
     ]
    ],
    "desc": "Majestic Himalayan peaks glow beneath a luminous golden-orange sky as sunlight touches their snowy ridges. Layered blue mountains, rugged rocks and colorful prayer flags capture the serenity and grandeur of a high-altitude landscape.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/himalayan-golden-hour-1-mvot7anz.jpg",
+    "images/himalayan-golden-hour-2-mvot7e6r.jpg",
+    "images/himalayan-golden-hour-3-mvot7h1c.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:21:51.407Z"
   },
   {
    "id": "mvot0z5z3",

@@ -243,7 +243,11 @@
   {
    "id": "mvcwf55f",
    "name": "Golden Shore Textured Art",
-   "category": "Textured Art",
+   "category": "Textured Art, Nature",
+   "categories": [
+    "Textured Art",
+    "Nature"
+   ],
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -268,7 +272,8 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-17T21:18:30.867Z"
+   "createdAt": "2026-10-17T21:18:30.867Z",
+   "updatedAt": "2026-10-26T05:31:25.444Z"
   },
   {
    "id": "mvdj0lez",

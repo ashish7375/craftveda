@@ -47,8 +47,8 @@
       "title": "Vastu",
       "type": "cat",
       "target": "Vastu",
-      "shape": "tall",
-      "image": "images/bento/vastu-tall.jpg"
+      "shape": "short",
+      "image": "images/bento/vastu-short.jpg"
     },
     {
       "id": "b4",

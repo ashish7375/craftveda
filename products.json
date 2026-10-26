@@ -1856,12 +1856,14 @@
   {
    "id": "mvpqz1a14",
    "name": "Emerald Canyon Waterfall",
-   "category": "Nature, Landscape Art",
+   "category": "Nature, Landscape Art, Vastu, Abstract Art",
    "categories": [
     "Nature",
-    "Landscape Art"
+    "Landscape Art",
+    "Vastu",
+    "Abstract Art"
    ],
-   "theme": "Waterfall",
+   "theme": "",
    "shape": "Vertical",
    "sizes": [
     [
@@ -1874,15 +1876,19 @@
     ],
     [
      "32*48 inch",
-     17700
+     17000
     ]
    ],
    "desc": "A tall waterfall flowing between deep green canyon walls beneath a golden sun.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/emerald-canyon-waterfall-1-mvpr975q.jpg",
+    "images/emerald-canyon-waterfall-2-mvpr99sb.jpg",
+    "images/emerald-canyon-waterfall-3-mvpr9k08.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:15:15.482Z"
   },
   {
    "id": "mvpqz1a15",

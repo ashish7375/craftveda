@@ -43,12 +43,12 @@
       "image": "images/bento/textured-art-tall.jpg"
     },
     {
-      "id": "b6",
-      "title": "Nature",
+      "id": "b8",
+      "title": "Vastu",
       "type": "cat",
-      "target": "Nature",
+      "target": "Vastu",
       "shape": "tall",
-      "image": "images/golden-moon-owls-textured-art-1-mve4ry4e.jpg"
+      "image": "images/bento/vastu-tall.jpg"
     },
     {
       "id": "b4",
@@ -67,12 +67,12 @@
       "image": "images/bento/abstract-art-short.jpg"
     },
     {
-      "id": "b8",
-      "title": "Vastu",
+      "id": "b6",
+      "title": "Nature",
       "type": "cat",
-      "target": "Vastu",
+      "target": "Nature",
       "shape": "tall",
-      "image": "images/bento/vastu-short.jpg"
+      "image": "images/golden-moon-owls-textured-art-1-mve4ry4e.jpg"
     }
   ]
 }

@@ -523,7 +523,13 @@
   {
    "id": "mvdmn6pv",
    "name": "Golden Lotus Path Textured Art",
-   "category": "Textured Art",
+   "category": "Textured Art, Vastu, Nature, Religious",
+   "categories": [
+    "Textured Art",
+    "Vastu",
+    "Nature",
+    "Religious"
+   ],
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -548,7 +554,8 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-18T09:32:36.164Z"
+   "createdAt": "2026-10-18T09:32:36.164Z",
+   "updatedAt": "2026-10-26T05:32:08.548Z"
   },
   {
    "id": "mve2zhqu0",

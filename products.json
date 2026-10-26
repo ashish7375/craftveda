@@ -1648,13 +1648,15 @@
   {
    "id": "mvot0z5z9",
    "name": "Banyan Tree at Sunset",
-   "category": "Nature Art, Landscape Art, Folk Art",
+   "category": "Nature Art, Landscape Art, Folk Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
-    "Folk Art"
+    "Folk Art",
+    "Nature",
+    "Abstract Art"
    ],
-   "theme": "Sacred Banyan Tree",
+   "theme": "",
    "shape": "Square",
    "sizes": [
     [
@@ -1671,11 +1673,15 @@
     ]
    ],
    "desc": "An ancient banyan tree spreads its magnificent branches and hanging roots beneath a glowing orange sunset. A quiet village, grazing cattle and a reflective pond evoke rural life and the enduring connection between people and nature.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/banyan-tree-at-sunset-1-mvothltv.jpg",
+    "images/banyan-tree-at-sunset-2-mvothohz.jpg",
+    "images/banyan-tree-at-sunset-3-mvothrfl.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:29:52.227Z"
   }
  ]
 }

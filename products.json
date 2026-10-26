@@ -1458,13 +1458,15 @@
   {
    "id": "mvot0z5z4",
    "name": "Desert Dusk Serenity",
-   "category": "Nature Art, Landscape Art, Desert Art",
+   "category": "Nature Art, Landscape Art, Desert Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
-    "Desert Art"
+    "Desert Art",
+    "Nature",
+    "Abstract Art"
    ],
-   "theme": "Desert Sunset",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1481,11 +1483,15 @@
     ]
    ],
    "desc": "Sweeping terracotta and amber dunes glow beneath a dramatic setting sun. A distant camel caravan and historic desert fort add depth and character, capturing the timeless charm of a warm desert horizon.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/desert-dusk-serenity-1-mvotbb64.jpg",
+    "images/desert-dusk-serenity-2-mvotbde3.jpg",
+    "images/desert-dusk-serenity-3-mvotbfmq.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:24:55.878Z"
   },
   {
    "id": "mvot0z5z5",

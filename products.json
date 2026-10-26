@@ -63,7 +63,11 @@
   {
    "id": "mvcviubd",
    "name": "Sacred Ghats Textured Art",
-   "category": "Textured Art",
+   "category": "Textured Art, Nature",
+   "categories": [
+    "Textured Art",
+    "Nature"
+   ],
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -88,7 +92,8 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-17T20:53:23.833Z"
+   "createdAt": "2026-10-17T20:53:23.833Z",
+   "updatedAt": "2026-10-26T05:31:42.454Z"
   },
   {
    "id": "mvcvlooe",

@@ -2071,12 +2071,13 @@
   {
    "id": "mvpqz1a1a",
    "name": "Golden Mountain Lake",
-   "category": "Nature, Landscape Art",
+   "category": "Landscape Art, Vastu, Abstract Art",
    "categories": [
-    "Nature",
-    "Landscape Art"
+    "Landscape Art",
+    "Vastu",
+    "Abstract Art"
    ],
-   "theme": "Mountain Lake",
+   "theme": "",
    "shape": "Vertical",
    "sizes": [
     [
@@ -2093,11 +2094,15 @@
     ]
    ],
    "desc": "A vertical mountain lake landscape with golden sunlight, autumn trees, layered peaks, and reflective water.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-mountain-lake-1-mvprj4zq.jpg",
+    "images/golden-mountain-lake-2-mvprj73n.jpg",
+    "images/golden-mountain-lake-3-mvprj9sf.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:23:01.215Z"
   }
  ]
 }

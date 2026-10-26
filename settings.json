@@ -31,7 +31,7 @@
       "type": "cat",
       "target": "Textured Art",
       "shape": "tall",
-      "image": "images/sacred-ghats-textured-art-1-mvcvio9x.jpg"
+      "image": "images/bento/textured-art-tall.jpg"
     },
     {
       "id": "b3",
@@ -39,7 +39,8 @@
       "type": "cat",
       "target": "Religious",
       "shape": "tall",
-      "image": "images/himalayan-sunset-textured-art-1-mvcum37v.jpg"
+      "image": "images/himalayan-sunset-textured-art-1-mvcum37v.jpg",
+      "shapeTablet": "tall"
     },
     {
       "id": "b4",

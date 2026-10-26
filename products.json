@@ -884,21 +884,26 @@
   {
    "id": "mve2zhquc",
    "name": "Golden Moon Owls Textured Art",
-   "category": "Textured Art",
+   "category": "Textured Art, Abstract Art, Nature",
+   "categories": [
+    "Textured Art",
+    "Abstract Art",
+    "Nature"
+   ],
    "theme": "",
-   "shape": "Vertical",
+   "shape": "Square",
    "sizes": [
     [
-     "16*24 inch",
+     "24*24 inch",
      8499
     ],
     [
-     "24*36 inch",
-     9199
+     "36*36 inch",
+     9500
     ],
     [
-     "32*48 inch",
-     9899
+     "48*48 inch",
+     11750
     ]
    ],
    "desc": "Two owls sit close together on a fine branch before a large golden moon and deep forest-green background. Warm neutral feathers and delicate gold accents create a serene, intimate composition.",
@@ -910,7 +915,7 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
+   "updatedAt": "2026-10-26T05:31:05.115Z"
   },
   {
    "id": "mvo4n1zl0",

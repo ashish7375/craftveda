@@ -1962,12 +1962,13 @@
   {
    "id": "mvpqz1a17",
    "name": "Golden Lotus Bloom",
-   "category": "Nature, Spiritual Art",
+   "category": "Nature, Spiritual Art, Vastu",
    "categories": [
     "Nature",
-    "Spiritual Art"
+    "Spiritual Art",
+    "Vastu"
    ],
-   "theme": "Lotus",
+   "theme": "",
    "shape": "Vertical",
    "sizes": [
     [
@@ -1984,11 +1985,15 @@
     ]
    ],
    "desc": "An ivory lotus with gold-edged petals and deep green leaves, rendered in a richly textured style.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-lotus-bloom-1-mvprdj7j.jpg",
+    "images/golden-lotus-bloom-2-mvprdlnx.jpg",
+    "images/golden-lotus-bloom-3-mvprdo1x.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:18:27.127Z"
   },
   {
    "id": "mvpqz1a18",

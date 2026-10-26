@@ -1610,13 +1610,15 @@
   {
    "id": "mvot0z5z8",
    "name": "Kerala Backwater Glow",
-   "category": "Nature Art, Landscape Art, Tropical Art",
+   "category": "Nature Art, Landscape Art, Tropical Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
-    "Tropical Art"
+    "Tropical Art",
+    "Nature",
+    "Abstract Art"
    ],
-   "theme": "Tropical Backwaters",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -1633,11 +1635,15 @@
     ]
    ],
    "desc": "A traditional houseboat glides across tranquil tropical backwaters framed by swaying palms and lush greenery. Peach and golden sunset reflections shimmer across the water, celebrating the peaceful charm of India's tropical landscapes.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/kerala-backwater-glow-1-mvotgguh.jpg",
+    "images/kerala-backwater-glow-2-mvotgjil.jpg",
+    "images/kerala-backwater-glow-3-mvotgluy.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:28:57.535Z"
   },
   {
    "id": "mvot0z5z9",

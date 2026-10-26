@@ -1496,13 +1496,15 @@
   {
    "id": "mvot0z5z5",
    "name": "Enchanted Forest of Life",
-   "category": "Nature Art, Wildlife Art, Folk Art",
+   "category": "Nature Art, Wildlife Art, Folk Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Wildlife Art",
-    "Folk Art"
+    "Folk Art",
+    "Nature",
+    "Abstract Art"
    ],
-   "theme": "Tree of Life",
+   "theme": "",
    "shape": "Square",
    "sizes": [
     [
@@ -1519,11 +1521,15 @@
     ]
    ],
    "desc": "A richly decorated tree shelters a vibrant peacock, graceful deer and a watchful owl amid jewel-toned foliage. Inspired by traditional folk-art motifs, the composition celebrates wildlife, growth and the interconnected beauty of nature.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/enchanted-forest-of-life-1-mvotcp1n.jpg",
+    "images/enchanted-forest-of-life-2-mvotcrdo.jpg",
+    "images/enchanted-forest-of-life-3-mvotctt4.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:26:14.383Z"
   },
   {
    "id": "mvot0z5z6",

@@ -1712,33 +1712,39 @@
   {
    "id": "mvpqz1a10",
    "name": "Golden Horizon Horses",
-   "category": "Nature, Animal Art",
+   "category": "Animal Art, Abstract Art, Vastu, Textured Art",
    "categories": [
-    "Nature",
-    "Animal Art"
+    "Animal Art",
+    "Abstract Art",
+    "Vastu",
+    "Textured Art"
    ],
-   "theme": "Horses",
-   "shape": "Horizontal",
+   "theme": "",
+   "shape": "Square",
    "sizes": [
     [
-     "24*16 inch",
-     15000
+     "24*24 inch",
+     8500
     ],
     [
-     "36*24 inch",
-     22200
+     "36*36 inch",
+     12000
     ],
     [
-     "48*32 inch",
-     28200
+     "48*48 inch",
+     14500
     ]
    ],
    "desc": "A herd of white horses running through golden grass beneath a glowing sunset, with layered mountains in the distance.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-horizon-horses-1-mvpr0zoq.jpg",
+    "images/golden-horizon-horses-2-mvpr12n7.jpg",
+    "images/golden-horizon-horses-3-mvpr15co.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:08:43.069Z"
   },
   {
    "id": "mvpqz1a11",

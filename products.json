@@ -1998,33 +1998,37 @@
   {
    "id": "mvpqz1a18",
    "name": "Lotus of Golden Light",
-   "category": "Nature, Spiritual Art",
+   "category": "Spiritual Art, Vastu",
    "categories": [
-    "Nature",
-    "Spiritual Art"
+    "Spiritual Art",
+    "Vastu"
    ],
-   "theme": "Lotus",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
      "24*16 inch",
-     15000
+     9500
     ],
     [
      "36*24 inch",
-     22200
+     12500
     ],
     [
      "48*32 inch",
-     28200
+     15250
     ]
    ],
    "desc": "A luminous cream-and-gold lotus in full bloom above dark foliage against a neutral textured backdrop.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/lotus-of-golden-light-1-mvprfy44.jpg",
+    "images/lotus-of-golden-light-2-mvprg0di.jpg",
+    "images/lotus-of-golden-light-3-mvprg2hk.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:20:30.852Z"
   },
   {
    "id": "mvpqz1a19",

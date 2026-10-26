@@ -1534,14 +1534,16 @@
   {
    "id": "mvot0z5z6",
    "name": "Misty Evergreen Lake",
-   "category": "Nature Art, Landscape Art, Forest Art",
+   "category": "Nature Art, Landscape Art, Forest Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
-    "Forest Art"
+    "Forest Art",
+    "Nature",
+    "Abstract Art"
    ],
-   "theme": "Misty Forest Lake",
-   "shape": "Horizontal",
+   "theme": "",
+   "shape": "Vertical",
    "sizes": [
     [
      "16*24 inch",
@@ -1557,11 +1559,15 @@
     ]
    ],
    "desc": "Dense evergreen forests fade into soft layers of mist surrounding a still mountain lake. Muted blue-green tones and delicate reflections create a serene, minimalist landscape that brings a sense of calm to contemporary interiors.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/misty-evergreen-lake-1-mvotdzwa.jpg",
+    "images/misty-evergreen-lake-2-mvote2gs.jpg",
+    "images/misty-evergreen-lake-3-mvote4ol.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T05:16:45.191Z",
-   "updatedAt": "2026-10-26T05:16:45.191Z"
+   "updatedAt": "2026-10-26T05:27:02.228Z"
   },
   {
    "id": "mvot0z5z7",

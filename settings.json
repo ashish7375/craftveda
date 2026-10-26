@@ -26,15 +26,6 @@
       "image": "images/golden-moon-phases-textured-art-1-mve4ooza.jpg"
     },
     {
-      "id": "b3",
-      "title": "Religious",
-      "type": "cat",
-      "target": "Religious",
-      "shape": "tall",
-      "image": "images/bento/religious-tall.jpg",
-      "shapeTablet": "tall"
-    },
-    {
       "id": "b2",
       "title": "Textured Art",
       "type": "cat",
@@ -51,12 +42,12 @@
       "image": "images/bento/vastu-short.jpg"
     },
     {
-      "id": "b4",
-      "title": "Pencil Sketch",
-      "type": "th",
-      "target": "Pencil Sketch",
-      "shape": "short",
-      "image": "images/serene-buddha-textured-art-1-mve4poic.jpg"
+      "id": "b6",
+      "title": "Nature",
+      "type": "cat",
+      "target": "Nature",
+      "shape": "tall",
+      "image": "images/golden-moon-owls-textured-art-1-mve4ry4e.jpg"
     },
     {
       "id": "b5",
@@ -67,12 +58,21 @@
       "image": "images/bento/abstract-art-tall.jpg"
     },
     {
-      "id": "b6",
-      "title": "Nature",
+      "id": "b4",
+      "title": "Pencil Sketch",
+      "type": "th",
+      "target": "Pencil Sketch",
+      "shape": "short",
+      "image": "images/serene-buddha-textured-art-1-mve4poic.jpg"
+    },
+    {
+      "id": "b3",
+      "title": "Religious",
       "type": "cat",
-      "target": "Nature",
+      "target": "Religious",
       "shape": "tall",
-      "image": "images/golden-moon-owls-textured-art-1-mve4ry4e.jpg"
+      "image": "images/bento/religious-tall.jpg",
+      "shapeTablet": "tall"
     }
   ]
 }

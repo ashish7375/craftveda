@@ -591,7 +591,11 @@
   {
    "id": "mve2zhqu1",
    "name": "Golden Moon River Textured Art",
-   "category": "Textured Art",
+   "category": "Textured Art, Nature",
+   "categories": [
+    "Textured Art",
+    "Nature"
+   ],
    "theme": "",
    "shape": "Vertical",
    "sizes": [
@@ -617,7 +621,7 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T17:12:46.228Z"
+   "updatedAt": "2026-10-26T05:32:29.343Z"
   },
   {
    "id": "mve2zhqu2",

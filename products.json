@@ -1301,6 +1301,324 @@
    "featured": false,
    "createdAt": "2026-10-25T17:54:04.880Z",
    "updatedAt": "2026-10-25T18:10:45.089Z"
+  },
+  {
+   "id": "mvot0z5z0",
+   "name": "Alpine Wildflower Valley",
+   "category": "Nature Art, Landscape Art, Floral Art",
+   "categories": [
+    "Nature Art",
+    "Landscape Art",
+    "Floral Art"
+   ],
+   "theme": "Alpine Wildflower Valley",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "16*24 inch",
+     8000
+    ],
+    [
+     "24*36 inch",
+     9400
+    ],
+    [
+     "32*48 inch",
+     10800
+    ]
+   ],
+   "desc": "Snow-capped mountain peaks rise above rolling green meadows filled with vibrant pink, yellow, purple and white wildflowers. A sparkling stream winds through the valley, creating a cheerful, refreshing nature-inspired scene.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
+  },
+  {
+   "id": "mvot0z5z1",
+   "name": "Golden Lotus Serenity",
+   "category": "Nature Art, Floral Art",
+   "categories": [
+    "Nature Art",
+    "Floral Art"
+   ],
+   "theme": "Golden Lotus Pond",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8300
+    ],
+    [
+     "36*24 inch",
+     9700
+    ],
+    [
+     "48*32 inch",
+     11200
+    ]
+   ],
+   "desc": "Graceful pink and ivory lotus flowers bloom among deep teal lily pads, illuminated by shimmering golden reflections. Rich painterly textures and warm highlights evoke the peaceful beauty of a tranquil pond.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
+  },
+  {
+   "id": "mvot0z5z2",
+   "name": "Himalayan Golden Hour",
+   "category": "Nature Art, Landscape Art, Mountain Art",
+   "categories": [
+    "Nature Art",
+    "Landscape Art",
+    "Mountain Art"
+   ],
+   "theme": "Himalayan Sunrise",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8500
+    ],
+    [
+     "36*24 inch",
+     9900
+    ],
+    [
+     "48*32 inch",
+     11400
+    ]
+   ],
+   "desc": "Majestic Himalayan peaks glow beneath a luminous golden-orange sky as sunlight touches their snowy ridges. Layered blue mountains, rugged rocks and colorful prayer flags capture the serenity and grandeur of a high-altitude landscape.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
+  },
+  {
+   "id": "mvot0z5z3",
+   "name": "Autumn Lake Reflections",
+   "category": "Nature Art, Landscape Art",
+   "categories": [
+    "Nature Art",
+    "Landscape Art"
+   ],
+   "theme": "Autumn Lake",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8200
+    ],
+    [
+     "36*24 inch",
+     9550
+    ],
+    [
+     "48*32 inch",
+     11000
+    ]
+   ],
+   "desc": "Fiery autumn foliage frames a peaceful lake where a traditional wooden boat rests on reflective water. Misty mountain peaks and warm sunset tones create a captivating scene inspired by the quiet beauty of autumn.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
+  },
+  {
+   "id": "mvot0z5z4",
+   "name": "Desert Dusk Serenity",
+   "category": "Nature Art, Landscape Art, Desert Art",
+   "categories": [
+    "Nature Art",
+    "Landscape Art",
+    "Desert Art"
+   ],
+   "theme": "Desert Sunset",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8000
+    ],
+    [
+     "36*24 inch",
+     9300
+    ],
+    [
+     "48*32 inch",
+     10700
+    ]
+   ],
+   "desc": "Sweeping terracotta and amber dunes glow beneath a dramatic setting sun. A distant camel caravan and historic desert fort add depth and character, capturing the timeless charm of a warm desert horizon.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
+  },
+  {
+   "id": "mvot0z5z5",
+   "name": "Enchanted Forest of Life",
+   "category": "Nature Art, Wildlife Art, Folk Art",
+   "categories": [
+    "Nature Art",
+    "Wildlife Art",
+    "Folk Art"
+   ],
+   "theme": "Tree of Life",
+   "shape": "Square",
+   "sizes": [
+    [
+     "16*16 inch",
+     8600
+    ],
+    [
+     "24*24 inch",
+     10000
+    ],
+    [
+     "32*32 inch",
+     11500
+    ]
+   ],
+   "desc": "A richly decorated tree shelters a vibrant peacock, graceful deer and a watchful owl amid jewel-toned foliage. Inspired by traditional folk-art motifs, the composition celebrates wildlife, growth and the interconnected beauty of nature.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
+  },
+  {
+   "id": "mvot0z5z6",
+   "name": "Misty Evergreen Lake",
+   "category": "Nature Art, Landscape Art, Forest Art",
+   "categories": [
+    "Nature Art",
+    "Landscape Art",
+    "Forest Art"
+   ],
+   "theme": "Misty Forest Lake",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "16*24 inch",
+     8100
+    ],
+    [
+     "24*36 inch",
+     9450
+    ],
+    [
+     "32*48 inch",
+     10900
+    ]
+   ],
+   "desc": "Dense evergreen forests fade into soft layers of mist surrounding a still mountain lake. Muted blue-green tones and delicate reflections create a serene, minimalist landscape that brings a sense of calm to contemporary interiors.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
+  },
+  {
+   "id": "mvot0z5z7",
+   "name": "Sunlit Mountain Majesty",
+   "category": "Nature Art, Landscape Art, Mountain Art",
+   "categories": [
+    "Nature Art",
+    "Landscape Art",
+    "Mountain Art"
+   ],
+   "theme": "Mountain Sunset",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "16*24 inch",
+     8400
+    ],
+    [
+     "24*36 inch",
+     9800
+    ],
+    [
+     "32*48 inch",
+     11300
+    ]
+   ],
+   "desc": "Towering snow-covered mountains catch the fiery glow of a setting sun, revealing dramatic textures in gold, slate blue and lavender. Dark pine silhouettes anchor the foreground, creating a bold and uplifting alpine landscape.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
+  },
+  {
+   "id": "mvot0z5z8",
+   "name": "Kerala Backwater Glow",
+   "category": "Nature Art, Landscape Art, Tropical Art",
+   "categories": [
+    "Nature Art",
+    "Landscape Art",
+    "Tropical Art"
+   ],
+   "theme": "Tropical Backwaters",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8300
+    ],
+    [
+     "36*24 inch",
+     9650
+    ],
+    [
+     "48*32 inch",
+     11100
+    ]
+   ],
+   "desc": "A traditional houseboat glides across tranquil tropical backwaters framed by swaying palms and lush greenery. Peach and golden sunset reflections shimmer across the water, celebrating the peaceful charm of India's tropical landscapes.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
+  },
+  {
+   "id": "mvot0z5z9",
+   "name": "Banyan Tree at Sunset",
+   "category": "Nature Art, Landscape Art, Folk Art",
+   "categories": [
+    "Nature Art",
+    "Landscape Art",
+    "Folk Art"
+   ],
+   "theme": "Sacred Banyan Tree",
+   "shape": "Square",
+   "sizes": [
+    [
+     "16*16 inch",
+     8500
+    ],
+    [
+     "24*24 inch",
+     9950
+    ],
+    [
+     "32*32 inch",
+     11450
+    ]
+   ],
+   "desc": "An ancient banyan tree spreads its magnificent branches and hanging roots beneath a glowing orange sunset. A quiet village, grazing cattle and a reflective pond evoke rural life and the enduring connection between people and nature.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-10-26T05:16:45.191Z",
+   "updatedAt": "2026-10-26T05:16:45.191Z"
   }
  ]
 }

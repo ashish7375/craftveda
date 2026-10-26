@@ -1928,12 +1928,11 @@
   {
    "id": "mvpqz1a16",
    "name": "Buddha of Quiet Wisdom",
-   "category": "Religious, Custom Art",
+   "category": "Vastu",
    "categories": [
-    "Religious",
-    "Custom Art"
+    "Vastu"
    ],
-   "theme": "Buddha",
+   "theme": "",
    "shape": "Vertical",
    "sizes": [
     [
@@ -1950,11 +1949,15 @@
     ]
    ],
    "desc": "A serene Buddha portrait in ivory, stone, and antique gold tones with a softly weathered textured background.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/buddha-of-quiet-wisdom-1-mvprc6sn.jpg",
+    "images/buddha-of-quiet-wisdom-2-mvprc9k4.jpg",
+    "images/buddha-of-quiet-wisdom-3-mvprcc8t.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
-   "updatedAt": "2026-10-26T21:07:01.561Z"
+   "updatedAt": "2026-10-26T21:17:25.301Z"
   },
   {
    "id": "mvpqz1a17",

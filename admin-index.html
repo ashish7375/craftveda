@@ -1513,19 +1513,19 @@
             left: auto;
             bottom: auto;
             transform: none;
-            background: #0F172A;
-            color: #F8FAFC;
+            background: var(--navy);
+            color: #FFFFFF;
             padding: 0;
-            border-radius: 8px;
+            border-radius: var(--radius);
             z-index: 100000;
-            min-width: 290px;
-            max-width: 420px;
-            box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.38), 0 6px 14px -6px rgba(0, 0, 0, 0.28);
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            min-width: 270px;
+            max-width: 400px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.16);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            animation: toastSlideIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: toastSlideIn 0.22s ease-out forwards;
             pointer-events: auto;
         }
 
@@ -1534,14 +1534,14 @@
         }
 
         #toast.hiding {
-            animation: toastSlideOut 0.2s cubic-bezier(0.4, 0, 1, 1) forwards;
+            animation: toastSlideOut 0.2s ease-in forwards;
         }
 
         .toast-body {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 14px;
+            padding: 12px 18px;
         }
 
         .toast-icon {
@@ -1553,37 +1553,16 @@
 
         .toast-msg {
             flex: 1;
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 500;
             line-height: 1.4;
-            color: #F1F5F9;
+            color: #FFFFFF;
             word-break: break-word;
-        }
-
-        .toast-close {
-            background: none;
-            border: none;
-            color: #94A3B8;
-            cursor: pointer;
-            padding: 4px;
-            margin: -4px -4px -4px 4px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            line-height: 1;
-            transition: color 0.15s, background 0.15s;
-        }
-
-        .toast-close:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.12);
         }
 
         .toast-bar {
             height: 3px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             width: 100%;
             overflow: hidden;
         }
@@ -1591,18 +1570,18 @@
         .toast-progress {
             height: 100%;
             width: 100%;
-            background: #22C55E; /* Emerald green countdown bar */
+            background: var(--ok); /* Standard CraftVeda success green (#1B7F4B) */
             animation: toastCountdown 3s linear forwards;
             transform-origin: left center;
         }
 
         #toast.err {
-            background: #18090C;
-            border-color: rgba(239, 68, 68, 0.4);
+            background: var(--bad); /* Standard CraftVeda error red (#B3261E) */
+            border-color: rgba(255, 255, 255, 0.25);
         }
 
         #toast.err .toast-progress {
-            background: #EF4444; /* Red countdown bar for errors */
+            background: #FFFFFF;
         }
 
         #toast.busy .toast-bar {
@@ -1610,34 +1589,29 @@
         }
 
         #toast.busy .toast-progress {
-            background: #38BDF8;
+            background: var(--cu); /* Standard CraftVeda copper (#B5654A) */
             animation: toastBusyPulse 1.2s infinite ease-in-out;
-        }
-
-        /* Hover pauses countdown progress line */
-        #toast:hover .toast-progress {
-            animation-play-state: paused;
         }
 
         @keyframes toastSlideIn {
             from {
                 opacity: 0;
-                transform: translateX(36px) scale(0.95);
+                transform: translateX(30px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0) scale(1);
+                transform: translateX(0);
             }
         }
 
         @keyframes toastSlideOut {
             from {
                 opacity: 1;
-                transform: translateX(0) scale(1);
+                transform: translateX(0);
             }
             to {
                 opacity: 0;
-                transform: translateX(30px) scale(0.95);
+                transform: translateX(25px);
             }
         }
 
@@ -2678,14 +2652,21 @@
         const $ = s => document.querySelector(s);
         const money = n => "Rs. " + Number(n).toLocaleString("en-IN");
         const esc = t => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+        /* SVG Placeholder generator for missing/loading images */
+        const ph = (n, k = 0) => {
+            let h = 0;
+            const str = String(n || "Art");
+            for (const c of str) h = (h * 31 + c.charCodeAt(0)) % 360;
+            const g = `<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='hsl(${h},35%,26%)'/><stop offset='1' stop-color='hsl(${(h + 45) % 360},45%,64%)'/></linearGradient></defs>`;
+            const b = `<rect width='400' height='500' fill='url(#g)'/><circle cx='285' cy='165' r='88' fill='hsla(${h},30%,92%,.28)'/><path d='M0 410 L120 285 L210 365 L300 255 L400 385 V500 H0Z' fill='hsla(${h},40%,14%,.45)'/>`;
+            return "data:image/svg+xml," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'>${g}${b}</svg>`);
+        };
         const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "art";
 
         let data = { items: [] }, view = "dash", Q = "", FC = "", FS = "", QSORT = "updated-desc", filtersOpen = false, selectedCatForThemes = null, tt;
         let selectedIds = new Set();
         let artworkViewMode = localStorage.getItem("craftveda_artwork_view_mode") || "detail"; // "detail" | "image" | "small"
-
-        let toastPauseStart = 0;
-        let toastTimeRemaining = 3000;
 
         function hideToast() {
             const t = $("#toast");
@@ -2713,49 +2694,23 @@
             t.hidden = false;
 
             const iconHtml = isErr
-                ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`
-                : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
+                ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`
+                : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
 
             t.innerHTML = `
                 <div class="toast-body">
                     <div class="toast-icon">${iconHtml}</div>
                     <div class="toast-msg">${esc(String(m))}</div>
-                    <button class="toast-close" type="button" aria-label="Dismiss">&times;</button>
                 </div>
                 <div class="toast-bar">
                     <div class="toast-progress"></div>
                 </div>
             `;
 
-            const closeBtn = t.querySelector(".toast-close");
-            if (closeBtn) closeBtn.onclick = hideToast;
-
-            // Exactly 3-second toast with visual disappearance line
-            const duration = 3000;
-            toastTimeRemaining = duration;
-            toastPauseStart = 0;
-
-            const startDismissTimer = (ms) => {
-                clearTimeout(tt);
-                toastPauseStart = Date.now();
-                tt = setTimeout(() => {
-                    hideToast();
-                }, ms);
-            };
-
-            startDismissTimer(toastTimeRemaining);
-
-            t.onmouseenter = () => {
-                clearTimeout(tt);
-                if (toastPauseStart > 0) {
-                    const elapsed = Date.now() - toastPauseStart;
-                    toastTimeRemaining = Math.max(300, toastTimeRemaining - elapsed);
-                }
-            };
-
-            t.onmouseleave = () => {
-                startDismissTimer(toastTimeRemaining);
-            };
+            // Automatically disappears in exactly 3 seconds with visual countdown line
+            tt = setTimeout(() => {
+                hideToast();
+            }, 3000);
         }
 
         const busy = m => {
@@ -2768,13 +2723,11 @@
             }
             t.className = "busy";
             t.hidden = false;
-            t.onmouseenter = null;
-            t.onmouseleave = null;
 
             t.innerHTML = `
                 <div class="toast-body">
                     <div class="toast-icon">
-                        <svg class="toast-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="toast-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cu)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
                         </svg>
                     </div>
@@ -4275,14 +4228,30 @@
         }
 
         function autoMatchTileImage(targetName) {
-            if (!targetName || !Array.isArray(data.items)) return "";
+            if (!targetName) return ph("Art");
             const tgt = targetName.trim().toLowerCase();
-            const match = data.items.find(x => {
-                const cats = getItemCategories(x).map(s => s.toLowerCase());
-                const th = (x.theme || "").toLowerCase();
-                return cats.includes(tgt) || th === tgt;
-            });
-            return (match && match.images && match.images[0]) || "";
+            if (Array.isArray(data.items) && data.items.length) {
+                // 1. Direct match on theme or category
+                let match = data.items.find(x => {
+                    const cats = getItemCategories(x).map(s => s.toLowerCase());
+                    const th = (x.theme || "").toLowerCase();
+                    return cats.includes(tgt) || th === tgt;
+                });
+                if (match && match.images && match.images[0]) return match.images[0];
+
+                // 2. Find parent category if target is a theme
+                for (const [cat, themes] of Object.entries(THEMES || {})) {
+                    if ((themes || []).some(t => t.toLowerCase() === tgt)) {
+                        match = data.items.find(x => getItemCategories(x).map(s => s.toLowerCase()).includes(cat.toLowerCase()));
+                        if (match && match.images && match.images[0]) return match.images[0];
+                    }
+                }
+
+                // 3. Any catalog item with an image
+                const anyItem = data.items.find(x => x.images && x.images[0]);
+                if (anyItem && anyItem.images && anyItem.images[0]) return anyItem.images[0];
+            }
+            return ph(targetName);
         }
 
         function getBalancedTileShape(tileIdx, screen = "laptop") {
@@ -4299,7 +4268,16 @@
 
         function bentoView() {
             if (!settings.bento || !Array.isArray(settings.bento) || !settings.bento.length) {
-                settings.bento = JSON.parse(JSON.stringify(DEFAULT_BENTO));
+                try {
+                    const localS = localStorage.getItem("cv_settings");
+                    if (localS) {
+                        const parsed = JSON.parse(localS);
+                        if (Array.isArray(parsed.bento) && parsed.bento.length) settings.bento = parsed.bento;
+                    }
+                } catch (_) { }
+                if (!settings.bento || !Array.isArray(settings.bento) || !settings.bento.length) {
+                    settings.bento = JSON.parse(JSON.stringify(DEFAULT_BENTO));
+                }
             }
 
             if (selectedBentoIndex < 0 || selectedBentoIndex >= settings.bento.length) {
@@ -4459,9 +4437,12 @@
         </optgroup>
        `).join('')}
       </select>
+      <label style="font-weight:600;color:var(--navy);font-size:12px;margin-top:10px;margin-bottom:4px;display:block">
+       Card Display Name
+      </label>
+      <input id="bento-title-in" value="${esc(curTile.title)}" placeholder="e.g. Textured Art" style="font-size:13.5px;padding:8px 10px;width:100%;border:1.5px solid var(--ln);border-radius:6px;background:#fff;font-weight:600;color:var(--navy)">
+
       <div style="margin-top:6px;font-size:11px;color:var(--gr);display:flex;align-items:center;gap:6px">
-       <span>Display: <b style="color:var(--navy)">${esc(curTile.title)}</b></span>
-       <span>•</span>
        <span>Store Link: <code style="font-size:10.5px">#/${curTile.type === 'cat' ? 'cat' : 'th'}/${encodeURIComponent(curTile.target)}</code></span>
       </div>
      </div>
@@ -4780,6 +4761,27 @@
 
             const curTile = settings.bento[selectedBentoIndex] || settings.bento[0];
 
+            // Card Display Name Input
+            const titleIn = $("#bento-title-in");
+            if (titleIn) {
+                titleIn.oninput = e => {
+                    const newTitle = e.target.value;
+                    curTile.title = newTitle;
+                    const previewTitle = document.querySelector(`.bt-tile-admin[data-tile-idx="${selectedBentoIndex}"] .bt-tile-title`);
+                    if (previewTitle) previewTitle.textContent = newTitle;
+                };
+                titleIn.onchange = async () => {
+                    busy("Saving tile name...");
+                    try {
+                        await saveSettings(`Renamed Bento tile to "${curTile.title}"`);
+                        toast(`Saved title "${curTile.title}"`);
+                    } catch (err) {
+                        toast(err.message, 1);
+                    }
+                    render();
+                };
+            }
+
             // Unified Category / Theme Select (Sets Title & Link and auto-saves)
             const targetSelect = $("#bento-target-select");
             if (targetSelect) {
@@ -5018,14 +5020,15 @@
 
                     settings.bento.push(newTile);
                     selectedBentoIndex = settings.bento.length - 1;
-                    busy(`Adding Bento tile for "${newTile.title}"...`);
+                    render(); // Render immediately so new tile appears in visual grid instantly!
+
+                    busy(`Saving Bento tile for "${newTile.title}"...`);
                     try {
                         await saveSettings(`Added Bento tile: ${newTile.title}`);
                         toast(`Added tile "${newTile.title}" (${nextTarget.type === "cat" ? "Category" : "Theme"})`);
                     } catch (err) {
                         toast(err.message, 1);
                     }
-                    render();
                 };
             }
 

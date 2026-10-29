@@ -52,10 +52,11 @@ export async function onRequest({ request, env, params }) {
     body.branch = branch;
   }
   const apiUrl = `https://api.github.com/repos/${env.GH_REPO}/contents/${path}` +
-    (method === "GET" ? `?ref=${encodeURIComponent(branch)}` : "");
+    (method === "GET" ? `?ref=${encodeURIComponent(branch)}&t=${Date.now()}` : "");
   try {
     const response = await fetch(apiUrl, {
       method,
+      cache: "no-store",
       headers: {
         Authorization: `Bearer ${env.GH_TOKEN}`,
         Accept: "application/vnd.github+json",

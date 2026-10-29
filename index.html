@@ -4413,6 +4413,11 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             const cols = [];
             for (let i = 0; i < items.length; i += 2)
                 cols.push(items.slice(i, i + 2));
+            if (window.innerWidth > 900) {
+                el.style.gridTemplateColumns = `repeat(${Math.max(2, cols.length)}, 1fr)`;
+            } else {
+                el.style.gridTemplateColumns = "";
+            }
             let bentoCache = {};
             try {
                 bentoCache = JSON.parse(

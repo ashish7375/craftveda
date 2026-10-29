@@ -1503,22 +1503,183 @@
             margin-top: 18px
         }
 
+        /* ========================================================================== */
+        /* >>> TOP-RIGHT FLOATING 3-SEC TOAST NOTIFICATION <<<                       */
+        /* ========================================================================== */
         #toast {
             position: fixed;
-            left: 50%;
-            bottom: 24px;
-            transform: translateX(-50%);
-            background: var(--navy);
+            top: 24px;
+            right: 24px;
+            left: auto;
+            bottom: auto;
+            transform: none;
+            background: #0F172A;
+            color: #F8FAFC;
+            padding: 0;
+            border-radius: 8px;
+            z-index: 100000;
+            min-width: 290px;
+            max-width: 420px;
+            box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.38), 0 6px 14px -6px rgba(0, 0, 0, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: toastSlideIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            pointer-events: auto;
+        }
+
+        #toast[hidden] {
+            display: none !important;
+        }
+
+        #toast.hiding {
+            animation: toastSlideOut 0.2s cubic-bezier(0.4, 0, 1, 1) forwards;
+        }
+
+        .toast-body {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+        }
+
+        .toast-icon {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toast-msg {
+            flex: 1;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #F1F5F9;
+            word-break: break-word;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: #94A3B8;
+            cursor: pointer;
+            padding: 4px;
+            margin: -4px -4px -4px 4px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            line-height: 1;
+            transition: color 0.15s, background 0.15s;
+        }
+
+        .toast-close:hover {
             color: #fff;
-            padding: 12px 22px;
-            border-radius: var(--radius);
-            z-index: 50;
-            max-width: 92vw;
-            box-shadow: var(--shadow-lg)
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .toast-bar {
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .toast-progress {
+            height: 100%;
+            width: 100%;
+            background: #22C55E; /* Emerald green countdown bar */
+            animation: toastCountdown 3s linear forwards;
+            transform-origin: left center;
         }
 
         #toast.err {
-            background: var(--bad)
+            background: #18090C;
+            border-color: rgba(239, 68, 68, 0.4);
+        }
+
+        #toast.err .toast-progress {
+            background: #EF4444; /* Red countdown bar for errors */
+        }
+
+        #toast.busy .toast-bar {
+            display: block;
+        }
+
+        #toast.busy .toast-progress {
+            background: #38BDF8;
+            animation: toastBusyPulse 1.2s infinite ease-in-out;
+        }
+
+        /* Hover pauses countdown progress line */
+        #toast:hover .toast-progress {
+            animation-play-state: paused;
+        }
+
+        @keyframes toastSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(36px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        @keyframes toastSlideOut {
+            from {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(30px) scale(0.95);
+            }
+        }
+
+        @keyframes toastCountdown {
+            from {
+                width: 100%;
+            }
+            to {
+                width: 0%;
+            }
+        }
+
+        @keyframes toastBusyPulse {
+            0% {
+                transform: translateX(-100%);
+            }
+            50% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes toastSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .toast-spinner {
+            animation: toastSpin 0.9s linear infinite;
+        }
+
+        @media (max-width: 600px) {
+            #toast {
+                top: 14px;
+                right: 14px;
+                left: 14px;
+                max-width: calc(100vw - 28px);
+                min-width: 0;
+            }
         }
 
         /* Dropdown Menu & Validation */
@@ -2523,15 +2684,107 @@
         let selectedIds = new Set();
         let artworkViewMode = localStorage.getItem("craftveda_artwork_view_mode") || "detail"; // "detail" | "image" | "small"
 
+        let toastPauseStart = 0;
+        let toastTimeRemaining = 3000;
+
+        function hideToast() {
+            const t = $("#toast");
+            if (!t || t.hidden) return;
+            clearTimeout(tt);
+            t.classList.add("hiding");
+            setTimeout(() => {
+                t.hidden = true;
+                t.classList.remove("hiding");
+                t.innerHTML = "";
+            }, 200);
+        }
+
         function toast(m, err) {
             const t = $("#toast");
-            t.textContent = m;
-            t.className = err ? "err" : "";
-            t.hidden = false;
+            if (!t) return;
             clearTimeout(tt);
-            if (m) tt = setTimeout(() => t.hidden = true, err ? 6000 : 3500);
+            if (!m) {
+                hideToast();
+                return;
+            }
+
+            const isErr = !!err;
+            t.className = isErr ? "err" : "";
+            t.hidden = false;
+
+            const iconHtml = isErr
+                ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`
+                : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
+
+            t.innerHTML = `
+                <div class="toast-body">
+                    <div class="toast-icon">${iconHtml}</div>
+                    <div class="toast-msg">${esc(String(m))}</div>
+                    <button class="toast-close" type="button" aria-label="Dismiss">&times;</button>
+                </div>
+                <div class="toast-bar">
+                    <div class="toast-progress"></div>
+                </div>
+            `;
+
+            const closeBtn = t.querySelector(".toast-close");
+            if (closeBtn) closeBtn.onclick = hideToast;
+
+            // Exactly 3-second toast with visual disappearance line
+            const duration = 3000;
+            toastTimeRemaining = duration;
+            toastPauseStart = 0;
+
+            const startDismissTimer = (ms) => {
+                clearTimeout(tt);
+                toastPauseStart = Date.now();
+                tt = setTimeout(() => {
+                    hideToast();
+                }, ms);
+            };
+
+            startDismissTimer(toastTimeRemaining);
+
+            t.onmouseenter = () => {
+                clearTimeout(tt);
+                if (toastPauseStart > 0) {
+                    const elapsed = Date.now() - toastPauseStart;
+                    toastTimeRemaining = Math.max(300, toastTimeRemaining - elapsed);
+                }
+            };
+
+            t.onmouseleave = () => {
+                startDismissTimer(toastTimeRemaining);
+            };
         }
-        const busy = m => { const t = $("#toast"); t.textContent = m; t.className = ""; t.hidden = false; clearTimeout(tt) };
+
+        const busy = m => {
+            const t = $("#toast");
+            if (!t) return;
+            clearTimeout(tt);
+            if (!m) {
+                hideToast();
+                return;
+            }
+            t.className = "busy";
+            t.hidden = false;
+            t.onmouseenter = null;
+            t.onmouseleave = null;
+
+            t.innerHTML = `
+                <div class="toast-body">
+                    <div class="toast-icon">
+                        <svg class="toast-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                        </svg>
+                    </div>
+                    <div class="toast-msg">${esc(String(m))}</div>
+                </div>
+                <div class="toast-bar">
+                    <div class="toast-progress"></div>
+                </div>
+            `;
+        };
 
         const updatePublishStatusChip = () => {};
         const notifySaved = () => {};
@@ -2708,7 +2961,69 @@
             return path
         }
 
-        async function delImage(p) { try { const g = await gh(p, { q: "?ref=" + cfg.branch }); if (!g.ok) return; await gh(p, { method: "DELETE", body: { message: "Remove " + p, sha: (await g.json()).sha, branch: cfg.branch } }) } catch (e) { } }
+        function isImageInUse(imgUrl, excludeArtworkId = null) {
+            if (!imgUrl || typeof imgUrl !== "string") return false;
+            const clean = imgUrl.replace(/^\/+/, "");
+            const inArtworks = (data.items || []).some(item => {
+                if (excludeArtworkId && item.id === excludeArtworkId) return false;
+                return (item.images || []).some(img => img && img.replace(/^\/+/, "") === clean);
+            });
+            if (inArtworks) return true;
+            if (typeof settings !== "undefined" && settings && Array.isArray(settings.bento)) {
+                if (settings.bento.some(t => t.image && t.image.replace(/^\/+/, "") === clean)) return true;
+            }
+            return false;
+        }
+
+        async function delImage(p) {
+            if (!p || typeof p !== "string") return;
+            const clean = p.replace(/^\/+/, "");
+            const path = clean.startsWith("images/") ? clean : "images/" + clean;
+
+            for (let i = 0; i < 3; i++) {
+                try {
+                    const g = await gh(path, { q: `?ref=${cfg.branch}&t=${Date.now()}` });
+                    if (g.status === 404) return;
+                    if (!g.ok) {
+                        console.warn(`[delImage] Could not check ${path} (${g.status})`);
+                        await new Promise(r => setTimeout(r, 600));
+                        continue;
+                    }
+                    const info = await g.json().catch(() => null);
+                    if (!info || !info.sha) return;
+
+                    const r = await gh(path, {
+                        method: "DELETE",
+                        body: {
+                            message: "Remove " + path,
+                            sha: info.sha,
+                            branch: cfg.branch
+                        }
+                    });
+                    if (r.ok || r.status === 404) return;
+                    if (r.status === 409 || r.status === 422) {
+                        await new Promise(r => setTimeout(r, 800));
+                        continue;
+                    }
+                    console.warn(`[delImage] Failed to delete ${path}: status ${r.status}`);
+                    return;
+                } catch (e) {
+                    console.warn(`[delImage] Error deleting ${path}:`, e);
+                    await new Promise(r => setTimeout(r, 600));
+                }
+            }
+        }
+
+        async function deleteArtworkImages(images, excludeArtworkId = null) {
+            const list = (images || []).filter(Boolean);
+            for (let k = 0; k < list.length; k++) {
+                const imgPath = list[k];
+                if (imgPath && !isImageInUse(imgPath, excludeArtworkId)) {
+                    busy(`Removing image ${k + 1} of ${list.length}...`);
+                    await delImage(imgPath);
+                }
+            }
+        }
 
         function toJpeg(file, fit) {
             return new Promise((ok, no) => {
@@ -3408,12 +3723,13 @@
                 }
                 else if (b.dataset.d && confirm(`Delete "${it.name}" permanently?`)) {
                     try {
-                        busy("Deleting...");
+                        busy("Deleting artwork...");
                         const keep = data.items;
+                        const toDeleteImages = [...(it.images || [])];
                         data.items = keep.filter(x => x.id !== id);
                         selectedIds.delete(id);
                         try { await save("Delete " + it.name) } catch (x) { data.items = keep; throw x }
-                        it.images.forEach(p => p && delImage(p));
+                        await deleteArtworkImages(toDeleteImages, id);
                         toast("Deleted " + it.name);
                         render();
                     } catch (x) { toast(x.message, 1) }
@@ -3527,12 +3843,13 @@
                 }
                 else if (b.dataset.d && confirm(`Delete "${it.name}" permanently?`)) {
                     try {
-                        busy("Deleting...");
+                        busy("Deleting artwork...");
                         const keep = data.items;
+                        const toDeleteImages = [...(it.images || [])];
                         data.items = keep.filter(x => x.id !== id);
                         selectedIds.delete(id);
                         try { await save("Delete " + it.name) } catch (x) { data.items = keep; throw x }
-                        it.images.forEach(p => p && delImage(p));
+                        await deleteArtworkImages(toDeleteImages, id);
                         toast("Deleted");
                         render();
                     } catch (x) { toast(x.message, 1) }
@@ -3654,11 +3971,24 @@
             const count = selectedIds.size;
             if (!confirm(`Permanently delete all ${count} selected artworks? This action cannot be undone.`)) return;
             busy(`Deleting ${count} artworks...`);
+            const deletedItems = data.items.filter(it => selectedIds.has(it.id));
             const keep = data.items.filter(it => !selectedIds.has(it.id));
             data.items = keep;
             try {
                 await save(`Bulk deleted ${count} artworks`);
-                toast(`Permanently deleted ${count} artworks`);
+                const allImagesToDelete = [];
+                deletedItems.forEach(it => {
+                    (it.images || []).forEach(p => {
+                        if (p && !allImagesToDelete.includes(p) && !isImageInUse(p)) {
+                            allImagesToDelete.push(p);
+                        }
+                    });
+                });
+                for (let i = 0; i < allImagesToDelete.length; i++) {
+                    busy(`Deleting image ${i + 1} of ${allImagesToDelete.length}...`);
+                    await delImage(allImagesToDelete[i]);
+                }
+                toast(`Permanently deleted ${count} artworks and cleaned up images`);
                 selectedIds.clear();
                 render();
             } catch (err) {
@@ -3918,6 +4248,55 @@
             return tile.shape || "tall";
         }
 
+        /* ========================================================================== */
+        /* >>> BENTO TARGET & SIZING HELPERS <<<                                      */
+        /* ========================================================================== */
+        function getAvailableBentoTargets() {
+            const targets = [];
+            (CATS || []).forEach(c => {
+                if (c) targets.push({ type: "cat", name: c, label: `Category: ${c}` });
+            });
+            Object.entries(THEMES || {}).forEach(([cat, list]) => {
+                (list || []).forEach(th => {
+                    if (th) targets.push({ type: "th", name: th, label: `Theme: ${th} (${cat})` });
+                });
+            });
+            return targets;
+        }
+
+        function getNextBentoTarget() {
+            const all = getAvailableBentoTargets();
+            if (!all.length) return { type: "cat", name: "Textured Art", label: "Category: Textured Art" };
+            const used = new Set((settings.bento || []).map(t => (t.target || t.title || "").trim().toLowerCase()));
+            const unused = all.find(t => !used.has(t.name.trim().toLowerCase()));
+            if (unused) return unused;
+            const idx = (settings.bento || []).length % all.length;
+            return all[idx];
+        }
+
+        function autoMatchTileImage(targetName) {
+            if (!targetName || !Array.isArray(data.items)) return "";
+            const tgt = targetName.trim().toLowerCase();
+            const match = data.items.find(x => {
+                const cats = getItemCategories(x).map(s => s.toLowerCase());
+                const th = (x.theme || "").toLowerCase();
+                return cats.includes(tgt) || th === tgt;
+            });
+            return (match && match.images && match.images[0]) || "";
+        }
+
+        function getBalancedTileShape(tileIdx, screen = "laptop") {
+            if (tileIdx % 2 === 1 && settings.bento && settings.bento[tileIdx - 1]) {
+                const partner = getTileShape(settings.bento[tileIdx - 1], screen);
+                return partner === "tall" ? "short" : "tall";
+            }
+            if (tileIdx >= 2 && settings.bento && settings.bento[tileIdx - 2]) {
+                const prevColStart = getTileShape(settings.bento[tileIdx - 2], screen);
+                return prevColStart === "tall" ? "short" : "tall";
+            }
+            return "short";
+        }
+
         function bentoView() {
             if (!settings.bento || !Array.isArray(settings.bento) || !settings.bento.length) {
                 settings.bento = JSON.parse(JSON.stringify(DEFAULT_BENTO));
@@ -3998,7 +4377,7 @@
      </div>
     </div>
 
-    <div class="bento-grid-preview" id="bento-live-grid">
+    <div class="bento-grid-preview" id="bento-live-grid" style="grid-template-columns: repeat(${bentoDeviceMode === 'laptop' ? Math.max(2, cols.length) : 2}, 1fr)">
      ${cols.map((col, cIdx) => `
       <div class="bcol-preview">
        ${col.map((tile, rIdx) => {
@@ -4401,21 +4780,35 @@
 
             const curTile = settings.bento[selectedBentoIndex] || settings.bento[0];
 
-            // Unified Category / Theme Select (Sets Title & Link)
+            // Unified Category / Theme Select (Sets Title & Link and auto-saves)
             const targetSelect = $("#bento-target-select");
             if (targetSelect) {
-                targetSelect.onchange = () => {
+                targetSelect.onchange = async () => {
                     const val = targetSelect.value;
+                    let newType = "cat";
+                    let newTarget = "";
                     if (val.startsWith("cat:")) {
-                        curTile.type = "cat";
-                        curTile.target = val.slice(4);
-                        curTile.title = curTile.target;
+                        newType = "cat";
+                        newTarget = val.slice(4);
                     } else if (val.startsWith("th:")) {
-                        curTile.type = "th";
-                        curTile.target = val.slice(3);
-                        curTile.title = curTile.target;
+                        newType = "th";
+                        newTarget = val.slice(3);
                     }
-                    toast(`Linked Tile #${selectedBentoIndex + 1} to "${curTile.title}"`);
+                    curTile.type = newType;
+                    curTile.target = newTarget;
+                    curTile.title = newTarget;
+
+                    // If tile has no image or current image was an auto-match, update to new category/theme image
+                    const matched = autoMatchTileImage(newTarget);
+                    if (matched) curTile.image = matched;
+
+                    busy(`Saving Bento tile changes...`);
+                    try {
+                        await saveSettings(`Linked Bento tile #${selectedBentoIndex + 1} to "${curTile.title}"`);
+                        toast(`Linked Tile #${selectedBentoIndex + 1} to "${curTile.title}"`);
+                    } catch (err) {
+                        toast(err.message, 1);
+                    }
                     render();
                 };
             }
@@ -4583,37 +4976,55 @@
                 };
             }
 
-            // Delete tile
+            // Delete tile and automatically modify & save
             const delTileBtn = $("#bento-del-tile");
             if (delTileBtn) {
-                delTileBtn.onclick = () => {
+                delTileBtn.onclick = async () => {
                     if (settings.bento.length <= 4) return alert("A minimum of 4 tiles is required for the layout.");
-                    if (!confirm(`Delete Tile #${selectedBentoIndex + 1} ("${curTile.title}")?`)) return;
+                    const delTitle = curTile.title || `Tile #${selectedBentoIndex + 1}`;
+                    if (!confirm(`Delete Tile #${selectedBentoIndex + 1} ("${delTitle}")?`)) return;
                     settings.bento.splice(selectedBentoIndex, 1);
                     if (selectedBentoIndex >= settings.bento.length) selectedBentoIndex = settings.bento.length - 1;
+                    busy(`Deleting Bento tile...`);
+                    try {
+                        await saveSettings(`Deleted Bento tile: ${delTitle}`);
+                        toast(`Deleted tile "${delTitle}"`);
+                    } catch (err) {
+                        toast(err.message, 1);
+                    }
                     render();
                 };
             }
 
-            // Add tile
+            // Add tile automatically as Category or Theme (no JS prompt)
             const addTileBtn = $("#bento-add-tile-btn");
             if (addTileBtn) {
-                addTileBtn.onclick = () => {
-                    const title = prompt("Enter title for new Bento tile:", "New Style");
-                    if (!title || !title.trim()) return;
-                    const newId = "b" + (settings.bento.length + 1) + "_" + Date.now().toString(36);
-                    settings.bento.push({
+                addTileBtn.onclick = async () => {
+                    const nextTarget = getNextBentoTarget();
+                    const newIdx = settings.bento.length;
+                    const newId = "b" + (newIdx + 1) + "_" + Date.now().toString(36);
+                    const autoImg = autoMatchTileImage(nextTarget.name);
+
+                    const newTile = {
                         id: newId,
-                        title: title.trim(),
-                        type: "cat",
-                        target: CATS[0] || "Textured Art",
-                        shape: "short",
-                        shapeTablet: "short",
-                        shapeMobile: "short",
-                        image: ""
-                    });
+                        title: nextTarget.name,
+                        type: nextTarget.type,
+                        target: nextTarget.name,
+                        shape: getBalancedTileShape(newIdx, "laptop"),
+                        shapeTablet: getBalancedTileShape(newIdx, "tablet"),
+                        shapeMobile: getBalancedTileShape(newIdx, "mobile"),
+                        image: autoImg
+                    };
+
+                    settings.bento.push(newTile);
                     selectedBentoIndex = settings.bento.length - 1;
-                    toast(`Added tile "${title.trim()}"`);
+                    busy(`Adding Bento tile for "${newTile.title}"...`);
+                    try {
+                        await saveSettings(`Added Bento tile: ${newTile.title}`);
+                        toast(`Added tile "${newTile.title}" (${nextTarget.type === "cat" ? "Category" : "Theme"})`);
+                    } catch (err) {
+                        toast(err.message, 1);
+                    }
                     render();
                 };
             }
@@ -5332,6 +5743,18 @@
                     const ix = data.items.findIndex(x => x.id === rec.id);
                     if (ix >= 0) data.items[ix] = rec; else data.items.push(rec);
                     try { await save((isNew ? "Add " : "Update ") + name) } catch (x) { data.items = JSON.parse(before); throw x }
+
+                    // Clean up any replaced or removed images from the previous revision
+                    if (!isNew && it.images && Array.isArray(it.images)) {
+                        const replaced = it.images.filter(p => p && !rec.images.includes(p));
+                        for (const oldP of replaced) {
+                            if (!isImageInUse(oldP, rec.id)) {
+                                busy("Cleaning up replaced image...");
+                                await delImage(oldP);
+                            }
+                        }
+                    }
+
                     $("#modal").hidden = true;
                     toast("Saved. It will be live on the website in 1 to 2 minutes.");
                     render();

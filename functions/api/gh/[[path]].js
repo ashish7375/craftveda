@@ -38,7 +38,7 @@ export async function onRequest({ request, env, params }) {
   }
   const path = [].concat(params.path || []).join("/");
   const ALLOWED_JSON = ["products.json", "settings.json", "templates.json"];
-  if (!ALLOWED_JSON.includes(path) && !/^images\/[a-z0-9][a-z0-9._-]*\.(jpg|jpeg|png|webp)$/i.test(path))
+  if (!ALLOWED_JSON.includes(path) && !/^images\/(?:[a-z0-9_-]+\/)*[a-z0-9][a-z0-9._-]*\.(jpg|jpeg|png|webp)$/i.test(path))
     return out(400, { message: "Path not allowed." });
   const method = request.method;
   if (!["GET", "PUT", "DELETE"].includes(method))

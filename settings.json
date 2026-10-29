@@ -29,7 +29,7 @@
       "title": "Charcoal Sketch",
       "type": "th",
       "target": "Charcoal Sketch",
-      "shape": "short",
+      "shape": "tall",
       "image": "images/moonlit-ocean-textured-art-1-mve6abow.jpg"
     },
     {
@@ -37,7 +37,7 @@
       "title": "Textured Art",
       "type": "cat",
       "target": "Textured Art",
-      "shape": "tall",
+      "shape": "short",
       "image": "images/sacred-ghats-textured-art-1-mvcvio9x.jpg"
     },
     {

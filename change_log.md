@@ -1,5 +1,27 @@
 # CraftVeda Project Change Log
 
+## [Bento Real Images Sync & Local Testing Draft Environment] - 2026-10-30
+### Enhanced in `settings.json`, `admin-index.html`, `draft/index.html` & `change_log.md`
+- **Restored Real Bento Grid Images in Admin Preview**:
+  - Identified that Bento tiles #1 (Charcoal Sketch), #2 (Textured Art), #3 (Vastu), #5 (Abstract Art), and #7 (Religious) in `settings.json` were referencing non-existent placeholder paths (`images/bento/...`), causing them to 404 and fall back to SVG placeholder gradients.
+  - Synced all Bento tile image paths in `settings.json` to the real artwork cover images from `index.html` that exist on disk:
+    - Charcoal Sketch: `images/moonlit-ocean-textured-art-1-mve6abow.jpg`
+    - Textured Art: `images/sacred-ghats-textured-art-1-mvcvio9x.jpg`
+    - Vastu: `images/golden-horizon-sunset-textured-art-1-mve5rwrq.jpg`
+    - Nature: `images/golden-moon-owls-textured-art-1-mve4ry4e.jpg`
+    - Abstract Art: `images/earth-tones-cracked-texture-art-1-mve5xasd.jpg`
+    - Pencil Sketch: `images/serene-buddha-textured-art-1-mve4poic.jpg`
+    - Religious: `images/himalayan-sunset-textured-art-1-mvcum37v.jpg`
+    - Custom Art: `images/ram-sita-watercolor-art-1-mvcvdlzc.jpg`
+  - Added `healBentoImages()` in `admin-index.html` to automatically heal any obsolete `images/bento/` paths in browser `localStorage` or loaded settings to the canonical storefront images.
+  - Upgraded `autoMatchTileImage()` and `onerror` image handlers to gracefully fall back to canonical default images or catalog artworks instead of jumping straight to SVG placeholders.
+- **Created Offline UI Testing Sandbox in `draft/`**:
+  - Created `draft/index.html` and `draft/admin-draft.html` replicating the full CraftVeda Admin UI.
+  - Completely skipped login and authentication logic: `#login` is hidden and `#app` renders immediately upon load.
+  - Set `<base href="../">` so all relative resources (artworks, images, fonts, styles) resolve directly against the project root.
+  - Direct local loading of `products.json`, `settings.json`, and `templates.json` with browser `localStorage` persistence (`cv_draft_products` and `cv_settings`) for safe, isolated UI experimentation without committing to Git or needing backend proxies.
+  - Added a "Reset Draft" button to instantly restore original catalog and settings states.
+
 ## [Admin Bugfix & UI Refinement: Bento Add Freeze Resolution, Tile Rename Input, Palette-Native Toast & Cache Invalidation] - 2026-10-30
 ### Fixed & Enhanced in `admin-index.html`, `functions/api/gh/[[path]].js` & `change_log.md`
 - **Fixed Bento Tile Add UI Freeze**:

@@ -2814,6 +2814,7 @@
                         if (Array.isArray(settings.categories) && settings.categories.length) CATS = [...settings.categories];
                         if (settings.themes) THEMES = JSON.parse(JSON.stringify(settings.themes));
                         if (!Array.isArray(settings.bento) || !settings.bento.length) settings.bento = JSON.parse(JSON.stringify(DEFAULT_BENTO));
+                        healBentoImages(settings.bento);
                         try { localStorage.setItem("cv_settings", JSON.stringify(settings)); localStorage.setItem("craftveda_admin_draft_settings", JSON.stringify(settings)); } catch (e) { }
                     }
                 }
@@ -4227,11 +4228,32 @@
             return all[idx];
         }
 
+        function healBentoImages(bentoList) {
+            if (!Array.isArray(bentoList)) return;
+            bentoList.forEach(t => {
+                if (!t.image || t.image.startsWith("images/bento/")) {
+                    const defM = DEFAULT_BENTO.find(d => 
+                        (d.title || "").toLowerCase() === (t.target || t.title || "").toLowerCase() || 
+                        (d.target || "").toLowerCase() === (t.target || t.title || "").toLowerCase()
+                    );
+                    if (defM && defM.image) t.image = defM.image;
+                }
+            });
+        }
+
         function autoMatchTileImage(targetName) {
             if (!targetName) return ph("Art");
             const tgt = targetName.trim().toLowerCase();
+
+            // 1. Match canonical DEFAULT_BENTO images from storefront index.html
+            const defM = DEFAULT_BENTO.find(d => 
+                (d.title || "").toLowerCase() === tgt || 
+                (d.target || "").toLowerCase() === tgt
+            );
+            if (defM && defM.image) return defM.image;
+
             if (Array.isArray(data.items) && data.items.length) {
-                // 1. Direct match on theme or category
+                // 2. Direct match on theme or category in catalog
                 let match = data.items.find(x => {
                     const cats = getItemCategories(x).map(s => s.toLowerCase());
                     const th = (x.theme || "").toLowerCase();
@@ -4239,7 +4261,7 @@
                 });
                 if (match && match.images && match.images[0]) return match.images[0];
 
-                // 2. Find parent category if target is a theme
+                // 3. Find parent category if target is a theme
                 for (const [cat, themes] of Object.entries(THEMES || {})) {
                     if ((themes || []).some(t => t.toLowerCase() === tgt)) {
                         match = data.items.find(x => getItemCategories(x).map(s => s.toLowerCase()).includes(cat.toLowerCase()));
@@ -4247,7 +4269,7 @@
                     }
                 }
 
-                // 3. Any catalog item with an image
+                // 4. Any catalog item with an image
                 const anyItem = data.items.find(x => x.images && x.images[0]);
                 if (anyItem && anyItem.images && anyItem.images[0]) return anyItem.images[0];
             }
@@ -4267,6 +4289,7 @@
         }
 
         function bentoView() {
+            healBentoImages(settings.bento);
             if (!settings.bento || !Array.isArray(settings.bento) || !settings.bento.length) {
                 try {
                     const localS = localStorage.getItem("cv_settings");
@@ -4362,9 +4385,16 @@
                 const tileIdx = cIdx * 2 + rIdx;
                 const isSel = tileIdx === selectedBentoIndex;
                 let imgUrl = tile.image || "";
+                if (!imgUrl || imgUrl.startsWith("images/bento/")) {
+                    const defM = DEFAULT_BENTO.find(d => 
+                        (d.title || "").toLowerCase() === (tile.target || tile.title || "").toLowerCase() || 
+                        (d.target || "").toLowerCase() === (tile.target || tile.title || "").toLowerCase()
+                    );
+                    if (defM && defM.image) { imgUrl = defM.image; tile.image = imgUrl; }
+                }
                 if (imgUrl && bentoCache[imgUrl]) imgUrl = bentoCache[imgUrl];
                 else if (imgUrl && !imgUrl.startsWith("data:") && !imgUrl.startsWith("http") && !imgUrl.startsWith("images/")) imgUrl = "images/" + imgUrl;
-                if (!imgUrl) imgUrl = ph(tile.title);
+                if (!imgUrl) imgUrl = autoMatchTileImage(tile.target || tile.title);
 
                 const tileShape = getTileShape(tile, bentoDeviceMode);
 
@@ -4389,7 +4419,7 @@
               <span class="resize-tooltip">${tileShape === 'tall' ? 'Tall' : 'Short'} (${bentoDeviceMode.toUpperCase()})</span>
              </div>
 
-             <img src="${esc(imgUrl)}" alt="${esc(tile.title)}" onerror="this.onerror=null;this.src=ph('${esc(tile.title)}')">
+             <img src="${esc(imgUrl)}" alt="${esc(tile.title)}" onerror="const altImg = autoMatchTileImage('${esc(tile.target || tile.title)}'); if (altImg && this.src !== altImg && !altImg.startsWith('data:')) { this.src = altImg; } else { this.onerror=null; this.src=ph('${esc(tile.title)}'); }">
              <div class="bt-tile-content">
               <span class="bt-tile-tag">${tile.type === 'cat' ? 'Category' : 'Theme'}: ${esc(tile.target)}</span>
               <div class="bt-tile-title">${esc(tile.title)}</div>
@@ -4548,7 +4578,7 @@
       Cover Photo
       <div style="display:flex;gap:12px;align-items:center;margin-top:6px">
        <div style="width:72px;height:72px;border-radius:6px;overflow:hidden;border:1px solid var(--ln);background:#0B1929;flex-shrink:0">
-        <img id="bento-cur-img" src="${esc(curTile.image ? (bentoCache[curTile.image] || curTile.image) : ph(curTile.title))}" style="width:100%;height:100%;object-fit:cover" onerror="this.onerror=null;this.src=ph('${esc(curTile.title)}')">
+        <img id="bento-cur-img" src="${esc(curTile.image ? (bentoCache[curTile.image] || curTile.image) : autoMatchTileImage(curTile.target || curTile.title))}" style="width:100%;height:100%;object-fit:cover" onerror="const altImg = autoMatchTileImage('${esc(curTile.target || curTile.title)}'); if (altImg && this.src !== altImg && !altImg.startsWith('data:')) { this.src = altImg; } else { this.onerror=null; this.src=ph('${esc(curTile.title)}'); }">
        </div>
        <div style="flex:1">
         <input id="bento-img-path" value="${esc(curTile.image || '')}" placeholder="images/bento/... or URL" style="font-size:12px;padding:7px 10px;margin-bottom:6px">

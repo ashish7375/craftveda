@@ -8,9 +8,16 @@
     "Custom Art"
   ],
   "themes": {
-    "Religious": [],
+    "Religious": [
+      "Ganesha",
+      "Shiva",
+      "Radha Krishna",
+      "Hanuman",
+      "Buddha"
+    ],
     "Custom Art": [
       "Pencil Sketch",
+      "Charcoal Sketch",
       "Charcoal Painting",
       "Abstract Painting",
       "Portrait Sketch"
@@ -23,7 +30,7 @@
       "type": "th",
       "target": "Charcoal Sketch",
       "shape": "short",
-      "image": "images/bento/charcoal-sketch-short.jpg"
+      "image": "images/moonlit-ocean-textured-art-1-mve6abow.jpg"
     },
     {
       "id": "b2",
@@ -31,7 +38,7 @@
       "type": "cat",
       "target": "Textured Art",
       "shape": "tall",
-      "image": "images/bento/textured-art-tall.jpg"
+      "image": "images/sacred-ghats-textured-art-1-mvcvio9x.jpg"
     },
     {
       "id": "b8",
@@ -39,7 +46,7 @@
       "type": "cat",
       "target": "Vastu",
       "shape": "short",
-      "image": "images/bento/vastu-short.jpg"
+      "image": "images/golden-horizon-sunset-textured-art-1-mve5rwrq.jpg"
     },
     {
       "id": "b6",
@@ -55,7 +62,7 @@
       "type": "cat",
       "target": "Abstract Art",
       "shape": "tall",
-      "image": "images/bento/abstract-art-tall.jpg"
+      "image": "images/earth-tones-cracked-texture-art-1-mve5xasd.jpg"
     },
     {
       "id": "b4",
@@ -71,7 +78,7 @@
       "type": "cat",
       "target": "Religious",
       "shape": "short",
-      "image": "images/bento/religious-tall.jpg",
+      "image": "images/himalayan-sunset-textured-art-1-mvcum37v.jpg",
       "shapeTablet": "short",
       "shapeMobile": "short"
     },
@@ -83,7 +90,7 @@
       "shape": "tall",
       "shapeTablet": "tall",
       "shapeMobile": "tall",
-      "image": "images/himalayan-sunset-textured-art-1-mvcum37v.jpg"
+      "image": "images/ram-sita-watercolor-art-1-mvcvdlzc.jpg"
     }
   ]
 }

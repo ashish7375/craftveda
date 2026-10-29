@@ -73,6 +73,16 @@
       "shape": "tall",
       "image": "images/bento/religious-tall.jpg",
       "shapeTablet": "tall"
+    },
+    {
+      "id": "b8_mvtyhtxz",
+      "title": "Custom Art",
+      "type": "cat",
+      "target": "Custom Art",
+      "shape": "short",
+      "shapeTablet": "short",
+      "shapeMobile": "short",
+      "image": "images/himalayan-sunset-textured-art-1-mvcum37v.jpg"
     }
   ]
 }

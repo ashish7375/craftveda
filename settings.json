@@ -70,18 +70,19 @@
       "title": "Religious",
       "type": "cat",
       "target": "Religious",
-      "shape": "tall",
+      "shape": "short",
       "image": "images/bento/religious-tall.jpg",
-      "shapeTablet": "tall"
+      "shapeTablet": "short",
+      "shapeMobile": "short"
     },
     {
       "id": "b8_mvtyhtxz",
       "title": "Custom Art",
       "type": "cat",
       "target": "Custom Art",
-      "shape": "short",
-      "shapeTablet": "short",
-      "shapeMobile": "short",
+      "shape": "tall",
+      "shapeTablet": "tall",
+      "shapeMobile": "tall",
       "image": "images/himalayan-sunset-textured-art-1-mvcum37v.jpg"
     }
   ]

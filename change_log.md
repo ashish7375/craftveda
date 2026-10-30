@@ -1,5 +1,13 @@
 # CraftVeda Project Change Log
 
+## [Data Consistency: Normalize Category & Categories Fields] - 2026-10-30
+### Enhanced in `products.json`, `admin-index.html` & `change_log.md`
+- **Normalized Category Schema in `products.json`**:
+  - Populated the modern `"categories": [...]` array across all 25 legacy artworks that previously only possessed the singular `"category": "..."` string.
+  - Ensured both fields exist in 100% of artworks (62 of 62 items), keeping `"categories"` as the multi-category array and `"category"` as the comma-separated string for backwards compatibility.
+- **Auto-Normalization on Load in `admin-index.html`**:
+  - Added schema enforcement inside `load()` so any existing or newly fetched catalog items are automatically hydrated with both `it.categories` and `it.category` upon load.
+
 ## [Storefront Typography & Positioning: Match Bento Grid Titles to Admin Preview] - 2026-10-30
 ### Enhanced in `index.html` & `change_log.md`
 - **Matched Bento Grid Main Artwork Title Typography & Positioning**:

@@ -3,8 +3,7 @@
   {
    "id": "mvcum9bb",
    "name": "Himalayan Sunset Textured Art",
-   "category": "Religious",
-   "theme": "Shiva",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -28,13 +27,15 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-17T20:28:03.624Z"
+   "createdAt": "2026-10-17T20:28:03.624Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvcvds81",
    "name": "Ram Sita Watercolor Art",
-   "category": "Religious",
-   "theme": "Radha Krishna",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -58,12 +59,14 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-17T20:49:27.841Z"
+   "createdAt": "2026-10-17T20:49:27.841Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvcviubd",
    "name": "Sacred Ghats Textured Art",
-   "category": "Textured Art, Nature",
    "categories": [
     "Textured Art",
     "Nature"
@@ -98,7 +101,6 @@
   {
    "id": "mvcvlooe",
    "name": "Coastal Flow Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Vertical",
    "sizes": [
@@ -123,12 +125,14 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-17T20:55:36.494Z"
+   "createdAt": "2026-10-17T20:55:36.494Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mvcvplzb",
    "name": "Abstract Geometry Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -153,12 +157,14 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-17T20:58:39.623Z"
+   "createdAt": "2026-10-17T20:58:39.623Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mvcw3xbf",
    "name": "Desert Horizon Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -183,13 +189,15 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-17T21:09:47.499Z"
+   "createdAt": "2026-10-17T21:09:47.499Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mvcw779d",
    "name": "Krishna Radha Textured Art",
-   "category": "Religious",
-   "theme": "Radha Krishna",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -213,12 +221,14 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-17T21:12:20.353Z"
+   "createdAt": "2026-10-17T21:12:20.353Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvcwbdvo",
    "name": "Ocean Layers Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -243,12 +253,14 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-17T21:15:35.556Z"
+   "createdAt": "2026-10-17T21:15:35.556Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mvcwf55f",
    "name": "Golden Shore Textured Art",
-   "category": "Textured Art, Nature",
    "categories": [
     "Textured Art",
     "Nature"
@@ -283,7 +295,6 @@
   {
    "id": "mvdj0lez",
    "name": "Ganesha Heritage Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -308,13 +319,15 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-18T07:51:03.276Z"
+   "createdAt": "2026-10-18T07:51:03.276Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mvdj6a75",
    "name": "Krishna Radiance Textured Art",
-   "category": "Religious",
-   "theme": "Radha Krishna",
+   "theme": "",
    "shape": "Square",
    "sizes": [
     [
@@ -338,13 +351,15 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-18T07:55:28.674Z"
+   "createdAt": "2026-10-18T07:55:28.674Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvdj8ji7",
    "name": "Shiva Eternal Textured Art",
-   "category": "Religious",
-   "theme": "Shiva",
+   "theme": "",
    "shape": "Square",
    "sizes": [
     [
@@ -368,13 +383,15 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-18T07:57:14.047Z"
+   "createdAt": "2026-10-18T07:57:14.047Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvdjazws",
    "name": "Hanuman Divine Watercolor Art",
-   "category": "Religious",
-   "theme": "Hanuman",
+   "theme": "",
    "shape": "Square",
    "sizes": [
     [
@@ -398,13 +415,15 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-18T07:59:08.620Z"
+   "createdAt": "2026-10-18T07:59:08.620Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvdjfnc1",
    "name": "Hanuman Textured Art",
-   "category": "Religious",
-   "theme": "Hanuman",
+   "theme": "",
    "shape": "Square",
    "sizes": [
     [
@@ -428,13 +447,15 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-18T08:02:45.601Z"
+   "createdAt": "2026-10-18T08:02:45.601Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvdjj00f",
    "name": "Krishna Radha Sunset Textured Art",
-   "category": "Religious",
-   "theme": "Radha Krishna",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -458,13 +479,15 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-18T08:05:22.000Z"
+   "createdAt": "2026-10-18T08:05:22.000Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvdjpj2h",
    "name": "Hanuman Valor Textured Art",
-   "category": "Religious",
-   "theme": "Hanuman",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -488,13 +511,15 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-18T08:10:26.633Z"
+   "createdAt": "2026-10-18T08:10:26.633Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvdjt37v",
    "name": "Shiva Serenity Watercolor Art",
-   "category": "Religious",
-   "theme": "Shiva",
+   "theme": "",
    "shape": "Horizontal",
    "sizes": [
     [
@@ -518,12 +543,14 @@
    ],
    "published": true,
    "featured": false,
-   "createdAt": "2026-10-18T08:13:12.715Z"
+   "createdAt": "2026-10-18T08:13:12.715Z",
+   "categories": [
+    "Religious"
+   ]
   },
   {
    "id": "mvdmn6pv",
    "name": "Golden Lotus Path Textured Art",
-   "category": "Textured Art, Vastu, Nature, Religious",
    "categories": [
     "Textured Art",
     "Vastu",
@@ -560,7 +587,6 @@
   {
    "id": "mve2zhqu0",
    "name": "Moonlit Ocean Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -586,12 +612,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:42:55.109Z"
+   "updatedAt": "2026-10-18T18:42:55.109Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhqu1",
    "name": "Golden Moon River Textured Art",
-   "category": "Textured Art, Nature",
    "categories": [
     "Textured Art",
     "Nature"
@@ -626,7 +654,6 @@
   {
    "id": "mve2zhqu2",
    "name": "Golden Mountain Dawn Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -652,12 +679,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
+   "updatedAt": "2026-10-18T18:00:47.276Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhqu3",
    "name": "Golden Tree of Life Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -683,12 +712,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
+   "updatedAt": "2026-10-18T18:00:47.276Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhqu4",
    "name": "Ocean Wave Layers Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -714,12 +745,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
+   "updatedAt": "2026-10-18T18:00:47.276Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhqu5",
    "name": "Golden Blossom Sunset Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -745,12 +778,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
+   "updatedAt": "2026-10-18T18:00:47.276Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhqu6",
    "name": "Ivory Flow Abstract Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Vertical",
    "sizes": [
@@ -776,12 +811,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
+   "updatedAt": "2026-10-18T18:00:47.276Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhqu7",
    "name": "Golden Moon Phases Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -807,12 +844,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
+   "updatedAt": "2026-10-18T18:00:47.276Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhqu8",
    "name": "Earth Tones Cracked Texture Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -838,12 +877,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:42:55.109Z"
+   "updatedAt": "2026-10-18T18:42:55.109Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhqu9",
    "name": "Serene Buddha Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Vertical",
    "sizes": [
@@ -869,12 +910,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:00:47.276Z"
+   "updatedAt": "2026-10-18T18:00:47.276Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhqua",
    "name": "Golden Horizon Sunset Textured Art",
-   "category": "Textured Art",
    "theme": "",
    "shape": "Horizontal",
    "sizes": [
@@ -900,12 +943,14 @@
    "published": true,
    "featured": false,
    "createdAt": "2026-10-18T17:10:04.182Z",
-   "updatedAt": "2026-10-18T18:42:55.109Z"
+   "updatedAt": "2026-10-18T18:42:55.109Z",
+   "categories": [
+    "Textured Art"
+   ]
   },
   {
    "id": "mve2zhquc",
    "name": "Golden Moon Owls Textured Art",
-   "category": "Textured Art, Abstract Art, Nature",
    "categories": [
     "Textured Art",
     "Abstract Art",
@@ -941,7 +986,6 @@
   {
    "id": "mvo4n1zl0",
    "name": "Desert Horizon Abstract Art Work",
-   "category": "Abstract Art, Textured Art",
    "categories": [
     "Abstract Art",
     "Textured Art"
@@ -976,7 +1020,6 @@
   {
    "id": "mvo4n1zl1",
    "name": "Sacred Geometry Abstract Art Work",
-   "category": "Abstract Art, Geometric Art, Religious",
    "categories": [
     "Abstract Art",
     "Geometric Art",
@@ -1012,7 +1055,6 @@
   {
    "id": "mvo4n1zl2",
    "name": "Tree of Life Abstract Art Work",
-   "category": "Abstract Art, Nature Art, Vastu",
    "categories": [
     "Abstract Art",
     "Nature Art",
@@ -1048,7 +1090,6 @@
   {
    "id": "mvo4n1zl3",
    "name": "Golden Ascent Abstract Art Work",
-   "category": "Abstract Art, Textured Art",
    "categories": [
     "Abstract Art",
     "Textured Art"
@@ -1083,7 +1124,6 @@
   {
    "id": "mvo4n1zl4",
    "name": "Golden Connections Abstract Art Work",
-   "category": "Abstract Art, Geometric Art",
    "categories": [
     "Abstract Art",
     "Geometric Art"
@@ -1118,7 +1158,6 @@
   {
    "id": "mvo4n1zl5",
    "name": "Ocean Layers Abstract Art Work",
-   "category": "Abstract Art, Nature Art, Nature",
    "categories": [
     "Abstract Art",
     "Nature Art",
@@ -1154,7 +1193,6 @@
   {
    "id": "mvo4n1zl6",
    "name": "Archway Harmony Abstract Art Work",
-   "category": "Abstract Art, Geometric Art",
    "categories": [
     "Abstract Art",
     "Geometric Art"
@@ -1189,7 +1227,6 @@
   {
    "id": "mvo4n1zl7",
    "name": "Ember Glow Abstract Art Work",
-   "category": "Abstract Art, Textured Art",
    "categories": [
     "Abstract Art",
     "Textured Art"
@@ -1224,7 +1261,6 @@
   {
    "id": "mvo4n1zl8",
    "name": "Moonlit Grove Abstract Art Work",
-   "category": "Abstract Art, Nature Art, Vastu, Nature",
    "categories": [
     "Abstract Art",
     "Nature Art",
@@ -1261,7 +1297,6 @@
   {
    "id": "mvo4n1zl9",
    "name": "Solar Mandala Abstract Art Work",
-   "category": "Abstract Art, Geometric Art",
    "categories": [
     "Abstract Art",
     "Geometric Art"
@@ -1296,7 +1331,6 @@
   {
    "id": "mvo4n1zla",
    "name": "Urban Rhythm Abstract Art Work",
-   "category": "Abstract Art, Modern Art",
    "categories": [
     "Abstract Art",
     "Modern Art"
@@ -1331,7 +1365,6 @@
   {
    "id": "mvot0z5z0",
    "name": "Alpine Wildflower Valley",
-   "category": "Nature Art, Landscape Art, Floral Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
@@ -1369,7 +1402,6 @@
   {
    "id": "mvot0z5z1",
    "name": "Golden Lotus Serenity",
-   "category": "Nature Art, Floral Art, Vastu, Nature, Abstract Art, Textured Art",
    "categories": [
     "Nature Art",
     "Floral Art",
@@ -1408,7 +1440,6 @@
   {
    "id": "mvot0z5z2",
    "name": "Himalayan Golden Hour",
-   "category": "Nature Art, Landscape Art, Mountain Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
@@ -1446,7 +1477,6 @@
   {
    "id": "mvot0z5z3",
    "name": "Autumn Lake Reflections",
-   "category": "Nature Art, Landscape Art, Nature, Abstract Art, Textured Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
@@ -1484,7 +1514,6 @@
   {
    "id": "mvot0z5z4",
    "name": "Desert Dusk Serenity",
-   "category": "Nature Art, Landscape Art, Desert Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
@@ -1522,7 +1551,6 @@
   {
    "id": "mvot0z5z5",
    "name": "Enchanted Forest of Life",
-   "category": "Nature Art, Wildlife Art, Folk Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Wildlife Art",
@@ -1560,7 +1588,6 @@
   {
    "id": "mvot0z5z6",
    "name": "Misty Evergreen Lake",
-   "category": "Nature Art, Landscape Art, Forest Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
@@ -1598,7 +1625,6 @@
   {
    "id": "mvot0z5z7",
    "name": "Sunlit Mountain Majesty",
-   "category": "Nature Art, Landscape Art, Mountain Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
@@ -1636,7 +1662,6 @@
   {
    "id": "mvot0z5z8",
    "name": "Kerala Backwater Glow",
-   "category": "Nature Art, Landscape Art, Tropical Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
@@ -1674,7 +1699,6 @@
   {
    "id": "mvot0z5z9",
    "name": "Banyan Tree at Sunset",
-   "category": "Nature Art, Landscape Art, Folk Art, Nature, Abstract Art",
    "categories": [
     "Nature Art",
     "Landscape Art",
@@ -1712,7 +1736,6 @@
   {
    "id": "mvpqz1a10",
    "name": "Golden Horizon Horses",
-   "category": "Animal Art, Abstract Art, Vastu, Textured Art",
    "categories": [
     "Animal Art",
     "Abstract Art",
@@ -1749,7 +1772,6 @@
   {
    "id": "mvpqz1a11",
    "name": "Radha Krishna Divine Love",
-   "category": "Vastu, Religious, Textured Art",
    "categories": [
     "Vastu",
     "Religious",
@@ -1785,7 +1807,6 @@
   {
    "id": "mvpqz1a12",
    "name": "Golden Tree of Life",
-   "category": "Nature, Vastu",
    "categories": [
     "Nature",
     "Vastu"
@@ -1820,7 +1841,6 @@
   {
    "id": "mvpqz1a13",
    "name": "Autumn Falls Serenity",
-   "category": "Nature, Landscape Art, Vastu",
    "categories": [
     "Nature",
     "Landscape Art",
@@ -1856,7 +1876,6 @@
   {
    "id": "mvpqz1a14",
    "name": "Emerald Canyon Waterfall",
-   "category": "Nature, Landscape Art, Vastu, Abstract Art",
    "categories": [
     "Nature",
     "Landscape Art",
@@ -1893,7 +1912,6 @@
   {
    "id": "mvpqz1a15",
    "name": "Sacred White Cow",
-   "category": "Indian Traditional Art, Vastu",
    "categories": [
     "Indian Traditional Art",
     "Vastu"
@@ -1928,7 +1946,6 @@
   {
    "id": "mvpqz1a16",
    "name": "Buddha of Quiet Wisdom",
-   "category": "Vastu",
    "categories": [
     "Vastu"
    ],
@@ -1962,7 +1979,6 @@
   {
    "id": "mvpqz1a17",
    "name": "Golden Lotus Bloom",
-   "category": "Nature, Spiritual Art, Vastu",
    "categories": [
     "Nature",
     "Spiritual Art",
@@ -1998,7 +2014,6 @@
   {
    "id": "mvpqz1a18",
    "name": "Lotus of Golden Light",
-   "category": "Spiritual Art, Vastu",
    "categories": [
     "Spiritual Art",
     "Vastu"
@@ -2033,7 +2048,6 @@
   {
    "id": "mvpqz1a19",
    "name": "Golden Lake Horizon",
-   "category": "Landscape Art, Abstract Art, Vastu, Nature, Textured Art",
    "categories": [
     "Landscape Art",
     "Abstract Art",
@@ -2071,7 +2085,6 @@
   {
    "id": "mvpqz1a1a",
    "name": "Golden Mountain Lake",
-   "category": "Landscape Art, Vastu, Abstract Art",
    "categories": [
     "Landscape Art",
     "Vastu",

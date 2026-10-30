@@ -2617,7 +2617,7 @@
         const DEFAULT_SETTINGS = {
             categories: ["Textured Art", "Abstract Art", "Vastu", "Nature", "Religious", "Custom Art"],
             themes: {
-                "Religious": ["Ganesha", "Shiva", "Radha Krishna", "Hanuman", "Buddha"],
+                "Religious": [],
                 "Custom Art": ["Pencil Sketch", "Charcoal Sketch", "Charcoal Painting", "Abstract Painting", "Portrait Sketch"]
             },
             bento: JSON.parse(JSON.stringify(DEFAULT_BENTO))
@@ -2639,13 +2639,20 @@
         };
 
         /* Fallback templates derived from CATALOG and Shape Sizing */
+        const getTemplateCategories = t => {
+            if (!t) return [];
+            if (Array.isArray(t.categories) && t.categories.length) return t.categories;
+            if (typeof t.category === "string" && t.category.trim()) return [t.category.trim()];
+            return [];
+        };
+
         const DEFAULT_TEMPLATES = [
-            { id: "tpl-textured", category: "Textured Art", shape: "Horizontal", sizes: [["24*16 inch", 15000], ["36*24 inch", 19000], ["48*32 inch", 25000]], desc: "Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours." },
-            { id: "tpl-abstract", category: "Abstract Art", shape: "Square", sizes: [["24*24 inch", 9000], ["36*36 inch", 12000], ["48*48 inch", 16000]], desc: "Hand painted abstract artwork on stretched canvas, finished in acrylic colours." },
-            { id: "tpl-vastu", category: "Vastu", shape: "Horizontal", sizes: [["24*16 inch", 10000], ["36*24 inch", 14000], ["48*32 inch", 20000]], desc: "Hand painted Vastu artwork on stretched canvas, made with colours and symbols traditionally considered auspicious." },
-            { id: "tpl-nature", category: "Nature", shape: "Horizontal", sizes: [["24*16 inch", 7000], ["36*24 inch", 9500], ["48*32 inch", 13500]], desc: "Hand painted nature artwork on stretched canvas, finished in acrylic colours." },
-            { id: "tpl-religious", category: "Religious", shape: "Vertical", sizes: [["16*24 inch", 8000], ["24*36 inch", 10500], ["32*48 inch", 14500]], desc: "Hand painted devotional artwork on stretched canvas, finished in acrylic colours." },
-            { id: "tpl-custom", category: "Custom Art", shape: "Vertical", sizes: [["16*24 inch", 4500], ["24*36 inch", 7000], ["32*48 inch", 11000]], desc: "Made to order from your idea or photo, by hand, in the medium you choose." }
+            { id: "tpl-textured", categories: ["Textured Art"], shape: "Horizontal", sizes: [["24*16 inch", 15000], ["36*24 inch", 19000], ["48*32 inch", 25000]], desc: "Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-abstract", categories: ["Abstract Art"], shape: "Square", sizes: [["24*24 inch", 9000], ["36*36 inch", 12000], ["48*48 inch", 16000]], desc: "Hand painted abstract artwork on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-vastu", categories: ["Vastu"], shape: "Horizontal", sizes: [["24*16 inch", 10000], ["36*24 inch", 14000], ["48*32 inch", 20000]], desc: "Hand painted Vastu artwork on stretched canvas, made with colours and symbols traditionally considered auspicious." },
+            { id: "tpl-nature", categories: ["Nature"], shape: "Horizontal", sizes: [["24*16 inch", 7000], ["36*24 inch", 9500], ["48*32 inch", 13500]], desc: "Hand painted nature artwork on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-religious", categories: ["Religious"], shape: "Vertical", sizes: [["16*24 inch", 8000], ["24*36 inch", 10500], ["32*48 inch", 14500]], desc: "Hand painted devotional artwork on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-custom", categories: ["Custom Art"], shape: "Vertical", sizes: [["16*24 inch", 4500], ["24*36 inch", 7000], ["32*48 inch", 11000]], desc: "Made to order from your idea or photo, by hand, in the medium you choose." }
         ];
         let templates = [...DEFAULT_TEMPLATES];
 
@@ -2801,6 +2808,11 @@
             if (r.status === 401 || r.status === 403) throw new Error("Token not accepted. Check the token and its Contents permission.");
             if (!r.ok) throw new Error("GitHub error " + r.status + ". Check the repository name and branch.");
             const j = await r.json(); sha = j.sha; data = JSON.parse(dec64(j.content)); if (!Array.isArray(data.items)) data.items = [];
+            data.items.forEach(it => {
+                const cats = getItemCategories(it);
+                it.categories = cats.length ? cats : [CATS[0] || "Textured Art"];
+                if ("category" in it) delete it.category;
+            });
 
             /* Load settings.json */
             try {
@@ -2852,7 +2864,14 @@
                 if (tr.ok) {
                     const tj = await tr.json();
                     const tdata = JSON.parse(dec64(tj.content));
-                    if (Array.isArray(tdata) && tdata.length) templates = tdata;
+                    if (Array.isArray(tdata) && tdata.length) {
+                        templates = tdata.map(t => {
+                            const cats = getTemplateCategories(t);
+                            const copy = { ...t, categories: cats };
+                            delete copy.category;
+                            return copy;
+                        });
+                    }
                 }
             } catch (e) { }
         }
@@ -5240,7 +5259,7 @@
                             const theme = themeIdx >= 0 ? (r[themeIdx] || "").trim() : "";
                             let shape = shapeIdx >= 0 ? (r[shapeIdx] || "").trim() : "";
                             if (!SHAPES.includes(shape)) {
-                                const tpl = templates.find(t => categories.includes(t.category)) || DEFAULT_TEMPLATES.find(t => categories.includes(t.category));
+                                const tpl = templates.find(t => getTemplateCategories(t).some(c => categories.includes(c))) || DEFAULT_TEMPLATES.find(t => getTemplateCategories(t).some(c => categories.includes(c)));
                                 shape = tpl ? tpl.shape : "Horizontal";
                             }
 
@@ -5250,14 +5269,14 @@
                             }
                             if (!sizes.length) {
                                 const std = SHAPE_SIZES[shape] || SHAPE_SIZES["Horizontal"];
-                                const tpl = templates.find(t => categories.includes(t.category)) || DEFAULT_TEMPLATES.find(t => categories.includes(t.category));
+                                const tpl = templates.find(t => getTemplateCategories(t).some(c => categories.includes(c))) || DEFAULT_TEMPLATES.find(t => getTemplateCategories(t).some(c => categories.includes(c)));
                                 const prices = tpl && tpl.sizes ? tpl.sizes.map(s => s[1]) : [15000, 19000, 25000];
                                 sizes = std.map((sz, idx) => [sz, prices[idx] || 15000]);
                             }
 
                             let desc = descIdx >= 0 ? (r[descIdx] || "").trim() : "";
                             if (!desc) {
-                                const tpl = templates.find(t => categories.includes(t.category)) || DEFAULT_TEMPLATES.find(t => categories.includes(t.category));
+                                const tpl = templates.find(t => getTemplateCategories(t).some(c => categories.includes(c))) || DEFAULT_TEMPLATES.find(t => getTemplateCategories(t).some(c => categories.includes(c)));
                                 desc = tpl ? tpl.desc : "";
                             }
 
@@ -5298,7 +5317,6 @@
                     const newItems = parsedItems.map((p, k) => ({
                         id: Date.now().toString(36) + k.toString(36),
                         name: p.name,
-                        category: p.category,
                         categories: p.categories,
                         theme: p.theme,
                         shape: p.shape,
@@ -5352,13 +5370,13 @@
             const isNew = !it;
             const existingCats = getItemCategories(it);
             let selectedCats = existingCats.length ? [...existingCats] : [CATS[0] || "Textured Art"];
-            const tpl = templates.find(t => selectedCats.includes(t.category)) || DEFAULT_TEMPLATES.find(t => selectedCats.includes(t.category));
+            const tpl = templates.find(t => getTemplateCategories(t).some(c => selectedCats.includes(c))) || DEFAULT_TEMPLATES.find(t => getTemplateCategories(t).some(c => selectedCats.includes(c)));
 
             const initialShape = it ? it.shape : (tpl ? tpl.shape : "Horizontal");
             const defaultShapeSizes = SHAPE_SIZES[initialShape] || SHAPE_SIZES["Horizontal"];
             const defaultSizes = tpl && tpl.sizes ? tpl.sizes : defaultShapeSizes.map(s => [s, "15000"]);
 
-            it = it || { name: "", category: selectedCats.join(", "), categories: selectedCats, theme: "", shape: initialShape, sizes: defaultSizes, desc: tpl ? tpl.desc : "", images: [], published: true, featured: false };
+            it = it || { name: "", categories: selectedCats, theme: "", shape: initialShape, sizes: defaultSizes, desc: tpl ? tpl.desc : "", images: [], published: true, featured: false };
             const imgs = [...(it.images || []), "", "", ""].slice(0, 3);
             const slotFiles = [null, null, null];
 
@@ -5452,7 +5470,7 @@
             const applyShapeSizes = (preservePrices = true) => {
                 const sh = $("#fsh").value;
                 const stdSizes = SHAPE_SIZES[sh] || SHAPE_SIZES["Horizontal"];
-                const curTpl = templates.find(t => selectedCats.includes(t.category)) || DEFAULT_TEMPLATES.find(t => selectedCats.includes(t.category));
+                const curTpl = templates.find(t => getTemplateCategories(t).some(c => selectedCats.includes(c))) || DEFAULT_TEMPLATES.find(t => getTemplateCategories(t).some(c => selectedCats.includes(c)));
                 const tplPrices = curTpl && curTpl.sizes ? curTpl.sizes.map(s => s[1]) : ["", "", ""];
 
                 const currentRows = [...document.querySelectorAll(".sr")];
@@ -5534,7 +5552,7 @@
 
                     updateThemesDropdown();
                     if (isNew) {
-                        const newTpl = templates.find(t => selectedCats.includes(t.category)) || DEFAULT_TEMPLATES.find(t => selectedCats.includes(t.category));
+                        const newTpl = templates.find(t => getTemplateCategories(t).some(c => selectedCats.includes(c))) || DEFAULT_TEMPLATES.find(t => getTemplateCategories(t).some(c => selectedCats.includes(c)));
                         if (newTpl) {
                             if (newTpl.shape && !$("#fsh").value) $("#fsh").value = newTpl.shape;
                             if (newTpl.desc && !$("#fd").value) $("#fd").value = newTpl.desc;
@@ -5556,10 +5574,10 @@
             /* AI Draft Description Button */
             if ($("#ai-draft-btn")) $("#ai-draft-btn").onclick = () => {
                 const name = $("#fn").value;
-                const cat = selectedCats.join(", ");
+                const primCat = selectedCats[0] || "Textured Art";
                 const theme = $("#fthw").hidden ? "" : $("#fth").value;
                 const shape = $("#fsh").value;
-                const drafted = generateAIDescription(name, cat, theme, shape);
+                const drafted = generateAIDescription(name, primCat, theme, shape);
 
                 $("#fd").value = drafted;
                 $("#fd").style.borderColor = "var(--cu)";
@@ -5759,7 +5777,6 @@
                     const rec = {
                         id: it.id || Date.now().toString(36),
                         name,
-                        category: selectedCats.join(", "),
                         categories: selectedCats,
                         theme: $("#fthw").hidden ? "" : $("#fth").value,
                         shape: $("#fsh").value,

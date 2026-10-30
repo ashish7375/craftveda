@@ -1,18 +1,22 @@
 # CraftVeda Project Change Log
 
-## [Storefront Typography: Match Bento Grid Card Names to Admin Preview] - 2026-10-30
+## [Storefront Typography & Positioning: Match Bento Grid Titles to Admin Preview] - 2026-10-30
 ### Enhanced in `index.html` & `change_log.md`
-- **Matched Bento Grid Typography with Admin Panel**:
-  - Investigated the source of truth in `admin-index.html` (`.bt-tile-title`):
-    - `font-family`: `'Playfair Display', Georgia, serif`
-    - `font-weight`: `600`
-    - `font-size`: `15px`
-    - `line-height`: `1.2`
-    - `letter-spacing`: `0.01em`
-    - `text-shadow`: `0 1px 3px rgba(0, 0, 0, 0.6)`
-  - Replaced the generic `Inter, system-ui, sans-serif` in `index.html` (`.bt span`) with the pre-loaded Google Font `'Playfair Display', Georgia, serif` (weight 600).
-  - Preserved all existing card layout, dimensioning, hover scale effects, border radii, and button click routing.
-  - Added responsive scaling (`16px` on tablet, `13.5px` on small mobile screens `<= 480px`) to ensure longer titles ("Charcoal Sketch", "Pencil Sketch") fit cleanly without overflow.
+- **Matched Bento Grid Main Artwork Title Typography & Positioning**:
+  - Identified the source of truth for the main artwork title in `admin-index.html`:
+    - Selector: `.bt-tile-title`
+    - Font Family: `'Playfair Display', Georgia, serif` (already loaded via Google Fonts)
+    - Font Weight: `700` (bold, elegant serif)
+    - Contrast Vignette: Applied Admin Preview's rich gradient overlay `.bt:before` (`linear-gradient(to top, rgba(10, 22, 38, .88) 0%, rgba(10, 22, 38, .25) 55%, rgba(10, 22, 38, .45) 100%)`)
+  - **Repositioned to Bottom Half & Centered**:
+    - Replaced the bottom-left corner alignment with centered positioning (`text-align: center; left: 16px; right: 16px; margin: 0 auto;`).
+    - Positioned in the lower half of the card, elevated above the bottom edge (`bottom: 22px;`).
+    - Configured constrained width (`max-width: 180px;`) so two-word titles ("Charcoal Sketch", "Pencil Sketch", "Textured Art", "Abstract Art", "Custom Art") naturally wrap into two centered lines, matching the Admin Preview appearance.
+    - Single-word titles ("Vastu", "Nature", "Religious") remain prominent and centered on a single line.
+  - **Responsive Scaling**:
+    - Desktop: `23px` bold with `max-width: 180px; bottom: 22px;`
+    - Tablet (`<= 900px`): `20px` bold with `max-width: 160px; bottom: 18px;`
+    - Mobile (`<= 540px`): `17px` bold with `max-width: 140px; bottom: 14px;`
 
 ## [Bento Real Images Sync & Local Testing Draft Environment] - 2026-10-30
 ### Enhanced in `settings.json`, `admin-index.html`, `draft/index.html` & `change_log.md`

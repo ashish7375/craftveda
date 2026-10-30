@@ -53,10 +53,14 @@
 
         h1,
         h2,
-        h3 {
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: "Playfair Display", Georgia, serif;
             font-weight: 600;
-            line-height: 1.15;
+            line-height: 1.2;
+            color: var(--navy);
         }
 
         a {
@@ -88,12 +92,61 @@
             color: #eef2f6;
         }
 
+        .dk h1,
+        .dk h2,
+        .dk h3,
+        .dk h4,
+        .dk h5,
+        .dk h6 {
+            color: #eef2f6;
+        }
+
+        .dk .va {
+            color: #eef2f6;
+            border-bottom-color: var(--cu2);
+        }
+
+        .dk .va:hover {
+            color: var(--cu2);
+        }
+
+        .dk .pc h3 {
+            color: #eef2f6;
+        }
+
+        .dk .pc .m {
+            color: #9fb0c2;
+        }
+
+        .dk .pc .pr {
+            color: #dce4ec;
+        }
+
+        .dk .empty {
+            color: #b4c2d0;
+        }
+
+        .dk .empty a {
+            color: var(--cu2);
+        }
+
         .dk .sub {
             color: #a9b7c6;
         }
 
         .alt {
-            background: var(--sand);
+            background-color: var(--sand);
+        }
+
+        .alt h1,
+        .alt h2,
+        .alt h3 {
+            color: var(--navy);
+        }
+
+        .alt .va {
+            color: var(--navy);
+            border-bottom-color: var(--cu);
         }
 
         .bar {
@@ -106,7 +159,7 @@
         .sh {
             display: flex;
             justify-content: space-between;
-            align-items: end;
+            align-items: center;
             gap: 20px;
             flex-wrap: wrap;
             margin-bottom: 32px;
@@ -118,6 +171,7 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             border-bottom: 2px solid var(--cu);
+            color: var(--navy);
             padding-bottom: 3px;
             cursor: pointer;
             text-decoration: none;
@@ -299,8 +353,12 @@
         }
 
         .pc h3 {
-            font-size: 21px;
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.25;
             margin-top: 12px;
+            letter-spacing: -0.01em;
         }
 
         .pc .m {
@@ -317,10 +375,6 @@
             color: var(--gr);
             font-weight: 400;
             margin-right: 6px;
-        }
-
-        .dk .pc .m {
-            color: #9fb0c2;
         }
 
         .track {
@@ -372,6 +426,7 @@
         .ban h2 {
             font-size: clamp(32px, 4.4vw, 54px);
             margin: 10px 0 18px;
+            color: #ffffff;
         }
 
         .ban p {
@@ -832,7 +887,9 @@
         }
 
         .pd h3 {
-            font-size: 34px;
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 600;
+            font-size: 30px;
         }
 
         .pd .pr {
@@ -857,7 +914,9 @@
         }
 
         .pol h3 {
-            font-size: 34px;
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 600;
+            font-size: 32px;
             margin-bottom: 14px;
         }
 
@@ -925,8 +984,8 @@
         }
 
         .badge {
-            display: inline-block;
             background: var(--sand);
+            display: inline-block;
             color: var(--navy);
             font-size: 11px;
             font-weight: 600;
@@ -1073,6 +1132,8 @@
 
         #cart h3,
         #dr h3 {
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 600;
             font-size: 22px;
         }
 
@@ -1261,61 +1322,74 @@
 
         #up {
             position: fixed;
-            right: 18px;
-            bottom: 78px;
-            width: 52px;
-            height: 52px;
-            background: #fff;
+            right: 20px;
+            bottom: 76px;
+            width: 46px;
+            height: 46px;
+            background: #ffffff;
             border: 0;
+            border-radius: 4px;
             cursor: pointer;
             z-index: 34;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(15, 39, 64, 0.14);
             opacity: 0;
             pointer-events: none;
             transform: translateY(10px);
             transition:
-                opacity 0.3s,
-                transform 0.3s;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+                opacity 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.2s ease;
         }
 
         #up.show {
             opacity: 1;
             pointer-events: auto;
-            transform: none;
+            transform: translateY(0);
         }
 
-        #up svg {
+        #up:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(181, 101, 74, 0.28);
+        }
+
+        #up .up-prog {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
-        }
-
-        #up span {
-            position: absolute;
-            inset: 0;
-            display: grid;
-            place-items: center;
-            font-size: 18px;
-        }
-
-        #up span svg,
-        #up span .lucide {
-            position: static;
-            width: 20px;
-            height: 20px;
-            stroke: var(--navy);
-            stroke-width: 2.2;
+            pointer-events: none;
         }
 
         #upr {
             stroke-dasharray: 100;
             stroke-dashoffset: 100;
+            transition: stroke-dashoffset 0.08s linear;
+        }
+
+        #up .lucide,
+        #up [data-lucide] {
+            position: relative;
+            z-index: 2;
+            width: 20px;
+            height: 20px;
+            stroke: var(--navy);
+            stroke-width: 2.2;
+            transition: transform 0.2s ease, stroke 0.2s ease;
+        }
+
+        #up:hover .lucide,
+        #up:hover [data-lucide] {
+            stroke: var(--cu);
+            transform: translateY(-1px);
         }
 
         .pol h4 {
-            font-family: Inter;
-            font-size: 15px;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 17px;
+            font-weight: 600;
             margin: 22px 0 6px;
         }
 
@@ -1486,6 +1560,26 @@
 
         .bt.tall {
             aspect-ratio: 0.9/1;
+        }
+
+        @media (max-width: 900px) {
+            .bt.tab-short {
+                aspect-ratio: 1.36/1;
+            }
+
+            .bt.tab-tall {
+                aspect-ratio: 0.9/1;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .bt.mob-short {
+                aspect-ratio: 1.36/1;
+            }
+
+            .bt.mob-tall {
+                aspect-ratio: 0.9/1;
+            }
         }
 
         .bt img {
@@ -1667,6 +1761,7 @@
             .bt span {
                 font-size: 17px;
                 line-height: 1.2;
+                color: #ffffff;
                 bottom: 14px;
                 left: 8px;
                 right: 8px;
@@ -1688,19 +1783,18 @@
             padding: 12px 16px;
         }
 
-        #up {
-            bottom: 18px;
+        @media (max-width: 900px) {
+            #up {
+                bottom: 18px;
+                right: 16px;
+                width: 42px;
+                height: 42px;
+                border-radius: 4px;
+            }
         }
 
         .pc {
             text-align: center;
-        }
-
-        .pc h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 18px;
-            font-weight: 500;
-            margin-top: 14px;
         }
 
         .pc .pr {
@@ -1782,10 +1876,47 @@
             white-space: nowrap;
         }
 
-        @media (hover: none) {
+        @media (hover: none) and (min-width: 700px) {
             .act {
                 opacity: 1;
                 transform: translate(-50%, 0);
+            }
+        }
+
+        @media (max-width: 699px) {
+            .act {
+                left: auto;
+                right: 8px;
+                bottom: 8px;
+                transform: none;
+                opacity: 1;
+                gap: 0;
+            }
+
+            .pc:hover .act,
+            .pc:focus-within .act {
+                transform: none;
+            }
+
+            .act button[data-pv],
+            .act button[data-q] {
+                display: none !important;
+            }
+
+            .act button[data-w] {
+                width: 34px;
+                height: 34px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            .act button[data-w] svg,
+            .act button[data-w] .lucide {
+                width: 17px;
+                height: 17px;
+            }
+
+            .act [data-tip]:hover:before {
+                display: none;
             }
         }
 
@@ -1965,9 +2096,13 @@
         }
 
         .pinfo h1 {
-            font-size: 30px;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 600;
+            font-size: clamp(24px, 2.5vw, 32px);
+            letter-spacing: 0.01em;
+            line-height: 1.2;
+            color: var(--navy);
+            overflow-wrap: anywhere;
         }
 
         .prow {
@@ -2307,25 +2442,6 @@
             .hrow {
                 height: 70px;
                 grid-template-columns: auto 1fr;
-            }
-
-            .hrow .icons {
-                gap: 8px;
-            }
-
-            .ib svg,
-            .ib .lucide {
-                width: 24px;
-                height: 24px;
-            }
-
-            .mrow {
-                margin: 0;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .hrow {
                 gap: 8px;
             }
 
@@ -2347,19 +2463,17 @@
             .hrow .icons {
                 gap: 4px;
             }
+
+            .mrow {
+                margin: 0;
+            }
         }
 
         @media (max-width: 400px) {
-            .hrow .logo {
-                font-size: 20px;
-            }
-
             header .wrap {
                 padding: 0 12px;
             }
-        }
 
-        @media (max-width: 400px) {
             .hrow .logo {
                 font-size: 18px;
                 letter-spacing: 0.04em;
@@ -2427,18 +2541,7 @@
             color: #a9b7c6;
         }
 
-        .pc .im img,
-        .mimg img {
-            aspect-ratio: 4/5;
-            object-fit: cover;
-        }
-
-        .mimg img {
-            width: 100%;
-            display: block;
-        }
-
-        .pd .g img {
+        .pc .im img {
             aspect-ratio: 4/5;
             object-fit: cover;
         }
@@ -2568,11 +2671,6 @@
             min-width: 0;
         }
 
-        .pinfo h1 {
-            font-size: clamp(22px, 3.2vw, 30px);
-            overflow-wrap: anywhere;
-        }
-
         .pinfo .szs {
             display: flex;
             flex-wrap: wrap;
@@ -2694,6 +2792,34 @@
             }
         }
 
+        @media (min-width: 2000px) {
+            html {
+                font-size: 112%;
+            }
+
+            .wrap {
+                width: min(100% - 2 * var(--gut), 1680px);
+            }
+
+            .bento {
+                gap: 18px;
+            }
+
+            .bcol {
+                gap: 18px;
+            }
+
+            .bt span {
+                font-size: 26px;
+                max-width: 240px;
+                bottom: 26px;
+            }
+
+            .grid {
+                gap: 36px 24px;
+            }
+        }
+
         /* ===== craftico-style gallery: full image, scrolls with details ===== */
         .pgal {
             position: static !important;
@@ -2777,11 +2903,7 @@
             }
 
             .pc h3 {
-                font-size: 16px;
-            }
-
-            .pinfo h1 {
-                font-size: clamp(22px, 2.4vw, 27px);
+                font-size: 16.5px;
             }
 
             .pinfo .pprice {
@@ -2818,6 +2940,97 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Mobile Search Bar */
+        .sbt.active {
+            color: var(--cu);
+        }
+
+        .mob-srch {
+            background: var(--iv);
+            border-top: 1px solid var(--ln);
+            padding: 10px 0;
+            display: block;
+            animation: mobSrchIn 0.2s ease;
+        }
+
+        .mob-srch[hidden] {
+            display: none !important;
+        }
+
+        @media (min-width: 901px) {
+            .mob-srch {
+                display: none !important;
+            }
+        }
+
+        .mob-srch form {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1.5px solid var(--cu);
+            border-radius: 999px;
+            padding: 0 14px;
+            height: 44px;
+            box-shadow: 0 4px 14px rgba(15, 39, 64, 0.08);
+            gap: 10px;
+        }
+
+        .mob-srch .ms-icon {
+            width: 18px;
+            height: 18px;
+            stroke: var(--cu);
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .mob-srch input {
+            flex: 1;
+            border: 0;
+            background: transparent;
+            font-size: 15px;
+            color: var(--navy);
+            outline: none;
+            padding: 0;
+            font-family: Inter, system-ui, sans-serif;
+            min-width: 0;
+        }
+
+        .mob-srch button {
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gr);
+            border-radius: 50%;
+        }
+
+        .mob-srch button:hover {
+            color: var(--navy);
+            background: rgba(15, 39, 64, 0.06);
+        }
+
+        .mob-srch button svg,
+        .mob-srch button .lucide {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        @keyframes mobSrchIn {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
@@ -2849,6 +3062,17 @@
                 <button class="ib mob" id="mnu" aria-label="Menu">
                     <i data-lucide="menu"></i>
                 </button>
+            </div>
+        </div>
+        <div class="mob-srch" id="msf" hidden>
+            <div class="wrap">
+                <form id="msform" role="search">
+                    <i data-lucide="search" class="ms-icon"></i>
+                    <input id="msq" type="search" placeholder="Type to discover your style..." aria-label="Search artworks" autocomplete="off" />
+                    <button type="button" id="msx" aria-label="Close search">
+                        <i data-lucide="x"></i>
+                    </button>
+                </form>
             </div>
         </div>
         <div class="mrow">
@@ -2891,14 +3115,8 @@
         <section class="dk" id="textured">
             <div class="wrap">
                 <div class="sh">
-                    <div>
-                        <h2>Textured Art</h2>
-                        <p class="sub">
-                            Layered, tactile artworks that add depth to a
-                            wall.
-                        </p>
-                    </div>
-                    <a class="va" data-cat="Textured Art" style="border-color: var(--cu2)">
+                    <h2>Textured Art</h2>
+                    <a class="va" data-cat="Textured Art">
                         View all
                     </a>
                 </div>
@@ -2910,12 +3128,7 @@
         <section id="abstract">
             <div class="wrap">
                 <div class="sh">
-                    <div>
-                        <h2>Abstract Art</h2>
-                        <p class="sub">
-                            Colour, form and movement, painted by hand.
-                        </p>
-                    </div>
+                    <h2>Abstract Art</h2>
                     <a class="va" data-cat="Abstract Art">View all</a>
                 </div>
                 <div class="grid" id="gab"></div>
@@ -2949,12 +3162,7 @@
         <section id="vastu">
             <div class="wrap">
                 <div class="sh">
-                    <div>
-                        <h2>Vastu Art</h2>
-                        <p class="sub">
-                            Art made to bring positivity to your home.
-                        </p>
-                    </div>
+                    <h2>Vastu Art</h2>
                     <a class="va" data-cat="Vastu">View all</a>
                 </div>
                 <div class="grid" id="gvs"></div>
@@ -2965,13 +3173,7 @@
         <section class="alt" id="nature">
             <div class="wrap">
                 <div class="sh">
-                    <div>
-                        <h2>Nature Art</h2>
-                        <p class="sub">
-                            Landscapes, flowers and wildlife for calm, fresh
-                            interiors.
-                        </p>
-                    </div>
+                    <h2>Nature Art</h2>
                     <a class="va" data-cat="Nature">View all</a>
                 </div>
                 <div class="grid" id="gnt"></div>
@@ -2982,12 +3184,7 @@
         <section id="religious">
             <div class="wrap">
                 <div class="sh">
-                    <div>
-                        <h2>Religious art</h2>
-                        <p class="sub">
-                            Faith meets fine art. Handcrafted devotional paintings for your home.
-                        </p>
-                    </div>
+                    <h2>Religious art</h2>
                     <a class="va" data-cat="Religious">View all</a>
                 </div>
                 <div class="tiles" id="t2"></div>
@@ -2999,13 +3196,7 @@
         <section class="alt" id="customart">
             <div class="wrap">
                 <div class="sh">
-                    <div>
-                        <h2>Custom Art</h2>
-                        <p class="sub">
-                            Pencil and charcoal sketches, charcoal and
-                            abstract paintings, made in your size.
-                        </p>
-                    </div>
+                    <h2>Custom Art</h2>
                     <a class="va" data-cat="Custom Art">View all</a>
                 </div>
                 <div class="tiles" id="t3"></div>
@@ -3017,14 +3208,7 @@
         <section class="dk" id="custom">
             <div class="wrap">
                 <div class="sh" style="margin-bottom: 8px">
-                    <div>
-                        <h2>Request a custom piece</h2>
-                        <p class="sub">
-                            A custom piece is made only for you, in your
-                            size, colours and theme. Choose a style and tell
-                            us your idea.
-                        </p>
-                    </div>
+                    <h2>Request a custom piece</h2>
                 </div>
                 <div class="cust">
                     <div>
@@ -3125,9 +3309,6 @@
             <div class="wrap">
                 <div>
                     <h2>Frequently asked questions</h2>
-                    <p class="sub">
-                        Everything worth knowing before you order.
-                    </p>
                     <div class="help">
                         <h3>Need more help?</h3>
                         <p>
@@ -3264,11 +3445,11 @@
         <div id="drb" style="flex: 1; overflow: auto; padding: 18px 22px"></div>
     </aside>
     <button id="up" aria-label="Back to top">
-        <svg viewBox="0 0 52 52">
-            <rect id="upr" x="1.5" y="1.5" width="49" height="49" rx="3" fill="none" stroke="#B5654A" stroke-width="3"
-                pathLength="100" />
+        <svg class="up-prog" viewBox="0 0 46 46" aria-hidden="true">
+            <rect class="up-track" x="1.5" y="1.5" width="43" height="43" rx="4" fill="none" stroke="var(--ln)" stroke-width="2" />
+            <rect id="upr" x="1.5" y="1.5" width="43" height="43" rx="4" fill="none" stroke="var(--cu)" stroke-width="2.5" stroke-linecap="round" pathLength="100" />
         </svg>
-        <span><i data-lucide="chevron-up"></i></span>
+        <i data-lucide="chevron-up"></i>
     </button>
     <aside id="cart" aria-label="Cart">
         <header>
@@ -3732,6 +3913,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                     PRODUCTS.push({
                         name,
                         category: cat,
+                        categories: [cat],
                         theme: c.themes ? c.themes[k] : "",
                         shape: c.shape,
                         sizes: c.sizes,
@@ -4197,6 +4379,28 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         /* ========================================================================== */
         /* >>> QUICKVIEW & PRODUCT MODAL <<<                                     */
         /* ========================================================================== */
+        const esc = (t) =>
+            String(t || "").replace(
+                /[&<>"]/g,
+                (c) =>
+                    ({
+                        "&": "&amp;",
+                        "<": "&lt;",
+                        ">": "&gt;",
+                        '"': "&quot;",
+                    })[c],
+            );
+        const who = () => {
+            try {
+                const p = JSON.parse(localStorage.getItem("cvp") || "null");
+                return p && p.n
+                    ? `\nName: ${p.n}\nPhone: ${p.p || "-"}\nAddress: ${p.a || "-"}`
+                    : "";
+            } catch (e) {
+                return "";
+            }
+        };
+
         function openP(i) {
             const p = PRODUCTS[i];
             sel = 0;
@@ -4265,57 +4469,50 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             initIcons();
         }
 
-        $("#chips").onclick = (e) => {
-            const s = e.target.closest("span");
-            if (s) $("#ct").value = s.textContent;
-        };
-        $("#shapes").onclick = (e) => {
-            const s = e.target.closest("span");
-            if (s) $("#cp").value = s.textContent;
-        };
-        $("#cf").onsubmit = (e) => {
-            e.preventDefault();
-            open(
-                wa(
-                    `Hi, I would like custom art.\nName: ${$("#cn").value}\nType: ${$("#ct").value}\nShape: ${$("#cp").value}\nWall size: ${$("#cs").value || "-"}\nIdea: ${$("#ci").value || "-"}${who()}`,
-                ),
-                "_blank",
-            );
-        };
-
-        const esc = (t) =>
-            String(t || "").replace(
-                /[&<>"]/g,
-                (c) =>
-                    ({
-                        "&": "&amp;",
-                        "<": "&lt;",
-                        ">": "&gt;",
-                        '"': "&quot;",
-                    })[c],
-            );
-        const who = () => {
-            try {
-                const p = JSON.parse(localStorage.getItem("cvp") || "null");
-                return p && p.n
-                    ? `\nName: ${p.n}\nPhone: ${p.p || "-"}\nAddress: ${p.a || "-"}`
-                    : "";
-            } catch (e) {
-                return "";
-            }
-        };
+        const chipsEl = $("#chips");
+        if (chipsEl) {
+            chipsEl.onclick = (e) => {
+                const s = e.target.closest("span");
+                if (s && $("#ct")) $("#ct").value = s.textContent;
+            };
+        }
+        const shapesEl = $("#shapes");
+        if (shapesEl) {
+            shapesEl.onclick = (e) => {
+                const s = e.target.closest("span");
+                if (s && $("#cp")) $("#cp").value = s.textContent;
+            };
+        }
+        const cfEl = $("#cf");
+        if (cfEl) {
+            cfEl.onsubmit = (e) => {
+                e.preventDefault();
+                open(
+                    wa(
+                        `Hi, I would like custom art.\nName: ${$("#cn") ? $("#cn").value : ""}\nType: ${$("#ct") ? $("#ct").value : ""}\nShape: ${$("#cp") ? $("#cp").value : ""}\nWall size: ${($("#cs") && $("#cs").value) || "-"}\nIdea: ${($("#ci") && $("#ci").value) || "-"}${who()}`,
+                    ),
+                    "_blank",
+                );
+            };
+        }
         /* ========================================================================== */
         /* >>> SLIDE-OVER DRAWERS & PROFILE <<<                                  */
         /* ========================================================================== */
         const openDr = (t, h) => {
-            $("#drt").textContent = t;
-            $("#drb").innerHTML = h;
-            $("#dr").classList.add("open");
+            const drt = $("#drt"), drb = $("#drb"), dr = $("#dr");
+            if (drt) drt.textContent = t;
+            if (drb) drb.innerHTML = h;
+            if (dr) dr.classList.add("open");
             initIcons();
         };
-        const closeDr = () => $("#dr").classList.remove("open");
-        $("#drx").onclick = closeDr;
+        const closeDr = () => {
+            const dr = $("#dr");
+            if (dr) dr.classList.remove("open");
+        };
+        const drx = $("#drx");
+        if (drx) drx.onclick = closeDr;
         function toggleW(i) {
+            if (!PRODUCTS[i]) return;
             const n = PRODUCTS[i].name;
             wl = wl.includes(n) ? wl.filter((x) => x !== n) : [...wl, n];
             try {
@@ -4324,58 +4521,73 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             drawW();
         }
         function drawW() {
-            $("#wc").textContent = wl.length;
-            $("#wc").style.display = wl.length ? "grid" : "none";
+            const wc = $("#wc");
+            if (wc) {
+                wc.textContent = wl.length;
+                wc.style.display = wl.length ? "grid" : "none";
+            }
             document
                 .querySelectorAll("[data-w]")
-                .forEach((b) =>
+                .forEach((b) => {
+                    const idx = +b.dataset.w;
                     b.classList.toggle(
                         "on",
-                        wl.includes(PRODUCTS[+b.dataset.w].name),
-                    ),
-                );
-        }
-        $("#wbtn").onclick = () => {
-            const l = PRODUCTS.map((p, i) => [p, i]).filter(([p]) =>
-                wl.includes(p.name),
-            );
-            openDr(
-                "Saved artworks",
-                l.length
-                    ? l
-                        .map(
-                            ([p, i]) =>
-                                `<div class="ci"><img src="${p.images[0]}" alt="${p.name}" onerror="fb(this)"><div>${p.name}<small>From ${money(from(p))}</small><button data-v="${i}">View</button> <button data-w="${i}">Remove</button></div></div>`,
-                        )
-                        .join("")
-                    : "<p style='color:var(--gr)'>Tap the heart on any artwork to save it here.</p>",
-            );
-        };
-        $("#ubtn").onclick = () => {
-            let p = {};
-            try {
-                p = JSON.parse(localStorage.getItem("cvp") || "{}");
-            } catch (e) { }
-            openDr(
-                "Your profile",
-                `<p style="font-size:14px;color:var(--gr);margin-bottom:14px">Save your details once and they are added to your WhatsApp orders. They stay on this device only.</p><form id="pf" style="padding:0"><label>Name<input id="pn" value="${esc(p.n)}"></label><label>Phone<input id="pp" value="${esc(p.p)}"></label><label>Email<input id="pe" value="${esc(p.e)}"></label><label>Delivery address<textarea id="pa" rows="3">${esc(p.a)}</textarea></label><button class="btn" type="submit">Save profile</button><p id="pm" style="font-size:13px;color:#128C4A"></p></form>`,
-            );
-            $("#pf").onsubmit = (e) => {
-                e.preventDefault();
-                try {
-                    localStorage.setItem(
-                        "cvp",
-                        JSON.stringify({
-                            n: $("#pn").value,
-                            p: $("#pp").value,
-                            e: $("#pe").value,
-                            a: $("#pa").value,
-                        }),
+                        PRODUCTS[idx] && wl.includes(PRODUCTS[idx].name),
                     );
-                } catch (x) { }
-                $("#pm").textContent = "Saved on this device.";
+                });
+        }
+        const wbtn = $("#wbtn");
+        if (wbtn) {
+            wbtn.onclick = () => {
+                const l = PRODUCTS.map((p, i) => [p, i]).filter(([p]) =>
+                    wl.includes(p.name),
+                );
+                openDr(
+                    "Saved artworks",
+                    l.length
+                        ? l
+                            .map(
+                                ([p, i]) =>
+                                    `<div class="ci"><img src="${p.images[0]}" alt="${p.name}" onerror="fb(this)"><div>${p.name}<small>From ${money(from(p))}</small><button data-v="${i}">View</button> <button data-w="${i}">Remove</button></div></div>`,
+                            )
+                            .join("")
+                        : "<p style='color:var(--gr)'>Tap the heart on any artwork to save it here.</p>",
+                );
             };
-        };
+        }
+        const ubtn = $("#ubtn");
+        if (ubtn) {
+            ubtn.onclick = () => {
+                let p = {};
+                try {
+                    p = JSON.parse(localStorage.getItem("cvp") || "{}");
+                } catch (e) { }
+                openDr(
+                    "Your profile",
+                    `<p style="font-size:14px;color:var(--gr);margin-bottom:14px">Save your details once and they are added to your WhatsApp orders. They stay on this device only.</p><form id="pf" style="padding:0"><label>Name<input id="pn" value="${esc(p.n)}"></label><label>Phone<input id="pp" value="${esc(p.p)}"></label><label>Email<input id="pe" value="${esc(p.e)}"></label><label>Delivery address<textarea id="pa" rows="3">${esc(p.a)}</textarea></label><button class="btn" type="submit">Save profile</button><p id="pm" style="font-size:13px;color:#128C4A"></p></form>`,
+                );
+                const pf = $("#pf");
+                if (pf) {
+                    pf.onsubmit = (e) => {
+                        e.preventDefault();
+                        try {
+                            localStorage.setItem(
+                                "cvp",
+                                JSON.stringify({
+                                    n: $("#pn") ? $("#pn").value : "",
+                                    p: $("#pp") ? $("#pp").value : "",
+                                    e: $("#pe") ? $("#pe").value : "",
+                                    a: $("#pa") ? $("#pa").value : "",
+                                }),
+                            );
+                        } catch (x) { }
+                        const pm = $("#pm");
+                        if (pm) pm.textContent = "Saved on this device.";
+                    };
+                }
+            };
+        }
+
         $("#mnu").onclick = () =>
             openDr(
                 "Menu",
@@ -4388,27 +4600,78 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         $("#fem").textContent = EMAIL;
         const up = $("#up"),
             ur = $("#upr");
-        addEventListener(
-            "scroll",
-            () => {
-                const h =
-                    document.documentElement.scrollHeight - innerHeight,
-                    p = h > 0 ? scrollY / h : 0;
-                ur.style.strokeDashoffset = 100 - p * 100;
-                up.classList.toggle("show", scrollY > 300);
-            },
-            { passive: true },
-        );
-        up.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
+        if (up) {
+            addEventListener(
+                "scroll",
+                () => {
+                    if (ur) {
+                        const h =
+                            document.documentElement.scrollHeight - innerHeight,
+                            p = h > 0 ? scrollY / h : 0;
+                        ur.style.strokeDashoffset = 100 - p * 100;
+                    }
+                    up.classList.toggle("show", scrollY > 300);
+                },
+                { passive: true },
+            );
+            up.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
+        }
         drawW();
         const doSearch = (q) => {
-            q = q.trim();
+            q = (q || "").trim();
             if (q) location.hash = "#/search/" + encodeURIComponent(q);
         };
-        $("#sf").onsubmit = (e) => {
-            e.preventDefault();
-            doSearch($("#sq").value);
-        };
+        const sf = $("#sf");
+        if (sf) {
+            sf.onsubmit = (e) => {
+                e.preventDefault();
+                const q = $("#sq") ? $("#sq").value : "";
+                if ($("#msq")) $("#msq").value = q;
+                doSearch(q);
+            };
+        }
+        const msf = $("#msf"),
+            msq = $("#msq"),
+            msx = $("#msx"),
+            sbtn = $("#sbtn"),
+            msform = $("#msform");
+
+        if (sbtn && msf) {
+            sbtn.onclick = () => {
+                const isHidden = msf.hasAttribute("hidden");
+                if (isHidden) {
+                    msf.removeAttribute("hidden");
+                    sbtn.classList.add("active");
+                    initIcons();
+                    setTimeout(() => msq && msq.focus(), 60);
+                } else {
+                    msf.setAttribute("hidden", "");
+                    sbtn.classList.remove("active");
+                }
+            };
+        }
+        if (msx && msf) {
+            msx.onclick = () => {
+                msf.setAttribute("hidden", "");
+                sbtn && sbtn.classList.remove("active");
+            };
+        }
+        addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && msf && !msf.hasAttribute("hidden")) {
+                msf.setAttribute("hidden", "");
+                if (sbtn) sbtn.classList.remove("active");
+            }
+        });
+        if (msform) {
+            msform.onsubmit = (e) => {
+                e.preventDefault();
+                const q = msq ? msq.value : "";
+                if ($("#sq")) $("#sq").value = q;
+                if (msf) msf.setAttribute("hidden", "");
+                if (sbtn) sbtn.classList.remove("active");
+                doSearch(q);
+            };
+        }
         /* ========================================================================== */
         /* >>> BENTO GRID SHOWCASE <<<                                           */
         /* ========================================================================== */
@@ -4605,13 +4868,23 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 ["gr", "Religious"],
                 ["gc", "Custom Art"],
             ].forEach(([g, c]) => {
-                $("#" + g).innerHTML = list(
-                    (p) =>
-                        p.categories
-                            ? p.categories.includes(c)
-                            : p.category === c,
-                    4,
+                const el = $("#" + g);
+                if (!el) return;
+                const matches = PRODUCTS.map((p, i) => [p, i]).filter(([p]) =>
+                    p.categories
+                        ? p.categories.includes(c)
+                        : p.category === c,
                 );
+                if (matches.length) {
+                    el.innerHTML = matches.slice(0, 4).map(([p, i]) => card(p, i)).join("");
+                    el.style.display = "";
+                } else if (g === "gc") {
+                    el.innerHTML = "";
+                    el.style.display = "none";
+                } else {
+                    el.innerHTML = emptyHTML();
+                    el.style.display = "";
+                }
             });
             document.querySelectorAll(".bt img[data-fall]").forEach((i) => {
                 const u = tileImg(i.alt);
@@ -4829,30 +5102,8 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             draw();
             initIcons();
         }
-        const SZL2 = [
-            "24x24",
-            "30x30",
-            "36x36",
-            "42x42",
-            "48x48",
-            "20x30",
-            "24x36",
-            "28x42",
-            "32x48",
-            "36x54",
-            "18x36",
-            "24x48",
-            "30x60",
-            "36x72",
-        ];
-        const accHTML = (
-            p,
-        ) => `<div class="acc"><details><summary>Dimension chart</summary><div><table><tr><th>Inches (w x h)</th><th>CM (w x h)</th></tr>${SZL2.map(
-            (z) => {
-                const [w, h] = z.split("x");
-                return `<tr><td>${w} x ${h}</td><td>${(w * 2.54).toFixed(1)} x ${(h * 2.54).toFixed(1)}</td></tr>`;
-            },
-        ).join("")}</table></div></details>
+        const accHTML = (p) =>
+            `<div class="acc"><details><summary>Dimension chart</summary><div>${dims()}</div></details>
  <details open><summary>Feature and details</summary><div><p>All sizes are in inches (width x height). Price is for the full artwork.</p><p>${p.features}</p><p>Category: ${p.category}. Shape: ${p.shape}. 100% handmade.</p></div></details>
  <details><summary>Customer preview</summary><p>${PREVIEW_TEXT}</p></details>
  <details><summary>Return and cancellation</summary><div>${RETURN_TEXT.map((x) => `<p>${x}</p>`).join("")}</div></details>
@@ -4944,6 +5195,10 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         /* >>> CLIENT-SIDE ROUTER & APP INITIALIZATION <<<                       */
         /* ========================================================================== */
         function route() {
+            if (msf && !msf.hasAttribute("hidden")) {
+                msf.setAttribute("hidden", "");
+                if (sbtn) sbtn.classList.remove("active");
+            }
             const h = location.hash;
             if (h.slice(0, 2) !== "#/") {
                 viewEl.hidden = true;

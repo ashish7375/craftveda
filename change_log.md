@@ -1,5 +1,19 @@
 # CraftVeda Project Change Log
 
+## [Storefront Typography: Match Bento Grid Card Names to Admin Preview] - 2026-10-30
+### Enhanced in `index.html` & `change_log.md`
+- **Matched Bento Grid Typography with Admin Panel**:
+  - Investigated the source of truth in `admin-index.html` (`.bt-tile-title`):
+    - `font-family`: `'Playfair Display', Georgia, serif`
+    - `font-weight`: `600`
+    - `font-size`: `15px`
+    - `line-height`: `1.2`
+    - `letter-spacing`: `0.01em`
+    - `text-shadow`: `0 1px 3px rgba(0, 0, 0, 0.6)`
+  - Replaced the generic `Inter, system-ui, sans-serif` in `index.html` (`.bt span`) with the pre-loaded Google Font `'Playfair Display', Georgia, serif` (weight 600).
+  - Preserved all existing card layout, dimensioning, hover scale effects, border radii, and button click routing.
+  - Added responsive scaling (`16px` on tablet, `13.5px` on small mobile screens `<= 480px`) to ensure longer titles ("Charcoal Sketch", "Pencil Sketch") fit cleanly without overflow.
+
 ## [Bento Real Images Sync & Local Testing Draft Environment] - 2026-10-30
 ### Enhanced in `settings.json`, `admin-index.html`, `draft/index.html` & `change_log.md`
 - **Restored Real Bento Grid Images in Admin Preview**:

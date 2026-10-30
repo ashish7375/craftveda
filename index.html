@@ -1517,11 +1517,13 @@
             right: 14px;
             bottom: 12px;
             z-index: 2;
-            font-family: Inter, system-ui, sans-serif;
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: 15px;
             font-weight: 600;
+            line-height: 1.2;
             letter-spacing: 0.01em;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
         }
 
         .bt span:after {
@@ -1646,7 +1648,17 @@
             }
 
             .bt span {
-                font-size: 18px;
+                font-size: 16px;
+                line-height: 1.2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bt span {
+                font-size: 13.5px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
             }
         }
 

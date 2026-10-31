@@ -4250,7 +4250,7 @@
         function healBentoImages(bentoList) {
             if (!Array.isArray(bentoList)) return;
             bentoList.forEach(t => {
-                if (!t.image || t.image.startsWith("images/bento/")) {
+                if (!t.image) {
                     const defM = DEFAULT_BENTO.find(d => 
                         (d.title || "").toLowerCase() === (t.target || t.title || "").toLowerCase() || 
                         (d.target || "").toLowerCase() === (t.target || t.title || "").toLowerCase()
@@ -4404,7 +4404,7 @@
                 const tileIdx = cIdx * 2 + rIdx;
                 const isSel = tileIdx === selectedBentoIndex;
                 let imgUrl = tile.image || "";
-                if (!imgUrl || imgUrl.startsWith("images/bento/")) {
+                if (!imgUrl) {
                     const defM = DEFAULT_BENTO.find(d => 
                         (d.title || "").toLowerCase() === (tile.target || tile.title || "").toLowerCase() || 
                         (d.target || "").toLowerCase() === (tile.target || tile.title || "").toLowerCase()
@@ -4937,6 +4937,7 @@
             if (imgPathIn) {
                 imgPathIn.oninput = e => {
                     curTile.image = e.target.value.trim();
+                    try { localStorage.setItem("cv_settings", JSON.stringify(settings)); localStorage.setItem("craftveda_admin_draft_settings", JSON.stringify(settings)); } catch (_) { }
                     const curImg = $("#bento-cur-img");
                     if (curImg) curImg.src = curTile.image || ph(curTile.title);
                     const previewImg = document.querySelector(`.bt-tile-admin[data-tile-idx="${selectedBentoIndex}"] img`);
@@ -4985,6 +4986,19 @@
                         }
 
                         curTile.image = filename;
+                        try {
+                            localStorage.setItem("cv_settings", JSON.stringify(settings));
+                            localStorage.setItem("craftveda_admin_draft_settings", JSON.stringify(settings));
+                        } catch (_) { }
+
+                        // Automatically persist settings to GitHub so the website updates immediately
+                        if (typeof saveSettings === "function" && cfg && cfg.proxy) {
+                            try {
+                                await saveSettings(`Updated Bento photo for ${curTile.title}`);
+                            } catch (saveErr) {
+                                console.warn("Auto-save settings notice:", saveErr);
+                            }
+                        }
                         toast(`Uploaded & saved photo to ${filename}`);
                         render();
                     } catch (err) {
@@ -5125,12 +5139,17 @@
                     saveBtn.disabled = true;
                     busy("Saving Bento Grid changes...");
                     try {
+                        const curInput = $("#bento-img-path");
+                        if (curInput && curTile) {
+                            curTile.image = curInput.value.trim();
+                        }
                         await saveSettings("Updated Homepage Bento Grid");
                         toast("Homepage Bento Grid saved successfully!");
                     } catch (err) {
                         toast(err.message, 1);
                     } finally {
                         saveBtn.disabled = false;
+                        busy(false);
                     }
                 };
             }

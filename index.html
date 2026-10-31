@@ -1755,7 +1755,7 @@
                 scroll-padding-top: 90px;
             }
 
-            .hrow > .srch-wrap,
+            .hrow>.srch-wrap,
             .mrow {
                 display: none;
             }
@@ -1952,12 +1952,7 @@
             .act button[data-w]:hover {
                 width: 44px;
                 height: 44px;
-                background: radial-gradient(
-                    circle,
-                    rgba(15, 39, 64, 0.38) 0%,
-                    rgba(15, 39, 64, 0.14) 46%,
-                    transparent 70%
-                );
+                background: none;
                 box-shadow: none;
                 color: #ffffff;
             }
@@ -1966,11 +1961,10 @@
             .act button[data-w] .lucide {
                 width: 22px;
                 height: 22px;
-                stroke: currentColor;
-                stroke-width: 2;
-                fill: rgba(15, 39, 64, 0.22);
-                filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6))
-                    drop-shadow(0 0 6px rgba(0, 0, 0, 0.3));
+                fill: none;
+                stroke: #ffffff;
+                stroke-width: 2px;
+                filter: none;
             }
 
             .act button[data-w].on,
@@ -1981,9 +1975,9 @@
             .act button[data-w].on svg,
             .act button[data-w].on .lucide {
                 fill: var(--cu);
-                stroke: var(--cu);
-                filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.65))
-                    drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
+                stroke: #ffffff;
+                stroke-width: 0.5px;
+                filter: none;
             }
 
             .act [data-tip]:hover:before {
@@ -3067,6 +3061,7 @@
                 opacity: 0;
                 transform: translateY(-6px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -3506,6 +3501,7 @@
         }
 
         @media (max-width: 900px) {
+
             /* Swipe or tap a thumbnail to change image on mobile */
             .ga {
                 display: none;
@@ -3522,7 +3518,8 @@
         <div class="wrap hrow">
             <div class="srch-wrap" id="dsw">
                 <form class="srch" id="sf" role="search">
-                    <input id="sq" enterkeyhint="search" autocomplete="off" placeholder="Type to discover your style" aria-label="Search artworks" />
+                    <input id="sq" enterkeyhint="search" autocomplete="off" placeholder="Type to discover your style"
+                        aria-label="Search artworks" />
                     <button type="submit" aria-label="Search">
                         <i data-lucide="search"></i>
                     </button>
@@ -3550,7 +3547,8 @@
             <div class="wrap">
                 <div class="srch-wrap" id="msw">
                     <form class="srch" id="msform" role="search">
-                        <input id="msq" enterkeyhint="search" autocomplete="off" placeholder="Type to discover your style" aria-label="Search artworks" />
+                        <input id="msq" enterkeyhint="search" autocomplete="off"
+                            placeholder="Type to discover your style" aria-label="Search artworks" />
                         <button type="submit" aria-label="Search">
                             <i data-lucide="search"></i>
                         </button>
@@ -3722,11 +3720,14 @@
                         </label>
                         <label>
                             Phone number
-                            <input id="cph" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="So we can call you" required /><small class="ferr" data-for="cph" hidden>Enter a valid phone number (10 to 15 digits).</small>
+                            <input id="cph" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next"
+                                placeholder="So we can call you" required /><small class="ferr" data-for="cph"
+                                hidden>Enter a valid phone number (10 to 15 digits).</small>
                         </label>
                         <label>
                             Your idea (optional)
-                            <textarea id="ci" rows="3" placeholder="A few words is enough, we will ask the details on call"></textarea>
+                            <textarea id="ci" rows="3"
+                                placeholder="A few words is enough, we will ask the details on call"></textarea>
                         </label>
                         <button class="btn" type="submit">
                             Request a call back
@@ -3921,8 +3922,10 @@
     </aside>
     <button id="up" aria-label="Back to top">
         <svg class="up-prog" viewBox="0 0 46 46" aria-hidden="true">
-            <rect class="up-track" x="1.5" y="1.5" width="43" height="43" rx="4" fill="none" stroke="var(--ln)" stroke-width="2" />
-            <rect id="upr" x="1.5" y="1.5" width="43" height="43" rx="4" fill="none" stroke="var(--cu)" stroke-width="2.5" stroke-linecap="round" pathLength="100" />
+            <rect class="up-track" x="1.5" y="1.5" width="43" height="43" rx="4" fill="none" stroke="var(--ln)"
+                stroke-width="2" />
+            <rect id="upr" x="1.5" y="1.5" width="43" height="43" rx="4" fill="none" stroke="var(--cu)"
+                stroke-width="2.5" stroke-linecap="round" pathLength="100" />
         </svg>
         <i data-lucide="chevron-up"></i>
     </button>
@@ -5329,29 +5332,27 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
 
             const sugsHTML = sugs.length
                 ? `<div class="ssec" style="padding:4px 0"><div class="ssugs">${sugs
-                      .map(
-                          (s) =>
-                              `<button type="button" role="option" data-sug="${esc(s.label)}"><span>${hiMatch(s.label, q)}</span></button>`,
-                      )
-                      .join("")}</div></div>`
+                    .map(
+                        (s) =>
+                            `<button type="button" role="option" data-sug="${esc(s.label)}"><span>${hiMatch(s.label, q)}</span></button>`,
+                    )
+                    .join("")}</div></div>`
                 : "";
 
             const resHTML = items.length
-                ? `<div class="ssec" style="padding:10px 0 0"><span class="slbl" style="padding:0 14px">${
-                      q ? "Matching Artworks (" + total + ")" : "Featured Artworks"
-                  }</span><div class="sres">${items
-                      .map(
-                          (p) =>
-                              `<button type="button" class="sres-it" data-art="${esc(p.name)}"><img src="${esc(p.images[0] || "")}" alt="${esc(p.name)}" onerror="fb(this)"><div class="sres-b"><div class="sres-t">${hiMatch(p.name, q)}</div><div class="sres-m"><span>From ${money(from(p))}</span></div></div></button>`,
-                      )
-                      .join("")}</div>${
-                      q
-                          ? `<button type="button" class="sall" data-all="${esc(q)}">View all ${total} result${total === 1 ? "" : "s"} for "${esc(q)}"</button>`
-                          : ""
-                  }</div>`
+                ? `<div class="ssec" style="padding:10px 0 0"><span class="slbl" style="padding:0 14px">${q ? "Matching Artworks (" + total + ")" : "Featured Artworks"
+                }</span><div class="sres">${items
+                    .map(
+                        (p) =>
+                            `<button type="button" class="sres-it" data-art="${esc(p.name)}"><img src="${esc(p.images[0] || "")}" alt="${esc(p.name)}" onerror="fb(this)"><div class="sres-b"><div class="sres-t">${hiMatch(p.name, q)}</div><div class="sres-m"><span>From ${money(from(p))}</span></div></div></button>`,
+                    )
+                    .join("")}</div>${q
+                        ? `<button type="button" class="sall" data-all="${esc(q)}">View all ${total} result${total === 1 ? "" : "s"} for "${esc(q)}"</button>`
+                        : ""
+                }</div>`
                 : q
-                  ? `<div class="ssec" style="color:var(--gr);font-size:14px">No exact match for "${esc(q)}" — try a badge above or press Search.</div>`
-                  : "";
+                    ? `<div class="ssec" style="color:var(--gr);font-size:14px">No exact match for "${esc(q)}" — try a badge above or press Search.</div>`
+                    : "";
 
             dropEl.innerHTML = (q ? sugsHTML + resHTML + pillsHTML : pillsHTML + sugsHTML + resHTML);
             dropEl.hidden = false;

@@ -35,6 +35,7 @@
             --cu2: #c97a5e;
             --gr: #5e6672;
             --ln: #e4dfd7;
+            --rad: 4px;
         }
 
         * {
@@ -264,6 +265,7 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             border: 0;
+            border-radius: var(--rad);
             cursor: pointer;
             font-family: inherit;
             font-weight: 600;
@@ -325,6 +327,7 @@
             background: linear-gradient(135deg, #dcd7cf, #bdb7ac);
             overflow: hidden;
             position: relative;
+            border-radius: var(--rad);
         }
 
         .pc img {
@@ -399,6 +402,7 @@
             width: 44px;
             height: 44px;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
             background: #fff;
             font-size: 18px;
             cursor: pointer;
@@ -444,6 +448,7 @@
             aspect-ratio: 4/3;
             background: var(--navy2);
             overflow: hidden;
+            border-radius: var(--rad);
         }
 
         .ban .ph img {
@@ -486,6 +491,7 @@
             background: var(--navy2);
             color: #fff;
             border: 0;
+            border-radius: var(--rad);
             position: relative;
             overflow: hidden;
             cursor: pointer;
@@ -560,6 +566,7 @@
 
         .chips span {
             border: 1px solid #3a5878;
+            border-radius: var(--rad);
             padding: 8px 16px;
             font-size: 13px;
         }
@@ -587,6 +594,7 @@
             background: #fff;
             color: var(--navy);
             padding: 30px;
+            border-radius: var(--rad);
             display: grid;
             gap: 14px;
         }
@@ -607,6 +615,7 @@
             font-size: 15px;
             padding: 12px;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
             background: var(--iv);
             width: 100%;
             text-transform: none;
@@ -626,6 +635,7 @@
         .gc {
             background: #fff;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
             padding: 40px 34px;
             cursor: pointer;
             text-align: left;
@@ -643,15 +653,21 @@
         .gc h3 {
             font-size: 26px;
             margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .gc:hover h3 {
+            color: #ffffff;
         }
 
         .gc p {
             font-size: 14px;
             color: var(--gr);
+            transition: color 0.3s;
         }
 
         .gc:hover p {
-            color: #c4d0dc;
+            color: #dce4ec;
         }
 
         /* ========================================================================== */
@@ -693,6 +709,7 @@
         .help {
             margin-top: 26px;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
             padding: 24px;
             background: #fff;
         }
@@ -818,6 +835,7 @@
             max-height: 92vh;
             overflow: auto;
             position: relative;
+            border-radius: var(--rad);
             animation: pop 0.35s;
         }
 
@@ -834,6 +852,7 @@
             top: 6px;
             background: none;
             border: 0;
+            border-radius: var(--rad);
             cursor: pointer;
             z-index: 3;
             color: var(--navy);
@@ -881,6 +900,7 @@
             object-fit: cover;
             cursor: pointer;
             border: 2px solid transparent;
+            border-radius: var(--rad);
         }
 
         .th img.on {
@@ -946,7 +966,7 @@
             background: #1fa855;
             color: #fff;
             padding: 12px 18px;
-            border-radius: 40px;
+            border-radius: var(--rad);
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
@@ -998,6 +1018,7 @@
             text-transform: uppercase;
             padding: 5px 12px;
             margin: 8px 0;
+            border-radius: var(--rad);
         }
 
         .szs {
@@ -1009,6 +1030,7 @@
 
         .szs button {
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
             background: #fff;
             padding: 9px 14px;
             font: inherit;
@@ -1160,6 +1182,7 @@
             width: 56px;
             height: 70px;
             object-fit: cover;
+            border-radius: var(--rad);
         }
 
         .ci div {
@@ -1173,6 +1196,7 @@
 
         .ci button {
             border: 0;
+            border-radius: var(--rad);
             background: none;
             color: var(--cu);
             cursor: pointer;
@@ -1194,6 +1218,7 @@
         .ib {
             background: none;
             border: 0;
+            border-radius: var(--rad);
             cursor: pointer;
             position: relative;
             padding: 6px;
@@ -1223,7 +1248,7 @@
             font-size: 10px;
             min-width: 16px;
             height: 16px;
-            border-radius: 8px;
+            border-radius: var(--rad);
             display: none;
             place-items: center;
             padding: 0 3px;
@@ -1248,6 +1273,7 @@
             min-width: 210px;
             background: #fff;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
             box-shadow: 0 18px 40px rgba(15, 39, 64, 0.14);
             padding: 8px 0;
             opacity: 0;
@@ -1307,7 +1333,7 @@
             right: 10px;
             width: 36px;
             height: 36px;
-            border-radius: 50%;
+            border-radius: var(--rad);
             border: 0;
             background: rgba(255, 255, 255, 0.93);
             font-size: 18px;
@@ -1333,7 +1359,7 @@
             height: 46px;
             background: #ffffff;
             border: 0;
-            border-radius: 4px;
+            border-radius: var(--rad);
             cursor: pointer;
             z-index: 34;
             display: flex;
@@ -1422,18 +1448,28 @@
             gap: 20px;
         }
 
+        .srch-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+            justify-self: start;
+        }
+
         .srch {
             display: flex;
             align-items: center;
             background: #f1efeb;
-            max-width: 290px;
-            height: 42px;
+            width: 100%;
+            height: 46px;
             padding: 0 4px 0 14px;
+            border: 0;
+            border-radius: var(--rad);
         }
 
         .srch input {
             flex: 1;
             min-width: 0;
+            min-height: 0;
             border: 0;
             background: none;
             font: inherit;
@@ -1446,10 +1482,12 @@
         .srch button {
             background: none;
             border: 0;
+            border-radius: var(--rad);
             cursor: pointer;
             padding: 10px;
             color: var(--navy);
             display: grid;
+            place-items: center;
         }
 
         .srch svg,
@@ -1547,7 +1585,7 @@
         .bt {
             position: relative;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: var(--rad);
             border: 1px solid rgba(0, 0, 0, 0.08);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             background: #e8e1d6;
@@ -1717,7 +1755,7 @@
                 scroll-padding-top: 90px;
             }
 
-            .srch,
+            .hrow > .srch-wrap,
             .mrow {
                 display: none;
             }
@@ -1781,7 +1819,7 @@
         .wa {
             left: 18px;
             right: auto;
-            border-radius: 6px;
+            border-radius: var(--rad);
             display: flex;
             gap: 10px;
             align-items: center;
@@ -1794,7 +1832,7 @@
                 right: 16px;
                 width: 42px;
                 height: 42px;
-                border-radius: 4px;
+                border-radius: var(--rad);
             }
         }
 
@@ -1830,6 +1868,7 @@
             width: 46px;
             height: 46px;
             border: 0;
+            border-radius: var(--rad);
             background: #fff;
             cursor: pointer;
             color: var(--navy);
@@ -1878,6 +1917,7 @@
             color: #fff;
             font-size: 12px;
             padding: 6px 10px;
+            border-radius: var(--rad);
             white-space: nowrap;
         }
 
@@ -1891,8 +1931,8 @@
         @media (max-width: 699px) {
             .act {
                 left: auto;
-                right: 8px;
-                bottom: 8px;
+                right: 4px;
+                bottom: 4px;
                 transform: none;
                 opacity: 1;
                 gap: 0;
@@ -1908,16 +1948,42 @@
                 display: none !important;
             }
 
-            .act button[data-w] {
-                width: 34px;
-                height: 34px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            .act button[data-w],
+            .act button[data-w]:hover {
+                width: 44px;
+                height: 44px;
+                background: radial-gradient(
+                    circle,
+                    rgba(15, 39, 64, 0.38) 0%,
+                    rgba(15, 39, 64, 0.14) 46%,
+                    transparent 70%
+                );
+                box-shadow: none;
+                color: #ffffff;
             }
 
             .act button[data-w] svg,
             .act button[data-w] .lucide {
-                width: 17px;
-                height: 17px;
+                width: 22px;
+                height: 22px;
+                stroke: currentColor;
+                stroke-width: 2;
+                fill: rgba(15, 39, 64, 0.22);
+                filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6))
+                    drop-shadow(0 0 6px rgba(0, 0, 0, 0.3));
+            }
+
+            .act button[data-w].on,
+            .act button[data-w].on:hover {
+                color: var(--cu);
+            }
+
+            .act button[data-w].on svg,
+            .act button[data-w].on .lucide {
+                fill: var(--cu);
+                stroke: var(--cu);
+                filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.65))
+                    drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
             }
 
             .act [data-tip]:hover:before {
@@ -1970,13 +2036,21 @@
             display: inline-flex;
             gap: 8px;
             align-items: center;
-            background: none;
-            border: 0;
+            background: #fff;
+            border: 1px solid var(--ln);
+            border-radius: var(--rad);
+            padding: 10px 16px;
             font: inherit;
             font-size: 14px;
-            color: var(--gr);
+            color: var(--navy);
             cursor: pointer;
             justify-self: start;
+            transition: 0.2s;
+        }
+
+        .flt:hover {
+            border-color: var(--cu);
+            color: var(--cu);
         }
 
         .flt svg,
@@ -1999,6 +2073,7 @@
             gap: 2px;
             padding: 6px;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
             background: #fff;
             cursor: pointer;
         }
@@ -2023,6 +2098,7 @@
             min-width: 200px;
             padding: 12px 14px;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
             background: #fff;
             font: inherit;
             font-size: 14px;
@@ -2035,6 +2111,7 @@
             flex-wrap: wrap;
             background: #fff;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
             padding: 18px;
             margin-bottom: 26px;
         }
@@ -2083,6 +2160,7 @@
             object-fit: cover;
             cursor: pointer;
             border: 2px solid transparent;
+            border-radius: var(--rad);
             background: #eee;
         }
 
@@ -2093,6 +2171,7 @@
         .mimg {
             background: #fff;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
         }
 
         .mimg img {
@@ -2188,6 +2267,7 @@
             justify-content: center;
             gap: 10px;
             border: 1.5px solid var(--cu);
+            border-radius: var(--rad);
             padding: 15px;
             font-weight: 600;
             text-decoration: none;
@@ -2245,7 +2325,7 @@
             width: 42px;
             height: 42px;
             border: 1px solid #3a5878;
-            border-radius: 50%;
+            border-radius: var(--rad);
             display: grid;
             place-items: center;
             color: #cfd8e3;
@@ -2401,10 +2481,10 @@
             grid-template-columns: 1fr auto 1fr;
         }
 
-        .hrow .srch {
+        .hrow .srch-wrap {
             justify-self: start;
             width: 100%;
-            max-width: 300px;
+            max-width: 340px;
         }
 
         .hrow .logo {
@@ -2534,6 +2614,7 @@
             text-align: center;
             padding: 40px 20px;
             border: 1px dashed rgba(120, 130, 145, 0.5);
+            border-radius: var(--rad);
             color: var(--gr);
         }
 
@@ -2578,7 +2659,7 @@
             transform: translateY(-50%);
             width: 44px;
             height: 44px;
-            border-radius: 50%;
+            border-radius: var(--rad);
             border: 1.5px solid var(--navy);
             background: rgba(255, 255, 255, 0.88);
             color: var(--navy);
@@ -2779,6 +2860,10 @@
                 flex-direction: column;
                 gap: 12px;
             }
+
+            form {
+                padding: 22px 18px;
+            }
         }
 
         @media (max-width: 340px) {
@@ -2871,9 +2956,12 @@
                 letter-spacing: 0.1em;
             }
 
-            .hrow .srch {
-                height: 46px;
+            .hrow .srch-wrap {
                 max-width: 340px;
+            }
+
+            .srch {
+                height: 46px;
             }
 
             .srch input {
@@ -2946,7 +3034,7 @@
             }
         }
 
-        /* Mobile Search Bar */
+        /* Unified Search Bar & Pre-Search Showcase Dropdown (Desktop, Tablet & Mobile) */
         .sbt.active {
             color: var(--cu);
         }
@@ -2954,7 +3042,7 @@
         .mob-srch {
             background: var(--iv);
             border-top: 1px solid var(--ln);
-            padding: 10px 0;
+            padding: 10px 0 12px;
             display: block;
             animation: mobSrchIn 0.2s ease;
         }
@@ -2969,61 +3057,9 @@
             }
         }
 
-        .mob-srch form {
-            display: flex;
-            align-items: center;
-            background: #ffffff;
-            border: 1.5px solid var(--cu);
-            border-radius: 999px;
-            padding: 0 14px;
-            height: 44px;
-            box-shadow: 0 4px 14px rgba(15, 39, 64, 0.08);
-            gap: 10px;
-        }
-
-        .mob-srch .ms-icon {
-            width: 18px;
-            height: 18px;
-            stroke: var(--cu);
-            stroke-width: 2;
-            flex-shrink: 0;
-        }
-
-        .mob-srch input {
-            flex: 1;
-            border: 0;
-            background: transparent;
-            font-size: 15px;
-            color: var(--navy);
-            outline: none;
-            padding: 0;
-            font-family: Inter, system-ui, sans-serif;
-            min-width: 0;
-        }
-
-        .mob-srch button {
-            background: transparent;
-            border: 0;
-            cursor: pointer;
-            padding: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gr);
-            border-radius: 50%;
-        }
-
-        .mob-srch button:hover {
-            color: var(--navy);
-            background: rgba(15, 39, 64, 0.06);
-        }
-
-        .mob-srch button svg,
-        .mob-srch button .lucide {
-            width: 18px;
-            height: 18px;
-            stroke: currentColor;
-            stroke-width: 2;
+        .mob-srch .srch-wrap {
+            max-width: none;
+            width: 100%;
         }
 
         @keyframes mobSrchIn {
@@ -3038,7 +3074,7 @@
         }
 
         /* ========================================================================== */
-        /* >>> MOBILE FORMS, SEARCH & TAP TARGETS (<= 900px) <<<                 */
+        /* >>> UNIFIED FORMS, SEARCH SHOWCASE & TAP TARGETS (ALL SCREENS) <<<     */
         /* ========================================================================== */
         .ferr {
             color: var(--cu);
@@ -3060,196 +3096,300 @@
             margin: -22px 0 26px;
         }
 
-        .msug {
-            background: #fff;
+        .sdrop {
+            background: #ffffff;
             border: 1px solid var(--ln);
+            border-radius: var(--rad);
+            box-shadow: 0 14px 36px rgba(15, 39, 64, 0.14);
             margin-top: 8px;
-            box-shadow: 0 8px 20px rgba(15, 39, 64, 0.1);
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: min(74vh, 520px);
+            z-index: 65;
+            animation: mobSrchIn 0.18s ease;
         }
 
-        .msug[hidden] {
+        @media (min-width: 901px) {
+            .hrow .sdrop {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: max(100%, 440px);
+            }
+        }
+
+        .sdrop[hidden] {
             display: none !important;
         }
 
-        .msug button {
+        .ssec {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--ln);
+        }
+
+        .ssec:last-child {
+            border-bottom: 0;
+        }
+
+        .slbl {
             display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gr);
+            margin-bottom: 8px;
+        }
+
+        .spills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .spills button {
+            min-height: 34px;
+            padding: 6px 12px;
+            border: 1px solid var(--ln);
+            border-radius: var(--rad);
+            background: var(--iv);
+            color: var(--navy);
+            font: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .spills button:hover,
+        .spills button:focus-visible {
+            border-color: var(--cu);
+            background: var(--sand);
+            color: var(--navy);
+        }
+
+        .ssugs {
+            display: grid;
+        }
+
+        .ssugs button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
             width: 100%;
-            min-height: 48px;
-            padding: 12px 16px;
+            min-height: 44px;
+            padding: 10px 14px;
             text-align: left;
             background: none;
             border: 0;
             border-bottom: 1px solid var(--ln);
             font: inherit;
-            font-size: 16px;
-            color: var(--navy);
+            font-size: 15px;
+            color: var(--navy2);
             cursor: pointer;
+            transition: background 0.15s;
         }
 
-        .msug button:last-child {
+        .ssugs button:last-child {
             border-bottom: 0;
         }
 
-        .msug button:hover,
-        .msug button:focus-visible {
+        .ssugs button:hover,
+        .ssugs button:focus-visible {
             background: var(--sand);
         }
 
-        .mpills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .mpills[hidden] {
-            display: none !important;
-        }
-
-        .mpills button {
-            min-height: 40px;
-            padding: 8px 14px;
-            border: 1px solid var(--ln);
-            border-radius: 999px;
-            background: var(--iv);
+        .ssugs button b,
+        .sres-t b {
+            font-weight: 700;
             color: var(--navy);
-            font: inherit;
-            font-size: 14px;
-            cursor: pointer;
         }
 
-        .mpills button:hover,
-        .mpills button:focus-visible {
-            border-color: var(--cu);
+        .sres {
+            display: grid;
+        }
+
+        .sres-it {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 10px 14px;
+            text-align: left;
+            background: none;
+            border: 0;
+            border-bottom: 1px solid var(--ln);
+            font: inherit;
+            color: var(--navy);
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .sres-it:last-child {
+            border-bottom: 0;
+        }
+
+        .sres-it:hover,
+        .sres-it:focus-visible {
             background: var(--sand);
         }
 
-        @media (min-width: 901px) {
-            .rcount,
-            .mob-call {
-                display: none !important;
-            }
+        .sres-it img {
+            width: 44px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: var(--rad);
+            background: var(--sand);
+            flex-shrink: 0;
         }
 
-        @media (max-width: 900px) {
-
-            /* 16px prevents iOS Safari from auto-zooming into focused fields */
-            input,
-            select,
-            textarea,
-            .srch input,
-            .mob-srch input {
-                font-size: 16px;
-            }
-
-            input:not([type="checkbox"]):not([type="radio"]),
-            select {
-                min-height: 48px;
-            }
-
-            .chips span {
-                padding: 12px 16px;
-            }
+        .sres-b {
+            flex: 1;
+            min-width: 0;
         }
 
-        @media (max-width: 699px) {
-            .act button[data-w] {
-                width: 44px;
-                height: 44px;
-            }
+        .sres-t {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.25;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-            .act button[data-w] svg,
-            .act button[data-w] .lucide {
-                width: 20px;
-                height: 20px;
-            }
+        .sres-m {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+            font-size: 12.5px;
+            color: var(--gr);
+        }
 
-            .act {
-                right: 4px;
-                bottom: 4px;
-            }
+        .sall {
+            display: block;
+            width: 100%;
+            padding: 11px 14px;
+            text-align: center;
+            background: var(--iv);
+            border: 0;
+            border-top: 1px solid var(--ln);
+            font: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--cu);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .sall:hover,
+        .sall:focus-visible {
+            background: var(--navy);
+            color: #ffffff;
+        }
+
+        input,
+        select,
+        textarea,
+        .srch input {
+            font-size: 16px;
+        }
+
+        input:not([type="checkbox"]):not([type="radio"]):not(#sq):not(#msq),
+        select,
+        .flt {
+            min-height: 48px;
+        }
+
+        .chips span {
+            padding: 10px 16px;
         }
 
         /* ========================================================================== */
-        /* >>> MOBILE TYPOGRAPHY & READABILITY (<= 900px) <<<                    */
+        /* >>> UNIFIED TYPOGRAPHY & READABILITY (ALL SCREENS) <<<                 */
         /* Body copy 16px, tuned line-height, clear colour hierarchy using the    */
         /* existing palette only (headings > paragraphs > meta).                  */
         /* ========================================================================== */
+        body {
+            line-height: 1.55;
+        }
+
+        details p,
+        .acc details p,
+        .acc details div,
+        .help p,
+        .gc p,
+        .pol p,
+        .ban p,
+        .pdesc,
+        .how div,
+        .pd li,
+        .empty,
+        .sub {
+            font-size: 16px;
+            line-height: 1.55;
+        }
+
+        .pol small,
+        .tr span,
+        .acc table {
+            font-size: 14px;
+        }
+
+        .q {
+            font-size: 15px;
+        }
+
+        .pol p {
+            margin-bottom: 14px;
+        }
+
+        details p,
+        .acc details p,
+        .acc details div,
+        .help p,
+        .gc p,
+        .pol p,
+        .pdesc,
+        .empty {
+            color: var(--navy2);
+        }
+
+        .pol small,
+        .pc .m,
+        .pc .sz {
+            color: var(--gr);
+        }
+
+        .ban h2,
+        .how b,
+        .tr b,
+        footer h4 {
+            color: #ffffff;
+        }
+
+        .ban p,
+        .how div,
+        .tr span,
+        .dk .sub,
+        .dk .empty,
+        footer,
+        footer p {
+            color: #dce4ec;
+        }
+
+        .tbo p {
+            color: #eef2f6;
+        }
+
         @media (max-width: 900px) {
-            body {
-                line-height: 1.55;
-            }
-
-            details p,
-            .acc details p,
-            .acc details div,
-            .help p,
-            .gc p,
-            .pol p,
-            .ban p,
-            .pdesc,
-            .how div,
-            .pd li,
-            .empty,
-            .sub {
-                font-size: 16px;
-                line-height: 1.55;
-            }
-
-            .pol small,
-            .tr span,
-            .acc table {
-                font-size: 14px;
-            }
-
-            .q {
-                font-size: 15px;
-            }
-
-            .pol p {
-                margin-bottom: 14px;
-            }
-
             details p {
                 padding-right: 0;
-            }
-
-            details p,
-            .acc details p,
-            .acc details div,
-            .help p,
-            .gc p,
-            .pol p,
-            .pdesc,
-            .empty {
-                color: var(--navy2);
-            }
-
-            .pol small,
-            .pc .m,
-            .pc .sz {
-                color: var(--gr);
-            }
-
-            .ban h2,
-            .how b,
-            .tr b,
-            footer h4 {
-                color: #ffffff;
-            }
-
-            .ban p,
-            .how div,
-            .tr span,
-            .dk .sub,
-            .dk .empty,
-            footer,
-            footer p {
-                color: #dce4ec;
-            }
-
-            .tbo p {
-                color: #eef2f6;
             }
         }
 
@@ -3267,12 +3407,14 @@
             height: 100%;
             max-height: none;
             object-fit: contain;
+            cursor: zoom-in;
         }
 
         .pd .g {
             aspect-ratio: 4/5;
             overflow: hidden;
             background: #f3efe9;
+            border-radius: var(--rad);
         }
 
         .pd .g img {
@@ -3281,10 +3423,11 @@
             aspect-ratio: 4/5;
             max-height: none;
             object-fit: contain;
+            cursor: zoom-in;
         }
 
         .gdots {
-            display: none;
+            display: flex;
             justify-content: center;
             align-items: center;
             gap: 6px;
@@ -3295,7 +3438,7 @@
         .gdots i {
             width: 6px;
             height: 6px;
-            border-radius: 999px;
+            border-radius: var(--rad);
             background: rgba(15, 39, 64, 0.22);
             transition: width 0.25s ease, background 0.25s ease;
         }
@@ -3350,7 +3493,7 @@
             display: grid;
             place-items: center;
             border: 0;
-            border-radius: 50%;
+            border-radius: var(--rad);
             background: rgba(8, 18, 30, 0.7);
             color: #fff;
             cursor: pointer;
@@ -3363,14 +3506,9 @@
         }
 
         @media (max-width: 900px) {
-
-            /* Swipe or tap a thumbnail to change image: no arrows, show pagination pills */
+            /* Swipe or tap a thumbnail to change image on mobile */
             .ga {
                 display: none;
-            }
-
-            .gdots {
-                display: flex;
             }
         }
     </style>
@@ -3382,12 +3520,14 @@
     <!-- ========================================================================== -->
     <header>
         <div class="wrap hrow">
-            <form class="srch" id="sf" role="search">
-                <input id="sq" enterkeyhint="search" placeholder="Type to discover your style" aria-label="Search artworks" />
-                <button type="submit" aria-label="Search">
-                    <i data-lucide="search"></i>
-                </button>
-            </form>
+            <div class="srch-wrap" id="dsw">
+                <form class="srch" id="sf" role="search">
+                    <input id="sq" enterkeyhint="search" autocomplete="off" placeholder="Type to discover your style" aria-label="Search artworks" />
+                    <button type="submit" aria-label="Search">
+                        <i data-lucide="search"></i>
+                    </button>
+                </form>
+            </div>
             <a class="logo" href="#top">CRAFT<i>VEDA</i></a>
             <div class="icons">
                 <button class="ib sbt" id="sbtn" aria-label="Search">
@@ -3408,13 +3548,14 @@
         </div>
         <div class="mob-srch" id="msf" hidden>
             <div class="wrap">
-                <form id="msform" role="search">
-                    <i data-lucide="search" class="ms-icon"></i>
-                    <input id="msq" type="search" placeholder="Type to discover your style..." aria-label="Search artworks" autocomplete="off" enterkeyhint="search" />
-                    <button type="button" id="msx" aria-label="Close search">
-                        <i data-lucide="x"></i>
-                    </button>
-                </form>
+                <div class="srch-wrap" id="msw">
+                    <form class="srch" id="msform" role="search">
+                        <input id="msq" enterkeyhint="search" autocomplete="off" placeholder="Type to discover your style" aria-label="Search artworks" />
+                        <button type="submit" aria-label="Search">
+                            <i data-lucide="search"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="mrow">
@@ -3534,7 +3675,7 @@
             </div>
         </section>
 
-        <!-- Custom Art Showcase -->
+        <!-- Custom Art Showcase (hidden from UI across all devices; uncomment to restore)
         <section class="alt" id="customart">
             <div class="wrap">
                 <div class="sh">
@@ -3545,6 +3686,7 @@
                 <div class="grid" id="gc"></div>
             </div>
         </section>
+        -->
 
         <!-- Custom Artwork Request Form -->
         <section class="dk" id="custom">
@@ -4987,22 +5129,27 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         } catch (e) { }
         const doSearch = (q) => {
             q = (q || "").trim();
+            hideSearchDrops();
             if (q) location.hash = "#/search/" + encodeURIComponent(q);
         };
-        const sf = $("#sf");
-        if (sf) {
-            sf.onsubmit = (e) => {
-                e.preventDefault();
-                const q = $("#sq") ? $("#sq").value : "";
-                if ($("#msq")) $("#msq").value = q;
-                doSearch(q);
-            };
-        }
-        const msf = $("#msf"),
+        const sf = $("#sf"),
+            sq = $("#sq"),
+            dsw = $("#dsw"),
+            msf = $("#msf"),
             msq = $("#msq"),
             msx = $("#msx"),
             sbtn = $("#sbtn"),
-            msform = $("#msform");
+            msform = $("#msform"),
+            msw = $("#msw");
+
+        if (sf) {
+            sf.onsubmit = (e) => {
+                e.preventDefault();
+                const q = sq ? sq.value : "";
+                if (msq) msq.value = q;
+                doSearch(q);
+            };
+        }
 
         if (sbtn && msf) {
             sbtn.onclick = () => {
@@ -5015,32 +5162,36 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 } else {
                     msf.setAttribute("hidden", "");
                     sbtn.classList.remove("active");
+                    hideSearchDrops();
                 }
             };
         }
         if (msx && msf) {
             msx.onclick = () => {
+                if (msq && msq.value) {
+                    msq.value = "";
+                    if (sq) sq.value = "";
+                    drawSearchDrop(msq, msdrop);
+                    msq.focus();
+                    return;
+                }
                 msf.setAttribute("hidden", "");
                 sbtn && sbtn.classList.remove("active");
+                hideSearchDrops();
             };
         }
-        addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && msf && !msf.hasAttribute("hidden")) {
-                msf.setAttribute("hidden", "");
-                if (sbtn) sbtn.classList.remove("active");
-            }
-        });
         if (msform) {
             msform.onsubmit = (e) => {
                 e.preventDefault();
                 const q = msq ? msq.value : "";
-                if ($("#sq")) $("#sq").value = q;
+                if (sq) sq.value = q;
                 if (msf) msf.setAttribute("hidden", "");
                 if (sbtn) sbtn.classList.remove("active");
                 doSearch(q);
             };
         }
-        /* Mobile search suggestions: live autocomplete, typo tolerance and quick qualifying filter pills */
+        /* Unified Search Showcase (Desktop, Tablet & Mobile):
+           Quick filter badges, bold-matched autocomplete suggestions, and live artwork showcase before completing search */
         const track = (ev, d = {}) => {
             try {
                 dispatchEvent(new CustomEvent("cv:track", { detail: { event: ev, ...d } }));
@@ -5049,35 +5200,32 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: ev, ...d });
             } catch (_) { }
         };
-        const mpills = document.createElement("div");
-        mpills.className = "mpills";
-        mpills.id = "mpills";
-        mpills.innerHTML = [
+        const QUICK_PILLS = [
             ["Favorites", "#/fav"],
             ["New Arrivals", "#/new"],
             ["Under Rs. 10,000", "#/price/a"],
             ["Square", "#/shape/Square"],
             ["Vertical", "#/shape/Vertical"],
             ["Horizontal", "#/shape/Horizontal"],
-        ].map(([t, h]) => `<button type="button" data-pill="${h}">${t}</button>`).join("");
-        const msug = document.createElement("div");
-        msug.className = "msug";
-        msug.id = "msug";
-        msug.setAttribute("role", "listbox");
-        msug.hidden = true;
-        if (msform) {
-            msform.insertAdjacentElement("afterend", msug);
-            msform.insertAdjacentElement("afterend", mpills);
-        }
-        mpills.addEventListener("click", (e) => {
-            const b = e.target.closest("[data-pill]");
-            if (!b) return;
-            msug.hidden = true;
-            msf.setAttribute("hidden", "");
-            if (sbtn) sbtn.classList.remove("active");
-            track("search_filter_pill", { target: b.dataset.pill });
-            location.hash = b.dataset.pill;
-        });
+        ];
+        const makeDrop = (id) => {
+            const d = document.createElement("div");
+            d.className = "sdrop";
+            d.id = id;
+            d.setAttribute("role", "listbox");
+            d.hidden = true;
+            return d;
+        };
+        const dsdrop = makeDrop("dsdrop");
+        const msdrop = makeDrop("msdrop");
+        if (dsw) dsw.appendChild(dsdrop);
+        if (msw) msw.appendChild(msdrop);
+
+        const hideSearchDrops = () => {
+            dsdrop.hidden = true;
+            msdrop.hidden = true;
+        };
+
         const lev = (a, b) => {
             const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
             for (let j = 1; j <= b.length; j++) d[0][j] = j;
@@ -5086,43 +5234,192 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                     d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
             return d[a.length][b.length];
         };
-        const suggest = (raw) => {
-            const q = raw.trim().toLowerCase();
-            if (!q) return CATEGORIES.slice(0, 6);
-            if (q.length < 2) return [];
-            const pool = [...new Set([...PRODUCTS.map((p) => p.name), ...CATEGORIES, ...Object.values(THEMES).flat()])];
+
+        const hiMatch = (text, rawQ) => {
+            const s = String(text || "");
+            const q = (rawQ || "").trim();
+            if (!q) return esc(s);
+            const idx = s.toLowerCase().indexOf(q.toLowerCase());
+            if (idx < 0) return esc(s);
+            return (
+                esc(s.slice(0, idx)) +
+                "<b>" +
+                esc(s.slice(idx, idx + q.length)) +
+                "</b>" +
+                esc(s.slice(idx + q.length))
+            );
+        };
+
+        const suggestItems = (raw) => {
+            const q = (raw || "").trim().toLowerCase();
+            const catSet = new Set(CATEGORIES);
+            const thSet = new Set(Object.values(THEMES).flat());
+            if (!q) {
+                return CATEGORIES.slice(0, 6).map((c) => ({ label: c, tag: "Collection" }));
+            }
+            const pool = [
+                ...CATEGORIES.map((c) => ({ label: c, tag: "Collection" })),
+                ...[...thSet].map((t) => ({ label: t, tag: "Style" })),
+                ...PRODUCTS.map((p) => ({ label: p.name, tag: p.category || "Artwork" })),
+            ];
+            const seen = new Set();
+            const unique = pool.filter((x) => {
+                if (!x.label || seen.has(x.label)) return false;
+                seen.add(x.label);
+                return true;
+            });
             const score = (s) => {
                 const t = s.toLowerCase();
                 if (t.startsWith(q)) return 0;
-                if (t.includes(q)) return 1;
-                return t.split(/\s+/).some((w) => lev(w.slice(0, q.length), q) <= 1 || lev(w, q) <= 2) ? 2 : 9;
+                if (t.split(/\s+/).some((w) => w.startsWith(q))) return 1;
+                if (t.includes(q)) return 2;
+                if (q.length >= 2 && t.split(/\s+/).some((w) => lev(w.slice(0, q.length), q) <= 1 || lev(w, q) <= 2)) return 3;
+                return 9;
             };
-            return pool.map((s) => [s, score(s)]).filter((x) => x[1] < 9).sort((a, b) => a[1] - b[1] || a[0].localeCompare(b[0])).slice(0, 6).map((x) => x[0]);
+            return unique
+                .map((item) => [item, score(item.label)])
+                .filter((x) => x[1] < 9)
+                .sort((a, b) => a[1] - b[1] || a[0].label.localeCompare(b[0].label))
+                .slice(0, 5)
+                .map((x) => x[0]);
         };
-        const drawSug = () => {
-            if (!msq) return;
-            const hasQ = msq.value.trim().length > 0;
-            mpills.hidden = hasQ;
-            const r = suggest(msq.value);
-            msug.innerHTML = r.map((s) => '<button type="button" role="option" data-sug="' + esc(s) + '">' + esc(s) + "</button>").join("");
-            msug.hidden = !r.length;
+
+        const matchProducts = (raw) => {
+            const q = (raw || "").trim().toLowerCase();
+            if (!q) {
+                return {
+                    total: PRODUCTS.length,
+                    items: PRODUCTS.filter((p) => p.featured || p.isNew).slice(0, 3),
+                };
+            }
+            const scored = PRODUCTS.map((p) => {
+                const nameL = (p.name || "").toLowerCase();
+                const hay = [p.name, p.category, ...(p.categories || []), p.theme, p.shape]
+                    .join(" ")
+                    .toLowerCase();
+                let sc = 9;
+                if (nameL.startsWith(q)) sc = 0;
+                else if (nameL.includes(q)) sc = 1;
+                else if (hay.includes(q)) sc = 2;
+                else if (
+                    q.length >= 2 &&
+                    hay.split(/\s+/).some((w) => lev(w.slice(0, q.length), q) <= 1 || lev(w, q) <= 2)
+                )
+                    sc = 3;
+                return [p, sc];
+            })
+                .filter((x) => x[1] < 9)
+                .sort((a, b) => a[1] - b[1]);
+            return {
+                total: scored.length,
+                items: scored.slice(0, 4).map((x) => x[0]),
+            };
         };
-        if (msq) {
-            msq.addEventListener("input", drawSug);
-            msq.addEventListener("focus", drawSug);
-        }
-        msug.addEventListener("click", (e) => {
-            const b = e.target.closest("[data-sug]");
-            if (!b) return;
-            const q = b.dataset.sug;
-            msq.value = q;
-            if ($("#sq")) $("#sq").value = q;
-            msug.hidden = true;
-            msf.setAttribute("hidden", "");
-            if (sbtn) sbtn.classList.remove("active");
-            doSearch(q);
+
+        const drawSearchDrop = (inp, dropEl) => {
+            if (!inp || !dropEl) return;
+            const raw = inp.value || "";
+            const q = raw.trim();
+            const sugs = suggestItems(q);
+            const { total, items } = matchProducts(q);
+
+            const pillsHTML = `<div class="ssec"><span class="slbl">Explore by badge</span><div class="spills">${QUICK_PILLS.map(
+                ([t, h]) => `<button type="button" data-pill="${h}">${esc(t)}</button>`,
+            ).join("")}</div></div>`;
+
+            const sugsHTML = sugs.length
+                ? `<div class="ssec" style="padding:4px 0"><div class="ssugs">${sugs
+                      .map(
+                          (s) =>
+                              `<button type="button" role="option" data-sug="${esc(s.label)}"><span>${hiMatch(s.label, q)}</span></button>`,
+                      )
+                      .join("")}</div></div>`
+                : "";
+
+            const resHTML = items.length
+                ? `<div class="ssec" style="padding:10px 0 0"><span class="slbl" style="padding:0 14px">${
+                      q ? "Matching Artworks (" + total + ")" : "Featured Artworks"
+                  }</span><div class="sres">${items
+                      .map(
+                          (p) =>
+                              `<button type="button" class="sres-it" data-art="${esc(p.name)}"><img src="${esc(p.images[0] || "")}" alt="${esc(p.name)}" onerror="fb(this)"><div class="sres-b"><div class="sres-t">${hiMatch(p.name, q)}</div><div class="sres-m"><span>From ${money(from(p))}</span></div></div></button>`,
+                      )
+                      .join("")}</div>${
+                      q
+                          ? `<button type="button" class="sall" data-all="${esc(q)}">View all ${total} result${total === 1 ? "" : "s"} for "${esc(q)}"</button>`
+                          : ""
+                  }</div>`
+                : q
+                  ? `<div class="ssec" style="color:var(--gr);font-size:14px">No exact match for "${esc(q)}" — try a badge above or press Search.</div>`
+                  : "";
+
+            dropEl.innerHTML = (q ? sugsHTML + resHTML + pillsHTML : pillsHTML + sugsHTML + resHTML);
+            dropEl.hidden = false;
+        };
+
+        const bindSearch = (inp, otherInp, dropEl) => {
+            if (!inp || !dropEl) return;
+            inp.addEventListener("focus", () => drawSearchDrop(inp, dropEl));
+            inp.addEventListener("input", () => {
+                if (otherInp) otherInp.value = inp.value;
+                drawSearchDrop(inp, dropEl);
+            });
+            dropEl.addEventListener("click", (e) => {
+                const pill = e.target.closest("[data-pill]");
+                if (pill) {
+                    hideSearchDrops();
+                    if (msf) msf.setAttribute("hidden", "");
+                    if (sbtn) sbtn.classList.remove("active");
+                    track("search_filter_pill", { target: pill.dataset.pill });
+                    location.hash = pill.dataset.pill;
+                    return;
+                }
+                const sug = e.target.closest("[data-sug]");
+                if (sug) {
+                    const q = sug.dataset.sug;
+                    inp.value = q;
+                    if (otherInp) otherInp.value = q;
+                    if (msf) msf.setAttribute("hidden", "");
+                    if (sbtn) sbtn.classList.remove("active");
+                    doSearch(q);
+                    return;
+                }
+                const art = e.target.closest("[data-art]");
+                if (art) {
+                    hideSearchDrops();
+                    if (msf) msf.setAttribute("hidden", "");
+                    if (sbtn) sbtn.classList.remove("active");
+                    location.hash = "#/p/" + enc(art.dataset.art);
+                    return;
+                }
+                const all = e.target.closest("[data-all]");
+                if (all) {
+                    const q = all.dataset.all;
+                    if (msf) msf.setAttribute("hidden", "");
+                    if (sbtn) sbtn.classList.remove("active");
+                    doSearch(q);
+                }
+            });
+        };
+
+        bindSearch(sq, msq, dsdrop);
+        bindSearch(msq, sq, msdrop);
+
+        document.addEventListener("click", (e) => {
+            if (dsw && !dsw.contains(e.target)) dsdrop.hidden = true;
+            if (msw && !msw.contains(e.target) && e.target !== sbtn && !sbtn?.contains(e.target)) {
+                msdrop.hidden = true;
+            }
         });
-        if (msform) msform.addEventListener("submit", () => { msug.hidden = true; });
+        addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                hideSearchDrops();
+                if (msf && !msf.hasAttribute("hidden")) {
+                    msf.setAttribute("hidden", "");
+                    if (sbtn) sbtn.classList.remove("active");
+                }
+            }
+        });
         /* ========================================================================== */
         /* >>> BENTO GRID SHOWCASE <<<                                           */
         /* ========================================================================== */
@@ -5198,7 +5495,6 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             document.body.style.overflow = "";
         };
         const openLB = (src, alt) => {
-            if (!matchMedia("(max-width: 900px)").matches) return;
             lbImg.src = src;
             lbImg.alt = alt || "";
             lb.classList.remove("zoom");
@@ -5702,6 +5998,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         /* >>> CLIENT-SIDE ROUTER & APP INITIALIZATION <<<                       */
         /* ========================================================================== */
         function route() {
+            hideSearchDrops();
             if (msf && !msf.hasAttribute("hidden")) {
                 msf.setAttribute("hidden", "");
                 if (sbtn) sbtn.classList.remove("active");

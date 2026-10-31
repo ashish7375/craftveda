@@ -2150,6 +2150,39 @@
    "featured": false,
    "createdAt": "2026-10-31T18:56:16.669Z",
    "updatedAt": "2026-10-31T18:56:16.669Z"
+  },
+  {
+   "id": "mvwrjwjd",
+   "name": "Maa Lakshmi – The Goddess of Abundance",
+   "categories": [
+    "Religious"
+   ],
+   "theme": "",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     8000
+    ],
+    [
+     "36*24 inch",
+     10500
+    ],
+    [
+     "48*32 inch",
+     14500
+    ]
+   ],
+   "desc": "This beautiful traditional artwork depicts Goddess Lakshmi seated gracefully on a blooming pink lotus. She holds lotus flowers in her hands, symbolizing purity, beauty, and spiritual enlightenment. Her golden crown and ornaments represent divine richness, while her blessing gestures symbolize prosperity, happiness, peace, and abundance. The golden halo surrounding her reflects her divine energy and spiritual power.",
+   "images": [
+    "images/maa-lakshmi-the-goddess-of-abundance-1-mvwrjpw3.jpg",
+    "images/maa-lakshmi-the-goddess-of-abundance-2-mvwrjs0i.jpg",
+    "images/maa-lakshmi-the-goddess-of-abundance-3-mvwrju4o.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-31T18:57:38.425Z",
+   "updatedAt": "2026-10-31T18:57:38.425Z"
   }
  ]
 }

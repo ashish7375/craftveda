@@ -13,10 +13,15 @@
     <meta name="description"
         content="Original handmade textured art, abstract art, Vastu art, nature art and religious art. Custom art made to your size. Delivery across India." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" />
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet" />
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preload" as="script" href="https://unpkg.com/lucide@latest" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <style>
         /* ========================================================================== */
         /* >>> CSS VARIABLES & BASE RESET <<<                                    */
@@ -3031,6 +3036,343 @@
                 transform: translateY(0);
             }
         }
+
+        /* ========================================================================== */
+        /* >>> MOBILE FORMS, SEARCH & TAP TARGETS (<= 900px) <<<                 */
+        /* ========================================================================== */
+        .ferr {
+            color: var(--cu);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        input.invalid,
+        textarea.invalid {
+            border-color: var(--cu);
+        }
+
+        .rcount {
+            text-align: center;
+            color: var(--gr);
+            font-size: 14px;
+            margin: -22px 0 26px;
+        }
+
+        .msug {
+            background: #fff;
+            border: 1px solid var(--ln);
+            margin-top: 8px;
+            box-shadow: 0 8px 20px rgba(15, 39, 64, 0.1);
+        }
+
+        .msug[hidden] {
+            display: none !important;
+        }
+
+        .msug button {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 16px;
+            text-align: left;
+            background: none;
+            border: 0;
+            border-bottom: 1px solid var(--ln);
+            font: inherit;
+            font-size: 16px;
+            color: var(--navy);
+            cursor: pointer;
+        }
+
+        .msug button:last-child {
+            border-bottom: 0;
+        }
+
+        .msug button:hover,
+        .msug button:focus-visible {
+            background: var(--sand);
+        }
+
+        .mpills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .mpills[hidden] {
+            display: none !important;
+        }
+
+        .mpills button {
+            min-height: 40px;
+            padding: 8px 14px;
+            border: 1px solid var(--ln);
+            border-radius: 999px;
+            background: var(--iv);
+            color: var(--navy);
+            font: inherit;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .mpills button:hover,
+        .mpills button:focus-visible {
+            border-color: var(--cu);
+            background: var(--sand);
+        }
+
+        @media (min-width: 901px) {
+            .rcount,
+            .mob-call {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+
+            /* 16px prevents iOS Safari from auto-zooming into focused fields */
+            input,
+            select,
+            textarea,
+            .srch input,
+            .mob-srch input {
+                font-size: 16px;
+            }
+
+            input:not([type="checkbox"]):not([type="radio"]),
+            select {
+                min-height: 48px;
+            }
+
+            .chips span {
+                padding: 12px 16px;
+            }
+        }
+
+        @media (max-width: 699px) {
+            .act button[data-w] {
+                width: 44px;
+                height: 44px;
+            }
+
+            .act button[data-w] svg,
+            .act button[data-w] .lucide {
+                width: 20px;
+                height: 20px;
+            }
+
+            .act {
+                right: 4px;
+                bottom: 4px;
+            }
+        }
+
+        /* ========================================================================== */
+        /* >>> MOBILE TYPOGRAPHY & READABILITY (<= 900px) <<<                    */
+        /* Body copy 16px, tuned line-height, clear colour hierarchy using the    */
+        /* existing palette only (headings > paragraphs > meta).                  */
+        /* ========================================================================== */
+        @media (max-width: 900px) {
+            body {
+                line-height: 1.55;
+            }
+
+            details p,
+            .acc details p,
+            .acc details div,
+            .help p,
+            .gc p,
+            .pol p,
+            .ban p,
+            .pdesc,
+            .how div,
+            .pd li,
+            .empty,
+            .sub {
+                font-size: 16px;
+                line-height: 1.55;
+            }
+
+            .pol small,
+            .tr span,
+            .acc table {
+                font-size: 14px;
+            }
+
+            .q {
+                font-size: 15px;
+            }
+
+            .pol p {
+                margin-bottom: 14px;
+            }
+
+            details p {
+                padding-right: 0;
+            }
+
+            details p,
+            .acc details p,
+            .acc details div,
+            .help p,
+            .gc p,
+            .pol p,
+            .pdesc,
+            .empty {
+                color: var(--navy2);
+            }
+
+            .pol small,
+            .pc .m,
+            .pc .sz {
+                color: var(--gr);
+            }
+
+            .ban h2,
+            .how b,
+            .tr b,
+            footer h4 {
+                color: #ffffff;
+            }
+
+            .ban p,
+            .how div,
+            .tr span,
+            .dk .sub,
+            .dk .empty,
+            footer,
+            footer p {
+                color: #dce4ec;
+            }
+
+            .tbo p {
+                color: #eef2f6;
+            }
+        }
+
+        /* ========================================================================== */
+        /* >>> PRODUCT GALLERY: 1080x1350 (4:5) FRAME, PILLS & LIGHTBOX <<<       */
+        /* ========================================================================== */
+        .mimg {
+            aspect-ratio: 4/5;
+            max-height: none;
+            min-height: 0;
+        }
+
+        .mimg img {
+            width: 100%;
+            height: 100%;
+            max-height: none;
+            object-fit: contain;
+        }
+
+        .pd .g {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: #f3efe9;
+        }
+
+        .pd .g img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 4/5;
+            max-height: none;
+            object-fit: contain;
+        }
+
+        .gdots {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 0 2px;
+            order: 1;
+        }
+
+        .gdots i {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(15, 39, 64, 0.22);
+            transition: width 0.25s ease, background 0.25s ease;
+        }
+
+        .gdots i.on {
+            width: 22px;
+            background: var(--cu);
+        }
+
+        .lb {
+            position: fixed;
+            inset: 0;
+            z-index: 80;
+            background: rgba(8, 18, 30, 0.95);
+            display: none;
+            overflow: auto;
+            overscroll-behavior: contain;
+        }
+
+        .lb.open {
+            display: block;
+        }
+
+        .lb .lbi {
+            display: flex;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        .lb img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100vh;
+            object-fit: contain;
+            cursor: zoom-in;
+        }
+
+        .lb.zoom img {
+            max-width: none;
+            max-height: none;
+            width: 250%;
+            cursor: zoom-out;
+        }
+
+        .lb .lbx {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(8, 18, 30, 0.7);
+            color: #fff;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .lb .lbx svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        @media (max-width: 900px) {
+
+            /* Swipe or tap a thumbnail to change image: no arrows, show pagination pills */
+            .ga {
+                display: none;
+            }
+
+            .gdots {
+                display: flex;
+            }
+        }
     </style>
 </head>
 
@@ -3041,7 +3383,7 @@
     <header>
         <div class="wrap hrow">
             <form class="srch" id="sf" role="search">
-                <input id="sq" placeholder="Type to discover your style" aria-label="Search artworks" />
+                <input id="sq" enterkeyhint="search" placeholder="Type to discover your style" aria-label="Search artworks" />
                 <button type="submit" aria-label="Search">
                     <i data-lucide="search"></i>
                 </button>
@@ -3068,7 +3410,7 @@
             <div class="wrap">
                 <form id="msform" role="search">
                     <i data-lucide="search" class="ms-icon"></i>
-                    <input id="msq" type="search" placeholder="Type to discover your style..." aria-label="Search artworks" autocomplete="off" />
+                    <input id="msq" type="search" placeholder="Type to discover your style..." aria-label="Search artworks" autocomplete="off" enterkeyhint="search" />
                     <button type="button" id="msx" aria-label="Close search">
                         <i data-lucide="x"></i>
                     </button>
@@ -3216,8 +3558,6 @@
                             Art types
                         </p>
                         <div class="chips" id="chips"></div>
-                        <p class="lbl">Shapes</p>
-                        <div class="chips" id="shapes"></div>
                         <div class="how">
                             <div>
                                 <b>1. Tell us</b>
@@ -3236,27 +3576,20 @@
                     <form id="cf">
                         <label>
                             Full name
-                            <input id="cn" required />
+                            <input id="cn" required autocomplete="name" enterkeyhint="next" />
                         </label>
                         <label>
-                            Art type
-                            <select id="ct"></select>
+                            Phone number
+                            <input id="cph" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="So we can call you" required /><small class="ferr" data-for="cph" hidden>Enter a valid phone number (10 to 15 digits).</small>
                         </label>
                         <label>
-                            Shape
-                            <select id="cp"></select>
-                        </label>
-                        <label>
-                            Wall size
-                            <input id="cs" placeholder="e.g. 48 x 24 inch" />
-                        </label>
-                        <label>
-                            Your idea
-                            <textarea id="ci" rows="3" placeholder="Colours, mood, room, references"></textarea>
+                            Your idea (optional)
+                            <textarea id="ci" rows="3" placeholder="A few words is enough, we will ask the details on call"></textarea>
                         </label>
                         <button class="btn" type="submit">
-                            Send request on WhatsApp
+                            Request a call back
                         </button>
+                        <a class="btn n" id="ccall" href="#" style="text-align: center">Call us now</a>
                     </form>
                 </div>
             </div>
@@ -4405,7 +4738,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             const p = PRODUCTS[i];
             sel = 0;
             $("#mb").innerHTML =
-                `<div class="pd"><div><div class="g"><img id="big" src="${p.images[0]}" alt="${p.name}" data-k="0" onerror="fb(this)">${p.images.length > 1 ? `<button class="ga prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button><button class="ga next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>` : ""}</div><div class="th">${p.images.map((s, k) => `<img src="${s}" class="${k ? "" : "on"}" alt="${p.name}" data-k="${k}" onerror="fb(this)">`).join("")}</div></div>
+                `<div class="pd"><div><div class="g"><img id="big" src="${p.images[0]}" alt="${p.name}" data-k="0" onerror="fb(this)">${p.images.length > 1 ? `<button class="ga prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button><button class="ga next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>` : ""}</div>${p.images.length > 1 ? `<div class="gdots" aria-hidden="true">${p.images.map((_, k) => `<i class="${k ? "" : "on"}"></i>`).join("")}</div>` : ""}<div class="th">${p.images.map((s, k) => `<img src="${s}" class="${k ? "" : "on"}" alt="${p.name}" data-k="${k}" onerror="fb(this)">`).join("")}</div></div>
  <div class="t"><h3>${p.name}</h3><span class="badge">100% Handmade</span>
  <div style="font-size:13px;color:var(--gr)">Size in inches (width x height)</div><div class="szs" id="szs">${p.sizes.map((x, k) => `<button class="${k ? "" : "on"}" data-k="${k}">${x[0]}</button>`).join("")}</div>
  <div class="pr" id="prc">${money(p.sizes[0][1])}</div>
@@ -4452,6 +4785,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 b.dataset.k = qi;
                 b.onerror = () => fb(b);
                 b.src = p.images[qi];
+                setDots(".pd .gdots", qi);
                 [...$(".th").children].forEach((x, j) =>
                     x.classList.toggle("on", j === qi),
                 );
@@ -4459,6 +4793,14 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             $(".th").onclick = (e) => {
                 if (e.target.tagName === "IMG") qs(+e.target.dataset.k);
             };
+            let mx = 0;
+            const mg = $(".g");
+            mg.addEventListener("touchstart", (e) => { mx = e.touches[0].clientX; }, { passive: true });
+            mg.addEventListener("touchend", (e) => {
+                const d = e.changedTouches[0].clientX - mx;
+                if (Math.abs(d) > 40 && p.images.length > 1) qs(d < 0 ? qi + 1 : qi - 1);
+            });
+            $("#big").onclick = () => openLB($("#big").src, $("#big").alt);
             const qp = $(".g .ga.prev"),
                 qn = $(".g .ga.next");
             if (qp) {
@@ -4469,30 +4811,21 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             initIcons();
         }
 
-        const chipsEl = $("#chips");
-        if (chipsEl) {
-            chipsEl.onclick = (e) => {
-                const s = e.target.closest("span");
-                if (s && $("#ct")) $("#ct").value = s.textContent;
-            };
-        }
-        const shapesEl = $("#shapes");
-        if (shapesEl) {
-            shapesEl.onclick = (e) => {
-                const s = e.target.closest("span");
-                if (s && $("#cp")) $("#cp").value = s.textContent;
-            };
-        }
+        /* Custom request: keep it simple, collect name + phone and finish the details over a call */
         const cfEl = $("#cf");
+        const callEl = $("#ccall");
+        if (callEl) callEl.href = "tel:" + PHONE.replace(/\s/g, "");
         if (cfEl) {
             cfEl.onsubmit = (e) => {
                 e.preventDefault();
-                open(
-                    wa(
-                        `Hi, I would like custom art.\nName: ${$("#cn") ? $("#cn").value : ""}\nType: ${$("#ct") ? $("#ct").value : ""}\nShape: ${$("#cp") ? $("#cp").value : ""}\nWall size: ${($("#cs") && $("#cs").value) || "-"}\nIdea: ${($("#ci") && $("#ci").value) || "-"}${who()}`,
-                    ),
-                    "_blank",
-                );
+                const ph = $("#cph").value;
+                if (!FIELD_OK.cph(ph)) {
+                    $("#cph").dispatchEvent(new Event("input", { bubbles: true }));
+                    $("#cph").focus();
+                    return;
+                }
+                const idea = $("#ci").value.trim();
+                location.href = wa("Hi, I would like to discuss custom art. Please call me.\nName: " + $("#cn").value + "\nPhone: " + ph + (idea ? "\nIdea: " + idea : "") + who());
             };
         }
         /* ========================================================================== */
@@ -4564,11 +4897,17 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 } catch (e) { }
                 openDr(
                     "Your profile",
-                    `<p style="font-size:14px;color:var(--gr);margin-bottom:14px">Save your details once and they are added to your WhatsApp orders. They stay on this device only.</p><form id="pf" style="padding:0"><label>Name<input id="pn" value="${esc(p.n)}"></label><label>Phone<input id="pp" value="${esc(p.p)}"></label><label>Email<input id="pe" value="${esc(p.e)}"></label><label>Delivery address<textarea id="pa" rows="3">${esc(p.a)}</textarea></label><button class="btn" type="submit">Save profile</button><p id="pm" style="font-size:13px;color:#128C4A"></p></form>`,
+                    `<p style="font-size:14px;color:var(--gr);margin-bottom:14px">Save your details once and they are added to your WhatsApp orders. They stay on this device only.</p><form id="pf" style="padding:0"><label>Name<input id="pn" type="text" autocomplete="name" enterkeyhint="next" value="${esc(p.n)}"></label><label>Phone<input id="pp" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" value="${esc(p.p)}"><small class="ferr" data-for="pp" hidden>Enter a valid phone number (10 to 15 digits).</small></label><label>Email<input id="pe" type="email" inputmode="email" autocomplete="email" enterkeyhint="next" value="${esc(p.e)}"><small class="ferr" data-for="pe" hidden>Enter a valid email address.</small></label><label>Delivery address<textarea id="pa" rows="3" autocomplete="street-address">${esc(p.a)}</textarea></label><button class="btn" type="submit">Save profile</button><p id="pm" style="font-size:13px;color:#128C4A"></p></form>`,
                 );
                 const pf = $("#pf");
                 if (pf) {
                     pf.onsubmit = (e) => {
+                        if (!["pp", "pe"].every((id) => FIELD_OK[id]($("#" + id).value))) {
+                            e.preventDefault();
+                            $("#pp").dispatchEvent(new Event("input", { bubbles: true }));
+                            $("#pe").dispatchEvent(new Event("input", { bubbles: true }));
+                            return;
+                        }
                         e.preventDefault();
                         try {
                             localStorage.setItem(
@@ -4617,6 +4956,35 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             up.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
         }
         drawW();
+        /* Mobile form helpers: live validation, Enter = next field, prefill from saved profile */
+        const FIELD_OK = {
+            pp: (v) => !v.trim() || /^[0-9+\s-]{10,15}$/.test(v.trim()),
+            cph: (v) => /^[0-9+\s-]{10,15}$/.test(v.trim()),
+            pe: (v) => !v.trim() || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.trim()),
+        };
+        document.addEventListener("input", (e) => {
+            const t = e.target;
+            if (!t.id || !FIELD_OK[t.id]) return;
+            const ok = FIELD_OK[t.id](t.value);
+            t.classList.toggle("invalid", !ok);
+            const m = document.querySelector('.ferr[data-for="' + t.id + '"]');
+            if (m) m.hidden = ok;
+        });
+        document.addEventListener("keydown", (e) => {
+            const t = e.target;
+            if (e.key !== "Enter" || t.tagName !== "INPUT" || !t.form || t.type === "search") return;
+            const f = [...t.form.querySelectorAll("input, select, textarea")].filter((x) => !x.disabled && x.type !== "hidden");
+            const i = f.indexOf(t);
+            if (i > -1 && i < f.length - 1) {
+                e.preventDefault();
+                f[i + 1].focus();
+            }
+        });
+        try {
+            const saved = JSON.parse(localStorage.getItem("cvp") || "null");
+            if (saved && saved.n && $("#cn") && !$("#cn").value) $("#cn").value = saved.n;
+            if (saved && saved.p && $("#cph") && !$("#cph").value) $("#cph").value = saved.p;
+        } catch (e) { }
         const doSearch = (q) => {
             q = (q || "").trim();
             if (q) location.hash = "#/search/" + encodeURIComponent(q);
@@ -4672,6 +5040,89 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 doSearch(q);
             };
         }
+        /* Mobile search suggestions: live autocomplete, typo tolerance and quick qualifying filter pills */
+        const track = (ev, d = {}) => {
+            try {
+                dispatchEvent(new CustomEvent("cv:track", { detail: { event: ev, ...d } }));
+                if (typeof gtag === "function") gtag("event", ev, d);
+                if (typeof fbq === "function") fbq("trackCustom", ev, d);
+                if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: ev, ...d });
+            } catch (_) { }
+        };
+        const mpills = document.createElement("div");
+        mpills.className = "mpills";
+        mpills.id = "mpills";
+        mpills.innerHTML = [
+            ["Favorites", "#/fav"],
+            ["New Arrivals", "#/new"],
+            ["Under Rs. 10,000", "#/price/a"],
+            ["Square", "#/shape/Square"],
+            ["Vertical", "#/shape/Vertical"],
+            ["Horizontal", "#/shape/Horizontal"],
+        ].map(([t, h]) => `<button type="button" data-pill="${h}">${t}</button>`).join("");
+        const msug = document.createElement("div");
+        msug.className = "msug";
+        msug.id = "msug";
+        msug.setAttribute("role", "listbox");
+        msug.hidden = true;
+        if (msform) {
+            msform.insertAdjacentElement("afterend", msug);
+            msform.insertAdjacentElement("afterend", mpills);
+        }
+        mpills.addEventListener("click", (e) => {
+            const b = e.target.closest("[data-pill]");
+            if (!b) return;
+            msug.hidden = true;
+            msf.setAttribute("hidden", "");
+            if (sbtn) sbtn.classList.remove("active");
+            track("search_filter_pill", { target: b.dataset.pill });
+            location.hash = b.dataset.pill;
+        });
+        const lev = (a, b) => {
+            const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+            for (let j = 1; j <= b.length; j++) d[0][j] = j;
+            for (let i = 1; i <= a.length; i++)
+                for (let j = 1; j <= b.length; j++)
+                    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+            return d[a.length][b.length];
+        };
+        const suggest = (raw) => {
+            const q = raw.trim().toLowerCase();
+            if (!q) return CATEGORIES.slice(0, 6);
+            if (q.length < 2) return [];
+            const pool = [...new Set([...PRODUCTS.map((p) => p.name), ...CATEGORIES, ...Object.values(THEMES).flat()])];
+            const score = (s) => {
+                const t = s.toLowerCase();
+                if (t.startsWith(q)) return 0;
+                if (t.includes(q)) return 1;
+                return t.split(/\s+/).some((w) => lev(w.slice(0, q.length), q) <= 1 || lev(w, q) <= 2) ? 2 : 9;
+            };
+            return pool.map((s) => [s, score(s)]).filter((x) => x[1] < 9).sort((a, b) => a[1] - b[1] || a[0].localeCompare(b[0])).slice(0, 6).map((x) => x[0]);
+        };
+        const drawSug = () => {
+            if (!msq) return;
+            const hasQ = msq.value.trim().length > 0;
+            mpills.hidden = hasQ;
+            const r = suggest(msq.value);
+            msug.innerHTML = r.map((s) => '<button type="button" role="option" data-sug="' + esc(s) + '">' + esc(s) + "</button>").join("");
+            msug.hidden = !r.length;
+        };
+        if (msq) {
+            msq.addEventListener("input", drawSug);
+            msq.addEventListener("focus", drawSug);
+        }
+        msug.addEventListener("click", (e) => {
+            const b = e.target.closest("[data-sug]");
+            if (!b) return;
+            const q = b.dataset.sug;
+            msq.value = q;
+            if ($("#sq")) $("#sq").value = q;
+            msug.hidden = true;
+            msf.setAttribute("hidden", "");
+            if (sbtn) sbtn.classList.remove("active");
+            doSearch(q);
+        });
+        if (msform) msform.addEventListener("submit", () => { msug.hidden = true; });
         /* ========================================================================== */
         /* >>> BENTO GRID SHOWCASE <<<                                           */
         /* ========================================================================== */
@@ -4732,6 +5183,41 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 .join("");
         }
         renderBento();
+        /* Product image pagination pills + tap-to-zoom lightbox (mobile) */
+        const setDots = (sel, i) => {
+            const d = $(sel);
+            if (d) [...d.children].forEach((x, j) => x.classList.toggle("on", j === i));
+        };
+        const lb = document.createElement("div");
+        lb.className = "lb";
+        lb.innerHTML = '<button class="lbx" type="button" aria-label="Close image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="lbi"><img alt="" /></div>';
+        document.body.appendChild(lb);
+        const lbImg = lb.querySelector("img");
+        const closeLB = () => {
+            lb.classList.remove("open", "zoom");
+            document.body.style.overflow = "";
+        };
+        const openLB = (src, alt) => {
+            if (!matchMedia("(max-width: 900px)").matches) return;
+            lbImg.src = src;
+            lbImg.alt = alt || "";
+            lb.classList.remove("zoom");
+            lb.classList.add("open");
+            document.body.style.overflow = "hidden";
+        };
+        lbImg.addEventListener("click", (e) => {
+            const r = lbImg.getBoundingClientRect();
+            const fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+            lb.classList.toggle("zoom");
+            if (lb.classList.contains("zoom")) {
+                lb.scrollLeft = fx * lbImg.offsetWidth - innerWidth / 2;
+                lb.scrollTop = fy * lbImg.offsetHeight - innerHeight / 2;
+            }
+        });
+        lb.addEventListener("click", (e) => {
+            if (e.target === lb || e.target.classList.contains("lbi") || e.target.closest(".lbx")) closeLB();
+        });
+        addEventListener("keydown", (e) => { if (e.key === "Escape") closeLB(); });
         let cart = [];
         try {
             cart = JSON.parse(localStorage.getItem("cv") || "[]");
@@ -4748,6 +5234,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             cart.push({ n: p.name, z: z[0], pr: z[1], im: p.images[0] });
             saveC();
             drawC();
+            track("add_to_cart", { item_name: p.name, size: z[0], value: z[1] });
         }
         function drawC() {
             $("#cc").textContent = cart.length;
@@ -4762,7 +5249,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                     .join("")
                 : "<p style='color:var(--gr);padding:20px 0'>Your cart is empty.</p>";
             $("#cf2").innerHTML = cart.length
-                ? `<p><span>Total</span><span>${money(tot)}</span></p><a class="btn" style="display:block;text-align:center" target="_blank" rel="noopener" href="${wa("Hi, I want to order from CraftVeda:\n" + cart.map((x) => `- ${x.n}, ${x.z} inches, ${money(x.pr)}`).join("\n") + "\nTotal: " + money(tot) + who())}">Order on WhatsApp</a>`
+                ? `<p><span>Total</span><span>${money(tot)}</span></p><a class="btn" style="display:block;text-align:center" target="_blank" rel="noopener" href="${wa("Hi, I want to order from CraftVeda:\n" + cart.map((x) => `- ${x.n}, ${x.z} inches, ${money(x.pr)}`).join("\n") + "\nTotal: " + money(tot) + who())}">Order on WhatsApp</a><a class="btn o2 mob-call" style="display:block;text-align:center;margin-top:8px" href="tel:${PHONE.replace(/\s/g, "")}">Call us to order</a>`
                 : "";
             initIcons();
         }
@@ -5048,12 +5535,27 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         function catPage(title, f, cr) {
             const st = { cols: 4, sort: "f", price: "all", shape: "all" };
             const shapes = ["Square", "Vertical", "Horizontal"];
-            viewEl.innerHTML = `<div class="wrap pg">${cr}<h1 class="pt">${title}</h1>
+            viewEl.innerHTML = `<div class="wrap pg">${cr}<h1 class="pt">${title}</h1><p class="rcount" id="rc" aria-live="polite"></p>
  <div class="tbar"><button class="flt" id="ft"><i data-lucide="sliders-horizontal"></i>Filter</button>
  <div class="gcols" id="gcs">${[2, 3, 4].map((n) => `<button data-c="${n}" class="${n == 4 ? "on" : ""}" aria-label="${n} columns">${"<i></i>".repeat(n)}</button>`).join("")}</div>
  <select id="srt" aria-label="Sort"><option value="f">Featured</option><option value="l">Price: low to high</option><option value="h">Price: high to low</option></select></div>
  <div class="fpn" id="fp" hidden><label>Price<select id="fpr"><option value="all">All prices</option><option value="a">Under Rs. 10,000</option><option value="b">Rs. 10,000 to 20,000</option><option value="c">Above Rs. 20,000</option></select></label><label>Shape<select id="fsh"><option value="all">All shapes</option>${shapes.map((x) => `<option>${x}</option>`).join("")}</select></label></div>
  <div class="cgrid c4" id="cg"></div></div>`;
+            /* Filters show live counts and disable options that would return zero results */
+            const baseL = PRODUCTS.filter((p) => f(p));
+            const PRN = [["all", "All prices"], ["a", "Under Rs. 10,000"], ["b", "Rs. 10,000 to 20,000"], ["c", "Above Rs. 20,000"]];
+            const inPrice = (p, k) => { const v = from(p); return k === "all" || (k === "a" ? v < 10000 : k === "b" ? v >= 10000 && v <= 20000 : v > 20000); };
+            const inShape = (p, sh) => sh === "all" || p.shape === sh;
+            const syncFilters = () => {
+                $("#fpr").innerHTML = PRN.map(([k, t]) => {
+                    const n = baseL.filter((p) => inPrice(p, k) && inShape(p, st.shape)).length;
+                    return '<option value="' + k + '"' + (k === st.price ? " selected" : "") + (n === 0 && k !== st.price ? " disabled" : "") + ">" + t + " (" + n + ")</option>";
+                }).join("");
+                $("#fsh").innerHTML = ["all", ...shapes].map((sh) => {
+                    const n = baseL.filter((p) => inShape(p, sh) && inPrice(p, st.price)).length;
+                    return '<option value="' + sh + '"' + (sh === st.shape ? " selected" : "") + (n === 0 && sh !== st.shape ? " disabled" : "") + ">" + (sh === "all" ? "All shapes" : sh) + " (" + n + ")</option>";
+                }).join("");
+            };
             const draw = () => {
                 let l = PRODUCTS.map((p, i) => [p, i]).filter(([p]) =>
                     f(p),
@@ -5067,6 +5569,9 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 if (st.price === "c") l = l.filter((x) => pr(x) > 20000);
                 if (st.sort === "l") l.sort((a, b) => pr(a) - pr(b));
                 if (st.sort === "h") l.sort((a, b) => pr(b) - pr(a));
+                const n = l.length;
+                $("#rc").textContent = n + (n === 1 ? " artwork" : " artworks");
+                syncFilters();
                 $("#cg").className = "cgrid c" + st.cols;
                 $("#cg").innerHTML = l.length
                     ? l.map(([p, i]) => card(p, i)).join("")
@@ -5117,7 +5622,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             const u = enc(location.href),
                 lab = ["Room view", "Artwork on white", "Side view"];
             viewEl.innerHTML = `<div class="wrap pg">${crumb([p.category, "#/cat/" + enc(p.category)], [p.name])}
- <div class="pp"><div class="pgal"><div class="thv" id="thv">${p.images.map((s, k) => `<img src="${s}" data-k="${k}" class="${k ? "" : "on"}" alt="${p.name} | ${lab[k]}" onerror="fb(this)">`).join("")}</div><div class="mimg"><img id="pbig" src="${p.images[0]}" data-k="0" alt="${p.name}" onerror="fb(this)">${p.images.length > 1 ? `<button class="ga prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button><button class="ga next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>` : ""}</div></div>
+ <div class="pp"><div class="pgal"><div class="thv" id="thv">${p.images.map((s, k) => `<img src="${s}" data-k="${k}" class="${k ? "" : "on"}" alt="${p.name} | ${lab[k]}" onerror="fb(this)">`).join("")}</div><div class="mimg"><img id="pbig" src="${p.images[0]}" data-k="0" alt="${p.name}" onerror="fb(this)">${p.images.length > 1 ? `<button class="ga prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button><button class="ga next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>` : ""}</div>${p.images.length > 1 ? `<div class="gdots" aria-hidden="true">${p.images.map((_, k) => `<i class="${k ? "" : "on"}"></i>`).join("")}</div>` : ""}</div>
  <div class="pinfo"><h1>${p.name}</h1>
  <div class="prow"><span class="pprice" id="pp2"></span><span class="shr"><a target="_blank" rel="noopener" aria-label="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=${u}">${ICONS.fb}</a><a aria-label="Share by email" href="mailto:?subject=${enc(p.name)}&body=${u}">${ICONS.mail}</a><a target="_blank" rel="noopener" aria-label="Share on WhatsApp" href="https://wa.me/?text=${enc(p.name + " " + location.href)}">${ICONS.wa}</a></span></div><hr>
  <div class="slab">Size ( in inches ): <b id="szl"></b></div>
@@ -5161,6 +5666,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 b.dataset.k = gi;
                 b.onerror = () => fb(b);
                 b.src = p.images[gi];
+                setDots(".pgal .gdots", gi);
                 [...$("#thv").children].forEach((x, j) =>
                     x.classList.toggle("on", j === gi),
                 );
@@ -5168,6 +5674,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             $("#thv").onclick = (e) => {
                 if (e.target.tagName === "IMG") gs(+e.target.dataset.k);
             };
+            $("#pbig").onclick = () => openLB($("#pbig").src, $("#pbig").alt);
             const pa = $(".mimg .prev"),
                 na = $(".mimg .next");
             if (pa) {
@@ -5244,8 +5751,21 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                     (p) => p.featured,
                     crumb(["Favourite artworks"]),
                 );
+            else if (k === "price" && a === "a")
+                catPage(
+                    "Artworks under Rs. 10,000",
+                    (p) => from(p) < 10000,
+                    crumb(["Under Rs. 10,000"]),
+                );
+            else if (k === "shape")
+                catPage(
+                    esc(a) + " artworks",
+                    (p) => p.shape === a,
+                    crumb([esc(a)]),
+                );
             else if (k === "search") {
                 const q = a.toLowerCase();
+                track("search", { search_term: a });
                 catPage(
                     "Results for " + esc(a),
                     (p) =>

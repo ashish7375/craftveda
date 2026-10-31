@@ -2116,6 +2116,40 @@
    "featured": false,
    "createdAt": "2026-10-26T21:07:01.561Z",
    "updatedAt": "2026-10-26T21:23:01.215Z"
+  },
+  {
+   "id": "mvwri5ge",
+   "name": "Shiva & Shakti – The Eternal Divine Bond",
+   "categories": [
+    "Abstract Art",
+    "Religious"
+   ],
+   "theme": "",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     9000
+    ],
+    [
+     "24*36 inch",
+     12000
+    ],
+    [
+     "32*48 inch",
+     16000
+    ]
+   ],
+   "desc": "This devotional artwork represents the divine connection between Lord Shiva and Goddess Shakti. The blue hand symbolizes Lord Shiva, decorated with sacred Tripundra and Rudraksha beads, gently holding the feet of the Goddess. The Trishul and Damru in the background represent Shiva's divine power and cosmic energy. The artwork beautifully expresses love, devotion, respect, and the eternal bond between Shiva and Shakti.",
+   "images": [
+    "images/shiva-shakti-the-eternal-divine-bond-1-mvwrhyoo.jpg",
+    "images/shiva-shakti-the-eternal-divine-bond-2-mvwri0yv.jpg",
+    "images/shiva-shakti-the-eternal-divine-bond-3-mvwri39p.jpg"
+   ],
+   "published": true,
+   "featured": false,
+   "createdAt": "2026-10-31T18:56:16.669Z",
+   "updatedAt": "2026-10-31T18:56:16.669Z"
   }
  ]
 }

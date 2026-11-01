@@ -2442,11 +2442,15 @@
     ]
    ],
    "desc": "Expressive charcoal portrait of a figure releasing smoke-like energy skyward, symbolizing liberation, spirituality and inner peace.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/spirit-rising-free-1-mvxt6r7b.jpg",
+    "images/spirit-rising-free-2-mvxt6tbh.jpg",
+    "images/spirit-rising-free-3-mvxt6vhl.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-11-01T12:24:16.449Z",
-   "updatedAt": "2026-11-01T12:24:16.449Z"
+   "updatedAt": "2026-11-01T12:31:18.510Z"
   },
   {
    "id": "mvxsxvsx9",

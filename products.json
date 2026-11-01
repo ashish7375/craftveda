@@ -2308,11 +2308,15 @@
     ]
    ],
    "desc": "Handcrafted sketch of a sailing ship gliding past misty coastal hills at sunset, evoking adventure, calm and timeless wanderlust.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/sailing-into-sunset-1-mvxt45vg.jpg",
+    "images/sailing-into-sunset-2-mvxt47wp.jpg",
+    "images/sailing-into-sunset-3-mvxt4a0e.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-11-01T12:24:16.449Z",
-   "updatedAt": "2026-11-01T12:24:16.449Z"
+   "updatedAt": "2026-11-01T12:29:17.456Z"
   },
   {
    "id": "mvxsxvsx4",

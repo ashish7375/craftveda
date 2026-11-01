@@ -2375,11 +2375,15 @@
     ]
    ],
    "desc": "Graceful pencil drawing of wild geese flying in formation across a cloudy sky, symbolizing unity, freedom and auspicious togetherness.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/flight-of-wild-geese-1-mvxt5pru.jpg",
+    "images/flight-of-wild-geese-2-mvxt5ryy.jpg",
+    "images/flight-of-wild-geese-3-mvxt5ubv.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-11-01T12:24:16.449Z",
-   "updatedAt": "2026-11-01T12:24:16.449Z"
+   "updatedAt": "2026-11-01T12:30:30.594Z"
   },
   {
    "id": "mvxsxvsx7",

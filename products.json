@@ -2275,11 +2275,15 @@
     ]
    ],
    "desc": "Serene charcoal drawing of a glowing sunset over calm ocean waves with birds in flight, radiating peace and quiet beauty.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/golden-sunset-flight-1-mvxt3fk4.jpg",
+    "images/golden-sunset-flight-2-mvxt3hrf.jpg",
+    "images/golden-sunset-flight-3-mvxt3k8o.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-11-01T12:24:16.449Z",
-   "updatedAt": "2026-11-01T12:24:16.449Z"
+   "updatedAt": "2026-11-01T12:28:43.859Z"
   },
   {
    "id": "mvxsxvsx3",

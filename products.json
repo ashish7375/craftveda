@@ -2183,6 +2183,300 @@
    "featured": false,
    "createdAt": "2026-10-31T18:57:38.425Z",
    "updatedAt": "2026-10-31T18:57:38.425Z"
+  },
+  {
+   "id": "mvxsxvsx0",
+   "name": "Misty Mountain Peaks",
+   "categories": [
+    "Custom Art"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Square",
+   "sizes": [
+    [
+     "24*24 inch",
+     9999
+    ],
+    [
+     "36*36 inch",
+     12999
+    ],
+    [
+     "48*48 inch",
+     14999
+    ]
+   ],
+   "desc": "Handcrafted charcoal-style sketch of layered misty peaks and pine forest, adding dramatic depth and serene wilderness charm to living spaces.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
+  },
+  {
+   "id": "mvxsxvsx1",
+   "name": "Eternal Swan Embrace",
+   "categories": [
+    "Nature",
+    "Custom Art"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Square",
+   "sizes": [
+    [
+     "24*24 inch",
+     9499
+    ],
+    [
+     "36*36 inch",
+     11999
+    ],
+    [
+     "48*48 inch",
+     13999
+    ]
+   ],
+   "desc": "Elegant pencil artwork of a black and white swan pair forming a heart under moonlight, symbolizing eternal love and harmony.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
+  },
+  {
+   "id": "mvxsxvsx2",
+   "name": "Golden Sunset Flight",
+   "categories": [
+    "Nature",
+    "Custom Art"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Square",
+   "sizes": [
+    [
+     "24*24 inch",
+     9299
+    ],
+    [
+     "36*36 inch",
+     11499
+    ],
+    [
+     "48*48 inch",
+     13499
+    ]
+   ],
+   "desc": "Serene charcoal drawing of a glowing sunset over calm ocean waves with birds in flight, radiating peace and quiet beauty.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
+  },
+  {
+   "id": "mvxsxvsx3",
+   "name": "Sailing Into Sunset",
+   "categories": [
+    "Custom Art"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     9299
+    ],
+    [
+     "36*24 inch",
+     11499
+    ],
+    [
+     "48*32 inch",
+     13499
+    ]
+   ],
+   "desc": "Handcrafted sketch of a sailing ship gliding past misty coastal hills at sunset, evoking adventure, calm and timeless wanderlust.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
+  },
+  {
+   "id": "mvxsxvsx4",
+   "name": "Lone Oak Silhouette",
+   "categories": [
+    "Nature",
+    "Custom Art"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     9099
+    ],
+    [
+     "36*24 inch",
+     10999
+    ],
+    [
+     "48*32 inch",
+     12999
+    ]
+   ],
+   "desc": "Minimalist pencil artwork of a solitary oak tree silhouetted against a golden sunset field, reflecting solitude, strength and quiet grace.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
+  },
+  {
+   "id": "mvxsxvsx5",
+   "name": "Seven Horses Stampede",
+   "categories": [
+    "Custom Art"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     9999
+    ],
+    [
+     "36*24 inch",
+     12999
+    ],
+    [
+     "48*32 inch",
+     14999
+    ]
+   ],
+   "desc": "Dynamic charcoal sketch of seven galloping horses racing through dust and clouds, symbolizing speed, strength and prosperity for Vastu spaces.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
+  },
+  {
+   "id": "mvxsxvsx6",
+   "name": "Flight of Wild Geese",
+   "categories": [
+    "Custom Art"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     9499
+    ],
+    [
+     "36*24 inch",
+     11999
+    ],
+    [
+     "48*32 inch",
+     13999
+    ]
+   ],
+   "desc": "Graceful pencil drawing of wild geese flying in formation across a cloudy sky, symbolizing unity, freedom and auspicious togetherness.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
+  },
+  {
+   "id": "mvxsxvsx7",
+   "name": "Elephant Mother and Calf",
+   "categories": [
+    "Custom Art",
+    "Nature"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Horizontal",
+   "sizes": [
+    [
+     "24*16 inch",
+     9499
+    ],
+    [
+     "36*24 inch",
+     11999
+    ],
+    [
+     "48*32 inch",
+     13999
+    ]
+   ],
+   "desc": "Touching silhouette artwork of a mother elephant guiding her calf at dusk, representing family bond, protection and Vastu harmony.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
+  },
+  {
+   "id": "mvxsxvsx8",
+   "name": "Spirit Rising Free",
+   "categories": [
+    "Custom Art"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     9799
+    ],
+    [
+     "24*36 inch",
+     12499
+    ],
+    [
+     "32*48 inch",
+     14499
+    ]
+   ],
+   "desc": "Expressive charcoal portrait of a figure releasing smoke-like energy skyward, symbolizing liberation, spirituality and inner peace.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
+  },
+  {
+   "id": "mvxsxvsx9",
+   "name": "Pathway Into the Light",
+   "categories": [
+    "Custom Art"
+   ],
+   "theme": "Charcoal Painting",
+   "shape": "Vertical",
+   "sizes": [
+    [
+     "16*24 inch",
+     9799
+    ],
+    [
+     "24*36 inch",
+     12499
+    ],
+    [
+     "32*48 inch",
+     14499
+    ]
+   ],
+   "desc": "Atmospheric sketch of a wooden rope bridge vanishing into glowing fog, representing journey, hope and the path toward light.",
+   "images": [],
+   "published": false,
+   "featured": false,
+   "createdAt": "2026-11-01T12:24:16.449Z",
+   "updatedAt": "2026-11-01T12:24:16.449Z"
   }
  ]
 }

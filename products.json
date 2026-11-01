@@ -2342,11 +2342,15 @@
     ]
    ],
    "desc": "Minimalist pencil artwork of a solitary oak tree silhouetted against a golden sunset field, reflecting solitude, strength and quiet grace.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/lone-oak-silhouette-1-mvxt4q5e.jpg",
+    "images/lone-oak-silhouette-2-mvxt4sjd.jpg",
+    "images/lone-oak-silhouette-3-mvxt4uiq.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-11-01T12:24:16.449Z",
-   "updatedAt": "2026-11-01T12:24:16.449Z"
+   "updatedAt": "2026-11-01T12:29:43.893Z"
   },
   {
    "id": "mvxsxvsx5",

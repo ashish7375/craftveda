@@ -2409,11 +2409,15 @@
     ]
    ],
    "desc": "Touching silhouette artwork of a mother elephant guiding her calf at dusk, representing family bond, protection and Vastu harmony.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/elephant-mother-and-calf-1-mvxt67le.jpg",
+    "images/elephant-mother-and-calf-2-mvxt69lf.jpg",
+    "images/elephant-mother-and-calf-3-mvxt6bzn.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-11-01T12:24:16.449Z",
-   "updatedAt": "2026-11-01T12:24:16.449Z"
+   "updatedAt": "2026-11-01T12:30:52.988Z"
   },
   {
    "id": "mvxsxvsx8",

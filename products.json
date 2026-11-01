@@ -2241,11 +2241,15 @@
     ]
    ],
    "desc": "Elegant pencil artwork of a black and white swan pair forming a heart under moonlight, symbolizing eternal love and harmony.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/eternal-swan-embrace-1-mvxt2v22.jpg",
+    "images/eternal-swan-embrace-2-mvxt2xd9.jpg",
+    "images/eternal-swan-embrace-3-mvxt2zx0.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-11-01T12:24:16.449Z",
-   "updatedAt": "2026-11-01T12:24:16.449Z"
+   "updatedAt": "2026-11-01T12:28:17.814Z"
   },
   {
    "id": "mvxsxvsx2",

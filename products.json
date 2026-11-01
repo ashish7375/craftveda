@@ -2475,11 +2475,15 @@
     ]
    ],
    "desc": "Atmospheric sketch of a wooden rope bridge vanishing into glowing fog, representing journey, hope and the path toward light.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/pathway-into-the-light-1-mvxt75ye.jpg",
+    "images/pathway-into-the-light-2-mvxt78t1.jpg",
+    "images/pathway-into-the-light-3-mvxt7b8c.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-11-01T12:24:16.449Z",
-   "updatedAt": "2026-11-01T12:24:16.449Z"
+   "updatedAt": "2026-11-01T12:31:39.237Z"
   }
  ]
 }

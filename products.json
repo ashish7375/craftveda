@@ -2207,11 +2207,15 @@
     ]
    ],
    "desc": "Handcrafted charcoal-style sketch of layered misty peaks and pine forest, adding dramatic depth and serene wilderness charm to living spaces.",
-   "images": [],
-   "published": false,
+   "images": [
+    "images/misty-mountain-peaks-1-mvxt1mcp.jpg",
+    "images/misty-mountain-peaks-2-mvxt1os2.jpg",
+    "images/misty-mountain-peaks-3-mvxt1r3r.jpg"
+   ],
+   "published": true,
    "featured": false,
    "createdAt": "2026-11-01T12:24:16.449Z",
-   "updatedAt": "2026-11-01T12:24:16.449Z"
+   "updatedAt": "2026-11-01T12:27:19.688Z"
   },
   {
    "id": "mvxsxvsx1",

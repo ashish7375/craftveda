@@ -2633,8 +2633,8 @@
 
         /* Standard Shape-based Sizes */
         const SHAPE_SIZES = {
-            "Horizontal": ["24*16 inch", "36*24 inch", "48*32 inch"],
-            "Vertical": ["16*24 inch", "24*36 inch", "32*48 inch"],
+            "Horizontal": ["24*18 inch", "36*24 inch", "48*36 inch"],
+            "Vertical": ["18*24 inch", "24*36 inch", "36*48 inch"],
             "Square": ["24*24 inch", "36*36 inch", "48*48 inch"]
         };
 
@@ -2647,12 +2647,12 @@
         };
 
         const DEFAULT_TEMPLATES = [
-            { id: "tpl-textured", categories: ["Textured Art"], shape: "Horizontal", sizes: [["24*16 inch", 15000], ["36*24 inch", 19000], ["48*32 inch", 25000]], desc: "Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-textured", categories: ["Textured Art"], shape: "Horizontal", sizes: [["24*18 inch", 15000], ["36*24 inch", 19000], ["48*36 inch", 25000]], desc: "Thick texture and layered relief built by hand on stretched canvas, finished in acrylic colours." },
             { id: "tpl-abstract", categories: ["Abstract Art"], shape: "Square", sizes: [["24*24 inch", 9000], ["36*36 inch", 12000], ["48*48 inch", 16000]], desc: "Hand painted abstract artwork on stretched canvas, finished in acrylic colours." },
-            { id: "tpl-vastu", categories: ["Vastu"], shape: "Horizontal", sizes: [["24*16 inch", 10000], ["36*24 inch", 14000], ["48*32 inch", 20000]], desc: "Hand painted Vastu artwork on stretched canvas, made with colours and symbols traditionally considered auspicious." },
-            { id: "tpl-nature", categories: ["Nature"], shape: "Horizontal", sizes: [["24*16 inch", 7000], ["36*24 inch", 9500], ["48*32 inch", 13500]], desc: "Hand painted nature artwork on stretched canvas, finished in acrylic colours." },
-            { id: "tpl-religious", categories: ["Religious"], shape: "Vertical", sizes: [["16*24 inch", 8000], ["24*36 inch", 10500], ["32*48 inch", 14500]], desc: "Hand painted devotional artwork on stretched canvas, finished in acrylic colours." },
-            { id: "tpl-custom", categories: ["Custom Art"], shape: "Vertical", sizes: [["16*24 inch", 4500], ["24*36 inch", 7000], ["32*48 inch", 11000]], desc: "Made to order from your idea or photo, by hand, in the medium you choose." }
+            { id: "tpl-vastu", categories: ["Vastu"], shape: "Horizontal", sizes: [["24*18 inch", 10000], ["36*24 inch", 14000], ["48*36 inch", 20000]], desc: "Hand painted Vastu artwork on stretched canvas, made with colours and symbols traditionally considered auspicious." },
+            { id: "tpl-nature", categories: ["Nature"], shape: "Horizontal", sizes: [["24*18 inch", 7000], ["36*24 inch", 9500], ["48*36 inch", 13500]], desc: "Hand painted nature artwork on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-religious", categories: ["Religious"], shape: "Vertical", sizes: [["18*24 inch", 8000], ["24*36 inch", 10500], ["36*48 inch", 14500]], desc: "Hand painted devotional artwork on stretched canvas, finished in acrylic colours." },
+            { id: "tpl-custom", categories: ["Custom Art"], shape: "Vertical", sizes: [["18*24 inch", 4500], ["24*36 inch", 7000], ["36*48 inch", 11000]], desc: "Made to order from your idea or photo, by hand, in the medium you choose." }
         ];
         let templates = [...DEFAULT_TEMPLATES];
 
@@ -5182,7 +5182,7 @@
   <div style="color:var(--navy);font-family:monospace;font-size:12px;margin:6px 0">Name, Category, Theme, Shape, Sizes, Description</div>
   <div style="color:var(--gr);font-size:12px;line-height:1.5">
    • <b>Category:</b> Supports multiple categories separated by commas, e.g. <code>"Religious, Custom Art"</code>.<br>
-   • <b>Sizes:</b> Format: <code>24*16 inch:15000|36*24 inch:19000|48*32 inch:25000</code> (leave empty to use default shape sizes).
+   • <b>Sizes:</b> Format: <code>24*18 inch:15000|36*24 inch:19000|48*36 inch:25000</code> (leave empty to use default shape sizes).
   </div>
   <div style="margin-top:10px"><button type="button" class="ghost" id="dl-sample-csv" style="padding:6px 14px;font-size:12px;display:inline-flex;align-items:center;gap:6px"><i data-lucide="download" style="width:14px;height:14px"></i>Download Sample CSV Template</button></div>
  </div>
@@ -5206,9 +5206,9 @@
 
             $("#dl-sample-csv").onclick = () => {
                 const sample = "Name,Category,Theme,Shape,Sizes,Description\n"
-                    + '"Radha Krishna Devotional Sketch","Religious, Custom Art","Radha Krishna","Horizontal","24*16 inch:15000|36*24 inch:19000|48*32 inch:25000","Handcrafted devotional artwork celebrating divine love, suitable as sacred and custom wall art."\n'
-                    + '"Golden Horizon Textured Art","Textured Art, Abstract Art","","Horizontal","24*16 inch:15000|36*24 inch:19000|48*32 inch:25000","Handcrafted layered impasto relief acrylic art on stretched canvas."\n'
-                    + '"Divine Lotus Ganesha","Religious","Ganesha","Vertical","16*24 inch:8000|24*36 inch:10500|32*48 inch:14500","Hand painted spiritual artwork for living rooms and prayer mandirs."\n'
+                    + '"Radha Krishna Devotional Sketch","Religious, Custom Art","Radha Krishna","Horizontal","24*18 inch:15000|36*24 inch:19000|48*36 inch:25000","Handcrafted devotional artwork celebrating divine love, suitable as sacred and custom wall art."\n'
+                    + '"Golden Horizon Textured Art","Textured Art, Abstract Art","","Horizontal","24*18 inch:15000|36*24 inch:19000|48*36 inch:25000","Handcrafted layered impasto relief acrylic art on stretched canvas."\n'
+                    + '"Divine Lotus Ganesha","Religious","Ganesha","Vertical","18*24 inch:8000|24*36 inch:10500|36*48 inch:14500","Hand painted spiritual artwork for living rooms and prayer mandirs."\n'
                     + '"Charcoal Meditation Buddha","Religious, Custom Art","Buddha","Square","24*24 inch:9000|36*36 inch:12000|48*48 inch:16000","Handcrafted charcoal drawing depicting Buddha in peaceful contemplative meditation."\n'
                     + '"Forest Mist Panoramic Art","Nature, Textured Art","","Panoramic","36*18 inch:14000|48*24 inch:18000|60*30 inch:23000","Scenic nature composition bringing organic serenity and botanical calm into living spaces."\n';
                 const blob = new Blob([sample], { type: "text/csv;charset=utf-8;" });
@@ -5366,7 +5366,7 @@
         /* ========================================================================== */
         /* >>> ADD / EDIT FORM WITH D&D, REORDERING & AI DRAFTING <<<                 */
         /* ========================================================================== */
-        const sizeRow = (s = "", p = "") => `<div class="sr-wrap"><div class="sr"><input class="sz" placeholder="Size, e.g. 24*16 inch" value="${esc(s)}"><input class="pr" type="number" min="1" placeholder="Price (Rs.)" value="${esc(p)}"><button type="button" class="x" aria-label="Remove size" style="display:inline-flex;align-items:center;justify-content:center"><i data-lucide="x" style="width:13px;height:13px"></i></button></div><span class="f-err"></span></div>`;
+        const sizeRow = (s = "", p = "") => `<div class="sr-wrap"><div class="sr"><input class="sz" placeholder="Size, e.g. 24*18 inch" value="${esc(s)}"><input class="pr" type="number" min="1" placeholder="Price (Rs.)" value="${esc(p)}"><button type="button" class="x" aria-label="Remove size" style="display:inline-flex;align-items:center;justify-content:center"><i data-lucide="x" style="width:13px;height:13px"></i></button></div><span class="f-err"></span></div>`;
 
         /* AI Description Generator (Section 9 - Human Reviewed) */
         function generateAIDescription(name, category, theme, shape) {

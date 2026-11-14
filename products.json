@@ -76,15 +76,15 @@
    "sizes": [
     [
      "24*18 inch",
-     10699
+     9500
     ],
     [
      "36*24 inch",
-     11199
+     13850
     ],
     [
      "48*36 inch",
-     11699
+     18500
     ]
    ],
    "desc": "A glowing riverside cityscape\nInspired by the spiritual beauty of India's sacred riverfronts, this artwork features temple silhouettes, boats, and golden reflections beneath a fiery sunset. Layered painterly strokes bring the scene to life with warmth, atmosphere, and depth.",
@@ -94,9 +94,9 @@
     "images/sacred-ghats-textured-art-3-mvcvisdm.jpg"
    ],
    "published": true,
-   "featured": false,
+   "featured": true,
    "createdAt": "2026-10-17T20:53:23.833Z",
-   "updatedAt": "2026-10-26T05:31:42.454Z"
+   "updatedAt": "2026-11-14T11:35:37.041Z"
   },
   {
    "id": "mvcvlooe",

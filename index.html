@@ -5702,7 +5702,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         function fromJSON(j) {
             return (j.items || [])
                 .filter((i) => i.published !== false && i.name)
-                .map((i) => {
+                .map((i, ix) => {
                     const cats =
                         Array.isArray(i.categories) && i.categories.length
                             ? i.categories
@@ -5735,8 +5735,12 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                             ? Date.now() - new Date(i.createdAt) <
                             30 * 864e5
                             : false,
+                        ts: i.createdAt ? new Date(i.createdAt).getTime() || 0 : 0,
+                        _ix: ix,
                     };
-                });
+                })
+                /* Newest artwork first everywhere (New, Favorites, categories, home) */
+                .sort((a, b) => (b.ts - a.ts) || (b._ix - a._ix));
         }
         async function loadJSON() {
             await loadSettings();
@@ -5830,12 +5834,12 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         /* >>> CATEGORY & PRODUCT FULL PAGES <<<                                 */
         /* ========================================================================== */
         function catPage(title, f, cr) {
-            const st = { cols: 4, sort: "f", price: "all", shape: "all" };
+            const st = { cols: 4, sort: "n", price: "all", shape: "all" };
             const shapes = ["Square", "Vertical", "Horizontal"];
             viewEl.innerHTML = `<div class="wrap pg">${cr}<h1 class="pt">${title}</h1><p class="rcount" id="rc" aria-live="polite"></p>
  <div class="tbar"><button class="flt" id="ft"><i data-lucide="sliders-horizontal"></i>Filter</button>
  <div class="gcols" id="gcs">${[2, 3, 4].map((n) => `<button data-c="${n}" class="${n == 4 ? "on" : ""}" aria-label="${n} columns">${"<i></i>".repeat(n)}</button>`).join("")}</div>
- <select id="srt" aria-label="Sort"><option value="f">Featured</option><option value="l">Price: low to high</option><option value="h">Price: high to low</option></select></div>
+ <select id="srt" aria-label="Sort"><option value="n">Newest first</option><option value="o">Oldest first</option><option value="f">Featured first</option><option value="l">Price: low to high</option><option value="h">Price: high to low</option></select></div>
  <div class="fpn" id="fp" hidden><label>Price<select id="fpr"><option value="all">All prices</option><option value="a">Under Rs. 10,000</option><option value="b">Rs. 10,000 to 20,000</option><option value="c">Above Rs. 20,000</option></select></label><label>Shape<select id="fsh"><option value="all">All shapes</option>${shapes.map((x) => `<option>${x}</option>`).join("")}</select></label></div>
  <div class="cgrid c4" id="cg"></div></div>`;
             /* Filters show live counts and disable options that would return zero results */
@@ -5864,6 +5868,10 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 if (st.price === "b")
                     l = l.filter((x) => pr(x) >= 10000 && pr(x) <= 20000);
                 if (st.price === "c") l = l.filter((x) => pr(x) > 20000);
+                const byNew = (x, y) => (y[0].ts - x[0].ts) || (y[0]._ix - x[0]._ix);
+                if (st.sort === "n") l.sort(byNew);
+                if (st.sort === "o") l.sort((x, y) => byNew(y, x));
+                if (st.sort === "f") l.sort(byNew), l.sort((x, y) => (y[0].featured ? 1 : 0) - (x[0].featured ? 1 : 0));
                 if (st.sort === "l") l.sort((a, b) => pr(a) - pr(b));
                 if (st.sort === "h") l.sort((a, b) => pr(b) - pr(a));
                 const n = l.length;

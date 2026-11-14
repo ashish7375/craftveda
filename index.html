@@ -2369,6 +2369,10 @@
             display: block;
         }
 
+        /* Admin-managed banners (desktop + phone images) */
+        .ban .ph picture, #tbimg picture { display: block; width: 100%; height: 100%; }
+        @media (max-width: 600px) { .ban .ph.m45 { aspect-ratio: 4 / 5; } }
+
         .tb2 {
             position: relative;
             height: 480px;
@@ -4203,6 +4207,23 @@
             initIcons();
         }
 
+        let BANNERS = {};
+        function drawBanners() {
+            try {
+                const q = (v) => String(v || "").replace(/"/g, "&quot;");
+                const mk = (b, def, fb, alt) => {
+                    b = b || {};
+                    const d = q(b.desktop), m = q(b.mobile);
+                    return `<picture>${m ? `<source media="(max-width: 600px)" srcset="${m}">` : ""}<img src="${d || def}" alt="${alt}" onerror="this.onerror=null;this.src=${fb}"></picture>`;
+                };
+                const sph = $("#sph"), tb = $("#tbimg");
+                if (sph) {
+                    sph.innerHTML = mk(BANNERS.studio, "images/studio.jpg", "ART1", "CraftVeda studio and artwork in progress");
+                    sph.classList.toggle("m45", !!(BANNERS.studio && BANNERS.studio.mobile));
+                }
+                if (tb) tb.innerHTML = mk(BANNERS.trust, "images/trust-banner.jpg", "ART2", "CraftVeda studio");
+            } catch (_) { }
+        }
         function applySettings(s) {
             if (!s) return;
             if (Array.isArray(s.categories) && s.categories.length)
@@ -4225,6 +4246,10 @@
                     ...Object.values(THEMES).flat(),
                 ]),
             ];
+            if (s.banners && typeof s.banners === "object") {
+                BANNERS = s.banners;
+                drawBanners();
+            }
             if (Array.isArray(s.bento) && s.bento.length) {
                 BENTO_ITEMS = s.bento.map((t) => ({
                     title: t.title || "",
@@ -5229,6 +5254,132 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             msdrop.hidden = true;
         };
 
+        /* >>> SMART SEARCH: tolerates spelling mistakes, plurals, spacing and common Indian spellings <<< */
+        /*SMART_START*/
+        const SEARCH_ALIASES = [
+            ["laxmi", "lakshmi", "lakshmee", "lakshmi"],
+            ["ganesh", "ganesha", "ganpati", "ganapati", "ganesa", "vinayak"],
+            ["shiv", "shiva", "shankar", "mahadev", "bholenath"],
+            ["krishna", "krishn", "krishan", "kanha", "govind"],
+            ["ram", "rama", "raam"],
+            ["hanuman", "hanumaan", "bajrang"],
+            ["buddha", "budha", "buddh"],
+            ["temple", "mandir"],
+            ["elephant", "hathi"],
+            ["peacock", "mor"],
+            ["horse", "ghoda"],
+        ];
+        const sNorm = (s) =>
+            String(s || "")
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9\s]/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+        const sPhon = (w) =>
+            w
+                .replace(/ph/g, "f")
+                .replace(/ck/g, "k")
+                .replace(/w/g, "v")
+                .replace(/ee|ii/g, "i")
+                .replace(/oo/g, "u")
+                .replace(/aa/g, "a")
+                .replace(/y/g, "i")
+                .replace(/(.)\1+/g, "$1");
+        const sSkel = (w) => sPhon(w).replace(/[aeiou]/g, "");
+        /* Damerau-Levenshtein (swapped letters count as one mistake) */
+        const sDist = (a, b) => {
+            if (a === b) return 0;
+            const al = a.length, bl = b.length;
+            if (!al) return bl;
+            if (!bl) return al;
+            const d = [];
+            for (let i = 0; i <= al; i++) { d[i] = [i]; }
+            for (let j = 0; j <= bl; j++) d[0][j] = j;
+            for (let i = 1; i <= al; i++) {
+                for (let j = 1; j <= bl; j++) {
+                    const c = a[i - 1] === b[j - 1] ? 0 : 1;
+                    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + c);
+                    if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1])
+                        d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+                }
+            }
+            return d[al][bl];
+        };
+        const sSameAlias = (a, b) => SEARCH_ALIASES.some((g) => g.includes(a) && g.includes(b));
+        /* cost of matching one typed word against one real word (lower = better, Infinity = no match) */
+        const sTokCost = (q, w) => {
+            if (q === w) return 0;
+            if (sSameAlias(q, w)) return 0.3;
+            if (q.length >= 2 && w.startsWith(q)) return 0.2;
+            if (q.length >= 3 && w.includes(q)) return 0.5;
+            if (q.length >= 3 && sPhon(q) === sPhon(w)) return 0.6;
+            const allowed = q.length <= 3 ? 0 : q.length <= 5 ? 1 : q.length <= 8 ? 2 : 3;
+            if (allowed) {
+                const d = sDist(q, w);
+                if (d <= allowed) return 0.8 + d * 0.4;
+                if (q.length >= 4 && w.length > q.length && sDist(q, w.slice(0, q.length)) <= 1) return 0.9;
+            }
+            if (q.length >= 4) {
+                const k = sSkel(q);
+                if (k.length >= 3 && k === sSkel(w)) return 1.2;
+            }
+            return Infinity;
+        };
+        const sQuery = (raw) => {
+            let toks = sNorm(raw).split(" ").filter(Boolean);
+            const long = toks.filter((x) => x.length > 1);
+            if (long.length) toks = long;
+            return { toks, compact: toks.join("") };
+        };
+        const sScore = (Q, nameToks, otherToks, compactName) => {
+            let total = 0, matched = 0;
+            for (const q of Q.toks) {
+                let best = Infinity;
+                for (const w of nameToks) best = Math.min(best, sTokCost(q, w));
+                for (const w of otherToks) best = Math.min(best, sTokCost(q, w) + 0.4);
+                if (best < Infinity) { matched++; total += best; } else total += 3;
+            }
+            /* typed without spaces, or one wrong letter across the whole name */
+            if (Q.compact.length >= 4 && compactName) {
+                if (compactName.includes(Q.compact)) { total = Math.min(total, 0.1); matched = Q.toks.length; }
+                else {
+                    const d = sDist(Q.compact, compactName);
+                    if (d <= Math.max(1, Math.floor(compactName.length * 0.2))) {
+                        total = Math.min(total, 0.9 + d * 0.3);
+                        matched = Q.toks.length;
+                    }
+                }
+            }
+            return { total, matched, all: matched === Q.toks.length };
+        };
+        const sIdx = (p) => {
+            if (!p._sx) {
+                const nm = sNorm(p.name);
+                p._sx = {
+                    name: nm.split(" ").filter(Boolean),
+                    other: sNorm([p.category, ...(p.categories || []), p.theme, p.shape].join(" ")).split(" ").filter(Boolean),
+                    compact: nm.replace(/\s/g, ""),
+                };
+            }
+            return p._sx;
+        };
+        /* Returns artworks ordered best match first. related=true when only some words matched. */
+        const smartSearch = (raw) => {
+            const Q = sQuery(raw);
+            if (!Q.toks.length) return { list: [], related: false };
+            const rows = PRODUCTS.map((p) => {
+                const x = sIdx(p);
+                return { p, ...sScore(Q, x.name, x.other, x.compact) };
+            }).filter((r) => r.matched > 0);
+            const full = rows.filter((r) => r.all).sort((a, b) => a.total - b.total || b.p.ts - a.p.ts);
+            if (full.length) return { list: full, related: false };
+            const part = rows.sort((a, b) => b.matched - a.matched || a.total - b.total || b.p.ts - a.p.ts);
+            return { list: part, related: part.length > 0 };
+        };
+        /*SMART_END*/
+
         const lev = (a, b) => {
             const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
             for (let j = 1; j <= b.length; j++) d[0][j] = j;
@@ -5271,17 +5422,18 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 seen.add(x.label);
                 return true;
             });
+            const Q = sQuery(q);
             const score = (s) => {
                 const t = s.toLowerCase();
                 if (t.startsWith(q)) return 0;
-                if (t.split(/\s+/).some((w) => w.startsWith(q))) return 1;
-                if (t.includes(q)) return 2;
-                if (q.length >= 2 && t.split(/\s+/).some((w) => lev(w.slice(0, q.length), q) <= 1 || lev(w, q) <= 2)) return 3;
-                return 9;
+                if (t.includes(q)) return 1;
+                const nm = sNorm(s);
+                const r = sScore(Q, nm.split(" ").filter(Boolean), [], nm.replace(/\s/g, ""));
+                return r.all ? 2 + r.total : 99;
             };
             return unique
                 .map((item) => [item, score(item.label)])
-                .filter((x) => x[1] < 9)
+                .filter((x) => x[1] < 99)
                 .sort((a, b) => a[1] - b[1] || a[0].label.localeCompare(b[0].label))
                 .slice(0, 5)
                 .map((x) => x[0]);
@@ -5295,6 +5447,9 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                     items: PRODUCTS.filter((p) => p.featured || p.isNew).slice(0, 3),
                 };
             }
+            const sm = smartSearch(raw);
+            if (sm.list.length)
+                return { total: sm.list.length, items: sm.list.slice(0, 4).map((r) => r.p), related: sm.related };
             const scored = PRODUCTS.map((p) => {
                 const nameL = (p.name || "").toLowerCase();
                 const hay = [p.name, p.category, ...(p.categories || []), p.theme, p.shape]
@@ -5324,7 +5479,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             const raw = inp.value || "";
             const q = raw.trim();
             const sugs = suggestItems(q);
-            const { total, items } = matchProducts(q);
+            const { total, items, related } = matchProducts(q);
 
             const pillsHTML = `<div class="ssec"><span class="slbl">Explore by badge</span><div class="spills">${QUICK_PILLS.map(
                 ([t, h]) => `<button type="button" data-pill="${h}">${esc(t)}</button>`,
@@ -5340,7 +5495,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                 : "";
 
             const resHTML = items.length
-                ? `<div class="ssec" style="padding:10px 0 0"><span class="slbl" style="padding:0 14px">${q ? "Matching Artworks (" + total + ")" : "Featured Artworks"
+                ? `<div class="ssec" style="padding:10px 0 0"><span class="slbl" style="padding:0 14px">${q ? (related ? "Related Artworks (" : "Matching Artworks (") + total + ")" : "Featured Artworks"
                 }</span><div class="sres">${items
                     .map(
                         (p) =>
@@ -5351,7 +5506,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                         : ""
                 }</div>`
                 : q
-                    ? `<div class="ssec" style="color:var(--gr);font-size:14px">No exact match for "${esc(q)}" — try a badge above or press Search.</div>`
+                    ? `<div class="ssec" style="color:var(--gr);font-size:14px">No artworks found for "${esc(q)}". Check the spelling or try a badge above.</div>`
                     : "";
 
             dropEl.innerHTML = (q ? sugsHTML + resHTML + pillsHTML : pillsHTML + sugsHTML + resHTML);
@@ -5819,10 +5974,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
             encodeURIComponent(
                 `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 560' preserveAspectRatio='xMidYMid slice'><defs><radialGradient id='l' cx='.5' cy='.1' r='.9'><stop offset='0' stop-color='#3D6A8F'/><stop offset='.55' stop-color='#14304D'/><stop offset='1' stop-color='#08121E'/></radialGradient></defs><rect width='1600' height='560' fill='url(#l)'/><rect y='520' width='1600' height='40' fill='#0a1624'/>${easel(180, 300, 250, "#E9E1D3", "#B5654A")}${easel(650, 300, 310, "#D8C7AE", "#0F2740")}${easel(1120, 300, 250, "#EFE8DC", "#6E7F91")}</svg>`,
             );
-        $("#sph").innerHTML =
-            `<img src="images/studio.jpg" alt="CraftVeda studio and artwork in progress" onerror="this.onerror=null;this.src=ART1">`;
-        $("#tbimg").innerHTML =
-            `<img src="images/trust-banner.jpg" alt="CraftVeda studio" onerror="this.onerror=null;this.src=ART2">`;
+        drawBanners();
         $("#tbw").href = wa("Hi, I would like to discuss an artwork.");
 
         /* pages */
@@ -5833,13 +5985,13 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         /* ========================================================================== */
         /* >>> CATEGORY & PRODUCT FULL PAGES <<<                                 */
         /* ========================================================================== */
-        function catPage(title, f, cr) {
-            const st = { cols: 4, sort: "n", price: "all", shape: "all" };
+        function catPage(title, f, cr, opts = {}) {
+            const st = { cols: 4, sort: opts.rank ? "r" : "n", price: "all", shape: "all" };
             const shapes = ["Square", "Vertical", "Horizontal"];
             viewEl.innerHTML = `<div class="wrap pg">${cr}<h1 class="pt">${title}</h1><p class="rcount" id="rc" aria-live="polite"></p>
  <div class="tbar"><button class="flt" id="ft"><i data-lucide="sliders-horizontal"></i>Filter</button>
  <div class="gcols" id="gcs">${[2, 3, 4].map((n) => `<button data-c="${n}" class="${n == 4 ? "on" : ""}" aria-label="${n} columns">${"<i></i>".repeat(n)}</button>`).join("")}</div>
- <select id="srt" aria-label="Sort"><option value="n">Newest first</option><option value="o">Oldest first</option><option value="f">Featured first</option><option value="l">Price: low to high</option><option value="h">Price: high to low</option></select></div>
+ <select id="srt" aria-label="Sort">${opts.rank ? '<option value="r">Best match</option>' : ""}<option value="n">Newest first</option><option value="o">Oldest first</option><option value="f">Featured first</option><option value="l">Price: low to high</option><option value="h">Price: high to low</option></select></div>
  <div class="fpn" id="fp" hidden><label>Price<select id="fpr"><option value="all">All prices</option><option value="a">Under Rs. 10,000</option><option value="b">Rs. 10,000 to 20,000</option><option value="c">Above Rs. 20,000</option></select></label><label>Shape<select id="fsh"><option value="all">All shapes</option>${shapes.map((x) => `<option>${x}</option>`).join("")}</select></label></div>
  <div class="cgrid c4" id="cg"></div></div>`;
             /* Filters show live counts and disable options that would return zero results */
@@ -5869,6 +6021,7 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                     l = l.filter((x) => pr(x) >= 10000 && pr(x) <= 20000);
                 if (st.price === "c") l = l.filter((x) => pr(x) > 20000);
                 const byNew = (x, y) => (y[0].ts - x[0].ts) || (y[0]._ix - x[0]._ix);
+                if (st.sort === "r" && opts.rank) l.sort((x, y) => (opts.rank.get(x[0]) ?? 1e9) - (opts.rank.get(y[0]) ?? 1e9) || byNew(x, y));
                 if (st.sort === "n") l.sort(byNew);
                 if (st.sort === "o") l.sort((x, y) => byNew(y, x));
                 if (st.sort === "f") l.sort(byNew), l.sort((x, y) => (y[0].featured ? 1 : 0) - (x[0].featured ? 1 : 0));
@@ -6070,23 +6223,20 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                     crumb([esc(a)]),
                 );
             else if (k === "search") {
-                const q = a.toLowerCase();
                 track("search", { search_term: a });
-                catPage(
-                    "Results for " + esc(a),
-                    (p) =>
-                        [
-                            p.name,
-                            p.category,
-                            ...(p.categories || []),
-                            p.theme,
-                            p.shape,
-                        ]
-                            .join(" ")
-                            .toLowerCase()
-                            .includes(q),
-                    crumb(["Search"]),
-                );
+                const R = smartSearch(a);
+                const rank = new Map();
+                let title = "Results for " + esc(a);
+                if (R.list.length) {
+                    R.list.forEach((x, i) => rank.set(x.p, i));
+                    if (R.related) title = "Related artworks for " + esc(a);
+                } else {
+                    title = "No exact match for " + esc(a) + ". You may like these";
+                    [...PRODUCTS.filter((p) => p.featured || p.isNew), ...PRODUCTS].forEach((p) => {
+                        if (rank.size < 8 && !rank.has(p)) rank.set(p, rank.size);
+                    });
+                }
+                catPage(title, (p) => rank.has(p), crumb(["Search"]), { rank });
             } else location.hash = "#top";
         }
         addEventListener("hashchange", route);

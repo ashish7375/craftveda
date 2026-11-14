@@ -1891,6 +1891,26 @@
             font-weight: 500;
         }
 
+        /* Website Banners Manager */
+        .bn-card { background:#fff; border:1px solid var(--ln); border-radius:10px; padding:20px; margin-top:22px; }
+        .bn-card h3 { margin:0 0 4px; font-size:16px; color:var(--navy); }
+        .bn-intro { color:var(--gr); font-size:13px; margin:0 0 16px; }
+        .bn-block { border-top:1px solid var(--ln); padding-top:16px; margin-top:16px; }
+        .bn-block h4 { margin:0 0 2px; font-size:14.5px; color:var(--navy); }
+        .bn-where { color:var(--gr); font-size:12.5px; margin:0 0 4px; }
+        .bn-tip { font-size:12.5px; background:#FAF8F5; border:1px solid var(--ln); border-radius:6px; padding:8px 10px; margin:8px 0 12px; }
+        .bn-grid { display:grid; grid-template-columns:1.6fr 1fr; gap:16px; }
+        .bn-cell { border:1px solid var(--ln); border-radius:8px; padding:12px; background:var(--bg, #faf8f5); }
+        .bn-head { display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:13px; }
+        .bn-size { background:var(--navy); color:#fff; border-radius:20px; padding:2px 10px; font-size:12px; font-weight:600; white-space:nowrap; }
+        .bn-note { color:var(--gr); font-size:12px; margin:4px 0 8px; }
+        .bn-prev { width:100%; background:#ece8e1; border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--gr); font-size:12px; }
+        .bn-prev img { width:100%; height:100%; object-fit:cover; display:block; }
+        .bn-prev.m { max-width:210px; margin:0 auto; }
+        .bn-act { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+        .bn-act label.btn { cursor:pointer; padding:7px 14px; font-size:12.5px; display:inline-flex; align-items:center; gap:6px; }
+        @media (max-width: 900px) { .bn-grid { grid-template-columns:1fr; } }
+
         /* Homepage Bento Grid Manager Styles */
         .bento-manager-layout {
             display: grid;
@@ -2550,7 +2570,7 @@
                     </button>
                     <button class="sb-item" data-v="bento" type="button">
                         <i data-lucide="layout-grid"></i>
-                        <span>Homepage Bento</span>
+                        <span>Bento &amp; Banners</span>
                     </button>
                 </nav>
 
@@ -3152,10 +3172,11 @@
                 $("#main").innerHTML = categoriesView();
                 bindCategoriesEvents();
             } else if (view === "bento") {
-                $("#page-title").textContent = "Homepage Bento Grid";
+                $("#page-title").textContent = "Homepage Bento & Banners";
                 $("#bulk-bar").classList.remove("active");
-                $("#main").innerHTML = bentoView();
+                $("#main").innerHTML = bentoView() + bannersCardHTML();
                 bindBentoEvents();
+                bindBannerEvents();
             }
             initIcons();
         }
@@ -4214,6 +4235,142 @@
             });
         }
 
+        /* ========================================================================== */
+        /* >>> WEBSITE BANNERS (Studio banner + Promise banner) <<<                   */
+        /* ========================================================================== */
+        const BANNER_SPECS = [
+            {
+                key: "studio", title: "Banner 1: Studio banner",
+                where: "Home page, the picture beside \"Driven by design. Built with precision.\"",
+                desktop: { w: 1200, h: 900, ratio: "4 : 3", note: "Landscape picture. Shown on laptops and tablets." },
+                mobile: { w: 900, h: 1125, ratio: "4 : 5", note: "Portrait picture. Shown on phones (screens up to 600px wide)." },
+                tip: "Keep the main subject in the centre so nothing important is cropped."
+            },
+            {
+                key: "trust", title: "Banner 2: Promise banner",
+                where: "Home page, the full-width banner with \"Made by hand. Delivered with care.\"",
+                desktop: { w: 2400, h: 600, ratio: "4 : 1", note: "Very wide strip. Shown on laptops and tablets." },
+                mobile: { w: 1080, h: 1200, ratio: "9 : 10", note: "Almost square. Shown on phones (screens up to 600px wide)." },
+                tip: "Text is written over the right side on laptops (centre on phones), so keep the main subject on the left."
+            }
+        ];
+        const bannerPreview = {};
+
+        function ensureBanners() {
+            if (!settings.banners || typeof settings.banners !== "object") settings.banners = {};
+            BANNER_SPECS.forEach(b => {
+                const o = settings.banners[b.key] || {};
+                settings.banners[b.key] = { desktop: o.desktop || "", mobile: o.mobile || "" };
+            });
+            return settings.banners;
+        }
+
+        function toBannerJpeg(file, W, H) {
+            return new Promise((ok, no) => {
+                const im = new Image();
+                im.onload = () => {
+                    const c = document.createElement("canvas");
+                    c.width = W; c.height = H;
+                    const x = c.getContext("2d");
+                    x.fillStyle = "#fff";
+                    x.fillRect(0, 0, W, H);
+                    const k = Math.max(W / im.width, H / im.height);
+                    const w = im.width * k, h = im.height * k;
+                    x.drawImage(im, (W - w) / 2, (H - h) / 2, w, h);
+                    ok({ b64: c.toDataURL("image/jpeg", .88).split(",")[1], srcW: im.width, srcH: im.height });
+                };
+                im.onerror = () => no(new Error("That file is not an image"));
+                im.src = URL.createObjectURL(file);
+            });
+        }
+
+        function bannersCardHTML() {
+            const bn = ensureBanners();
+            const cell = (spec, dev) => {
+                const d = spec[dev];
+                const path = bn[spec.key][dev];
+                const prev = bannerPreview[spec.key + "-" + dev] || path;
+                const id = spec.key + "|" + dev;
+                return `
+     <div class="bn-cell">
+      <div class="bn-head"><b>${dev === "desktop" ? "Laptop / Desktop banner" : "Phone banner"}</b><span class="bn-size">${d.w} &times; ${d.h} px</span></div>
+      <div class="bn-note">Ratio ${d.ratio}. ${d.note}</div>
+      <div class="bn-prev ${dev === "mobile" ? "m" : ""}" style="aspect-ratio:${d.w}/${d.h}">${prev ? `<img src="${esc(prev)}" alt="">` : `<span style="padding:10px">No banner uploaded.<br>Website shows its default picture.</span>`}</div>
+      <div class="bn-act">
+       <label class="btn"><i data-lucide="upload" style="width:14px;height:14px"></i><span>${path ? "Replace" : "Upload"}</span><input type="file" accept="image/*" hidden data-bn-file="${id}"></label>
+       ${path ? `<button type="button" class="ghost dng" data-bn-clear="${id}" style="padding:7px 14px;font-size:12.5px">Remove</button>` : ""}
+      </div>
+     </div>`;
+            };
+            return `
+  <div class="bn-card">
+   <h3>Website Banners</h3>
+   <p class="bn-intro">Upload the picture at the size shown. It is cropped to fit automatically and saved to your website. The phone banner is optional; if you skip it, phones use the laptop banner.</p>
+   ${BANNER_SPECS.map(spec => `
+   <div class="bn-block">
+    <h4>${spec.title}</h4>
+    <p class="bn-where">${spec.where}</p>
+    <div class="bn-tip"><b>Tip:</b> ${spec.tip}</div>
+    <div class="bn-grid">${cell(spec, "desktop")}${cell(spec, "mobile")}</div>
+   </div>`).join("")}
+  </div>`;
+        }
+
+        function bindBannerEvents() {
+            document.querySelectorAll("[data-bn-file]").forEach(inp => {
+                inp.onchange = async e => {
+                    const f = e.target.files[0];
+                    if (!f) return;
+                    const [key, dev] = inp.dataset.bnFile.split("|");
+                    const spec = BANNER_SPECS.find(b => b.key === key);
+                    const d = spec[dev];
+                    const bn = ensureBanners();
+                    const old = bn[key][dev];
+                    try {
+                        busy("Resizing and uploading banner...");
+                        const r = await toBannerJpeg(f, d.w, d.h);
+                        const path = await putImage(`banners/${key}-${dev}-${Date.now().toString(36)}.jpg`, r.b64);
+                        bn[key][dev] = path;
+                        try { await saveSettings(`Updated ${spec.title} (${dev})`); }
+                        catch (x) { bn[key][dev] = old; throw x; }
+                        bannerPreview[key + "-" + dev] = "data:image/jpeg;base64," + r.b64;
+                        if (old && old.indexOf("images/banners/") === 0 && old !== path) { try { await delImage(old); } catch (_) { } }
+                        const small = r.srcW < d.w * 0.8 || r.srcH < d.h * 0.8;
+                        toast(small ? `Saved. Note: your photo is smaller than ${d.w} × ${d.h} px, so it may look slightly soft.` : `${spec.title} (${dev === "desktop" ? "laptop" : "phone"}) saved.`);
+                        render();
+                    } catch (err) {
+                        toast(err.message, 1);
+                    } finally {
+                        busy(false);
+                        e.target.value = "";
+                    }
+                };
+            });
+            document.querySelectorAll("[data-bn-clear]").forEach(btn => {
+                btn.onclick = async () => {
+                    const [key, dev] = btn.dataset.bnClear.split("|");
+                    const spec = BANNER_SPECS.find(b => b.key === key);
+                    if (!confirm("Remove this banner? The website will use its default picture.")) return;
+                    const bn = ensureBanners();
+                    const old = bn[key][dev];
+                    try {
+                        busy("Removing banner...");
+                        bn[key][dev] = "";
+                        try { await saveSettings(`Removed ${spec.title} (${dev})`); }
+                        catch (x) { bn[key][dev] = old; throw x; }
+                        delete bannerPreview[key + "-" + dev];
+                        if (old && old.indexOf("images/banners/") === 0) { try { await delImage(old); } catch (_) { } }
+                        toast("Banner removed.");
+                        render();
+                    } catch (err) {
+                        toast(err.message, 1);
+                    } finally {
+                        busy(false);
+                    }
+                };
+            });
+        }
+
         function getTileShape(tile, mode) {
             if (!tile) return "tall";
             if (mode === "tablet") return tile.shapeTablet || tile.shape || "tall";
@@ -5179,8 +5336,9 @@
  <p class="note" style="margin-bottom:14px">Upload a CSV file to generate draft artworks. Each imported piece will be saved as a <b>Draft</b> without images. You can then edit each artwork, upload images, and publish.</p>
  <div style="background:var(--bg);border:1px solid var(--ln);border-radius:6px;padding:14px;margin-bottom:16px;font-size:13px">
   <b>Expected CSV Columns:</b>
-  <div style="color:var(--navy);font-family:monospace;font-size:12px;margin:6px 0">Name, Category, Theme, Shape, Sizes, Description</div>
+  <div style="color:var(--navy);font-family:monospace;font-size:12px;margin:6px 0">Name, Category, Theme, Shape, Sizes, Description, Favorite (optional)</div>
   <div style="color:var(--gr);font-size:12px;line-height:1.5">
+   • <b>Favorite (optional):</b> write <code>yes</code> to show the artwork in the website's Favorites menu. Leave empty otherwise.<br>
    • <b>Category:</b> Supports multiple categories separated by commas, e.g. <code>"Religious, Custom Art"</code>.<br>
    • <b>Sizes:</b> Format: <code>24*18 inch:15000|36*24 inch:19000|48*36 inch:25000</code> (leave empty to use default shape sizes).
   </div>
@@ -5257,6 +5415,7 @@
                         const shapeIdx = headers.indexOf("shape");
                         const sizesIdx = headers.indexOf("sizes");
                         const descIdx = headers.indexOf("description") >= 0 ? headers.indexOf("description") : headers.indexOf("desc");
+                        const favIdx = headers.findIndex(h => ["favorite", "favorites", "favourite", "favourites", "featured"].includes(h));
 
                         parsedItems = [];
                         for (let i = 1; i < rows.length; i++) {
@@ -5299,7 +5458,8 @@
                                 desc = tpl ? tpl.desc : "";
                             }
 
-                            parsedItems.push({ name, category, categories, theme, shape, sizes, desc });
+                            const featured = favIdx >= 0 && /^(1|y|yes|true|fav|favorite|favorites|favourite)$/i.test((r[favIdx] || "").trim());
+                            parsedItems.push({ name, category, categories, theme, shape, sizes, desc, featured });
                         }
 
                         if (!parsedItems.length) {
@@ -5343,7 +5503,7 @@
                         desc: p.desc,
                         images: [],
                         published: false,
-                        featured: false,
+                        featured: !!p.featured,
                         createdAt: now,
                         updatedAt: now
                     }));
@@ -5422,7 +5582,11 @@
         </button>
        `;
    }).join('')}
+   <button type="button" class="cat-badge-btn ${it.featured ? 'selected' : ''}" id="fav-badge-btn" aria-pressed="${it.featured ? 'true' : 'false'}" title="Show this artwork in the website's Favorites menu">
+    <span>&#9733; Favorites</span>
+   </button>
   </div>
+  <small style="display:block;color:var(--gr);font-size:11.5px;margin-top:6px">&#9733; Favorites shows this artwork in the Favorites menu on the website. You can select it along with any categories.</small>
   <span id="fc-err" class="f-err" style="margin-bottom:6px"></span>
  </div>
 
@@ -5480,7 +5644,7 @@
  <p class="note" style="margin-top:8px">${isNew ? "The room / mockup image is required for publishing. " : "Choose a file only if you want to replace that image. "}Photos are resized client-side to 1080 &times; 1350 automatically.</p>
 
  <label class="chk" style="margin-top:12px"><input type="checkbox" id="fp" ${it.published !== false ? "checked" : ""}> Publish (show live on website)</label>
- <label class="chk"><input type="checkbox" id="ff" ${it.featured ? "checked" : ""}> Featured (show in Favorites)</label>
+ <input type="checkbox" id="ff" hidden ${it.featured ? "checked" : ""}>
  <div class="fa"><button class="btn" type="submit" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="check" style="width:14px;height:14px"></i><span>Save Artwork</span></button><button type="button" class="ghost" id="cn" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="x" style="width:14px;height:14px"></i><span>Cancel</span></button></div></form>`;
 
             $("#modal").hidden = false;
@@ -5541,6 +5705,14 @@
             };
 
             updateThemesDropdown();
+
+            const favBadge = $("#fav-badge-btn");
+            if (favBadge) favBadge.onclick = () => {
+                const ff = $("#ff");
+                ff.checked = !ff.checked;
+                favBadge.classList.toggle("selected", ff.checked);
+                favBadge.setAttribute("aria-pressed", ff.checked ? "true" : "false");
+            };
 
             document.querySelectorAll("[data-cat-badge]").forEach(badge => {
                 badge.onclick = () => {

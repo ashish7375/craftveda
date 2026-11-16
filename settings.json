@@ -84,5 +84,15 @@
       "shapeMobile": "tall",
       "image": "images/ram-sita-watercolor-art-1-mvcvdlzc.jpg"
     }
-  ]
+  ],
+  "banners": {
+    "studio": {
+      "desktop": "images/banners/studio-desktop-mwja98j5.jpg",
+      "mobile": ""
+    },
+    "trust": {
+      "desktop": "",
+      "mobile": ""
+    }
+  }
 }

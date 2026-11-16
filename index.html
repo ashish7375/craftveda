@@ -425,11 +425,12 @@
         /* ========================================================================== */
         /* >>> STUDIO PHILOSOPHY BANNER <<<                                      */
         /* ========================================================================== */
+        /* Text on top (left aligned), long horizontal banner image below */
         .ban .wrap {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 56px;
-            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 36px;
+            align-items: start;
         }
 
         .ban h2 {
@@ -445,7 +446,8 @@
         }
 
         .ban .ph {
-            aspect-ratio: 4/3;
+            aspect-ratio: 21/8; /* long horizontal banner - upload 1920x730 px */
+            width: 100%;
             background: var(--navy2);
             overflow: hidden;
             border-radius: var(--rad);
@@ -2371,6 +2373,7 @@
 
         /* Admin-managed banners (desktop + phone images) */
         .ban .ph picture, #tbimg picture { display: block; width: 100%; height: 100%; }
+        @media (max-width: 900px) { .ban .ph { aspect-ratio: 16 / 9; } }
         @media (max-width: 600px) { .ban .ph.m45 { aspect-ratio: 4 / 5; } }
 
         .tb2 {

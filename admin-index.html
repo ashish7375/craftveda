@@ -1911,6 +1911,25 @@
         .bn-act label.btn { cursor:pointer; padding:7px 14px; font-size:12.5px; display:inline-flex; align-items:center; gap:6px; }
         @media (max-width: 900px) { .bn-grid { grid-template-columns:1fr; } }
 
+        /* Reels manager */
+        .rl-add { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:12px; }
+        .rl-add input[type=text], .rl-fld input[type=text] { flex:1; min-width:220px; padding:10px 12px; border:1px solid var(--ln); border-radius:6px; font:inherit; font-size:14px; background:#fff; width:100%; box-sizing:border-box; }
+        .rl-add label.btn { cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+        .rl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:16px; margin-top:16px; }
+        .rl-item { border:1px solid var(--ln); border-radius:10px; padding:10px; background:#fff; display:flex; flex-direction:column; gap:8px; }
+        .rl-prev { width:100%; height:260px; background:#000; border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+        .rl-prev video { max-width:100%; max-height:100%; display:block; }
+        .rl-fld input[type=text] { min-width:0; }
+        .rl-meta { font-size:12px; color:var(--gr); display:flex; justify-content:space-between; gap:6px; }
+        .rl-fld label { font-size:11.5px; color:var(--gr); display:block; margin-bottom:3px; }
+        .rl-btns { display:flex; gap:6px; flex-wrap:wrap; }
+        .rl-btns button { padding:6px 10px; font-size:12px; }
+        .rl-head { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+        .rl-head label { font-size:12.5px; color:var(--gr); display:block; margin-bottom:4px; }
+        .rl-head input { width:100%; padding:10px 12px; border:1px solid var(--ln); border-radius:6px; font:inherit; font-size:14px; box-sizing:border-box; background:#fff; }
+        .rl-empty { margin-top:16px; padding:22px; border:1px dashed var(--ln); border-radius:8px; text-align:center; color:var(--gr); font-size:13.5px; }
+        @media (max-width: 700px) { .rl-head { grid-template-columns:1fr; } }
+
         /* Homepage Bento Grid Manager Styles */
         .bento-manager-layout {
             display: grid;
@@ -2572,6 +2591,10 @@
                         <i data-lucide="layout-grid"></i>
                         <span>Bento &amp; Banners</span>
                     </button>
+                    <button class="sb-item" data-v="reels" type="button">
+                        <i data-lucide="clapperboard"></i>
+                        <span>Reels</span>
+                    </button>
                 </nav>
 
                 <!-- Bottom Pinned Section -->
@@ -3177,6 +3200,11 @@
                 $("#main").innerHTML = bentoView() + bannersCardHTML();
                 bindBentoEvents();
                 bindBannerEvents();
+            } else if (view === "reels") {
+                $("#page-title").textContent = "Website Reels";
+                $("#bulk-bar").classList.remove("active");
+                $("#main").innerHTML = reelsView();
+                bindReelsEvents();
             }
             initIcons();
         }
@@ -4281,6 +4309,177 @@
                 };
                 im.onerror = () => no(new Error("That file is not an image"));
                 im.src = URL.createObjectURL(file);
+            });
+        }
+
+        /* ========================================================================== */
+        /* >>> WEBSITE REELS (upload videos shown in the reels strip) <<<             */
+        /* ========================================================================== */
+        const REEL_MAX_MB = 24; /* website host (Cloudflare Pages) allows max 25 MB per file */
+        const reelPreview = {}; /* local preview urls for reels uploaded in this session */
+        /* stop the progress toast first, then show the result (so the message does not vanish at once) */
+        const reelNote = (m, err) => { busy(false); setTimeout(() => toast(m, err), 260); };
+
+        function ensureReels() {
+            if (!Array.isArray(settings.reels)) settings.reels = [];
+            if (typeof settings.reelsHeading !== "string" || !settings.reelsHeading) settings.reelsHeading = "See our art come alive";
+            if (typeof settings.reelsSubtext !== "string") settings.reelsSubtext = "Short clips from our studio. Tap a reel to watch it on Instagram.";
+            return settings.reels;
+        }
+
+        const fileToB64 = f => new Promise((ok, no) => {
+            const r = new FileReader();
+            r.onload = () => ok(String(r.result).split(",")[1]);
+            r.onerror = () => no(new Error("Could not read the video file."));
+            r.readAsDataURL(f);
+        });
+
+        /* Reads size + first frame in the browser. The video file itself is never re-encoded. */
+        function reelMeta(file) {
+            return new Promise(res => {
+                const v = document.createElement("video");
+                v.muted = true; v.playsInline = true; v.preload = "metadata";
+                const url = URL.createObjectURL(file);
+                let done = false;
+                const fin = o => { if (done) return; done = true; URL.revokeObjectURL(url); res(o); };
+                v.onloadedmetadata = () => {
+                    if (!v.videoWidth || !v.videoHeight) return fin(null);
+                    try { v.currentTime = Math.min(0.1, (v.duration || 1) / 2); } catch (e) { fin({ w: v.videoWidth, h: v.videoHeight, poster: null }); }
+                };
+                v.onseeked = () => {
+                    const w = v.videoWidth, h = v.videoHeight;
+                    try {
+                        const k = Math.min(1, 1080 / Math.max(w, h));
+                        const c = document.createElement("canvas");
+                        c.width = Math.round(w * k); c.height = Math.round(h * k);
+                        c.getContext("2d").drawImage(v, 0, 0, c.width, c.height);
+                        fin({ w, h, poster: c.toDataURL("image/jpeg", 0.85).split(",")[1] });
+                    } catch (e) { fin({ w, h, poster: null }); }
+                };
+                v.onerror = () => fin(null);
+                setTimeout(() => fin(null), 15000);
+                v.src = url;
+            });
+        }
+
+        function reelsView() {
+            const list = ensureReels();
+            const igOk = u => !u || /^https?:\/\//i.test(u);
+            const items = list.map((r, i) => {
+                const src = reelPreview[r.id] || r.video;
+                return `
+     <div class="rl-item">
+      <div class="rl-prev"><video src="${esc(src)}" muted loop autoplay playsinline ${r.poster ? `poster="${esc(r.poster)}"` : ""}></video></div>
+      <div class="rl-meta"><span>Reel ${i + 1}</span><span>${r.w && r.h ? r.w + " &times; " + r.h : ""}</span></div>
+      <div class="rl-fld"><label>Instagram reel link</label><input type="text" value="${esc(r.url || "")}" placeholder="https://www.instagram.com/reel/..." data-rl-url="${esc(r.id)}"></div>
+      <div class="rl-btns">
+       <button type="button" class="ghost" data-rl-up="${esc(r.id)}" ${i === 0 ? "disabled" : ""} title="Move earlier">&larr;</button>
+       <button type="button" class="ghost" data-rl-dn="${esc(r.id)}" ${i === list.length - 1 ? "disabled" : ""} title="Move later">&rarr;</button>
+       <button type="button" class="ghost dng" data-rl-del="${esc(r.id)}">Delete</button>
+      </div>
+     </div>`;
+            }).join("");
+            return `
+  <div class="bn-card" style="margin-top:0">
+   <h3>Reels on your website</h3>
+   <p class="bn-intro">These reels appear between the FAQ and the footer, in this order. Each one plays on a loop and <b>always without sound</b> on the website. Your video is uploaded exactly as it is: no compression and no cropping, so the quality stays the same. Click on a reel on the website opens its Instagram link.</p>
+   <div class="bn-tip"><b>Tip:</b> Use an MP4 video (H.264), up to ${REEL_MAX_MB} MB. Download your reel from Instagram or use the original from your phone or editor. Videos above ${REEL_MAX_MB} MB cannot be hosted on the website.</div>
+   <div class="rl-head">
+    <div><label for="rl-heading">Section heading</label><input id="rl-heading" type="text" value="${esc(settings.reelsHeading)}" maxlength="60"></div>
+    <div><label for="rl-sub">Short line under the heading (optional)</label><input id="rl-sub" type="text" value="${esc(settings.reelsSubtext)}" maxlength="120"></div>
+   </div>
+   <div class="bn-act"><button type="button" class="btn" id="rl-save-head">Save heading</button></div>
+  </div>
+  <div class="bn-card">
+   <h3>Add a reel</h3>
+   <p class="bn-intro">Paste the Instagram link of the reel first (optional), then choose the video file. It uploads right away.</p>
+   <div class="rl-add">
+    <input type="text" id="rl-link" placeholder="https://www.instagram.com/reel/...">
+    <label class="btn"><i data-lucide="upload" style="width:14px;height:14px"></i><span>Choose video &amp; upload</span><input type="file" id="rl-file" accept="video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov,.m4v" hidden></label>
+   </div>
+   ${list.length ? `<div class="rl-grid">${items}</div>` : `<div class="rl-empty">No reels yet. The reels section stays hidden on the website until you upload one.</div>`}
+  </div>`;
+        }
+
+        async function addReel(file, igUrl) {
+            if (!/^video\//.test(file.type) && !/\.(mp4|webm|mov|m4v)$/i.test(file.name)) throw new Error("Please choose a video file (MP4 is best).");
+            const mb = file.size / 1048576;
+            if (mb > REEL_MAX_MB) throw new Error(`This video is ${mb.toFixed(1)} MB. Please choose one under ${REEL_MAX_MB} MB (the website host does not accept bigger files).`);
+            if (igUrl && !/^https?:\/\//i.test(igUrl)) throw new Error("The Instagram link must start with https://");
+            busy("Checking video...");
+            const meta = await reelMeta(file);
+            if (!meta) throw new Error("This browser could not read the video. Please use an MP4 (H.264) file.");
+            const id = "r" + Date.now().toString(36);
+            const ext = ((file.name.split(".").pop() || "mp4").toLowerCase().replace(/[^a-z0-9]/g, "")) || "mp4";
+            busy("Uploading video... this can take a minute");
+            const b64 = await fileToB64(file);
+            const vpath = await putImage(`reels/${id}.${ext}`, b64);
+            let ppath = "";
+            if (meta.poster) { try { ppath = await putImage(`reels/${id}.jpg`, meta.poster); } catch (_) { } }
+            const reels = ensureReels();
+            const entry = { id, video: vpath, poster: ppath, url: igUrl || "", w: meta.w, h: meta.h };
+            reels.push(entry);
+            try { await saveSettings("Add reel"); }
+            catch (x) {
+                reels.pop();
+                try { await delImage(vpath); if (ppath) await delImage(ppath); } catch (_) { }
+                throw x;
+            }
+            reelPreview[id] = URL.createObjectURL(file);
+            return entry;
+        }
+
+        function bindReelsEvents() {
+            const reels = ensureReels();
+            const f = $("#rl-file");
+            if (f) f.onchange = async e => {
+                const file = e.target.files[0];
+                if (!file) return;
+                try {
+                    await addReel(file, ($("#rl-link").value || "").trim());
+                    reelNote("Reel saved. It shows on the website in a minute or two.");
+                    render();
+                } catch (err) { reelNote(errMsg(err), 1); }
+                finally { e.target.value = ""; }
+            };
+            const hs = $("#rl-save-head");
+            if (hs) hs.onclick = async () => {
+                const h = ($("#rl-heading").value || "").trim(), t = ($("#rl-sub").value || "").trim();
+                if (!h) { toast("Please type a heading.", 1); return; }
+                const oh = settings.reelsHeading, ot = settings.reelsSubtext;
+                settings.reelsHeading = h; settings.reelsSubtext = t;
+                try { busy("Saving heading..."); await saveSettings("Update reels heading"); reelNote("Heading saved."); }
+                catch (err) { settings.reelsHeading = oh; settings.reelsSubtext = ot; reelNote(errMsg(err), 1); }
+            };
+            document.querySelectorAll("[data-rl-url]").forEach(inp => inp.onchange = async () => {
+                const r = reels.find(x => x.id === inp.dataset.rlUrl); if (!r) return;
+                const v = inp.value.trim();
+                if (v && !/^https?:\/\//i.test(v)) { toast("The Instagram link must start with https://", 1); inp.value = r.url || ""; return; }
+                const old = r.url; r.url = v;
+                try { busy("Saving link..."); await saveSettings("Update reel link"); reelNote("Link saved."); }
+                catch (err) { r.url = old; inp.value = old || ""; reelNote(errMsg(err), 1); }
+            });
+            const move = async (id, d) => {
+                const i = reels.findIndex(x => x.id === id), j = i + d;
+                if (i < 0 || j < 0 || j >= reels.length) return;
+                [reels[i], reels[j]] = [reels[j], reels[i]];
+                try { busy("Saving order..."); await saveSettings("Reorder reels"); reelNote("Order saved."); render(); }
+                catch (err) { [reels[i], reels[j]] = [reels[j], reels[i]]; reelNote(errMsg(err), 1); }
+            };
+            document.querySelectorAll("[data-rl-up]").forEach(b => b.onclick = () => move(b.dataset.rlUp, -1));
+            document.querySelectorAll("[data-rl-dn]").forEach(b => b.onclick = () => move(b.dataset.rlDn, 1));
+            document.querySelectorAll("[data-rl-del]").forEach(b => b.onclick = async () => {
+                const i = reels.findIndex(x => x.id === b.dataset.rlDel); if (i < 0) return;
+                if (!confirm("Delete this reel from the website?")) return;
+                const [r] = reels.splice(i, 1);
+                try {
+                    busy("Deleting reel...");
+                    try { await saveSettings("Delete reel"); }
+                    catch (err) { reels.splice(i, 0, r); throw err; }
+                    try { await delImage(r.video); if (r.poster) await delImage(r.poster); } catch (_) { }
+                    reelNote("Reel deleted.");
+                    render();
+                } catch (err) { reelNote(errMsg(err), 1); }
             });
         }
 

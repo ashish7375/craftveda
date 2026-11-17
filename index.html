@@ -2018,6 +2018,17 @@
             margin: 6px 0 34px;
         }
 
+        /* Category hero banner + section taglines */
+        .chero{position:relative;border-radius:var(--rad);overflow:hidden;margin:6px 0 34px;min-height:clamp(200px,32vw,320px);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(135deg,var(--navy),var(--navy2))}
+        .chero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+        .chero:before{content:"";position:absolute;inset:0;background:rgba(10,25,42,.58);z-index:1}
+        .chero div{position:relative;z-index:2;padding:24px 20px;max-width:760px}
+        .chero h1{color:#fff;font-size:clamp(32px,5vw,56px);margin:0 0 10px;line-height:1.1}
+        .chero h1:after{content:"";display:block;width:54px;height:3px;background:var(--cu2);margin:14px auto 0}
+        .chero p{margin:14px 0 0;font-size:clamp(14px,1.8vw,18px);color:#e6edf4;letter-spacing:.02em}
+        .stag{margin:8px 0 0;font-size:15px;color:var(--gr);max-width:560px}
+        .dk .stag{color:#b4c2d0}
+
         .tbar {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
@@ -3600,7 +3611,7 @@
         <section class="dk" id="textured">
             <div class="wrap">
                 <div class="sh">
-                    <h2>Textured Art</h2>
+                    <div><h2>Textured Art</h2><p class="stag">Feel every stroke. Handmade texture that brings your wall to life.</p></div>
                     <a class="va" data-cat="Textured Art">
                         View all
                     </a>
@@ -3613,7 +3624,7 @@
         <section id="abstract">
             <div class="wrap">
                 <div class="sh">
-                    <h2>Abstract Art</h2>
+                    <div><h2>Abstract Art</h2><p class="stag">Colour, form and emotion. Art that starts a conversation.</p></div>
                     <a class="va" data-cat="Abstract Art">View all</a>
                 </div>
                 <div class="grid" id="gab"></div>
@@ -3647,7 +3658,7 @@
         <section id="vastu">
             <div class="wrap">
                 <div class="sh">
-                    <h2>Vastu Art</h2>
+                    <div><h2>Vastu Art</h2><p class="stag">Art placed with intention. Bring balance and positive energy home.</p></div>
                     <a class="va" data-cat="Vastu">View all</a>
                 </div>
                 <div class="grid" id="gvs"></div>
@@ -3658,7 +3669,7 @@
         <section class="alt" id="nature">
             <div class="wrap">
                 <div class="sh">
-                    <h2>Nature Art</h2>
+                    <div><h2>Nature Art</h2><p class="stag">Bring the calm of mountains, oceans and forests indoors.</p></div>
                     <a class="va" data-cat="Nature">View all</a>
                 </div>
                 <div class="grid" id="gnt"></div>
@@ -3669,7 +3680,7 @@
         <section id="religious">
             <div class="wrap">
                 <div class="sh">
-                    <h2>Religious art</h2>
+                    <div><h2>Religious art</h2><p class="stag">Sacred art for a peaceful home and a devoted heart.</p></div>
                     <a class="va" data-cat="Religious">View all</a>
                 </div>
                 <div class="tiles" id="t2"></div>
@@ -5939,10 +5950,24 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
         /* ========================================================================== */
         /* >>> CATEGORY & PRODUCT FULL PAGES <<<                                 */
         /* ========================================================================== */
+        const CAT_TAGS = {
+            "Textured Art": "Feel every stroke. Handmade texture that brings your wall to life.",
+            "Abstract Art": "Colour, form and emotion. Art that starts a conversation.",
+            Vastu: "Art placed with intention. Bring balance and positive energy home.",
+            Nature: "Bring the calm of mountains, oceans and forests indoors.",
+            Religious: "Sacred art for a peaceful home and a devoted heart.",
+            "Custom Art": "Your idea, painted by hand to your size.",
+        };
+        const heroHTML = (name, title) => {
+            const b = BENTO_ITEMS.find((x) => x.title === name || x.target === name);
+            const img = b ? b.image : "";
+            const tag = CAT_TAGS[name] || "Handmade to your size. Delivered across India.";
+            return `<div class="chero">${img ? `<img src="${img}" alt="${title} handmade wall art" />` : ""}<div><h1>${title}</h1><p>${tag}</p></div></div>`;
+        };
         function catPage(title, f, cr, opts = {}) {
             const st = { cols: 4, sort: opts.rank ? "r" : "n", price: "all", shape: "all" };
             const shapes = ["Square", "Vertical", "Horizontal"];
-            viewEl.innerHTML = `<div class="wrap pg">${cr}<h1 class="pt">${title}</h1><p class="rcount" id="rc" aria-live="polite"></p>
+            viewEl.innerHTML = `<div class="wrap pg">${cr}${opts.hero ? heroHTML(opts.hero, title) : `<h1 class="pt">${title}</h1>`}<p class="rcount" id="rc" aria-live="polite"></p>
  <div class="tbar"><button class="flt" id="ft"><i data-lucide="sliders-horizontal"></i>Filter</button>
  <div class="gcols" id="gcs">${[2, 3, 4].map((n) => `<button data-c="${n}" class="${n == 4 ? "on" : ""}" aria-label="${n} columns">${"<i></i>".repeat(n)}</button>`).join("")}</div>
  <select id="srt" aria-label="Sort">${opts.rank ? '<option value="r">Best match</option>' : ""}<option value="n">Newest first</option><option value="o">Oldest first</option><option value="f">Featured first</option><option value="l">Price: low to high</option><option value="h">Price: high to low</option></select></div>
@@ -6149,9 +6174,10 @@ Images (3 per artwork): images/tx-01.jpg = room mockup, images/tx-01-white.jpg =
                             ? p.categories.includes(a)
                             : p.category === a,
                     crumb([esc(a)]),
+                    { hero: a },
                 );
             else if (k === "th")
-                catPage(esc(a), (p) => p.theme === a, crumb([esc(a)]));
+                catPage(esc(a), (p) => p.theme === a, crumb([esc(a)]), { hero: a });
             else if (k === "new")
                 catPage(
                     "New arrivals",

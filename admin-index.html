@@ -4413,7 +4413,7 @@
             const ext = ((file.name.split(".").pop() || "mp4").toLowerCase().replace(/[^a-z0-9]/g, "")) || "mp4";
             busy("Uploading video... this can take a minute");
             const b64 = await fileToB64(file);
-            const vpath = await putImage(`reels/${id}.${ext}`, b64);
+            const vpath = await putReelVideo(`reels/${id}.${ext}`, b64);
             let ppath = "";
             if (meta.poster) { try { ppath = await putImage(`reels/${id}.jpg`, meta.poster); } catch (_) { } }
             const reels = ensureReels();
@@ -4427,6 +4427,18 @@
             }
             reelPreview[id] = URL.createObjectURL(file);
             return entry;
+        }
+
+        /* Video goes straight up (new unique name, so no "does it exist" check). Shows the server's own reason if it refuses. */
+        async function putReelVideo(name, b64) {
+            const path = "images/" + name;
+            const r = await gh(path, { method: "PUT", body: { message: "Add reel video " + name, content: b64, branch: cfg.branch } });
+            if (!r.ok) {
+                let d = "";
+                try { const j = await r.json(); d = j.message || j.error || ""; } catch (_) { }
+                throw new Error("Video upload failed (" + r.status + ")" + (d ? ": " + d : ". The admin server may not allow video files yet."));
+            }
+            return path;
         }
 
         function bindReelsEvents() {
